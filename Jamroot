@@ -1,0 +1,29 @@
+# Copyright René Ferdinand Rivera Morell 2005-2023.
+#
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+constant BOOST_VERSION : 1.82.0 ;
+
+project boost
+    : requirements
+        # Disable auto-linking for all targets here, primarily because it caused
+        # troubles with V2.
+        <define>BOOST_ALL_NO_LIB=1
+
+    : default-build
+        <visibility>hidden
+        <threading>multi
+
+    : build-dir
+        bin.v2
+    ;
+
+all-libraries = [ MATCH .*libs/(.*)/build.jam : [ glob libs/*/build.jam ] ] ;
+
+# Make project ids of all libraries known.
+for local l in $(all-libraries)
+{
+    use-project /boost/$(l) : libs/$(l) ;
+}

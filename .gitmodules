@@ -128,16 +128,6 @@
 	url = ../../boostorg/timer.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "inspect"]
-	path = tools/inspect
-	url = ../../boostorg/inspect.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "boostbook"]
-	path = tools/boostbook
-	url = ../../boostorg/boostbook.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
 [submodule "regex"]
 	path = libs/regex
 	url = ../../boostorg/regex.git
@@ -179,7 +169,7 @@
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "numeric_conversion"]
-	path = libs/numeric/conversion
+	path = libs/numeric_conversion
 	url = ../../boostorg/numeric_conversion.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
@@ -268,11 +258,6 @@
 	url = ../../boostorg/multi_index.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "bcp"]
-	path = tools/bcp
-	url = ../../boostorg/bcp.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
 [submodule "ptr_container"]
 	path = libs/ptr_container
 	url = ../../boostorg/ptr_container.git
@@ -303,16 +288,6 @@
 	url = ../../boostorg/iterator.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "build"]
-	path = tools/build
-	url = ../../boostorg/build.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "quickbook"]
-	path = tools/quickbook
-	url = ../../boostorg/quickbook.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
 [submodule "graph_parallel"]
 	path = libs/graph_parallel
 	url = ../../boostorg/graph_parallel.git
@@ -334,12 +309,12 @@
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "interval"]
-	path = libs/numeric/interval
+	path = libs/interval
 	url = ../../boostorg/interval.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "ublas"]
-	path = libs/numeric/ublas
+	path = libs/ublas
 	url = ../../boostorg/ublas.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
@@ -401,11 +376,6 @@
 [submodule "uuid"]
 	path = libs/uuid
 	url = ../../boostorg/uuid.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "litre"]
-	path = tools/litre
-	url = ../../boostorg/litre.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "circular_buffer"]
@@ -494,7 +464,7 @@
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "odeint"]
-	path = libs/numeric/odeint
+	path = libs/odeint
 	url = ../../boostorg/odeint.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
@@ -516,11 +486,6 @@
 [submodule "locale"]
 	path = libs/locale
 	url = ../../boostorg/locale.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "auto_index"]
-	path = tools/auto_index
-	url = ../../boostorg/auto_index.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "container"]
@@ -586,11 +551,6 @@
 [submodule "winapi"]
 	path = libs/winapi
 	url = ../../boostorg/winapi.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "boostdep"]
-	path = tools/boostdep
-	url = ../../boostorg/boostdep.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "lexical_cast"]
@@ -683,11 +643,6 @@
 	url = ../../boostorg/contract.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "check_build"]
-	path = tools/check_build
-	url = ../../boostorg/check_build.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
 [submodule "container_hash"]
 	path = libs/container_hash
 	url = ../../boostorg/container_hash.git
@@ -718,11 +673,6 @@
 	url = ../../boostorg/headers.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "boost_install"]
-	path = tools/boost_install
-	url = ../../boostorg/boost_install.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
 [submodule "outcome"]
 	path = libs/outcome
 	url = ../../boostorg/outcome.git
@@ -743,16 +693,6 @@
 	url = ../../boostorg/nowide.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "docca"]
-	path = tools/docca
-	url = ../../boostorg/docca.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "cmake"]
-	path = tools/cmake
-	url = ../../boostorg/cmake.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
 [submodule "static_string"]
 	path = libs/static_string
 	url = ../../boostorg/static_string.git
@@ -761,11 +701,6 @@
 [submodule "stl_interfaces"]
 	path = libs/stl_interfaces
 	url = ../../boostorg/stl_interfaces.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "more"]
-	path = more
-	url = ../../boostorg/more.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "leaf"]

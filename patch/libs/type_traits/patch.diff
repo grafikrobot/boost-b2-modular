@@ -1,0 +1,14 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 727d66a..e3bd724 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -32,6 +32,9 @@ project : requirements
+    <toolset>msvc:<warnings-as-errors>on
+    <include>libs/tt2/light/include
+    $(CI_DEFINES)
++   <use>/boost/core//libs
++   <use>/boost/move//libs
++   <use>/boost/mpl//libs
+ ;             
+ 
+ rule all-tests {

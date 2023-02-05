@@ -1,0 +1,23 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index f4fe179c..c96fca10 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -10,15 +10,17 @@
+ 
+ import feature ;
+ import testing ;
++import notfile ;
+ 
+ project
+     : requirements
+       <toolset>gcc:<cxxflags>-Wno-deprecated-declarations
++      <source>/boost/core//libs
+ ;
+ 
+ 
+ import modules ;
+-import ../checks/config : requires ;
++import config : requires ;
+ 
+ local is_unix = [ modules.peek : UNIX ] ;
+ 

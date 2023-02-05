@@ -1,0 +1,42 @@
+diff --git a/test/config/Jamfile.v2 b/test/config/Jamfile.v2
+index 240d039..0d24e5f 100644
+--- a/test/config/Jamfile.v2
++++ b/test/config/Jamfile.v2
+@@ -7,12 +7,13 @@
+ 
+ import python ;
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ project
+     : source-location .
+     : requirements
+         <define>BOOST_PFR_DETAIL_STRICT_RVALUE_TESTING=1
++        <use>/boost/config//libs
+     ;
+ 
+ 
+diff --git a/test/core/Jamfile.v2 b/test/core/Jamfile.v2
+index ad25a84..e273caf 100644
+--- a/test/core/Jamfile.v2
++++ b/test/core/Jamfile.v2
+@@ -7,13 +7,17 @@
+ 
+ import python ;
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ project
+     : source-location .
+     : requirements
+         <define>BOOST_PFR_DETAIL_STRICT_RVALUE_TESTING=1
+         [ requires cxx14_constexpr ]
++        <use>/boost/config//libs
++        <use>/boost/core//libs
++        <use>/boost/functional//libs
++        <use>/boost/type_index//libs
+     ;
+ 
+ ########## BEGIN of helpers to detect Loophole trick support

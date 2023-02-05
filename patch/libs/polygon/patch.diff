@@ -1,0 +1,48 @@
+diff --git a/Jamfile.v2 b/Jamfile.v2
+deleted file mode 100644
+index cbae96c..0000000
+--- a/Jamfile.v2
++++ /dev/null
+@@ -1,20 +0,0 @@
+-# Boost Build v2 Jamroot for Polygon unit 
+-#
+-#  Copyright 2010 Intel Corporation
+-#
+-# Use, modification and distribution is subject to the Boost Software License,
+-# Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+-# http://www.boost.org/LICENSE_1_0.txt)
+-
+-project 
+-    : requirements
+-        <warnings>all
+-        <toolset>intel:<warnings>on
+-        <toolset>intel-win:<cxxflags>"/bigobj"
+-        <toolset>gcc:<cxxflags>"-pedantic -Wall -Wstrict-aliasing -fstrict-aliasing -Wno-long-long"
+-        <toolset>msvc:<cxxflags>"/W4 /bigobj"
+-        <include>../..
+-        <include>.
+-    ;
+-
+-
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 16787e3..73161f6 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -8,6 +8,17 @@
+ 
+ import testing ;
+ 
++project 
++    : requirements
++        <warnings>all
++        <toolset>intel:<warnings>on
++        <toolset>intel-win:<cxxflags>"/bigobj"
++        <toolset>gcc:<cxxflags>"-pedantic -Wall -Wstrict-aliasing -fstrict-aliasing -Wno-long-long"
++        <toolset>msvc:<cxxflags>"/W4 /bigobj"
++        <use>/boost/core//libs
++        <use>/boost/random//libs
++    ;
++
+ run polygon_point_test.cpp ;
+ run polygon_segment_test.cpp ;
+ run polygon_interval_test.cpp ;

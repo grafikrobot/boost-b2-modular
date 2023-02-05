@@ -1,0 +1,24 @@
+diff --git a/test/Jamfile b/test/Jamfile
+index 0e25055..50ce79d 100644
+--- a/test/Jamfile
++++ b/test/Jamfile
+@@ -7,7 +7,7 @@
+ #  http://www.boost.org/LICENSE_1_0.txt
+ 
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ project
+   : requirements
+@@ -19,6 +19,10 @@ project
+     <toolset>msvc:<warnings-as-errors>on
+     <toolset>gcc:<warnings-as-errors>on
+     <toolset>clang:<warnings-as-errors>on
++
++    <use>/boost/config//libs
++    <use>/boost/core//libs
++    <use>/boost/mpl//libs
+   ;
+ 
+ # include-only

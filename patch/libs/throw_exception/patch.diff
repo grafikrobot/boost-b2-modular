@@ -1,0 +1,16 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 40cfe1d..f8ad6ff 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -13,7 +13,10 @@ project : requirements
+   <toolset>msvc:<warnings-as-errors>on
+   <toolset>clang:<warnings-as-errors>on
+   <toolset>gcc:<warnings-as-errors>on
+-  <toolset>gcc:<cxxflags>-Wshadow ;
++  <toolset>gcc:<cxxflags>-Wshadow
++  <use>/boost/core//libs
++  <use>/boost/exception//libs
++  ;
+ 
+ run throw_exception_test.cpp ;
+ run throw_exception_no_exceptions_test.cpp ;

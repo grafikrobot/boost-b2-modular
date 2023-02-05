@@ -1,0 +1,43 @@
+diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
+index dcef696..673c330 100644
+--- a/build/Jamfile.v2
++++ b/build/Jamfile.v2
+@@ -7,7 +7,7 @@
+ 
+ # See library home page at https://www.boost.org/libs/system
+ 
+-project boost/system
++project
+     : source-location ../src
+     : usage-requirements  # pass these requirement to dependents (i.e. users)
+       <link>shared:<define>BOOST_SYSTEM_DYN_LINK=1
+@@ -22,4 +22,4 @@ lib boost_system
+      <link>static:<define>BOOST_SYSTEM_STATIC_LINK=1
+    ;
+ 
+-boost-install boost_system ;
++# boost-install boost_system ;
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index df74b5e..14b2f4e 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -22,6 +22,8 @@ project
+     <toolset>clang:<warnings-as-errors>on
+ 
+     <toolset>gcc-4.4:<cxxflags>-Wno-sign-compare
++
++    <use>/boost/core//libs
+   ;
+ 
+ rule system-run ( sources + )
+@@ -29,8 +31,8 @@ rule system-run ( sources + )
+     local result ;
+ 
+     result += [ run $(sources) ] ;
+-    result += [ run $(sources) : : : <library>/boost/system//boost_system <link>static : $(sources[1]:B)_static ] ;
+-    result += [ run $(sources) : : : <library>/boost/system//boost_system <link>shared : $(sources[1]:B)_shared ] ;
++    result += [ run $(sources) : : : <library>/boost/system//libs <link>static : $(sources[1]:B)_static ] ;
++    result += [ run $(sources) : : : <library>/boost/system//libs <link>shared : $(sources[1]:B)_shared ] ;
+     result += [ run $(sources) : : : <define>BOOST_NO_ANSI_APIS : $(sources[1]:B)_no_ansi ] ;
+     result += [ run $(sources) : : : <define>BOOST_SYSTEM_USE_UTF8 : $(sources[1]:B)_utf8 ] ;
+     result += [ run $(sources) : : : <define>BOOST_SYSTEM_DISABLE_THREADS : $(sources[1]:B)_nthr ] ;

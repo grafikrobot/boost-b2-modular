@@ -1,0 +1,12 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index ffe840e..d88dfa3 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -16,6 +16,7 @@ project : requirements
+   <toolset>gcc:<cxxflags>-Wshadow
+   <toolset>gcc-4.4.7:<cxxflags>-Wno-sign-compare
+   <toolset>gcc-4.4:<cxxflags>-Wno-sign-compare
++  <use>/boost/core//libs
+ ;
+ 
+ run assert_test.cpp ;

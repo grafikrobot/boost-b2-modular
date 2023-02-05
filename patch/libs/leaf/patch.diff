@@ -1,0 +1,14 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 9896c4e..1e63fd9 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -28,7 +28,8 @@ project
+         <toolset>clang:<cxxflags>"-Wno-dangling-else"
+         <toolset>darwin:<cxxflags>"-Wno-unused-variable -Wno-delete-non-virtual-dtor -Wno-non-virtual-dtor -Wno-dangling-else"
+         <toolset>msvc:<cxxflags>"-wd 4267 -wd 4996 -wd 4244"
+-        <include>../../..
++        <use>/boost/config//libs
++        <use>/boost/exception//libs
+     ;
+ 
+ compile _hpp_capture_test.cpp ;

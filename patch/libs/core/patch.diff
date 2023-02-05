@@ -1,0 +1,13 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 65e17ae..ea37ae3 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -10,7 +10,7 @@ import modules ;
+ import testing ;
+ 
+ project : requirements
+-
++  <use>/boost/type_traits
+   <warnings>extra
+   <toolset>msvc:<warnings-as-errors>on
+   <toolset>clang:<warnings-as-errors>on

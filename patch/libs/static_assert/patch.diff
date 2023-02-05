@@ -1,0 +1,31 @@
+diff --git a/Jamfile.v2 b/Jamfile.v2
+deleted file mode 100644
+index 7c0a96b..0000000
+--- a/Jamfile.v2
++++ /dev/null
+@@ -1,9 +0,0 @@
+-# copyright John Maddock 2003
+-# Use, modification and distribution are subject to the 
+-# Boost Software License, Version 1.0. (See accompanying file 
+-# LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-
+-# bring in the rules for testing
+-import testing ;
+-
+-build-project test ;
+\ No newline at end of file
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index e4dbe77..e9da04d 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -6,6 +6,10 @@
+ # bring in the rules for testing
+ import testing ;
+ 
++project : requirements
++    <use>/boost/type_traits//libs # TODO: recursive dep
++    ;
++
+ run static_assert_test.cpp ;
+ compile-fail static_assert_test_fail_1.cpp ;
+ compile-fail static_assert_test_fail_2.cpp ;

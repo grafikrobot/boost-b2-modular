@@ -1,0 +1,18 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index d728ec8..8e6c44a 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -7,11 +7,12 @@
+ #          http://www.boost.org/LICENSE_1_0.txt)
+ 
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ project :
+     requirements
+         [ requires cxx14_constexpr ]
++        <use>/boost/config
+ ;
+ 
+ run forward.cpp ;

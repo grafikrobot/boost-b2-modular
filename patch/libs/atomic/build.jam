@@ -1,0 +1,31 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/atomic
+	: usage-requirements
+		<include>include
+		<use>/boost/align//libs
+		<use>/boost/assert//libs
+		<use>/boost/config//libs
+		<use>/boost/predef//libs
+		<use>/boost/preprocessor//libs
+		<use>/boost/static_assert//libs
+		<use>/boost/type_traits//libs
+		<use>/boost/winapi//libs
+	: requirements
+		<include>include
+		<use>/boost/align//libs
+		<use>/boost/assert//libs
+		<use>/boost/config//libs
+		<use>/boost/predef//libs
+		<use>/boost/preprocessor//libs
+		<use>/boost/static_assert//libs
+		<use>/boost/type_traits//libs
+		<use>/boost/winapi//libs
+;
+
+alias libs : build//boost_system ;

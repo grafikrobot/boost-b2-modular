@@ -1,0 +1,21 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+import modules ;
+
+path-constant BOOST_CONFIG_ROOT : . ;
+
+modules.poke : BOOST_BUILD_PATH
+    : $(BOOST_CONFIG_ROOT)/checks [ modules.peek : BOOST_BUILD_PATH ] ;
+
+project /boost/config
+    : usage-requirements
+        <include>include
+    : requirements
+        <include>include
+;
+
+alias libs ;

@@ -743,3 +743,9 @@
 	url = ../../boostorg/mysql.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
+[submodule "signals"]
+	path = libs/signals2
+	url = ../../boostorg/signals2.git
+[submodule "mp"]
+	path = libs/mp11
+	url = ../../boostorg/mp11.git

@@ -16,7 +16,7 @@ for submod in ${submods} ; do
         patch -uN -p1 "--input=${patchdir}/libs/${submod}/patch.diff"
     fi
     if test -s "${patchdir}/libs/${submod}/build.jam" ; then
-        ln -s "${patchdir}/libs/${submod}/build.jam" build.jam
+        ln -f -s "${patchdir}/libs/${submod}/build.jam" build.jam
     fi
 done
 cd "${rootdir}"

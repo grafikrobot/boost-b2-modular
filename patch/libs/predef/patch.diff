@@ -1,55 +1,60 @@
 diff --git a/build.jam b/build.jam
-index 0f39f9d..c87defa 100644
+deleted file mode 100644
+index 0f39f9d..0000000
 --- a/build.jam
-+++ b/build.jam
-@@ -1,4 +1,4 @@
++++ /dev/null
+@@ -1,43 +0,0 @@
 -# Copyright René Ferdinand Rivera Morell 2014-2019
-+# Copyright René Ferdinand Rivera Morell 2014-2023
- # Distributed under the Boost Software License, Version 1.0.
- # (See accompanying file LICENSE_1_0.txt or copy at
- # http://www.boost.org/LICENSE_1_0.txt)
-@@ -10,9 +10,9 @@ externally you would need a `use-project` declaration and to use the
- project as a dependency where needed:
- 
- ----
+-# Distributed under the Boost Software License, Version 1.0.
+-# (See accompanying file LICENSE_1_0.txt or copy at
+-# http://www.boost.org/LICENSE_1_0.txt)
+-
+-#|
+-This B2 project provides support for using the Predef library externally as
+-a standalone project or by embedding in your B2 project tree. To use
+-externally you would need a `use-project` declaration and to use the
+-project as a dependency where needed:
+-
+-----
 -use-project /hash-predef : /path/to/hash-predef/root ;
-+use-project /boost/predef : /path/to/boost-predef/root ;
- 
+-
 -exe my_thing : main.cpp : <dependency>/hash-predef ;
-+exe my_thing : main.cpp : <dependency>/boost/predef ;
- ----
- 
- To use in your project tree you would only need to place the Predef tree
-@@ -20,19 +20,25 @@ in a subdirectory and reference the project location as a dependency where
- needed.
- 
- ----
+-----
+-
+-To use in your project tree you would only need to place the Predef tree
+-in a subdirectory and reference the project location as a dependency where
+-needed.
+-
+-----
 -exe my_thin : main.cpp : <dependency>libs/hash-predef ;
-+exe my_thing : main.cpp : <dependency>/boost/predef//libs ;
- ----
- |#
- 
- import project ;
-+import modules ;
- 
+-----
+-|#
+-
+-import project ;
+-
 -path-constant BOOST_PREDEF_ROOT : . ;
- path-constant BOOST_PREDEF_INCLUDE : include ;
+-path-constant BOOST_PREDEF_INCLUDE : include ;
 -constant PREDEF_DIST : boost ;
-+path-constant BOOST_PREDEF_ROOT : . ;
-+
-+modules.poke : BOOST_BUILD_PATH
-+    : $(BOOST_PREDEF_ROOT)/tools/check [ modules.peek : BOOST_BUILD_PATH ] ;
- 
- project /boost/predef
-     : usage-requirements
+-
+-project /boost/predef
+-    : usage-requirements
 -        <include>$(BOOST_PREDEF_INCLUDE) ;
-+        <include>include
-+    : requirements
-+        <include>include
-+;
- 
- if [ project.is-jamroot-module $(__name__) ]
- {
+-
+-if [ project.is-jamroot-module $(__name__) ]
+-{
+-    local attributes = [ project.attributes $(__name__) ] ;
+-    $(attributes).set "build-dir" : .bin ;
+-}
+-
+-alias libs ;
+diff --git a/build.jam b/build.jam
+new file mode 120000
+index 0000000..fa94b2c
+--- /dev/null
++++ b/build.jam
+@@ -0,0 +1 @@
++/home/grafik/Sync/DevRoots/Boost/modular/patch/libs/predef/build.jam
+\ No newline at end of file
 diff --git a/test/build.jam b/test/build.jam
 index beebe6e..c45a6c6 100644
 --- a/test/build.jam

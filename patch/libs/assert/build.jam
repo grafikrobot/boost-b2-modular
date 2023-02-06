@@ -8,10 +8,10 @@ import project ;
 project /boost/assert
 	: usage-requirements
 		<include>include
-		<use>/boost/config//libs
+		<source>/boost/config//libs
 	: requirements
 		<include>include
-		<use>/boost/config//libs
+		<source>/boost/config//libs
 ;
 
 alias libs ;

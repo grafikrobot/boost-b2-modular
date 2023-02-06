@@ -1,8 +1,8 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index f4fe179c..c96fca10 100644
+index f4fe179c..a559e8af 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -10,15 +10,17 @@
+@@ -10,15 +10,19 @@
  
  import feature ;
  import testing ;
@@ -12,6 +12,8 @@ index f4fe179c..c96fca10 100644
      : requirements
        <toolset>gcc:<cxxflags>-Wno-deprecated-declarations
 +      <source>/boost/core//libs
++      <source>/boost/detail//libs
++      <source>/boost/type_traits//libs
  ;
  
  

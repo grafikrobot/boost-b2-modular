@@ -8,12 +8,12 @@ import project ;
 project /boost/throw_exception
 	: usage-requirements
 		<include>include
-		<use>/boost/assert//libs
-		<use>/boost/config//libs
+		<source>/boost/assert//libs
+		<source>/boost/config//libs
 	: requirements
 		<include>include
-		<use>/boost/assert//libs
-		<use>/boost/config//libs
+		<source>/boost/assert//libs
+		<source>/boost/config//libs
 ;
 
 alias libs ;

@@ -2,8 +2,5 @@
 ----
 git clone --recursive https://github.com/grafikrobot/boost-b2-modular.git
 cd boost-b2-modular
-git submodule foreach git switch develop
-git submodule foreach git reset --hard
-git submodule foreach git pull
-./patch/patch-apply.sh
+./patch/patch-update.sh
 ----

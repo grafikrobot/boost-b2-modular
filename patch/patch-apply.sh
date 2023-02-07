@@ -19,6 +19,6 @@ for submod in ${submods} ; do
         ln -f -s "${patchdir}/libs/${submod}/build.jam" build.jam
     fi
 done
-rm "${rootdir}/libs/concept_check/Jamfile"
+rm -f "${rootdir}/libs/concept_check/Jamfile"
 cd "${rootdir}"
 pwd

@@ -6,16 +6,16 @@
 import project ;
 
 project /boost/variant2
-	: usage-requirements
-		<include>include
-		<use>/boost/assert//libs
-		<use>/boost/config//libs
-		<use>/boost/mp11//libs
-	: requirements
-		<include>include
-		<use>/boost/assert//libs
-		<use>/boost/config//libs
-		<use>/boost/mp11//libs
+    : usage-requirements
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/mp11//libs
+        <include>include
+    : requirements
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/mp11//libs
+        <include>include
 ;
 
 alias libs ;

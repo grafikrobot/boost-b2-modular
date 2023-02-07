@@ -6,14 +6,14 @@
 import project ;
 
 project /boost/type_traits
-	: usage-requirements
-		<include>include
-		<source>/boost/config//libs
-		<source>/boost/static_assert//libs
-	: requirements
-		<include>include
-		<source>/boost/config//libs
-		<source>/boost/static_assert//libs
+    : usage-requirements
+        <source>/boost/config//libs
+        <source>/boost/static_assert//libs
+        <include>include
+    : requirements
+        <source>/boost/config//libs
+        <source>/boost/static_assert//libs
+        <include>include
 ;
 
 alias libs ;

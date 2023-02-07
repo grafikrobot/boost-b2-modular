@@ -1,14 +1,15 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 727d66a..e3bd724 100644
+index 727d66a..e544331 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -32,6 +32,9 @@ project : requirements
-    <toolset>msvc:<warnings-as-errors>on
-    <include>libs/tt2/light/include
-    $(CI_DEFINES)
-+   <use>/boost/core//libs
-+   <use>/boost/move//libs
-+   <use>/boost/mpl//libs
- ;             
+@@ -18,6 +18,10 @@ CI_DEFINES = <define>CI_SUPPRESS_KNOWN_ISSUES=1 ;
+ # regular  
  
- rule all-tests {
+ project : requirements
++   <source>/boost/core//libs
++   <source>/boost/move//libs
++   <source>/boost/mpl//libs
++
+    # default to all warnings on:
+    <warnings>all
+    # set warnings as errors for those compilers we know we get warning free:

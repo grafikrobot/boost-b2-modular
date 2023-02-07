@@ -1,14 +1,21 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 9896c4e..1e63fd9 100644
+index 9896c4e..d688be1 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -28,7 +28,8 @@ project
+@@ -22,13 +22,15 @@ project
+         <cxxstd>11
+         <threading>multi
+     : requirements
++        <source>/boost/config//libs
++        <source>/boost/exception//libs
++
+         <define>BOOST_LEAF_BOOST_AVAILABLE
+         <threading>single:<define>BOOST_LEAF_NO_THREADS
+         <toolset>gcc:<cxxflags>"-Wno-delete-non-virtual-dtor -Wno-parentheses"
          <toolset>clang:<cxxflags>"-Wno-dangling-else"
          <toolset>darwin:<cxxflags>"-Wno-unused-variable -Wno-delete-non-virtual-dtor -Wno-non-virtual-dtor -Wno-dangling-else"
          <toolset>msvc:<cxxflags>"-wd 4267 -wd 4996 -wd 4244"
 -        <include>../../..
-+        <use>/boost/config//libs
-+        <use>/boost/exception//libs
      ;
  
  compile _hpp_capture_test.cpp ;

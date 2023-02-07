@@ -1,8 +1,8 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index bce5f23..d704ae3 100644
+index bce5f23..9826a0c 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -6,13 +6,14 @@
+@@ -6,10 +6,12 @@
  # (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  
  import testing ;
@@ -11,10 +11,8 @@ index bce5f23..d704ae3 100644
  
  project :
      requirements
++        <source>/boost/config//libs
++
          [ requires cxx11_constexpr ]
          <toolset>clang:<cxxflags>"-pedantic -Wall -Wextra"
          <toolset>darwin:<cxxflags>"-pedantic -Wall -Wextra"
-+        <use>/boost/config//libs
- ;
- 
- for local source in [ glob *.cpp ]

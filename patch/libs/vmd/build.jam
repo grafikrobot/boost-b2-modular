@@ -6,12 +6,12 @@
 import project ;
 
 project /boost/vmd
-	: usage-requirements
-		<include>include
-		<use>/boost/preprocessor//libs
-	: requirements
-		<include>include
-		<use>/boost/preprocessor//libs
+    : usage-requirements
+        <source>/boost/preprocessor//libs
+        <include>include
+    : requirements
+        <source>/boost/preprocessor//libs
+        <include>include
 ;
 
 alias libs ;

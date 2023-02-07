@@ -25,22 +25,23 @@ index cbae96c..0000000
 -
 -
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 16787e3..73161f6 100644
+index 16787e3..d77ca26 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -8,6 +8,17 @@
+@@ -8,6 +8,18 @@
  
  import testing ;
  
 +project 
 +    : requirements
++        <source>/boost/core//libs
++        <source>/boost/random//libs
++
 +        <warnings>all
 +        <toolset>intel:<warnings>on
 +        <toolset>intel-win:<cxxflags>"/bigobj"
 +        <toolset>gcc:<cxxflags>"-pedantic -Wall -Wstrict-aliasing -fstrict-aliasing -Wno-long-long"
 +        <toolset>msvc:<cxxflags>"/W4 /bigobj"
-+        <use>/boost/core//libs
-+        <use>/boost/random//libs
 +    ;
 +
  run polygon_point_test.cpp ;

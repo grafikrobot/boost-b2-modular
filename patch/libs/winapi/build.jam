@@ -6,12 +6,14 @@
 import project ;
 
 project /boost/winapi
-	: usage-requirements
-		<include>include
-	: requirements
-		<include>include
-		<use>/boost/config//libs
-		<use>/boost/predef//libs
+    : usage-requirements
+        <source>/boost/config//libs
+        <source>/boost/predef//libs
+        <include>include
+    : requirements
+        <source>/boost/config//libs
+        <source>/boost/predef//libs
+        <include>include
 ;
 
 alias libs ;

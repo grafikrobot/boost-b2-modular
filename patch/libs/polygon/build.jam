@@ -6,12 +6,12 @@
 import project ;
 
 project /boost/polygon
-	: usage-requirements
-		<include>include
-		<use>/boost/config//libs
-	: requirements
-		<include>include
-		<use>/boost/config//libs
+    : usage-requirements
+        <source>/boost/config//libs
+        <include>include
+    : requirements
+        <source>/boost/config//libs
+        <include>include
 ;
 
 alias libs ;

@@ -6,12 +6,12 @@
 import project ;
 
 project /boost/static_assert
-	: usage-requirements
-		<include>include
-		<source>/boost/config//libs
-	: requirements
-		<include>include
-		<source>/boost/config//libs
+    : usage-requirements
+        <source>/boost/config//libs
+        <include>include
+    : requirements
+        <source>/boost/config//libs
+        <include>include
 ;
 
 alias libs ;

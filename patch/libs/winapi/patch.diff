@@ -1,19 +1,19 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 8f88c5a..31e6a7c 100644
+index 8f88c5a..1340764 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -34,6 +34,11 @@ project
-         <toolset>intel-win:<define>_CRT_SECURE_NO_WARNINGS
-         <toolset>intel-win:<define>_CRT_SECURE_NO_DEPRECATE
+@@ -24,6 +24,11 @@ project.pop-current ;
+ project
+     : requirements
  
-+        <use>/boost/config//libs
-+        <use>/boost/core//libs
-+        <use>/boost/preprocessor//libs
-+        <use>/boost/type_traits//libs
++        <source>/boost/config//libs
++        <source>/boost/core//libs
++        <source>/boost/preprocessor//libs
++        <source>/boost/type_traits//libs
 +
-     : default-build
-         # Testers typically don't specify threading environment and the library can be built and tested for single and multi. I'm more interested in multi though.
-         <threading>multi
+         # Disable warnings about using 'insecure' standard C functions
+         <toolset>msvc:<define>_SCL_SECURE_NO_WARNINGS
+         <toolset>msvc:<define>_SCL_SECURE_NO_DEPRECATE
 @@ -73,8 +78,7 @@ rule test_all
  {
      local all_rules ;

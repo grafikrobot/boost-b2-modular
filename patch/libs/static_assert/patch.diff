@@ -15,7 +15,7 @@ index 7c0a96b..0000000
 -build-project test ;
 \ No newline at end of file
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index e4dbe77..e9da04d 100644
+index e4dbe77..e788ce7 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -6,6 +6,10 @@
@@ -23,7 +23,7 @@ index e4dbe77..e9da04d 100644
  import testing ;
  
 +project : requirements
-+    <use>/boost/type_traits//libs # TODO: recursive dep
++    <source>/boost/type_traits//libs # TODO: recursive dep
 +    ;
 +
  run static_assert_test.cpp ;

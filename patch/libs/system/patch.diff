@@ -18,18 +18,18 @@ index dcef696..673c330 100644
 -boost-install boost_system ;
 +# boost-install boost_system ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index df74b5e..14b2f4e 100644
+index df74b5e..97fed51 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -22,6 +22,8 @@ project
-     <toolset>clang:<warnings-as-errors>on
+@@ -17,6 +17,8 @@ project
  
-     <toolset>gcc-4.4:<cxxflags>-Wno-sign-compare
+   : requirements
+ 
++    <source>/boost/core//libs
 +
-+    <use>/boost/core//libs
-   ;
- 
- rule system-run ( sources + )
+     <toolset>msvc:<warnings-as-errors>on
+     <toolset>gcc:<warnings-as-errors>on
+     <toolset>clang:<warnings-as-errors>on
 @@ -29,8 +31,8 @@ rule system-run ( sources + )
      local result ;
  

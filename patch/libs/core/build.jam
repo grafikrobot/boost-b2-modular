@@ -6,18 +6,18 @@
 import project ;
 
 project /boost/core
-	: usage-requirements
-		<include>include
-		<source>/boost/assert//libs
-		<source>/boost/config//libs
-		<source>/boost/static_assert//libs
-		<source>/boost/throw_exception//libs
-	: requirements
-		<include>include
-		<source>/boost/assert//libs
-		<source>/boost/config//libs
-		<source>/boost/static_assert//libs
-		<source>/boost/throw_exception//libs
+    : usage-requirements
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/throw_exception//libs
+        <include>include
+    : requirements
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/throw_exception//libs
+        <include>include
 ;
 
 alias libs ;

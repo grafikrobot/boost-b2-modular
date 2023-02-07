@@ -1,0 +1,15 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index d0fc589..7968649 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -8,6 +8,10 @@
+ import testing ;
+ import set ;
+ 
++project : requirements
++    <source>/boost/core//libs
++    ;
++
+ # The special requirement is not ported yet.
+ #
+ #local rule special-requirements ( toolset variant : properties * )

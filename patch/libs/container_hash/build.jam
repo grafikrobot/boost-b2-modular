@@ -5,21 +5,19 @@
 
 import project ;
 
-project /boost/system
+project /boost/container_hash
     : usage-requirements
-        <source>/boost/assert//libs
         <source>/boost/config//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/variant2//libs
-        <source>/boost/winapi//libs
+        <source>/boost/describe//libs
+        <source>/boost/mp11//libs
+        <source>/boost/type_traits//libs
         <include>include
     : requirements
-        <source>/boost/assert//libs
         <source>/boost/config//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/variant2//libs
-        <source>/boost/winapi//libs
+        <source>/boost/describe//libs
+        <source>/boost/mp11//libs
+        <source>/boost/type_traits//libs
         <include>include
 ;
 
-alias libs : build//boost_system ;
+alias libs ;

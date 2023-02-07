@@ -7,12 +7,15 @@ import project ;
 
 project /boost/stl_interfaces
 	: usage-requirements
+		<source>/boost/assert//libs
+		<source>/boost/config//libs
+		<source>/boost/type_traits//libs
 		<include>include
 	: requirements
+		<source>/boost/assert//libs
+		<source>/boost/config//libs
+		<source>/boost/type_traits//libs
 		<include>include
-		<use>/boost/assert
-		<use>/boost/config
-		<use>/boost/type_traits
 ;
 
 alias libs ;

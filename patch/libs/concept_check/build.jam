@@ -5,21 +5,19 @@
 
 import project ;
 
-project /boost/system
+project /boost/concept_check
     : usage-requirements
-        <source>/boost/assert//libs
         <source>/boost/config//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/variant2//libs
-        <source>/boost/winapi//libs
+        <source>/boost/preprocessor//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/type_traits//libs
         <include>include
     : requirements
-        <source>/boost/assert//libs
         <source>/boost/config//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/variant2//libs
-        <source>/boost/winapi//libs
+        <source>/boost/preprocessor//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/type_traits//libs
         <include>include
 ;
 
-alias libs : build//boost_system ;
+alias libs ;

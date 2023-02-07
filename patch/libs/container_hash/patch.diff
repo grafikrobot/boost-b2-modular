@@ -1,0 +1,52 @@
+diff --git a/examples/Jamfile.v2 b/examples/Jamfile.v2
+index bb28ba9..7ca08bb 100644
+--- a/examples/Jamfile.v2
++++ b/examples/Jamfile.v2
+@@ -6,5 +6,5 @@
+ run books.cpp ;
+ run point.cpp ;
+ run portable.cpp ;
+-run template.cpp : : : <toolset>msvc-8.0:<build>no ;
++run template.cpp /boost/unordered//libs : : : <toolset>msvc-8.0:<build>no ;
+ run point2.cpp ;
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 4406ab4..005389a 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -10,6 +10,8 @@ local clang-flags = $(gcc-flags) -Wno-c99-extensions ;
+ 
+ project hash-tests
+     : requirements
++        <source>/boost/core//libs
++
+         <warnings>pedantic
+         <toolset>intel:<warnings>on
+         <toolset>gcc:<cxxflags>$(gcc-flags)
+@@ -72,13 +74,13 @@ run quick.cpp ;
+ 
+ run hash_number_test2.cpp ;
+ run hash_integral_test.cpp ;
+-run hash_string_test2.cpp ;
++run hash_string_test2.cpp /boost/utility//libs ;
+ 
+ # for gcc-4.8
+ local fs-path-req = "-<toolset>gcc:<cxxflags>-Wshadow" "-<toolset>gcc:<cxxflags>-Wconversion" ;
+ 
+-run hash_fs_path_test.cpp /boost//filesystem/<warnings>off : : : $(fs-path-req) <toolset>msvc-14.0,<cxxstd>latest:<build>no <toolset>msvc-8.0:<build>no ;
+-run is_range_test2.cpp : : : $(fs-path-req) <toolset>msvc-8.0:<build>no ;
++run hash_fs_path_test.cpp /boost/filesystem//libs<warnings>off : : : $(fs-path-req) <toolset>msvc-14.0,<cxxstd>latest:<build>no <toolset>msvc-8.0:<build>no ;
++run is_range_test2.cpp /boost/filesystem//libs : : : $(fs-path-req) <toolset>msvc-8.0:<build>no ;
+ 
+ run hash_container_test.cpp ;
+ 
+@@ -113,8 +115,8 @@ run is_described_class_test3.cpp
+ run described_class_test.cpp
+   : : : <warnings>extra ;
+ 
+-run hash_is_avalanching_test.cpp ;
+-run hash_is_avalanching_test2.cpp ;
++run hash_is_avalanching_test.cpp /boost/unordered//libs ;
++run hash_is_avalanching_test2.cpp /boost/unordered//libs ;
+ 
+ run hash_integral_test2.cpp ;
+ 

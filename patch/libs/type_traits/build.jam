@@ -16,4 +16,7 @@ project /boost/type_traits
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_type_traits ]
+    [ alias libs ]
+    ;

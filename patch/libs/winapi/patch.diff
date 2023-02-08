@@ -1,15 +1,15 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 8f88c5a..1340764 100644
+index 8f88c5a..ad05237 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -24,6 +24,11 @@ project.pop-current ;
  project
      : requirements
  
-+        <source>/boost/config//libs
-+        <source>/boost/core//libs
-+        <source>/boost/preprocessor//libs
-+        <source>/boost/type_traits//libs
++        <source>/boost/config//boost_config
++        <source>/boost/core//boost_core
++        <source>/boost/preprocessor//boost_preprocessor
++        <source>/boost/type_traits//boost_type_traits
 +
          # Disable warnings about using 'insecure' standard C functions
          <toolset>msvc:<define>_SCL_SECURE_NO_WARNINGS

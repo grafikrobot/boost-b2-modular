@@ -14,4 +14,7 @@ project /boost/vmd
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_vmd ]
+    [ alias libs ]
+    ;

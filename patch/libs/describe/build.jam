@@ -14,4 +14,7 @@ project /boost/describe
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_describe ]
+    [ alias libs ]
+    ;

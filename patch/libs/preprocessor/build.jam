@@ -12,4 +12,7 @@ project /boost/preprocessor
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_preprocessor ]
+    [ alias libs ]
+    ;

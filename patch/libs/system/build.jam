@@ -22,4 +22,7 @@ project /boost/system
         <include>include
 ;
 
-alias libs : build//boost_system ;
+explicit
+    [ alias boost_system : build//boost_system ]
+    [ alias libs : build//boost_system ]
+    ;

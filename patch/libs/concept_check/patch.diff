@@ -15,7 +15,7 @@ index 04e53d7..0000000
 -# please order by name to ease maintenance
 -build-project test ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 4510302..6168d17 100644
+index 4510302..8b6f3d3 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -4,6 +4,10 @@
@@ -23,7 +23,7 @@ index 4510302..6168d17 100644
  import testing ;
  
 +project : requirements
-+    <source>/boost/core//libs
++    <source>/boost/core//boost_core
 +    ;
 +
  test-suite concept_check

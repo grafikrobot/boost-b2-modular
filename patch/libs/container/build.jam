@@ -5,22 +5,31 @@
 
 import project ;
 
-project /boost/concept_check
+project /boost/container
     : usage-requirements
+        <source>/boost/assert//libs
         <source>/boost/config//libs
-        <source>/boost/preprocessor//libs
+        <source>/boost/core//libs
+        <source>/boost/intrusive//libs
+        <source>/boost/move//libs
         <source>/boost/static_assert//libs
         <source>/boost/type_traits//libs
+        <source>/boost/winapi//libs
         <include>include
     : requirements
+        <source>/boost/assert//libs
         <source>/boost/config//libs
-        <source>/boost/preprocessor//libs
+        <source>/boost/core//libs
+        <source>/boost/intrusive//libs
+        <source>/boost/move//libs
         <source>/boost/static_assert//libs
         <source>/boost/type_traits//libs
+        <source>/boost/winapi//libs
         <include>include
 ;
 
 explicit
-    [ alias boost_concept_check ]
-    [ alias libs ]
+    [ alias boost_container : build//boost_container ]
+    [ alias libs : build//boost_container ]
+    [ alias all : example test ]
     ;

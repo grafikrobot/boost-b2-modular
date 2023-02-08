@@ -1,0 +1,39 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/json
+    : usage-requirements
+        <source>/boost/align//libs
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/container//libs
+        <source>/boost/core//libs
+        <source>/boost/describe//libs
+        <source>/boost/mp11//libs
+        <source>/boost/system//libs
+        <source>/boost/throw_exception//libs
+        <include>include
+    : requirements
+        <source>/boost/align//libs
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/container//libs
+        <source>/boost/core//libs
+        <source>/boost/describe//libs
+        <source>/boost/mp11//libs
+        <source>/boost/system//libs
+        <source>/boost/throw_exception//libs
+        <include>include
+;
+
+explicit
+    [ alias libs : build//boost_json ]
+    [ alias boost_json : build//boost_json ]
+    [ alias json_deps : build//json_deps ]
+    [ alias json_sources : build//json_sources ]
+    [ alias all : bench test fuzzing example ]
+    ;

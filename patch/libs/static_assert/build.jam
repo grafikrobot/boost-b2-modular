@@ -14,4 +14,7 @@ project /boost/static_assert
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_static_assert ]
+    [ alias libs ]
+    ;

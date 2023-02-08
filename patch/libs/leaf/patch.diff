@@ -1,13 +1,13 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 9896c4e..d688be1 100644
+index 9896c4e..cb88616 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -22,13 +22,15 @@ project
          <cxxstd>11
          <threading>multi
      : requirements
-+        <source>/boost/config//libs
-+        <source>/boost/exception//libs
++        <source>/boost/config//boost_config
++        <source>/boost/exception//boost_exception
 +
          <define>BOOST_LEAF_BOOST_AVAILABLE
          <threading>single:<define>BOOST_LEAF_NO_THREADS

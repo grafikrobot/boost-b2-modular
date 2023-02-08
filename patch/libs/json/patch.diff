@@ -1,0 +1,93 @@
+diff --git a/Jamfile b/Jamfile
+deleted file mode 100644
+index 4ab8fe7..0000000
+--- a/Jamfile
++++ /dev/null
+@@ -1,15 +0,0 @@
+-#
+-# Copyright (c) 2019 Vinnie Falco (vinnie dot falco at gmail dot com)
+-#
+-# Distributed under the Boost Software License, Version 1.0. (See accompanying
+-# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-#
+-# Official repository: https://github.com/boostorg/json
+-#
+-
+-import feature ;
+-
+-build-project bench ;
+-build-project test ;
+-build-project fuzzing ;
+-build-project example ;
+diff --git a/bench/Jamfile b/bench/Jamfile
+index 674622e..e0c543f 100644
+--- a/bench/Jamfile
++++ b/bench/Jamfile
+@@ -7,9 +7,13 @@
+ # Official repository: https://github.com/boostorg/json
+ #
+ 
+-exe bench :
+-    bench.cpp
+-    /boost/json//boost_json
+-    :
+-    <include>../test
+-    ;
++if [ glob lib/nlohmann/single_include/nlohmann/json.hpp ]
++{
++    exe bench :
++        bench.cpp
++        /boost/json//boost_json
++        :
++        <include>../test
++        <include>.
++        ;
++}
+diff --git a/build/Jamfile b/build/Jamfile
+index d591a9b..acd7c26 100644
+--- a/build/Jamfile
++++ b/build/Jamfile
+@@ -9,7 +9,7 @@
+ #
+ 
+ import modules ;
+-import ../../config/checks/config ;
++import config ;
+ 
+ # These make sure we only build on compatible C++11 or later toolchains.
+ obj cxx11_basic_alignas : ../check/basic_alignas.cpp ;
+@@ -54,7 +54,7 @@ rule warn-if-requested ( properties * )
+     }
+ }
+ 
+-project boost/json
++project
+     : requirements
+       [ requires
+         config/cxx11_constexpr
+@@ -77,13 +77,13 @@ project boost/json
+ 
+ alias json_deps
+    : usage-requirements
+-     <library>/boost//container/<warnings-as-errors>off
++     <library>/boost/container//boost_container/<warnings-as-errors>off
+    ;
+ 
+ alias json_sources
+    : src.cpp
+    : usage-requirements
+-     <library>/boost//container/<warnings-as-errors>off
++     <library>/boost/container//boost_container/<warnings-as-errors>off
+    ;
+ 
+ explicit json_deps json_sources ;
+@@ -91,7 +91,7 @@ explicit json_deps json_sources ;
+ lib boost_json
+    : json_sources
+    : usage-requirements
+-     <library>/boost//container/<warnings-as-errors>off
++     <library>/boost/container//boost_container/<warnings-as-errors>off
+    ;
+ 
+-boost-install boost_json ;
++# boost-install boost_json ;

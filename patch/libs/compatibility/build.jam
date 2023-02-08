@@ -12,4 +12,7 @@ project /boost/compatibility
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_compatibility ]
+    [ alias libs ]
+    ;

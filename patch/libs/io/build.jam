@@ -7,11 +7,14 @@ import project ;
 
 project /boost/io
     : usage-requirements
-        <use>/boost/config//libs
+        <source>/boost/config//libs
         <include>include
     : requirements
-        <use>/boost/config//libs
+        <source>/boost/config//libs
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_io ]
+    [ alias libs ]
+    ;

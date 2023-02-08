@@ -12,4 +12,7 @@ project /boost/hof
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_hof ]
+    [ alias libs ]
+    ;

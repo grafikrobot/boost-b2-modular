@@ -24,4 +24,7 @@ project /boost/detail
 		# <source>/boost/type_traits//libs
 ;
 
-alias libs ;
+explicit
+    [ alias boost_detail ]
+    [ alias libs ]
+    ;

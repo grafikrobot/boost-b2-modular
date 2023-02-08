@@ -20,4 +20,7 @@ project /boost/container_hash
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_container_hash ]
+    [ alias libs ]
+    ;

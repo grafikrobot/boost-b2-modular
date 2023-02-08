@@ -12,4 +12,7 @@ project /boost/callable_traits
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_callable_traits ]
+    [ alias libs ]
+    ;

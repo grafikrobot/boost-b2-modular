@@ -20,4 +20,7 @@ project /boost/core
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_core ]
+    [ alias libs ]
+    ;

@@ -5,14 +5,22 @@
 
 import project ;
 
-project /boost/lambda2
+project /boost/align
     : usage-requirements
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+        <source>/boost/static_assert//libs
         <include>include
     : requirements
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+        <source>/boost/static_assert//libs
         <include>include
 ;
 
 explicit
-    [ alias boost_lambda2 ]
+    [ alias boost_align ]
     [ alias libs ]
     ;

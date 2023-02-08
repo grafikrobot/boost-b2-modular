@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index 0e25055..f0f795a 100644
+index 0e25055..bab044b 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -7,10 +7,13 @@
@@ -11,9 +11,9 @@ index 0e25055..f0f795a 100644
  
  project
    : requirements
-+    <source>/boost/config//libs
-+    <source>/boost/core//libs
-+    <source>/boost/mpl//libs
++    <source>/boost/config//boost_config
++    <source>/boost/core//boost_core
++    <source>/boost/mpl//boost_mpl
  
      [ requires cxx11_variadic_templates cxx11_template_aliases cxx11_decltype cxx11_hdr_tuple ]
  

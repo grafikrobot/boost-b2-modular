@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index ffc9160..6858a67 100644
+index ffc9160..d35ab9d 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -8,7 +8,10 @@
@@ -8,8 +8,8 @@ index ffc9160..6858a67 100644
  
 -project : requirements <warnings>pedantic <warnings-as-errors>on ;
 +project : requirements <warnings>pedantic <warnings-as-errors>on
-+    <source>/boost/core//libs
-+    <source>/boost/type_traits//libs
++    <source>/boost/core//boost_core
++    <source>/boost/type_traits//boost_type_traits
 +    ;
  
  run ios_state_unit_test.cpp ;

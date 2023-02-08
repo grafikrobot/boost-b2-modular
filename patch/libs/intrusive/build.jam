@@ -5,20 +5,27 @@
 
 import project ;
 
-project /boost/variant2
+project /boost/intrusive
     : usage-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
-        <source>/boost/mp11//libs
+        <source>/boost/container_hash//libs
+        <source>/boost/core//libs
+        <source>/boost/move//libs
+        <source>/boost/static_assert//libs
         <include>include
     : requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
-        <source>/boost/mp11//libs
+        <source>/boost/container_hash//libs
+        <source>/boost/core//libs
+        <source>/boost/move//libs
+        <source>/boost/static_assert//libs
         <include>include
 ;
 
 explicit
-    [ alias boost_variant2 ]
+    [ alias boost_intrusive ]
     [ alias libs ]
+    [ alias all : example test ]
     ;

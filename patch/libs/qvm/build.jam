@@ -12,4 +12,7 @@ project /boost/qvm
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_qvm ]
+    [ alias libs ]
+    ;

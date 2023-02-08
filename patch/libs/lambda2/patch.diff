@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index a21728b..d5afca0 100644
+index a21728b..6f45ee7 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -3,9 +3,11 @@
@@ -10,8 +10,8 @@ index a21728b..d5afca0 100644
 +import config : requires ;
  
  project : requirements
-+  <source>/boost/config//libs
-+  <source>/boost/core//libs
++  <source>/boost/config//boost_config
++  <source>/boost/core//boost_core
  
    <warnings>extra
  

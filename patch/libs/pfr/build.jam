@@ -12,4 +12,7 @@ project /boost/pfr
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_pfr ]
+    [ alias libs ]
+    ;

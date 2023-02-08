@@ -20,5 +20,9 @@ for submod in ${submods} ; do
     fi
 done
 rm -f "${rootdir}/libs/concept_check/Jamfile"
+rm -f "${rootdir}/libs/container/Jamfile"
+rm -f "${rootdir}/libs/intrusive/Jamfile"
+rm -f "${rootdir}/libs/json/Jamfile"
+rm -f "${rootdir}/libs/move/Jamfile"
 cd "${rootdir}"
 pwd

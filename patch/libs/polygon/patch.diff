@@ -25,7 +25,7 @@ index cbae96c..0000000
 -
 -
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 16787e3..d77ca26 100644
+index 16787e3..bb84d70 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -8,6 +8,18 @@
@@ -34,8 +34,8 @@ index 16787e3..d77ca26 100644
  
 +project 
 +    : requirements
-+        <source>/boost/core//libs
-+        <source>/boost/random//libs
++        <source>/boost/core//boost_core
++        <source>/boost/random//boost_random
 +
 +        <warnings>all
 +        <toolset>intel:<warnings>on

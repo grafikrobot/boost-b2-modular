@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index bce5f23..9826a0c 100644
+index bce5f23..f000c9b 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -6,10 +6,12 @@
@@ -11,7 +11,7 @@ index bce5f23..9826a0c 100644
  
  project :
      requirements
-+        <source>/boost/config//libs
++        <source>/boost/config//boost_config
 +
          [ requires cxx11_constexpr ]
          <toolset>clang:<cxxflags>"-pedantic -Wall -Wextra"

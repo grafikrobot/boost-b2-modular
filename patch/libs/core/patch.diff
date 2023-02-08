@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 65e17ae..201670b 100644
+index 65e17ae..8be98db 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -10,7 +10,7 @@ import modules ;
@@ -16,7 +16,7 @@ index 65e17ae..201670b 100644
  run underlying_type.cpp ;
  
 -run fclose_deleter_test.cpp : : : <target-os>windows:<define>_CRT_SECURE_NO_WARNINGS <target-os>windows:<define>_CRT_SECURE_NO_DEPRECATE ;
-+run fclose_deleter_test.cpp /boost/move//libs : : : <target-os>windows:<define>_CRT_SECURE_NO_WARNINGS <target-os>windows:<define>_CRT_SECURE_NO_DEPRECATE ;
++run fclose_deleter_test.cpp /boost/move//boost_move : : : <target-os>windows:<define>_CRT_SECURE_NO_WARNINGS <target-os>windows:<define>_CRT_SECURE_NO_DEPRECATE ;
  
  run pointer_traits_pointer_test.cpp ;
  run pointer_traits_element_type_test.cpp ;
@@ -25,7 +25,7 @@ index 65e17ae..201670b 100644
  run sv_stream_insert_test.cpp ;
  run sv_conversion_test.cpp ;
 -run sv_conversion_test2.cpp : ;
-+run sv_conversion_test2.cpp /boost/utility//libs : ;
++run sv_conversion_test2.cpp /boost/utility//boost_utility : ;
  run sv_common_reference_test.cpp ;
  compile sv_common_reference_test2.cpp ;
  compile sv_windows_h_test.cpp ;

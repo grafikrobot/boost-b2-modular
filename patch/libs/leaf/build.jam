@@ -12,4 +12,7 @@ project /boost/leaf
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_leaf ]
+    [ alias libs ]
+    ;

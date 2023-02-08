@@ -1,0 +1,32 @@
+diff --git a/Jamfile b/Jamfile
+deleted file mode 100644
+index 6d861a9..0000000
+--- a/Jamfile
++++ /dev/null
+@@ -1,11 +0,0 @@
+-#  Boost.Move Library Jamfile
+-#
+-#  Copyright (c) 2018 James E. King III
+-#
+-#  Use, modification, and distribution are subject to the
+-#  Boost Software License, Version 1.0. (See accompanying file
+-#  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-
+-# please order by name to ease maintenance
+-build-project example ;
+-build-project test ;
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 2ce67bb..0c85d72 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -9,6 +9,10 @@
+ 
+ import testing ;
+ 
++project : requirements
++    <source>/boost/container//boost_container
++    ;
++
+ rule test_all
+ {
+    local all_rules = ;

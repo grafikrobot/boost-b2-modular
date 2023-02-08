@@ -12,4 +12,7 @@ project /boost/mp11
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_mp11 ]
+    [ alias libs ]
+    ;

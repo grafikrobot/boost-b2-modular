@@ -28,4 +28,7 @@ project /boost/atomic
 		<use>/boost/winapi//libs
 ;
 
-alias libs : build//boost_system ;
+explicit
+    [ alias boost_atomic : build//boost_atomic ]
+    [ alias libs : build//boost_atomic ]
+    ;

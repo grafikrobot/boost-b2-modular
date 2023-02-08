@@ -14,4 +14,7 @@ project /boost/assert
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_assert ]
+    [ alias libs ]
+    ;

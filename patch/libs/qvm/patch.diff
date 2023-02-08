@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index e043da0..cce239f 100644
+index e043da0..04e4386 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -5,7 +5,9 @@
@@ -7,9 +7,9 @@ index e043da0..cce239f 100644
  project
      : requirements
 -		<include>../include
-+        <source>/boost/core//libs
-+        <source>/boost/exception//libs
-+        <source>/boost/test//libs
++        <source>/boost/core//boost_core
++        <source>/boost/exception//boost_exception
++        <source>/boost/test//boost_test
      ;
  
  variant debug_qvm_hpp : debug : <define>BOOST_QVM_TEST_SINGLE_HEADER="\\\"qvm.hpp\\\"" ;

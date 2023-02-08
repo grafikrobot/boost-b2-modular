@@ -1,5 +1,5 @@
 diff --git a/test/config/Jamfile.v2 b/test/config/Jamfile.v2
-index 240d039..810ae1f 100644
+index 240d039..038145f 100644
 --- a/test/config/Jamfile.v2
 +++ b/test/config/Jamfile.v2
 @@ -7,11 +7,13 @@
@@ -12,13 +12,13 @@ index 240d039..810ae1f 100644
  project
      : source-location .
      : requirements
-+        <source>/boost/config//libs
++        <source>/boost/config//boost_config
 +
          <define>BOOST_PFR_DETAIL_STRICT_RVALUE_TESTING=1
      ;
  
 diff --git a/test/core/Jamfile.v2 b/test/core/Jamfile.v2
-index ad25a84..ef360d8 100644
+index ad25a84..31e642f 100644
 --- a/test/core/Jamfile.v2
 +++ b/test/core/Jamfile.v2
 @@ -7,11 +7,16 @@
@@ -31,10 +31,10 @@ index ad25a84..ef360d8 100644
  project
      : source-location .
      : requirements
-+        <source>/boost/config//libs
-+        <source>/boost/core//libs
-+        <source>/boost/functional//libs
-+        <source>/boost/type_index//libs
++        <source>/boost/config//boost_config
++        <source>/boost/core//boost_core
++        <source>/boost/functional//boost_functional
++        <source>/boost/type_index//boost_type_index
 +
          <define>BOOST_PFR_DETAIL_STRICT_RVALUE_TESTING=1
          [ requires cxx14_constexpr ]

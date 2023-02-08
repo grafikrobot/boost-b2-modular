@@ -14,4 +14,7 @@ project /boost/polygon
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_polygon ]
+    [ alias libs ]
+    ;

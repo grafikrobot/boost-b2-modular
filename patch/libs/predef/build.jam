@@ -46,4 +46,7 @@ if [ project.is-jamroot-module $(__name__) ]
     $(attributes).set "build-dir" : .bin ;
 }
 
-alias libs ;
+explicit
+    [ alias boost_predef ]
+    [ alias libs ]
+    ;

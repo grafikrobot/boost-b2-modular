@@ -16,4 +16,7 @@ project /boost/throw_exception
         <include>include
 ;
 
-alias libs ;
+explicit
+    [ alias boost_throw_exception ]
+    [ alias libs ]
+    ;

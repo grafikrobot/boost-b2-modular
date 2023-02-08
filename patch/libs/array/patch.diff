@@ -1,0 +1,11 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 4c29720..e996c16 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -14,5 +14,5 @@ test-suite array :
+ #    [ run array_constexpr.cpp ]
+     [ compile-fail array_getfail1.cpp ]
+     [ compile-fail array_getfail2.cpp ]
+-    [ run array_hash.cpp ]
++    [ run array_hash.cpp /boost/functional//boost_functional ]
+     ;

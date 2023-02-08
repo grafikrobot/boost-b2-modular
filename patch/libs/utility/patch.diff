@@ -1,0 +1,13 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index fdaef72..8ece1cb 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -26,7 +26,7 @@ compile operators_constexpr_test.cpp ;
+ compile result_of_test.cpp ;
+ 
+ # compile-fail string_ref_from_rvalue.cpp ;
+-run string_ref_test1.cpp ;
++run string_ref_test1.cpp /boost/container_hash//boost_container_hash ;
+ run string_ref_test2.cpp ;
+ run string_ref_test_io.cpp ;
+ # compile-fail string_view_from_rvalue.cpp ;

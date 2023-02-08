@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index 53c60ec..b97bee1 100644
+index 53c60ec..4206706 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -9,6 +9,7 @@ build-project container_fwd ;
@@ -19,7 +19,8 @@ index 53c60ec..b97bee1 100644
  
  run binary_search_test.cpp ;
  run blank_test.cpp ;
- run is_sorted_test.cpp ;
+-run is_sorted_test.cpp ;
++run is_sorted_test.cpp /boost/array//boost_array ;
  run numeric_traits_test.cpp ;
 -run is_xxx_test.cpp ;
 +run is_xxx_test.cpp /boost/preprocessor//boost_preprocessor ;

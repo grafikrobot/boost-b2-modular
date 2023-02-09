@@ -19,4 +19,12 @@ project /boost/type_traits
 explicit
     [ alias boost_type_traits ]
     [ alias libs ]
+    # Other Boost lib tests depend on the type_traits test checks.
+    [ alias testing
+        : # sources
+        : # requirements
+        : # default-buidl
+        : # usage-requirements
+            <include>test
+        ]
     ;

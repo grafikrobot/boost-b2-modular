@@ -24,5 +24,6 @@ rm -f "${rootdir}/libs/container/Jamfile"
 rm -f "${rootdir}/libs/intrusive/Jamfile"
 rm -f "${rootdir}/libs/json/Jamfile"
 rm -f "${rootdir}/libs/move/Jamfile"
+rm -f "${rootdir}/libs/mpl/Jamfile"
 cd "${rootdir}"
 pwd

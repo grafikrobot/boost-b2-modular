@@ -1,0 +1,13 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 423f61c..7d57159 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -42,7 +42,7 @@ run function_ref_portable.cpp ;
+ run contains_test.cpp ;
+ run contains2_test.cpp ;
+ run nothrow_swap.cpp ;
+-run rvalues_test.cpp ;
++run rvalues_test.cpp : : : <source>/boost/move//boost_move ;
+ compile function_typeof_test.cpp ;
+ run result_arg_types_test.cpp ;
+ 

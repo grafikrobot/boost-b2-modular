@@ -1,18 +1,8 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index fdaef72..da9528d 100644
+index fdaef72..9ae09ed 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -8,12 +8,17 @@
- # bring in rules for testing
- import testing ;
- 
-+project
-+    : requirements
-+    <source>/boost/container_hash//boost_container_hash
-+    ;
-+
- run base_from_member_test.cpp ;
- run base_from_member_ref_test.cpp ;
+@@ -13,7 +13,7 @@ run base_from_member_ref_test.cpp ;
  
  run binary_test.cpp ;
  
@@ -21,6 +11,15 @@ index fdaef72..da9528d 100644
  
  run compressed_pair_test.cpp ;
  run compressed_pair_final_test.cpp ;
+@@ -31,7 +31,7 @@ run string_ref_test2.cpp ;
+ run string_ref_test_io.cpp ;
+ # compile-fail string_view_from_rvalue.cpp ;
+ compile string_view_constexpr_test1.cpp ;
+-run string_view_test1.cpp ;
++run string_view_test1.cpp : : : <source>/boost/container_hash//boost_container_hash ;
+ run string_view_test2.cpp ;
+ run string_view_test_io.cpp ;
+ 
 diff --git a/test/call_traits_test.cpp b/test/call_traits_test.cpp
 index fad6317..2b451ec 100644
 --- a/test/call_traits_test.cpp

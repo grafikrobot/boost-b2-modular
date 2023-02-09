@@ -1,0 +1,34 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index acefec0..09e0447 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -13,10 +13,10 @@ explicit has_gmpxx ;
+ test-suite integer
+     :
+         [ run integer_traits_test.cpp ]
+-        [ run integer_test.cpp : : : <toolset>gcc:<cxxflags>-Wno-long-long <toolset>darwin:<cxxflags>-Wno-long-long <toolset>sun:<cxxflags>"-Qoption ccfe -tmpldepth=128" ]
+-        [ run integer_mask_test.cpp ]
++        [ run integer_test.cpp : : : <source>/boost/mpl//boost_mpl <toolset>gcc:<cxxflags>-Wno-long-long <toolset>darwin:<cxxflags>-Wno-long-long <toolset>sun:<cxxflags>"-Qoption ccfe -tmpldepth=128" ]
++        [ run integer_mask_test.cpp : : : <source>/boost/detail//boost_detail ]
+         [ run integer_log2_test.cpp ]
+-        [ run static_log2_test.cpp ]
++        [ run static_log2_test.cpp : : : <source>/boost/detail//boost_detail ]
+         [ run static_min_max_test.cpp ]
+         [ run extended_euclidean_test.cpp ]
+         [ run mod_inverse_test.cpp ]
+@@ -24,7 +24,7 @@ test-suite integer
+         [ compile integer_include_test.cpp ]
+         [ compile integer_mask_include_test.cpp ]
+         [ compile static_log2_include_test.cpp ]
+-        [ compile static_min_max_include_test.cpp ]
++        [ compile static_min_max_include_test.cpp : <source>/boost/detail//boost_detail ]
+         [ compile integer_fwd_include_test.cpp ]
+         [ compile gcd_constexpr14_test.cpp ]
+         [ compile gcd_noexcept_test.cpp ]
+@@ -35,5 +35,5 @@ test-suite integer
+         [ compile-fail fail_uint_fast.cpp ]
+         [ compile-fail fail_uint_least.cpp ]
+         [ compile-fail fail_uint_65.cpp ]
+-        [ run common_factor_test.cpp : : : [ check-target-builds has_gmpxx "Checking for gmpxx.h" : <define>BOOST_INTEGER_HAS_GMPXX_H=1 <linkflags>-lgmp <linkflags>-lgmpxx ] ]
++        [ run common_factor_test.cpp : : : <source>/boost/mpl//boost_mpl [ check-target-builds has_gmpxx "Checking for gmpxx.h" : <define>BOOST_INTEGER_HAS_GMPXX_H=1 <linkflags>-lgmp <linkflags>-lgmpxx ] ]
+     ;

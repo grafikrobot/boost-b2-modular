@@ -1,8 +1,8 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index acefec0..09e0447 100644
+index acefec0..834b80b 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -13,10 +13,10 @@ explicit has_gmpxx ;
+@@ -13,18 +13,18 @@ explicit has_gmpxx ;
  test-suite integer
      :
          [ run integer_traits_test.cpp ]
@@ -12,11 +12,13 @@ index acefec0..09e0447 100644
 +        [ run integer_mask_test.cpp : : : <source>/boost/detail//boost_detail ]
          [ run integer_log2_test.cpp ]
 -        [ run static_log2_test.cpp ]
+-        [ run static_min_max_test.cpp ]
 +        [ run static_log2_test.cpp : : : <source>/boost/detail//boost_detail ]
-         [ run static_min_max_test.cpp ]
++        [ run static_min_max_test.cpp : : : <source>/boost/detail//boost_detail ]
          [ run extended_euclidean_test.cpp ]
-         [ run mod_inverse_test.cpp ]
-@@ -24,7 +24,7 @@ test-suite integer
+-        [ run mod_inverse_test.cpp ]
++        [ run mod_inverse_test.cpp : : : <source>/boost/optional//boost_optional ]
+         [ compile integer_traits_include_test.cpp ]
          [ compile integer_include_test.cpp ]
          [ compile integer_mask_include_test.cpp ]
          [ compile static_log2_include_test.cpp ]

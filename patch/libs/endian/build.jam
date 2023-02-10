@@ -5,26 +5,22 @@
 
 import project ;
 
-project /boost/detail
+project /boost/endian
 	: usage-requirements
 		<include>include
 		<source>/boost/config//libs
 		<source>/boost/core//libs
-		<source>/boost/preprocessor//libs
 		<source>/boost/static_assert//libs
-		<source>/boost/throw_exception//libs
 		<source>/boost/type_traits//libs
 	: requirements
 		<include>include
 		<source>/boost/config//libs
 		<source>/boost/core//libs
-		<source>/boost/preprocessor//libs
 		<source>/boost/static_assert//libs
-		<source>/boost/throw_exception//libs
 		<source>/boost/type_traits//libs
 ;
 
 explicit
-    [ alias boost_detail ]
+    [ alias boost_endian ]
     [ alias libs ]
     ;

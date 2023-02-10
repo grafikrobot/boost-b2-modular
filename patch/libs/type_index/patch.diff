@@ -12,7 +12,7 @@ index 86d769c..6939326 100644
  //] [/type_index_my_type_index_worldwide_macro]
  
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index d57275b..0125172 100644
+index d57275b..ae25b92 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -40,7 +40,7 @@ exe testing_crossmodule_anonymous_no_rtti : testing_crossmodule_anonymous.cpp te
@@ -29,14 +29,14 @@ index d57275b..0125172 100644
  {
      # RTTI on
 -    type_index += [ run $(p) ] ;
-+    type_index += [ run $(p) : : : <include>../examples ] ;
++    type_index += [ run $(p) : : : <include>../examples <source>/boost/unordered//boost_unordered ] ;
  
      # RTTI off
      local target_name = $(p[1]:B)_no_rtti ;
      if $(target_name) != "table_of_names_no_rtti"
      {
 -        type_index += [ run $(p) : : : <rtti>off $(norttidefines) : $(target_name) ] ;
-+        type_index += [ run $(p) : : : <include>../examples <rtti>off $(norttidefines) : $(target_name) ] ;
++        type_index += [ run $(p) : : : <include>../examples <source>/boost/unordered//boost_unordered  <rtti>off $(norttidefines) : $(target_name) ] ;
      }
  }
  

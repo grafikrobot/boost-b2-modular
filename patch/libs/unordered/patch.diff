@@ -1,0 +1,21 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 9a702bc6..3489b28a 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -15,6 +15,7 @@ local msvc-flags = /wd4494 ;
+ 
+ project
+     : requirements
++        <source>/boost/concept_check//boost_concept_check
+ 
+         <warnings>pedantic
+         <toolset>intel:<warnings>on
+@@ -98,7 +99,7 @@ run exception/merge_exception_tests.cpp ;
+ run unordered/narrow_cast_tests.cpp ;
+ run quick.cpp ;
+ 
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ CPP11 = [ requires cxx11_constexpr cxx11_noexcept cxx11_decltype cxx11_alignas ] ;
+ 

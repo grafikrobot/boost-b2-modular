@@ -7,16 +7,14 @@ import project ;
 
 project /boost/interval
     : usage-requirements
-        <source>/boost/array//libs
         <source>/boost/config//libs
-        <source>/boost/integer//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/detail//libs
+        <source>/boost/logic//libs
         <include>include
     : requirements
-        <source>/boost/array//libs
         <source>/boost/config//libs
-        <source>/boost/integer//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/detail//libs
+        <source>/boost/logic//libs
         <include>include
 ;
 

@@ -16,21 +16,10 @@ index e59673e..0000000
 -build-project examples ;
 -build-project test ;
 diff --git a/examples/Jamfile.v2 b/examples/Jamfile.v2
-index b2890b1..ecc02d2 100644
+index b2890b1..aa59dd2 100644
 --- a/examples/Jamfile.v2
 +++ b/examples/Jamfile.v2
-@@ -7,14 +7,20 @@
- 
- import testing ;
- 
-+project
-+  :
-+  requirements
-+    <source>/boost/detail//boost_detail
-+  ;
-+
- {
-   test-suite interval-examples
+@@ -12,9 +12,9 @@ import testing ;
      : [ compile filter.cpp         : <build>yes <toolset>msvc-10.0:<build>no ]  # ambiguous sin()
        [ compile findroot_demo.cpp  ]
        [ compile horner.cpp         ]
@@ -43,10 +32,10 @@ index b2890b1..ecc02d2 100644
      ;
  }
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 37b9c23..afaefff 100644
+index 37b9c23..fccae16 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -7,10 +7,9 @@
+@@ -7,8 +7,6 @@
  # copy at http://www.boost.org/LICENSE_1_0.txt)
  
  project
@@ -54,11 +43,8 @@ index 37b9c23..afaefff 100644
 -  source-location $(BOOST_ROOT)
    :
    requirements
-+    <source>/boost/detail//boost_detail
      # Enable dynamic rounding on Tru64 (Alpha CPU).
-     <toolset>hp_cxx,<os>OSF:<cflags>"-fprm d"
-     <toolset>gcc,<os>OSF:<cflags>-mfp-rounding-mode=d
-@@ -24,25 +23,25 @@ import testing ;
+@@ -24,25 +22,25 @@ import testing ;
  
  {
    test-suite numeric/interval :

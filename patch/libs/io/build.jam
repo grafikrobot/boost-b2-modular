@@ -17,4 +17,5 @@ project /boost/io
 explicit
     [ alias boost_io ]
     [ alias libs ]
+    [ alias all : test ]
     ;

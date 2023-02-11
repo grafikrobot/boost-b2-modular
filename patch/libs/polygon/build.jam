@@ -17,4 +17,5 @@ project /boost/polygon
 explicit
     [ alias boost_polygon ]
     [ alias libs ]
+    [ alias all : example test ]
     ;

@@ -21,4 +21,5 @@ project /boost/stl_interfaces
 explicit
     [ alias boost_stl_interfaces ]
     [ alias libs ]
+    [ alias all : test ]
     ;

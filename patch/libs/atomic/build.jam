@@ -31,4 +31,5 @@ project /boost/atomic
 explicit
     [ alias boost_atomic : build//boost_atomic ]
     [ alias libs : build//boost_atomic ]
+    [ alias all : test ]
     ;

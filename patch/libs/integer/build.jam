@@ -27,4 +27,5 @@ project /boost/integer
 explicit
     [ alias boost_integer ]
     [ alias libs ]
+    [ alias all : test ]
     ;

@@ -21,4 +21,5 @@ project /boost/typeof
 explicit
     [ alias boost_typeof ]
     [ alias libs ]
+    [ alias all : test ]
     ;

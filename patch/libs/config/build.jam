@@ -21,4 +21,5 @@ project /boost/config
 explicit
     [ alias boost_config ]
     [ alias libs ]
+    [ alias all : test ]
     ;

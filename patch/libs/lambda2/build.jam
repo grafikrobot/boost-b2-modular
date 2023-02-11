@@ -15,4 +15,5 @@ project /boost/lambda2
 explicit
     [ alias boost_lambda2 ]
     [ alias libs ]
+    [ alias all : test ]
     ;

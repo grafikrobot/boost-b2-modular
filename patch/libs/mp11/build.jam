@@ -15,4 +15,5 @@ project /boost/mp11
 explicit
     [ alias boost_mp11 ]
     [ alias libs ]
+    [ alias all : test ]
     ;

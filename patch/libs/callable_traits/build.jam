@@ -15,4 +15,5 @@ project /boost/callable_traits
 explicit
     [ alias boost_callable_traits ]
     [ alias libs ]
+    [ alias all : example test ]
     ;

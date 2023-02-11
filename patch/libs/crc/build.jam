@@ -23,4 +23,5 @@ project /boost/crc
 explicit
     [ alias boost_crc ]
     [ alias libs ]
+    [ alias all : test ]
     ;

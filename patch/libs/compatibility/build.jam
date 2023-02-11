@@ -15,4 +15,5 @@ project /boost/compatibility
 explicit
     [ alias boost_compatibility ]
     [ alias libs ]
+    [ alias all ]
     ;

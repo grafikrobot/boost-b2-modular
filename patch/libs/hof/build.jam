@@ -15,4 +15,5 @@ project /boost/hof
 explicit
     [ alias boost_hof ]
     [ alias libs ]
+    [ alias all : test ]
     ;

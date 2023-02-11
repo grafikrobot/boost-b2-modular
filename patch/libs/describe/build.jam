@@ -17,4 +17,5 @@ project /boost/describe
 explicit
     [ alias boost_describe ]
     [ alias libs ]
+    [ alias all : test ]
     ;

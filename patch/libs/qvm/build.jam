@@ -15,4 +15,5 @@ project /boost/qvm
 explicit
     [ alias boost_qvm ]
     [ alias libs ]
+    [ alias all : test ]
     ;

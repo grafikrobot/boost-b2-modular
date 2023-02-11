@@ -23,4 +23,5 @@ project /boost/tuple
 explicit
     [ alias boost_tuple ]
     [ alias libs ]
+    [ alias all : test ]
     ;

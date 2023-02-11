@@ -29,4 +29,5 @@ project /boost/type_index
 explicit
     [ alias boost_type_index ]
     [ alias libs ]
+    [ alias all : test ]
     ;

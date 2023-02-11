@@ -35,4 +35,5 @@ project /boost/function
 explicit
     [ alias boost_function ]
     [ alias libs ]
+    [ alias all : example test ]
     ;

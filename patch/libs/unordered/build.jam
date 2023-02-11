@@ -37,4 +37,5 @@ project /boost/unordered
 explicit
     [ alias boost_unordered ]
     [ alias libs ]
+    [ alias all : test ]
     ;

@@ -15,3 +15,29 @@ index 8f6db43..0000000
 -# please order by name to ease maintenance
 -build-project example ;
 -build-project test ;
+diff --git a/example/Jamfile b/example/Jamfile
+index 6b4b0f3..15aaddb 100644
+--- a/example/Jamfile
++++ b/example/Jamfile
+@@ -9,7 +9,7 @@
+ 
+ exe timing_tests 
+     : timing_tests.cpp 
+-      ../../timer/build//boost_timer
++      /boost/timer//boost_timer
+     ;
+ 
+ exe example1
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 91f91de..f627a29 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -9,7 +9,7 @@
+ import os ;
+ 
+ # import rules for testing conditional on config file variables
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ test-suite dynamic_bitset :
+ 

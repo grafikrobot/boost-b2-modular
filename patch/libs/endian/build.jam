@@ -23,4 +23,5 @@ project /boost/endian
 explicit
     [ alias boost_endian ]
     [ alias libs ]
+    [ alias all : test ]
     ;

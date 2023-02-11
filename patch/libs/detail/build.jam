@@ -27,4 +27,5 @@ project /boost/detail
 explicit
     [ alias boost_detail ]
     [ alias libs ]
+    [ alias all : test ]
     ;

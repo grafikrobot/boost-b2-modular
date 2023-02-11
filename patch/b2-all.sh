@@ -15,11 +15,9 @@ for submod in ${submods} ; do
     echo "============================== ${d}"
     if test -e "build.jam" ; then
         b2 libs
-        if test -d "test" ; then
-            set +e
-            b2 test
-            set -e
-        fi
+        set +e
+        b2 all
+        set -e
     fi
 done
 cd "${rootdir}"

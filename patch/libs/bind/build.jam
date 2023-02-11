@@ -19,4 +19,5 @@ project /boost/bind
 explicit
     [ alias boost_bind ]
     [ alias libs ]
+    [ alias all : test ]
     ;

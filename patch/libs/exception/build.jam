@@ -27,7 +27,7 @@ project /boost/exception
 ;
 
 explicit
-    [ alias boost_exception : build/boost_exception ]
-    [ alias libs ]
+    [ alias boost_exception : build//boost_exception ]
+    [ alias libs : boost_exception ]
     [ alias all : build example test ]
     ;

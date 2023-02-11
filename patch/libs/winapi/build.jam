@@ -19,4 +19,5 @@ project /boost/winapi
 explicit
     [ alias boost_winapi ]
     [ alias libs ]
+    [ alias all : test ]
     ;

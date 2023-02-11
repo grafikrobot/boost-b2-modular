@@ -15,4 +15,5 @@ project /boost/leaf
 explicit
     [ alias boost_leaf ]
     [ alias libs ]
+    [ alias all : test ]
     ;

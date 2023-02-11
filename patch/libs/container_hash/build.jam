@@ -23,4 +23,5 @@ project /boost/container_hash
 explicit
     [ alias boost_container_hash ]
     [ alias libs ]
+    [ alias all : examples test ]
     ;

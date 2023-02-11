@@ -17,4 +17,5 @@ project /boost/static_assert
 explicit
     [ alias boost_static_assert ]
     [ alias libs ]
+    [ alias all : example test ]
     ;

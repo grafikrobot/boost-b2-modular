@@ -1,17 +1,18 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index 51a477b..137f544 100644
+index 51a477b..0f1c58e 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
-@@ -11,6 +11,8 @@ import testing ;
+@@ -11,6 +11,9 @@ import testing ;
  
  project
      : requirements
 +      <source>/boost/align//boost_align
++      <source>/boost/functional//boost_functional
 +      <source>/boost/smart_ptr//boost_smart_ptr
        <toolset>gcc:<cxxflags>-Wno-non-virtual-dtor
        <toolset>gcc:<cxxflags>-Wno-deprecated-declarations
        #<toolset>gcc:<cxxflags>-Wno-delete-non-virtual-dtor (not in 4.4/4.6)
-@@ -76,7 +78,7 @@ run shared_ptr_convertible_test.cpp ;
+@@ -76,7 +79,7 @@ run shared_ptr_convertible_test.cpp ;
  run wp_convertible_test.cpp ;
  run ip_convertible_test.cpp ;
  run allocate_shared_test.cpp ;
@@ -20,7 +21,7 @@ index 51a477b..137f544 100644
  run esft_void_test.cpp ;
  run esft_second_ptr_test.cpp ;
  run make_shared_esft_test.cpp ;
-@@ -244,7 +246,7 @@ compile make_shared_msvc_test.cpp ;
+@@ -244,7 +247,7 @@ compile make_shared_msvc_test.cpp ;
  
  compile lwm_win32_cs_test.cpp ;
  
@@ -29,7 +30,7 @@ index 51a477b..137f544 100644
  
  run sp_constexpr_test.cpp ;
  run sp_constexpr_test2.cpp ;
-@@ -392,19 +394,19 @@ run lsp_hash_test.cpp ;
+@@ -392,19 +395,19 @@ run lsp_hash_test.cpp ;
  run lsp_hash_test2.cpp ;
  
  run atomic_count_mt_test.cpp

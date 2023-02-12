@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 65e17ae..23adad3 100644
+index 65e17ae..e66385c 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -10,7 +10,7 @@ import modules ;
@@ -7,7 +7,7 @@ index 65e17ae..23adad3 100644
  
  project : requirements
 -
-+  <source>/boost/type_traits
++  <source>/boost/type_traits//boost_type_traits
    <warnings>extra
    <toolset>msvc:<warnings-as-errors>on
    <toolset>clang:<warnings-as-errors>on

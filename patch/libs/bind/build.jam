@@ -6,11 +6,7 @@
 import project ;
 
 project /boost/bind
-    : usage-requirements
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <include>include
-    : requirements
+    : common-requirements
         <source>/boost/config//libs
         <source>/boost/core//libs
         <include>include

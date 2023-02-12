@@ -6,13 +6,10 @@
 import project ;
 
 project /boost/describe
-    : usage-requirements
-        <use>/boost/mp11//libs
+    : common-requirements
+        <source>/boost/mp11//libs
         <include>include
-    : requirements
-        <use>/boost/mp11//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_describe ]

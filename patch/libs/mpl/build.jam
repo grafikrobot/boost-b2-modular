@@ -6,16 +6,7 @@
 import project ;
 
 project /boost/mpl
-    : usage-requirements
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/predef//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/utility//libs
-        <include>include
-    : requirements
+    : common-requirements
         <source>/boost/config//libs
         <source>/boost/core//libs
         <source>/boost/predef//libs

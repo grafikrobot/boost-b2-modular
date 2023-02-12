@@ -6,19 +6,13 @@
 import project ;
 
 project /boost/concept_check
-    : usage-requirements
+    : common-requirements
         <source>/boost/config//libs
         <source>/boost/preprocessor//libs
         <source>/boost/static_assert//libs
         <source>/boost/type_traits//libs
         <include>include
-    : requirements
-        <source>/boost/config//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/type_traits//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_concept_check ]

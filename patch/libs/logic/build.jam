@@ -6,15 +6,15 @@
 import project ;
 
 project /boost/logic
-	: usage-requirements
-		<include>include
-		<source>/boost/config//libs
-		<source>/boost/core//libs
-	: requirements
-		<include>include
-		<source>/boost/config//libs
-		<source>/boost/core//libs
-;
+    : common-requirements
+        <include>include
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+    : requirements
+        <include>include
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+    ;
 
 explicit
     [ alias boost_logic ]

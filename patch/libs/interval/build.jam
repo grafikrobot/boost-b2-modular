@@ -6,17 +6,12 @@
 import project ;
 
 project /boost/interval
-    : usage-requirements
+    : common-requirements
         <source>/boost/config//libs
         <source>/boost/detail//libs
         <source>/boost/logic//libs
         <include>include
-    : requirements
-        <source>/boost/config//libs
-        <source>/boost/detail//libs
-        <source>/boost/logic//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_interval ]

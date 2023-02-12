@@ -6,19 +6,13 @@
 import project ;
 
 project /boost/crc
-    : usage-requirements
+    : common-requirements
         <source>/boost/array//libs
         <source>/boost/config//libs
         <source>/boost/integer//libs
         <source>/boost/type_traits//libs
         <include>include
-    : requirements
-        <source>/boost/array//libs
-        <source>/boost/config//libs
-        <source>/boost/integer//libs
-        <source>/boost/type_traits//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_crc ]

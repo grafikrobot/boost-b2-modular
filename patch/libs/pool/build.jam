@@ -6,7 +6,7 @@
 import project ;
 
 project /boost/pool
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/integer//libs
@@ -14,15 +14,7 @@ project /boost/pool
         <source>/boost/type_traits//libs
         <source>/boost/winapi//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/integer//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/winapi//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_pool ]

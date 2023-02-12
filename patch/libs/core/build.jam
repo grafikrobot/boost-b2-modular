@@ -6,19 +6,13 @@
 import project ;
 
 project /boost/core
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/static_assert//libs
         <source>/boost/throw_exception//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/throw_exception//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_core ]

@@ -6,21 +6,14 @@
 import project ;
 
 project /boost/system
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/throw_exception//libs
         <source>/boost/variant2//libs
         <source>/boost/winapi//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/variant2//libs
-        <source>/boost/winapi//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_system : build//boost_system ]

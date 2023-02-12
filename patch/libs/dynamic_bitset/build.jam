@@ -6,7 +6,7 @@
 import project ;
 
 project /boost/dynamic_bitset
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/container_hash//libs
@@ -16,17 +16,7 @@ project /boost/dynamic_bitset
         <source>/boost/static_assert//libs
         <source>/boost/throw_exception//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/container_hash//libs
-        <source>/boost/core//libs
-        <source>/boost/integer//libs
-        <source>/boost/move//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/throw_exception//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_dynamic_bitset ]

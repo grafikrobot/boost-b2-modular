@@ -6,19 +6,13 @@
 import project ;
 
 project /boost/container_hash
-    : usage-requirements
+    : common-requirements
         <source>/boost/config//libs
         <source>/boost/describe//libs
         <source>/boost/mp11//libs
         <source>/boost/type_traits//libs
         <include>include
-    : requirements
-        <source>/boost/config//libs
-        <source>/boost/describe//libs
-        <source>/boost/mp11//libs
-        <source>/boost/type_traits//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_container_hash ]

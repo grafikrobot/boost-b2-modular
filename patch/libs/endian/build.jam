@@ -6,19 +6,13 @@
 import project ;
 
 project /boost/endian
-	: usage-requirements
-		<include>include
-		<source>/boost/config//libs
-		<source>/boost/core//libs
-		<source>/boost/static_assert//libs
-		<source>/boost/type_traits//libs
-	: requirements
-		<include>include
-		<source>/boost/config//libs
-		<source>/boost/core//libs
-		<source>/boost/static_assert//libs
-		<source>/boost/type_traits//libs
-;
+    : common-requirements
+        <include>include
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/type_traits//libs
+    ;
 
 explicit
     [ alias boost_endian ]

@@ -6,7 +6,7 @@
 import project ;
 
 project /boost/intrusive
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/container_hash//libs
@@ -14,15 +14,7 @@ project /boost/intrusive
         <source>/boost/move//libs
         <source>/boost/static_assert//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/container_hash//libs
-        <source>/boost/core//libs
-        <source>/boost/move//libs
-        <source>/boost/static_assert//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_intrusive ]

@@ -6,7 +6,7 @@
 import project ;
 
 project /boost/exception
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/core//libs
@@ -15,16 +15,7 @@ project /boost/exception
         <source>/boost/tuple//libs
         <source>/boost/type_traits//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/smart_ptr//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/tuple//libs
-        <source>/boost/type_traits//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_exception : build//boost_exception ]

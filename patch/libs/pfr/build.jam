@@ -6,11 +6,9 @@
 import project ;
 
 project /boost/pfr
-    : usage-requirements
+    : common-requirements
         <include>include
-    : requirements
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_pfr ]

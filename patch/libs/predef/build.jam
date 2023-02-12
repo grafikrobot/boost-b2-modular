@@ -34,11 +34,9 @@ modules.poke : BOOST_BUILD_PATH
     : $(BOOST_PREDEF_ROOT)/tools/check [ modules.peek : BOOST_BUILD_PATH ] ;
 
 project /boost/predef
-    : usage-requirements
+    : common-requirements
         <include>include
-    : requirements
-        <include>include
-;
+    ;
 
 if [ project.is-jamroot-module $(__name__) ]
 {

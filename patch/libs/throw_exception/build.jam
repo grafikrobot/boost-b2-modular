@@ -6,15 +6,11 @@
 import project ;
 
 project /boost/throw_exception
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_throw_exception ]

@@ -6,19 +6,7 @@
 import project ;
 
 project /boost/function
-    : usage-requirements
-        <source>/boost/assert//libs
-        <source>/boost/bind//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/integer//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/type_index//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/typeof//libs
-        <include>include
-    : requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/bind//libs
         <source>/boost/config//libs

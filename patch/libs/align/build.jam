@@ -6,19 +6,13 @@
 import project ;
 
 project /boost/align
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/core//libs
         <source>/boost/static_assert//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/static_assert//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_align ]

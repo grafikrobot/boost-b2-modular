@@ -12,11 +12,9 @@ modules.poke : BOOST_BUILD_PATH
     : $(BOOST_CONFIG_ROOT)/checks [ modules.peek : BOOST_BUILD_PATH ] ;
 
 project /boost/config
-    : usage-requirements
+    : common-requirements
         <include>include
-    : requirements
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_config ]

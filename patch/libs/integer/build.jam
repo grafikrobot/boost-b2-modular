@@ -6,15 +6,7 @@
 import project ;
 
 project /boost/integer
-    : usage-requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/type_traits//libs
-        <include>include
-    : requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/core//libs

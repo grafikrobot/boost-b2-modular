@@ -6,27 +6,17 @@
 import project ;
 
 project /boost/atomic
-	: usage-requirements
-		<include>include
-		<use>/boost/align//libs
-		<use>/boost/assert//libs
-		<use>/boost/config//libs
-		<use>/boost/predef//libs
-		<use>/boost/preprocessor//libs
-		<use>/boost/static_assert//libs
-		<use>/boost/type_traits//libs
-		<use>/boost/winapi//libs
-	: requirements
-		<include>include
-		<use>/boost/align//libs
-		<use>/boost/assert//libs
-		<use>/boost/config//libs
-		<use>/boost/predef//libs
-		<use>/boost/preprocessor//libs
-		<use>/boost/static_assert//libs
-		<use>/boost/type_traits//libs
-		<use>/boost/winapi//libs
-;
+    : common-requirements
+        <include>include
+        <source>/boost/align//libs
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/predef//libs
+        <source>/boost/preprocessor//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/type_traits//libs
+        <source>/boost/winapi//libs
+    ;
 
 explicit
     [ alias boost_atomic : build//boost_atomic ]

@@ -6,17 +6,12 @@
 import project ;
 
 project /boost/variant2
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/mp11//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/mp11//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_variant2 ]

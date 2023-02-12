@@ -6,17 +6,12 @@
 import project ;
 
 project /boost/typeof
-    : usage-requirements
+    : common-requirements
         <source>/boost/config//libs
         <source>/boost/preprocessor//libs
         <source>/boost/type_traits//libs
         <include>include
-    : requirements
-        <source>/boost/config//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/type_traits//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_typeof ]

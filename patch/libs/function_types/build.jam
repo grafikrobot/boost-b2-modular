@@ -6,7 +6,7 @@
 import project ;
 
 project /boost/function_types
-    : usage-requirements
+    : common-requirements
         <source>/boost/config//libs
         <source>/boost/core//libs
         <source>/boost/detail//libs
@@ -14,15 +14,7 @@ project /boost/function_types
         <source>/boost/preprocessor//libs
         <source>/boost/type_traits//libs
         <include>include
-    : requirements
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/detail//libs
-        <source>/boost/mpl//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/type_traits//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_function_types ]

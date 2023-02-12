@@ -6,7 +6,7 @@
 import project ;
 
 project /boost/utility
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/core//libs
@@ -15,16 +15,7 @@ project /boost/utility
         <source>/boost/throw_exception//libs
         <source>/boost/type_traits//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/io//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/type_traits//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_utility ]

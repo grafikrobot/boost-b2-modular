@@ -6,7 +6,7 @@
 import project ;
 
 project /boost/container
-    : usage-requirements
+    : common-requirements
         <source>/boost/assert//libs
         <source>/boost/config//libs
         <source>/boost/core//libs
@@ -16,17 +16,7 @@ project /boost/container
         <source>/boost/type_traits//libs
         <source>/boost/winapi//libs
         <include>include
-    : requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/intrusive//libs
-        <source>/boost/move//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/winapi//libs
-        <include>include
-;
+    ;
 
 explicit
     [ alias boost_container : build//boost_container ]

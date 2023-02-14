@@ -1,0 +1,47 @@
+diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
+index 05a0694..44b565e 100644
+--- a/build/Jamfile.v2
++++ b/build/Jamfile.v2
+@@ -12,7 +12,7 @@ import indirect ;
+ import modules ;
+ import os ;
+ import toolset ;
+- import ../../config/checks/config : requires ;
++ import config : requires ;
+ 
+ feature.feature segmented-stacks : on : optional propagated composite ;
+ feature.compose <segmented-stacks>on : <define>BOOST_USE_SEGMENTED_STACKS ;
+@@ -23,7 +23,7 @@ feature.compose <htm>tsx : <define>BOOST_USE_TSX ;
+ feature.feature valgrind : on : optional propagated composite ;
+ feature.compose <valgrind>on : <define>BOOST_USE_VALGRIND ;
+ 
+-project boost/context
++project
+     : requirements
+       <target-os>windows:<define>_WIN32_WINNT=0x0601
+       <target-os>linux,<toolset>gcc,<segmented-stacks>on:<cxxflags>-fsplit-stack
+@@ -925,4 +925,4 @@ lib boost_context
+      stack_traits_sources
+    ;
+ 
+-boost-install boost_context ;
++# boost-install boost_context ;
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 54019a2..facc412 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -12,11 +12,13 @@ import modules ;
+ import os ;
+ import testing ;
+ import toolset ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ using flags ;
+ 
+ project boost/context/test
+     : requirements
++      <source>/boost/array//boost_array
++      <source>/boost/lexical_cast//boost_lexical_cast
+       <library>/boost/context//boost_context
+       <target-os>linux,<toolset>gcc,<segmented-stacks>on:<cxxflags>-fsplit-stack
+       <target-os>linux,<toolset>gcc,<segmented-stacks>on:<cxxflags>-DBOOST_USE_SEGMENTED_STACKS

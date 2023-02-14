@@ -1,0 +1,74 @@
+diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
+index 230d5a8..06306dd 100644
+--- a/build/Jamfile.v2
++++ b/build/Jamfile.v2
+@@ -6,7 +6,6 @@
+ #
+ 
+ project
+-  : source-location .
+   : requirements
+     <visibility>hidden
+   ;
+@@ -70,7 +69,7 @@ lib boost_stacktrace_backtrace
+     <target-os>linux:<library>dl
+     <library>backtrace
+     <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+-    [ check-target-builds ../build//libbacktrace : : <build>no ]
++    [ check-target-builds libbacktrace : : <build>no ]
+   : # default build
+   : # usage-requirements
+     #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+@@ -83,7 +82,7 @@ lib boost_stacktrace_addr2line
+     <warnings>all
+     <target-os>linux:<library>dl
+     <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+-    [ check-target-builds ../build//addr2line : : <build>no ]
++    [ check-target-builds addr2line : : <build>no ]
+   : # default build
+   : # usage-requirements
+     #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+@@ -96,7 +95,7 @@ lib boost_stacktrace_basic
+     <warnings>all
+     <target-os>linux:<library>dl
+     <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+-    [ check-target-builds ../build//WinDbg : <build>no ]
++    [ check-target-builds WinDbg : <build>no ]
+   : # default build
+   : # usage-requirements
+     #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+@@ -109,7 +108,7 @@ lib boost_stacktrace_windbg
+     <warnings>all
+     <library>Dbgeng <library>ole32
+     <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+-    [ check-target-builds ../build//WinDbg : : <build>no ]
++    [ check-target-builds WinDbg : : <build>no ]
+   : # default build
+   : # usage-requirements
+     #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+@@ -122,10 +121,10 @@ lib boost_stacktrace_windbg_cached
+     <warnings>all
+     <library>Dbgeng <library>ole32
+     <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+-    [ check-target-builds ../build//WinDbgCached : : <build>no ]
++    [ check-target-builds WinDbgCached : : <build>no ]
+   : # default build
+   : # usage-requirements
+     #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+   ;
+ 
+-boost-install boost_stacktrace_noop boost_stacktrace_backtrace boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_windbg boost_stacktrace_windbg_cached ;
++# boost-install boost_stacktrace_noop boost_stacktrace_backtrace boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_windbg boost_stacktrace_windbg_cached ;
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 49e7d82..b33f289 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -5,7 +5,7 @@
+ # http://www.boost.org/LICENSE_1_0.txt)
+ #
+ 
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ lib dl : : <link>shared ;
+ lib gcc_s ;

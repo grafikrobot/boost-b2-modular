@@ -1,0 +1,37 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/stacktrace
+    : common-requirements
+        <source>/boost/array//libs
+        <source>/boost/config//libs
+        <source>/boost/container_hash//libs
+        <source>/boost/core//libs
+        <source>/boost/predef//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/type_traits//libs
+        <source>/boost/winapi//libs
+        <include>include
+    ;
+
+explicit
+    [ alias boost_stacktrace_noop : build//boost_stacktrace_noop ]
+    [ alias boost_stacktrace_backtrace : build//boost_stacktrace_backtrace ]
+    [ alias boost_stacktrace_addr2line : build//boost_stacktrace_addr2line ]
+    [ alias boost_stacktrace_basic : build//boost_stacktrace_basic ]
+    [ alias boost_stacktrace_windbg : build//boost_stacktrace_windbg ]
+    [ alias boost_stacktrace_windbg_cached : build//boost_stacktrace_windbg_cached ]
+    [ alias boost_stacktrace : boost_stacktrace_noop ]
+    [ alias libs :
+        boost_stacktrace_noop
+        boost_stacktrace_backtrace
+        boost_stacktrace_addr2line
+        boost_stacktrace_basic
+        boost_stacktrace_windbg
+        boost_stacktrace_windbg_cached ]
+    [ alias all : libs test ]
+    ;

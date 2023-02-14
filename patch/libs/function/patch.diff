@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 423f61c..7d57159 100644
+index 02b0c5c..c62a1a0 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -42,7 +42,7 @@ run function_ref_portable.cpp ;

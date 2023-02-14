@@ -29,5 +29,6 @@ rm -f "${rootdir}/libs/logic/Jamfile"
 rm -f "${rootdir}/libs/move/Jamfile"
 rm -f "${rootdir}/libs/mpl/Jamfile"
 rm -f "${rootdir}/libs/pool/Jamfile"
+rm -f "${rootdir}/libs/rational/Jamfile"
 cd "${rootdir}"
 pwd

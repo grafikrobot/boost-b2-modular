@@ -1,0 +1,29 @@
+diff --git a/Jamfile b/Jamfile
+deleted file mode 100644
+index 306f0f6..0000000
+--- a/Jamfile
++++ /dev/null
+@@ -1,10 +0,0 @@
+-#
+-# Copyright (c) 2019 Vinnie Falco (vinnie dot falco at gmail dot com)
+-#
+-# Distributed under the Boost Software License, Version 1.0. (See accompanying
+-# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-#
+-# Official repository: https://github.com/boostorg/static_string
+-#
+-
+-build-project test ;
+diff --git a/test/Jamfile b/test/Jamfile
+index 17231a6..d9fa177 100644
+--- a/test/Jamfile
++++ b/test/Jamfile
+@@ -8,7 +8,7 @@
+ #
+ 
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ local defines =
+     [ requires

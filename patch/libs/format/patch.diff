@@ -1,0 +1,67 @@
+diff --git a/Jamfile b/Jamfile
+deleted file mode 100644
+index 5f53e9b..0000000
+--- a/Jamfile
++++ /dev/null
+@@ -1,27 +0,0 @@
+-#  Boost.Format Library Jamfile
+-#
+-#  Copyright (c) 2003 Samuel Krempp
+-#
+-#  Use, modification, and distribution are subject to the
+-#  Boost Software License, Version 1.0. (See accompanying file
+-#  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-
+-project
+-    : requirements
+-
+-      <warnings>all
+-
+-      <toolset>clang:<cxxflags>-Wextra
+-      <toolset>clang:<cxxflags>-ansi
+-      <toolset>clang:<cxxflags>-pedantic
+-
+-      <toolset>gcc:<cxxflags>-Wextra
+-      <toolset>gcc:<cxxflags>-ansi
+-      <toolset>gcc:<cxxflags>-pedantic
+-    ;
+-
+-# please order by name to ease maintenance
+-build-project benchmark ;
+-build-project example ;
+-build-project test ;
+-build-project tools ;
+diff --git a/benchmark/Jamfile b/benchmark/Jamfile
+index 0a420ab..bac30e9 100644
+--- a/benchmark/Jamfile
++++ b/benchmark/Jamfile
+@@ -6,10 +6,11 @@
+ #  See www.boost.org/LICENSE_1_0.txt
+ #
+ 
+-project libs/format/benchmark 
++project 
+     : requirements
+-	  <toolset>msvc:<define>_CRT_SECURE_NO_WARNINGS
+-	;
++        <source>/boost/timer//boost_timer
++        <toolset>msvc:<define>_CRT_SECURE_NO_WARNINGS
++    ;
+ 
+ exe bench_format_no_locale
+     : bench_format.cpp
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index f77f97c..e2e4a56 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -7,6 +7,10 @@
+ 
+ import testing ;
+ 
++project : requirements
++    <source>/boost/algorithm//boost_algorithm
++    ;
++
+ test-suite "format"
+    :    [ run format_test1.cpp ]
+         [ run format_test1.cpp : : : <toolset>msvc:<cxxflags>"/FIWindows.h" : format_test1_windows_h ]

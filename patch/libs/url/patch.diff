@@ -1,0 +1,244 @@
+diff --git a/Jamfile b/Jamfile
+deleted file mode 100644
+index cd2a846..0000000
+--- a/Jamfile
++++ /dev/null
+@@ -1,20 +0,0 @@
+-#
+-# Copyright (c) 2013-2019 Vinnie Falco (vinnie dot falco at gmail dot com)
+-#
+-# Distributed under the Boost Software License, Version 1.0. (See accompanying
+-# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-#
+-# Official repository: https://github.com/boostorg/url
+-#
+-
+-import ../../config/checks/config : requires ;
+-
+-constant c11-requires :
+-    [ requires
+-    cxx11_constexpr
+-    cxx11_decltype
+-    cxx11_hdr_tuple
+-    cxx11_template_aliases
+-    cxx11_variadic_templates
+-    ]
+-    ;
+diff --git a/build/Jamfile b/build/Jamfile
+index 1bb70e5..6c4943d 100644
+--- a/build/Jamfile
++++ b/build/Jamfile
+@@ -8,9 +8,8 @@
+ # Official repository: https://github.com/vinniefalco/url
+ #
+ 
+-project boost/url
++project
+     : requirements
+-      $(c11-requires)
+       <link>shared:<define>BOOST_URL_DYN_LINK=1
+       <link>static:<define>BOOST_URL_STATIC_LINK=1
+       <define>BOOST_URL_SOURCE
+@@ -32,4 +31,4 @@ lib boost_url
+    : url_sources
+    ;
+ 
+-boost-install boost_url ;
++# boost-install boost_url ;
+diff --git a/example/file_router/Jamfile b/example/file_router/Jamfile
+index be7dd14..50db477 100644
+--- a/example/file_router/Jamfile
++++ b/example/file_router/Jamfile
+@@ -7,8 +7,6 @@
+ # Official repository: https://github.com/boostorg/url
+ #
+ 
+-project : requirements  ;
+-
+ project
+     : requirements
+       <library>/boost/url//boost_url
+diff --git a/example/finicky/Jamfile b/example/finicky/Jamfile
+index 526f227..44d433e 100644
+--- a/example/finicky/Jamfile
++++ b/example/finicky/Jamfile
+@@ -7,8 +7,6 @@
+ # Official repository: https://github.com/boostorg/url
+ #
+ 
+-project : requirements  ;
+-
+ project
+     : requirements
+       <library>/boost/url//boost_url
+diff --git a/example/magnet/Jamfile b/example/magnet/Jamfile
+index 5b6b198..917b641 100644
+--- a/example/magnet/Jamfile
++++ b/example/magnet/Jamfile
+@@ -7,8 +7,6 @@
+ # Official repository: https://github.com/boostorg/url
+ #
+ 
+-project : requirements  ;
+-
+ project
+     : requirements
+       <library>/boost/url//boost_url
+diff --git a/example/mailto/Jamfile b/example/mailto/Jamfile
+index 6c36f4e..d4f38ee 100644
+--- a/example/mailto/Jamfile
++++ b/example/mailto/Jamfile
+@@ -7,8 +7,6 @@
+ # Official repository: https://github.com/boostorg/url
+ #
+ 
+-project : requirements  ;
+-
+ project
+     : requirements
+       <library>/boost/url//boost_url
+diff --git a/example/qrcode/Jamfile b/example/qrcode/Jamfile
+index 6a1a596..29e1c2b 100644
+--- a/example/qrcode/Jamfile
++++ b/example/qrcode/Jamfile
+@@ -7,8 +7,6 @@
+ # Official repository: https://github.com/boostorg/url
+ #
+ 
+-project : requirements  ;
+-
+ project
+     : requirements
+       <library>/boost/url//boost_url
+diff --git a/example/router/Jamfile b/example/router/Jamfile
+index 81016bc..7175801 100644
+--- a/example/router/Jamfile
++++ b/example/router/Jamfile
+@@ -7,14 +7,13 @@
+ # Official repository: https://github.com/boostorg/url
+ #
+ 
+-project : requirements  ;
+-
+ project
+     : requirements
+       <toolset>clang-4:<warnings-as-errors>off
+       <toolset>clang-5:<warnings-as-errors>off
+       <define>BOOST_ASIO_DISABLE_FENCED_BLOCK
+       <library>/boost/url//boost_url
++      <source>/boost/beast//boost_beast
+       <toolset>gcc-7:<cxxflags>"-Wno-maybe-uninitialized"
+     ;
+ 
+diff --git a/example/suffix_list/Jamfile b/example/suffix_list/Jamfile
+index 90a4d1a..14e48c9 100644
+--- a/example/suffix_list/Jamfile
++++ b/example/suffix_list/Jamfile
+@@ -7,8 +7,6 @@
+ # Official repository: https://github.com/boostorg/url
+ #
+ 
+-project : requirements  ;
+-
+ project
+     : requirements
+       <library>/boost/url//boost_url
+diff --git a/test/Jamfile b/test/Jamfile
+index 430779d..8c72c15 100644
+--- a/test/Jamfile
++++ b/test/Jamfile
+@@ -19,6 +19,7 @@ project
+     <toolset>clang:<warnings-as-errors>on
+     <toolset>msvc:<cxxflags>"/we4265" # Extra errors that are disabled by default
+     <toolset>gcc:<cxxflags>"-Wno-unused-but-set-variable"      # Warnings in dependencies
++    <toolset>clang:<cxxflags>"-Wno-unknown-warning-option"
+     <toolset>gcc-7:<cxxflags>"-Wno-maybe-uninitialized"        # Warnings in dependencies
+     <toolset>clang-4:<cxxflags>"-Wno-unused-but-set-variable"  # Warnings in dependencies
+     <toolset>clang-5:<cxxflags>"-Wno-unused-but-set-variable"  # Warnings in dependencies
+@@ -28,24 +29,6 @@ project
+     <toolset>clang-15:<cxxflags>"-Wno-unused-but-set-variable" # Warnings in dependencies
+   ;
+ 
+-project
+-  : default-build
+-
+-    <warnings>extra
+-
+-  : requirements
+-
+-    <toolset>msvc:<warnings-as-errors>on
+-    <toolset>gcc:<warnings-as-errors>on
+-    <toolset>clang:<warnings-as-errors>on
+-    <toolset>gcc:<cxxflags>"-Wno-unused-but-set-variable"      # Warnings in dependencies
+-    <toolset>clang:<cxxflags>"-Wno-unknown-warning-option"
+-    <toolset>clang-13:<cxxflags>"-Wno-unused-but-set-variable" # Warnings in dependencies
+-    <toolset>clang-14:<cxxflags>"-Wno-unused-but-set-variable" # Warnings in dependencies
+-    <toolset>clang-15:<cxxflags>"-Wno-unused-but-set-variable" # Warnings in dependencies
+-
+-  ;
+-
+ build-project extra ;
+ build-project limits ;
+ build-project unit ;
+diff --git a/test/extra/Jamfile b/test/extra/Jamfile
+index 237fc52..d3f7f1a 100644
+--- a/test/extra/Jamfile
++++ b/test/extra/Jamfile
+@@ -11,7 +11,6 @@ import testing ;
+ 
+ project
+     : requirements
+-      $(c11-requires)
+       <source>../../extra/test_main.cpp
+       <include>.
+       <include>../../extra
+diff --git a/test/limits/Jamfile b/test/limits/Jamfile
+index 8ef9973..af9edf1 100644
+--- a/test/limits/Jamfile
++++ b/test/limits/Jamfile
+@@ -11,7 +11,6 @@ import testing ;
+ 
+ project
+     : requirements
+-      $(c11-requires)
+       <source>../../extra/test_main.cpp
+       <include>.
+       <include>../../extra
+diff --git a/test/unit/Jamfile b/test/unit/Jamfile
+index f8ee073..ba56d02 100644
+--- a/test/unit/Jamfile
++++ b/test/unit/Jamfile
+@@ -11,7 +11,6 @@ import testing ;
+ 
+ project
+     : requirements
+-      $(c11-requires)
+       <library>/boost/filesystem//boost_filesystem/<warnings>off
+       <library>/boost/url//boost_url
+       <source>../../extra/test_main.cpp
+@@ -52,7 +51,6 @@ local SOURCES =
+     segments_encoded_view.cpp
+     segments_ref.cpp
+     segments_view.cpp
+-    snippets.cpp
+     static_url.cpp
+     string_view.cpp
+     url.cpp
+@@ -64,7 +62,6 @@ local SOURCES =
+     grammar/alnum_chars.cpp
+     grammar/alpha_chars.cpp
+     grammar/charset.cpp
+-    grammar/ci_string.cpp
+     grammar/dec_octet_rule.cpp
+     grammar/delim_rule.cpp
+     grammar/digit_chars.cpp
+@@ -106,5 +103,7 @@ for local f in $(SOURCES)
+ {
+     run $(f) : : : ;
+ }
+-run doc_grammar.cpp /boost/url//boost_url : : : <warnings>off ;
+-run doc_3_urls.cpp /boost/url//boost_url : : : <warnings>off ;
++run snippets.cpp /boost/container//boost_container ;
++run grammar/ci_string.cpp /boost/container//boost_container /boost/unordered//boost_unordered ;
++run doc_grammar.cpp : : : <warnings>off ;
++run doc_3_urls.cpp : : : <warnings>off ;

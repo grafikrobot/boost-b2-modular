@@ -20,4 +20,11 @@ explicit
     [ alias boost_config ]
     [ alias libs ]
     [ alias all : test ]
+    [ alias testing
+        : # sources
+        : # requirements
+        : # default-buidl
+        : # usage-requirements
+            <include>test
+        ]
     ;

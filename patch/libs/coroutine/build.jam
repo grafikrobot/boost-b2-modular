@@ -1,0 +1,27 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/coroutine
+    : common-requirements
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/context//libs
+        <source>/boost/core//libs
+        <source>/boost/exception//libs
+        <source>/boost/move//libs
+        <source>/boost/system//libs
+        <source>/boost/throw_exception//libs
+        <source>/boost/type_traits//libs
+        <source>/boost/utility//libs
+        <include>include
+    ;
+
+explicit
+    [ alias boost_coroutine : build//boost_coroutine ]
+    [ alias libs : boost_coroutine ]
+    [ alias all : libs test ]
+    ;

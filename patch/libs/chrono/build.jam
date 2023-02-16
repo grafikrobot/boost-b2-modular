@@ -1,0 +1,32 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/chrono
+    : common-requirements
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+        <source>/boost/integer//libs
+        <source>/boost/move//libs
+        <source>/boost/mpl//libs
+        <source>/boost/predef//libs
+        <source>/boost/ratio//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/system//libs
+        <source>/boost/throw_exception//libs
+        <source>/boost/type_traits//libs
+        <source>/boost/typeof//libs
+        <source>/boost/utility//libs
+        <source>/boost/winapi//libs
+        <include>include
+    ;
+
+explicit
+    [ alias boost_chrono : build//boost_chrono ]
+    [ alias libs : boost_chrono ]
+    [ alias all : libs test ]
+    ;

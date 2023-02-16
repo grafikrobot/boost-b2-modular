@@ -1,0 +1,19 @@
+diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
+index cda020b..9227ee2 100644
+--- a/build/Jamfile.v2
++++ b/build/Jamfile.v2
+@@ -8,7 +8,7 @@
+ 
+ # See library home page at http://www.boost.org/libs/chrono
+ 
+-project boost/chrono
++project
+     : source-location ../src
+     : requirements
+         <target-os>freebsd:<linkflags>"-lrt"
+@@ -107,4 +107,4 @@ lib boost_chrono
+     <link>static:<define>BOOST_All_STATIC_LINK=1 # tell source we're building static lib's
+     ;
+ 
+-boost-install boost_chrono ;
++# boost-install boost_chrono ;

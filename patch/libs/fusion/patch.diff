@@ -1,0 +1,62 @@
+diff --git a/test/Jamfile b/test/Jamfile
+index 168fdc16..7218d639 100755
+--- a/test/Jamfile
++++ b/test/Jamfile
+@@ -10,7 +10,7 @@
+ # bring in rules for testing
+ import testing ;
+ import os ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ if [ os.environ CI ]
+ {
+@@ -25,8 +25,8 @@ project
+ {
+     test-suite fusion :
+ 
+-    [ run algorithm/all.cpp ]
+-    [ run algorithm/any.cpp ]
++    [ run algorithm/all.cpp : : : <source>/boost/lambda//boost_lambda ]
++    [ run algorithm/any.cpp : : : <source>/boost/lambda//boost_lambda ]
+     [ run algorithm/clear.cpp ]
+     [ run algorithm/copy.cpp ]
+     [ run algorithm/count.cpp ]
+@@ -44,8 +44,8 @@ project
+     [ run algorithm/iter_fold.cpp ]
+     [ run algorithm/move.cpp : :
+         : [ requires cxx11_rvalue_references ] ]
+-    [ run algorithm/none.cpp ]
+-    [ run algorithm/pop_back.cpp ]
++    [ run algorithm/none.cpp : : : <source>/boost/lambda//boost_lambda ]
++    [ run algorithm/pop_back.cpp : : : <source>/boost/array//boost_array ]
+     [ run algorithm/pop_front.cpp ]
+     [ run algorithm/push_back.cpp ]
+     [ run algorithm/push_front.cpp ]
+@@ -76,7 +76,7 @@ project
+     [ run sequence/as_vector.cpp ]
+     [ run sequence/boost_tuple.cpp ]
+     [ run sequence/boost_tuple_iterator.cpp ]
+-    [ run sequence/cons.cpp ]
++    [ run sequence/cons.cpp : : : <source>/boost/lambda//boost_lambda ]
+     [ run sequence/convert_boost_tuple.cpp ]
+     [ run sequence/convert_deque.cpp ]
+     [ run sequence/convert_list.cpp ]
+@@ -134,7 +134,7 @@ project
+     [ run sequence/set.cpp ]
+     [ run sequence/single_view.cpp ]
+     [ run sequence/std_pair.cpp ]
+-    [ run sequence/boost_array.cpp ]
++    [ run sequence/boost_array.cpp : : : <source>/boost/array//boost_array ]
+     [ run sequence/array.cpp ]
+     [ run sequence/std_array.cpp : :
+         : [ requires cxx11_hdr_array ] ]
+@@ -241,7 +241,7 @@ project
+     [ compile sequence/github-159.cpp ]
+     [ run sequence/github-176.cpp ]
+ 
+-    [ compile sequence/size.cpp ]
++    [ compile sequence/size.cpp : <source>/boost/array//boost_array ]
+ 
+     [ run functional/fused.cpp ]
+     [ run functional/fused_function_object.cpp ]

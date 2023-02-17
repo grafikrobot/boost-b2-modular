@@ -1,0 +1,24 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/timer
+    : common-requirements
+        <source>/boost/chrono//libs
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+        <source>/boost/io//libs
+        <source>/boost/predef//libs
+        <source>/boost/system//libs
+        <source>/boost/throw_exception//libs
+        <include>include
+    ;
+
+explicit
+    [ alias boost_timer : build//boost_timer ]
+    [ alias libs : boost_timer ]
+    [ alias all : build libs test ]
+    ;

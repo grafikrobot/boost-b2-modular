@@ -1,0 +1,51 @@
+diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
+index 1980271..a7adc53 100644
+--- a/example/Jamfile.v2
++++ b/example/Jamfile.v2
+@@ -13,7 +13,7 @@ project : requirements <toolset>sun:<define>BOOST_TYPEOF_EMULATION ;
+ run add_cxx11_lambda.cpp ;
+ run add_global_functor.cpp ;
+ run add_local_functor.cpp ;
+-run add_phoenix.cpp ;
++run add_phoenix.cpp : : : <source>/boost/phoenix//boost_phoenix ;
+ 
+ run const_block.cpp ;
+ compile-fail const_block_error.cpp : <variant>debug : ;
+@@ -38,8 +38,8 @@ run n2550_find_if.cpp ;
+ compile-fail noncopyable_cxx11_lambda_error.cpp ;
+ run noncopyable_local_function.cpp ;
+ 
+-run phoenix_factorial.cpp ;
+-run phoenix_factorial_local.cpp ;
++run phoenix_factorial.cpp : : : <source>/boost/phoenix//boost_phoenix ;
++run phoenix_factorial_local.cpp : : : <source>/boost/phoenix//boost_phoenix ;
+ 
+ # Only compile but do not run profiling programs (they take a long time to run).
+ exe profile_global_functor : profile_global_functor.cpp
+@@ -70,8 +70,9 @@ exe profile_local_functor : profile_local_functor.cpp
+ exe profile_phoenix : profile_phoenix.cpp
+     :   <library>/boost/chrono//boost_chrono
+         <library>/boost/system//boost_system
++        <source>/boost/phoenix//boost_phoenix
+         <link>static
+     ;
+ 
+-run scope_exit.cpp ;
++run scope_exit.cpp : : : <source>/boost/foreach//boost_foreach ;
+ 
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 47d95d0..f3157a0 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -8,7 +8,10 @@
+ import testing ;
+ 
+ # Sun does not automatically detect type-of emulation mode (force it).
+-project : requirements <toolset>sun:<define>BOOST_TYPEOF_EMULATION ;
++project : requirements <toolset>sun:<define>BOOST_TYPEOF_EMULATION
++    <source>/boost/concept_check//boost_concept_check
++    <source>/boost/functional//boost_functional
++    ;
+ 
+ rule vaseq ( command target )
+ {

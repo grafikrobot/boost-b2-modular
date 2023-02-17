@@ -15,6 +15,18 @@ index e43cebe..0000000
 -# please order by name to ease maintenance
 -build-project example ;
 -build-project test ;
+diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
+index 4e8f44e..79c9693 100644
+--- a/example/Jamfile.v2
++++ b/example/Jamfile.v2
+@@ -30,6 +30,7 @@ rule test_all
+         <toolset>gcc,<target-os>windows:<linkflags>"-lole32 -loleaut32"
+         <host-os>hpux,<toolset>gcc:<linkflags>"-Wl,+as,mpas"
+         <host-os>windows,<toolset>clang:<linkflags>"-lole32 -loleaut32 -lpsapi -ladvapi32"
++        <library>/boost/interprocess//boost_interprocess
+       ] ;
+    }
+ 
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
 index 8193d27..2b9c9aa 100644
 --- a/test/Jamfile.v2

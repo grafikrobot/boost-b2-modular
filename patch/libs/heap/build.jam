@@ -1,0 +1,29 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/heap
+    : common-requirements
+        <source>/boost/array//libs
+        <source>/boost/assert//libs
+        <source>/boost/bind//libs
+        <source>/boost/concept_check//libs
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+        <source>/boost/intrusive//libs
+        <source>/boost/iterator//libs
+        <source>/boost/parameter//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/throw_exception//libs
+        <source>/boost/type_traits//libs
+        <include>include
+    ;
+
+explicit
+    [ alias boost_heap ]
+    [ alias libs ]
+    [ alias all : libs test ]
+    ;

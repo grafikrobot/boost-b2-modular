@@ -1,0 +1,58 @@
+diff --git a/Jamfile b/Jamfile
+deleted file mode 100644
+index a2dbf99..0000000
+--- a/Jamfile
++++ /dev/null
+@@ -1,11 +0,0 @@
+-#  Boost.Algorithm Library Jamfile
+-#
+-#  Copyright (c) 2018 James E. King III
+-#
+-#  Use, modification, and distribution are subject to the
+-#  Boost Software License, Version 1.0. (See accompanying file
+-#  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-
+-# please order by name to ease maintenance
+-build-project example ;
+-build-project test ;
+diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
+index 64a4055..96163b6 100644
+--- a/example/Jamfile.v2
++++ b/example/Jamfile.v2
+@@ -8,9 +8,8 @@
+ #  See http://www.boost.org for updates, documentation, and revision history.
+ 
+ 
+-project /boost/algorithm/example
++project
+     : requirements
+-      <include>../../../
+       <optimization>speed
+       <toolset>msvc:<define>_SCL_SECURE_NO_WARNINGS
+       <toolset>msvc:<define>NOMINMAX
+diff --git a/minmax/test/Jamfile.v2 b/minmax/test/Jamfile.v2
+index 384b359..2e41d1e 100644
+--- a/minmax/test/Jamfile.v2
++++ b/minmax/test/Jamfile.v2
+@@ -11,7 +11,7 @@ import testing ;
+ 
+ alias unit_test_framework
+     : # sources
+-        /boost//unit_test_framework
++        /boost/test//unit_test_framework
+     ;        
+ 
+ {
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index aef6bdb..9c8d199 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -11,7 +11,7 @@ import testing ;
+ 
+ alias unit_test_framework
+     : # sources
+-        /boost//unit_test_framework
++        /boost/test//unit_test_framework
+     ;
+ 
+ 

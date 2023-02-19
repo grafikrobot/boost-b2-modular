@@ -19,6 +19,7 @@ for submod in ${submods} ; do
         ln -f -s "${patchdir}/libs/${submod}/build.jam" build.jam
     fi
 done
+rm -f "${rootdir}/libs/algorithm/Jamfile"
 rm -f "${rootdir}/libs/concept_check/Jamfile"
 rm -f "${rootdir}/libs/container/Jamfile"
 rm -f "${rootdir}/libs/dynamic_bitset/Jamfile"

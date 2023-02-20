@@ -35,6 +35,7 @@ rm -f "${rootdir}/libs/pool/Jamfile"
 rm -f "${rootdir}/libs/rational/Jamfile"
 rm -f "${rootdir}/libs/safe_numerics/Jamfile.v2"
 rm -f "${rootdir}/libs/static_string/Jamfile"
-rm -f "${rootdir}/libs/url/Jamfile"
+rm -f "${rootdir}/libs/test/Jamfile"
+rm -f "${rootdir}/libs/url/Jamfile.v2"
 cd "${rootdir}"
 pwd

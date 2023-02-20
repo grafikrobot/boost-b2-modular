@@ -1,0 +1,41 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/test
+    : common-requirements
+        <source>/boost/algorithm//libs
+        <source>/boost/assert//libs
+        <source>/boost/bind//libs
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+        <source>/boost/detail//libs
+        <source>/boost/exception//libs
+        <source>/boost/function//libs
+        <source>/boost/io//libs
+        <source>/boost/iterator//libs
+        <source>/boost/mpl//libs
+        <source>/boost/numeric_conversion//libs
+        <source>/boost/optional//libs
+        <source>/boost/preprocessor//libs
+        <source>/boost/smart_ptr//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/type_traits//libs
+        <source>/boost/utility//libs
+        <include>include
+    ;
+
+explicit
+    [ alias boost_test ]
+    [ alias boost_prg_exec_monitor : build//boost_prg_exec_monitor ]
+    [ alias boost_test_exec_monitor : build//boost_test_exec_monitor ]
+    [ alias boost_unit_test_framework : build//boost_unit_test_framework ]
+    [ alias libs ]
+    [ alias all : libs test
+        boost_prg_exec_monitor
+        boost_test_exec_monitor
+        boost_unit_test_framework ]
+    ;

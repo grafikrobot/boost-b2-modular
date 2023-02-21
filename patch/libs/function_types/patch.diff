@@ -1,8 +1,18 @@
 diff --git a/example/Jamfile b/example/Jamfile
-index 08ab43d..3868c01 100644
+index 08ab43d..1c3130a 100644
 --- a/example/Jamfile
 +++ b/example/Jamfile
-@@ -13,7 +13,10 @@ exe  result_of_example       : result_of_example.cpp   ;
+@@ -6,14 +6,19 @@
+ 
+ #-------------------------------------------------------------------------------
+ 
+-exe  interpreter_example     : interpreter_example.cpp ;
++exe  interpreter_example     : interpreter_example.cpp
++    : <source>/boost/tokenizer//boost_tokenizer
++    ;
+ 
+ exe  result_of_example       : result_of_example.cpp   ;
+ 
  exe  interface_example       : interface_example.cpp   ;
  
  exe  fast_mem_fn_example     : fast_mem_fn_example.cpp 
@@ -15,10 +25,17 @@ index 08ab43d..3868c01 100644
  exe  macro_type_args_example : macro_type_args_example.cpp ;
  
 diff --git a/test/Jamfile b/test/Jamfile
-index e652c46..39406b9 100644
+index e652c46..ca5ea62 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
-@@ -81,6 +81,8 @@ import testing ;
+@@ -75,12 +75,14 @@ import testing ;
+     
+     # Code from the examples
+ 
+-    [ compile ../example/interpreter_example.cpp ]
++    [ compile ../example/interpreter_example.cpp : <source>/boost/tokenizer//boost_tokenizer ]
+     [ compile ../example/result_of_example.cpp ]
+     [ compile ../example/interface_example.cpp ]
      [ compile ../example/fast_mem_fn_example.cpp 
        # needed for Boost.PP file iteration with some compilers
        : <include>../example

@@ -11,7 +11,7 @@ pwd
 git pull
 git submodule foreach git switch develop
 git submodule foreach git reset --hard
-git submodule foreach git pull
+git submodule foreach git pull -r
 ./patch/patch-apply.sh
 
 cd "${rootdir}"

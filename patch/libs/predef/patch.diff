@@ -71,3 +71,15 @@ index beebe6e..c45a6c6 100644
  import common ;
  import path ;
  import regex ;
+diff --git a/tools/check/predef.jam b/tools/check/predef.jam
+index dd18bfb..d4afeb3 100644
+--- a/tools/check/predef.jam
++++ b/tools/check/predef.jam
+@@ -31,6 +31,7 @@ rule check ( expressions + : language ? : true-properties * : false-properties *
+     language ?= cpp ;
+     
+     local project_target = [ project.target $(__name__) ] ;
++    $(project_target).reset-alternatives ;
+ 	project.push-current $(project_target) ;
+     local terms ;
+     local result ;

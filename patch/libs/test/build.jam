@@ -37,7 +37,7 @@ explicit
     [ alias test_exec_monitor : boost_test_exec_monitor ]
     [ alias unit_test_framework : boost_unit_test_framework ]
     [ alias libs ]
-    [ alias all : libs test
+    [ alias all : example libs test
         boost_prg_exec_monitor
         boost_test_exec_monitor
         boost_unit_test_framework ]

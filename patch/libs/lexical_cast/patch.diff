@@ -1,0 +1,13 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 71b163e..d30945e 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -62,7 +62,7 @@ test-suite conversion
+     [ run stream_detection_test.cpp ]
+     [ run stream_traits_test.cpp ]
+     [ compile-fail to_pointer_test.cpp ]
+-    [ run filesystem_test.cpp ../../filesystem/build//boost_filesystem/<link>static ]
++    [ run filesystem_test.cpp /boost/filesystem//boost_filesystem/<link>static ]
+     [ run try_lexical_convert.cpp ]
+     [ run no_comp_time_prcision.cpp : : :
+         <toolset>msvc:<cxxflags>/wd4127 # conditional expression is constant

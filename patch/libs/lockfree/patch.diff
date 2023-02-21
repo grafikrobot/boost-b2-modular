@@ -1,0 +1,46 @@
+diff --git a/examples/Jamfile.v2 b/examples/Jamfile.v2
+index 1868a4d..c69b61e 100644
+--- a/examples/Jamfile.v2
++++ b/examples/Jamfile.v2
+@@ -2,10 +2,10 @@
+ # Distributed under the Boost Software License, Version 1.0.
+ # (See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+ 
+-project boost/lockfree/example
++project
+     : requirements
+-        <library>../../thread/build//boost_thread/
+-        <library>../../atomic/build//boost_atomic
++        <library>/boost/thread//boost_thread
++        <library>/boost/atomic//boost_atomic
+     ;
+ 
+ exe queue : queue.cpp ;
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 3b7dd27..5054d3a 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -11,10 +11,12 @@ lib boost_thread ;
+ lib boost_unit_test_framework ;
+ 
+ project
+-    : source-location .
+     : requirements
+-        <library>../../test/build//boost_unit_test_framework
+-        <library>../../atomic/build//boost_atomic
++        <library>/boost/test//boost_unit_test_framework
++        <library>/boost/atomic//boost_atomic
++        <library>/boost/thread//boost_thread
++        <library>/boost/interprocess//boost_interprocess
++        <library>/boost/foreach//boost_foreach
+     ;
+ 
+ 
+@@ -33,7 +35,6 @@ rule test_all
+         <target-os>windows,<toolset>gcc:<linkflags>"-lole32 -loleaut32 -lpsapi -ladvapi32"
+         <host-os>hpux,<toolset>gcc:<linkflags>"-Wl,+as,mpas"
+         <host-os>linux,<toolset>clang:<linkflags>"-latomic"
+-        <library>../../thread/build//boost_thread/
+         <threading>multi
+         <link>static
+       ] ;

@@ -28,6 +28,7 @@ done
 rm -f "${rootdir}/libs/algorithm/Jamfile"
 rm -f "${rootdir}/libs/concept_check/Jamfile"
 rm -f "${rootdir}/libs/container/Jamfile"
+rm -f "${rootdir}/libs/date_time/Jamfile"
 rm -f "${rootdir}/libs/dynamic_bitset/Jamfile"
 rm -f "${rootdir}/libs/format/Jamfile"
 rm -f "${rootdir}/libs/gil/Jamfile"

@@ -144,7 +144,7 @@ index 90a4d1a..14e48c9 100644
      : requirements
        <library>/boost/url//boost_url
 diff --git a/test/Jamfile b/test/Jamfile
-index 430779d..8c72c15 100644
+index 474c0e9..a1c0d6a 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -19,6 +19,7 @@ project
@@ -155,9 +155,9 @@ index 430779d..8c72c15 100644
      <toolset>gcc-7:<cxxflags>"-Wno-maybe-uninitialized"        # Warnings in dependencies
      <toolset>clang-4:<cxxflags>"-Wno-unused-but-set-variable"  # Warnings in dependencies
      <toolset>clang-5:<cxxflags>"-Wno-unused-but-set-variable"  # Warnings in dependencies
-@@ -28,24 +29,6 @@ project
-     <toolset>clang-15:<cxxflags>"-Wno-unused-but-set-variable" # Warnings in dependencies
-   ;
+@@ -30,24 +31,6 @@ project
+     <undefined-sanitizer>norecover:<visibility>global
+     ;
  
 -project
 -  : default-build

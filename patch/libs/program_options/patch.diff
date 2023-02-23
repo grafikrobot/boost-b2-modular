@@ -1,0 +1,43 @@
+diff --git a/Jamfile b/Jamfile
+deleted file mode 100644
+index f0de2e0..0000000
+--- a/Jamfile
++++ /dev/null
+@@ -1,11 +0,0 @@
+-#  Boost.ProgramOptions Library Jamfile
+-#
+-#  Copyright (c) 2018 James E. King III
+-#
+-#  Use, modification, and distribution are subject to the
+-#  Boost Software License, Version 1.0. (See accompanying file
+-#  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-
+-# please order by name to ease maintenance
+-build-project example ;
+-build-project test ;
+diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
+index 852054d..58bb64c 100644
+--- a/build/Jamfile.v2
++++ b/build/Jamfile.v2
+@@ -1,5 +1,5 @@
+ 
+-project boost/program_options 
++project 
+     : source-location ../src 
+     ;
+ 
+@@ -9,8 +9,11 @@ SOURCES =
+     convert winmain split
+     ;
+ 
+-boost-lib program_options
++lib boost_program_options
+     : $(SOURCES).cpp
+     : # See https://svn.boost.org/trac/boost/ticket/5049
+       <target-os>hpux,<toolset>gcc:<define>_INCLUDE_STDC__SOURCE_199901
+-    ;
+\ No newline at end of file
++      <link>shared:<define>BOOST_PROGRAM_OPTIONS_DYN_LINK=1
++    ;
++
++# boost-install boost_program_options ;

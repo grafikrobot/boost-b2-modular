@@ -1,0 +1,22 @@
+diff --git a/test/Jamfile b/test/Jamfile
+index 6b723cf..ada24a5 100644
+--- a/test/Jamfile
++++ b/test/Jamfile
+@@ -11,7 +11,7 @@
+ import testing ;
+ import os ;
+ 
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ if [ os.environ CI ]
+ {
+@@ -29,7 +29,7 @@ project
+         $(CI_DEFINES)
+     ;
+ 
+-local multi-threading = <library>/boost/thread
++local multi-threading = <library>/boost/thread//boost_thread
+                         <threading>multi <define>BOOST_ALL_NO_LIB=1 ;
+ 
+ test-suite phoenix_core :

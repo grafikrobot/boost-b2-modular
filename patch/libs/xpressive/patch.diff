@@ -1,0 +1,44 @@
+diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
+index ab9cd5d..b05778c 100644
+--- a/example/Jamfile.v2
++++ b/example/Jamfile.v2
+@@ -12,13 +12,9 @@ project
+ exe examples 
+     :
+         main.cpp
+-    :
+-        <include>$(BOOST_ROOT)
+     ;
+ 
+ exe numbers
+     :
+         numbers.cpp
+-    :
+-        <include>$(BOOST_ROOT)
+     ;
+diff --git a/perf/Jamfile.v2 b/perf/Jamfile.v2
+index 7769420..3eadec1 100644
+--- a/perf/Jamfile.v2
++++ b/perf/Jamfile.v2
+@@ -34,9 +34,8 @@ exe xprperf
+         time_boost.cpp
+         time_dynamic_xpressive.cpp
+         time_static_xpressive.cpp
+-        $(BOOST_ROOT)/libs/regex/src/$(BOOST_REGEX_SOURCES).cpp
++        /boost/regex//boost_regex
+     :
+-        <include>$(BOOST_ROOT)
+         <define>BOOST_REGEX_NO_LIB=1
+         <define>BOOST_REGEX_RECURSIVE
+         <define>BOOST_REGEX_USE_CPP_LOCALE
+diff --git a/tools/Jamfile.v2 b/tools/Jamfile.v2
+index ec2bb96..e715e1b 100644
+--- a/tools/Jamfile.v2
++++ b/tools/Jamfile.v2
+@@ -16,6 +16,4 @@ project
+ exe perl2xpr
+     :
+         perl2xpr.cpp
+-    :
+-        <include>$(BOOST_ROOT)
+     ;

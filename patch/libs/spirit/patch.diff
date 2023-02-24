@@ -1,0 +1,158 @@
+diff --git a/Jamfile b/Jamfile
+deleted file mode 100644
+index 2c33f4c86..000000000
+--- a/Jamfile
++++ /dev/null
+@@ -1,36 +0,0 @@
+-#==============================================================================
+-#   Copyright (c) 2021 Nikita Kniazev
+-#
+-#   Use, modification and distribution is subject to the Boost Software
+-#   License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+-#   http://www.boost.org/LICENSE_1_0.txt)
+-#==============================================================================
+-
+-import feature ;
+-
+-if ! [ feature.valid known-warnings ] {
+-    feature.feature known-warnings : hide show : incidental propagated ;
+-}
+-
+-local 9.0-14.0 = 9.0 10.0 11.0 12.0 14.0 ;
+-
+-project spirit
+-    : requirements
+-        # Warnings that we have not managed to fix yet
+-        <known-warnings>hide,<toolset>msvc:<cxxflags>-wd4244  # conversion from 'T' to 'U', possible loss of data
+-        <known-warnings>hide,<toolset>msvc:<cxxflags>-wd4365  # conversion from 'T' to 'U', signed/unsigned mismatch
+-        <known-warnings>hide,<toolset>msvc:<cxxflags>-wd4459  # declaration of 'varname' hides global declaration
+-
+-        # Enable additional useful warnings
+-        <warnings>extra,<toolset>gcc:<cxxflags>-Wshadow-local
+-        <warnings>extra,<toolset>clang-linux:<cxxflags>-Wshadow-field-in-constructor
+-        <warnings>extra,<toolset>clang-linux:<cxxflags>-Wshadow-uncaptured-local
+-        <warnings>extra,<toolset>clang-linux:<cxxflags>-Wundefined-reinterpret-cast
+-        <warnings>extra,<toolset>msvc:<cxxflags>-w44555  # result of expression not used
+-
+-        # Broken or very high false-positive rate
+-        <known-warnings>hide,<toolset>gcc:<cxxflags>-Wno-maybe-uninitialized  # Too many pesky false-positives
+-        <known-warnings>hide,<toolset>msvc-$(9.0-14.0):<cxxflags>-wd4100  # unreferenced formal parameter
+-        <known-warnings>hide,<toolset>msvc-$(9.0-14.0):<cxxflags>-wd4512  # assignment operator could not be generated
+-        <known-warnings>hide,<toolset>msvc-$(9.0-14.0):<cxxflags>-wd4714  # function 'x' marked as __forceinline not inlined
+-    ;
+diff --git a/example/Jamfile b/example/Jamfile
+index 4aa2c3dd9..60a2489f0 100644
+--- a/example/Jamfile
++++ b/example/Jamfile
+@@ -9,7 +9,7 @@
+ 
+ # build all examples
+ 
+-local examples = [ glob-tree [jJ]amfile [jJ]amfile.v2 ] ;
++local examples = [ glob-tree "[jJ]amfile" "[jJ]amfile.v2" ] ;
+ 
+ for local ex in $(examples) {
+    local dir = $(ex:P) ;
+diff --git a/example/karma/Jamfile b/example/karma/Jamfile
+index a93cbb7a7..4acef6c39 100644
+--- a/example/karma/Jamfile
++++ b/example/karma/Jamfile
+@@ -14,7 +14,7 @@ project spirit-karma-example
+ 
+ exe actions_example : actions.cpp ;
+ exe auto_facilities : auto_facilities.cpp ;
+-exe basic_facilities : basic_facilities.cpp /boost//date_time ;
++exe basic_facilities : basic_facilities.cpp /boost/date_time//boost_date_time ;
+ exe karma_calc2_ast_dump : calc2_ast_dump.cpp ;
+ exe karma_calc2_ast_rpn : calc2_ast_rpn.cpp ;
+ exe karma_calc2_ast_vm : calc2_ast_vm.cpp ;
+diff --git a/example/x3/Jamfile b/example/x3/Jamfile
+index f7da1217c..3935c2b8e 100644
+--- a/example/x3/Jamfile
++++ b/example/x3/Jamfile
+@@ -47,7 +47,7 @@ exe x3_calc7 :
+ ;
+ 
+ exe x3_calc8 :
+-    /boost//filesystem
++    /boost/filesystem//boost_filesystem
+     calc/calc8/vm.cpp
+     calc/calc8/compiler.cpp
+     calc/calc8/expression.cpp
+@@ -56,7 +56,7 @@ exe x3_calc8 :
+ ;
+ 
+ exe x3_calc9 :
+-    /boost//filesystem
++    /boost/filesystem//boost_filesystem
+     calc/calc9/vm.cpp
+     calc/calc9/compiler.cpp
+     calc/calc9/expression.cpp
+diff --git a/example/x3/rexpr/rexpr_full/Jamfile b/example/x3/rexpr/rexpr_full/Jamfile
+index c799b5f9b..8574e0a53 100644
+--- a/example/x3/rexpr/rexpr_full/Jamfile
++++ b/example/x3/rexpr/rexpr_full/Jamfile
+@@ -8,7 +8,6 @@
+ project spirit-x3-example-rexpr
+    : requirements
+       <c++-template-depth>512
+-      <use>/boost//headers
+       <define>BOOST_SPIRIT_X3_NO_FILESYSTEM
+       <include>.
+    ;
+diff --git a/example/x3/rexpr/rexpr_full/test/Jamfile b/example/x3/rexpr/rexpr_full/test/Jamfile
+index 4952e281b..05db04a60 100644
+--- a/example/x3/rexpr/rexpr_full/test/Jamfile
++++ b/example/x3/rexpr/rexpr_full/test/Jamfile
+@@ -10,8 +10,8 @@ import testing ;
+ project
+    : requirements
+       <source>..//rexpr
+-      <source>/boost//regex
+-      <source>/boost//filesystem
++      <source>/boost/regex//boost_regex
++      <source>/boost/filesystem//boost_filesystem
+       <c++-template-depth>300
+    ;
+ 
+diff --git a/test/test_headers/Jamfile b/test/test_headers/Jamfile
+index cddbc19b7..84594f337 100644
+--- a/test/test_headers/Jamfile
++++ b/test/test_headers/Jamfile
+@@ -16,16 +16,14 @@ import print ;
+ import sequence ;
+ import feature ;
+ 
+-project boost/spirit/test/test_headers 
++project 
+     : requirements 
+-        <include>$(BOOST_ROOT) 
+-        <include>../../../..
+         <c++-template-depth>300
+     ;
+ 
+ headers = 
+ [ 
+-    path.glob-tree ../../../../boost/spirit/include : *.hpp : classic* phoenix1* 
++    glob-tree-ex ../../include/boost/spirit/include : *.hpp : classic* phoenix1* 
+ ] ;
+ 
+ for local file in $(headers)
+@@ -35,7 +33,7 @@ for local file in $(headers)
+             <define>BOOST_SPIRIT_HEADER_NAME=$(file)
+             <dependency>$(file)
+         : # test name
+-            [ regex.replace [ path.relative-to ../../../../boost/spirit $(file) ] "/" "_" ] 
++            [ regex.replace [ path.relative-to ../../include/boost/spirit/include $(file) ] "/" "_" ] 
+         ;
+ }
+ 
+@@ -45,6 +43,8 @@ rule generate-include-all ( target : sources * : properties * )
+ {
+     print.output $(target) ;
+ 
++    sources = [ MATCH "(.*[.]hpp)" : $(sources) ] ;
++
+     if <generate-include-all-order>reverse in $(properties)
+     {
+         sources = [ sequence.reverse $(sources) ] ;

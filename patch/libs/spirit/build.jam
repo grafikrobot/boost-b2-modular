@@ -1,0 +1,72 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Copyright (c) 2021 Nikita Kniazev
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+import feature ;
+
+if ! [ feature.valid known-warnings ] {
+    feature.feature known-warnings : hide show : incidental propagated ;
+}
+
+local 9.0-14.0 = 9.0 10.0 11.0 12.0 14.0 ;
+
+project /boost/spirit
+    : common-requirements
+        <source>/boost/array//libs
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+        <source>/boost/endian//libs
+        <source>/boost/function//libs
+        <source>/boost/function_types//libs
+        <source>/boost/fusion//libs
+        <source>/boost/integer//libs
+        <source>/boost/io//libs
+        <source>/boost/iterator//libs
+        <source>/boost/move//libs
+        <source>/boost/mpl//libs
+        <source>/boost/optional//libs
+        <source>/boost/phoenix//libs
+        <source>/boost/pool//libs
+        <source>/boost/preprocessor//libs
+        <source>/boost/proto//libs
+        <source>/boost/range//libs
+        <source>/boost/regex//libs
+        <source>/boost/smart_ptr//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/thread//libs
+        <source>/boost/throw_exception//libs
+        <source>/boost/type_traits//libs
+        <source>/boost/typeof//libs
+        <source>/boost/unordered//libs
+        <source>/boost/utility//libs
+        <source>/boost/variant//libs
+        <include>include
+    : requirements
+        # Warnings that we have not managed to fix yet
+        <known-warnings>hide,<toolset>msvc:<cxxflags>-wd4244  # conversion from 'T' to 'U', possible loss of data
+        <known-warnings>hide,<toolset>msvc:<cxxflags>-wd4365  # conversion from 'T' to 'U', signed/unsigned mismatch
+        <known-warnings>hide,<toolset>msvc:<cxxflags>-wd4459  # declaration of 'varname' hides global declaration
+
+        # Enable additional useful warnings
+        <warnings>extra,<toolset>gcc:<cxxflags>-Wshadow-local
+        <warnings>extra,<toolset>clang-linux:<cxxflags>-Wshadow-field-in-constructor
+        <warnings>extra,<toolset>clang-linux:<cxxflags>-Wshadow-uncaptured-local
+        <warnings>extra,<toolset>clang-linux:<cxxflags>-Wundefined-reinterpret-cast
+        <warnings>extra,<toolset>msvc:<cxxflags>-w44555  # result of expression not used
+
+        # Broken or very high false-positive rate
+        <known-warnings>hide,<toolset>gcc:<cxxflags>-Wno-maybe-uninitialized  # Too many pesky false-positives
+        <known-warnings>hide,<toolset>msvc-$(9.0-14.0):<cxxflags>-wd4100  # unreferenced formal parameter
+        <known-warnings>hide,<toolset>msvc-$(9.0-14.0):<cxxflags>-wd4512  # assignment operator could not be generated
+        <known-warnings>hide,<toolset>msvc-$(9.0-14.0):<cxxflags>-wd4714  # function 'x' marked as __forceinline not inlined
+    ;
+
+explicit
+    [ alias boost_spirit ]
+    [ alias libs ]
+    [ alias all : example libs test ]
+    ;

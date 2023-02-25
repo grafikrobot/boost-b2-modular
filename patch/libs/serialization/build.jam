@@ -1,0 +1,37 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/serialization
+    : common-requirements
+        <source>/boost/array//libs
+        <source>/boost/assert//libs
+        <source>/boost/config//libs
+        <source>/boost/core//libs
+        <source>/boost/detail//libs
+        <source>/boost/function//libs
+        <source>/boost/integer//libs
+        <source>/boost/io//libs
+        <source>/boost/iterator//libs
+        <source>/boost/move//libs
+        <source>/boost/mpl//libs
+        <source>/boost/optional//libs
+        <source>/boost/predef//libs
+        <source>/boost/preprocessor//libs
+        <source>/boost/spirit//libs
+        <source>/boost/static_assert//libs
+        <source>/boost/type_traits//libs
+        <source>/boost/unordered//libs
+        <source>/boost/utility//libs
+        <source>/boost/variant//libs
+        <include>include
+    ;
+
+explicit
+    [ alias boost_serialization : build//boost_serialization ]
+    [ alias libs : boost_serialization ]
+    [ alias all : build//boost_serialization build//boost_wserialization example libs test ]
+    ;

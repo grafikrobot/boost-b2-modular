@@ -43,6 +43,19 @@ index 384b359..2e41d1e 100644
      ;        
  
  {
+diff --git a/string/test/Jamfile.v2 b/string/test/Jamfile.v2
+index 7f60df7..8e53f33 100644
+--- a/string/test/Jamfile.v2
++++ b/string/test/Jamfile.v2
+@@ -11,7 +11,7 @@ import testing ;
+ 
+ alias unit_test_framework
+     : # sources
+-        /boost//unit_test_framework
++        /boost/test//unit_test_framework
+     ;        
+ 
+ test-suite algorithm/string
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
 index aef6bdb..9c8d199 100644
 --- a/test/Jamfile.v2

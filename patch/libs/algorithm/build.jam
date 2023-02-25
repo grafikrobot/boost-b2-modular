@@ -29,5 +29,5 @@ project /boost/algorithm
 
 explicit
     [ alias boost_algorithm ]
-    [ alias all : boost_algorithm example test ]
+    [ alias all : boost_algorithm example test string/example string/test ]
     ;

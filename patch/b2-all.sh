@@ -14,7 +14,6 @@ for submod in ${submods} ; do
     d=`pwd`
     echo "============================== ${d}"
     if test -e "build.jam" ; then
-        b2 libs
         set +e
         b2 all
         set -e

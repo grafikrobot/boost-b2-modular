@@ -59,8 +59,21 @@ index 230d5a8..06306dd 100644
  
 -boost-install boost_stacktrace_noop boost_stacktrace_backtrace boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_windbg boost_stacktrace_windbg_cached ;
 +# boost-install boost_stacktrace_noop boost_stacktrace_backtrace boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_windbg boost_stacktrace_windbg_cached ;
+diff --git a/example/user_config.cpp b/example/user_config.cpp
+index cb80a58..fa845cf 100644
+--- a/example/user_config.cpp
++++ b/example/user_config.cpp
+@@ -4,7 +4,7 @@
+ // accompanying file LICENSE_1_0.txt or copy at
+ // http://www.boost.org/LICENSE_1_0.txt)
+ 
+-#define BOOST_USER_CONFIG <libs/stacktrace/example/user_config.hpp>
++#define BOOST_USER_CONFIG <example/user_config.hpp>
+ 
+ #include <boost/array.hpp>
+ #include <exception>    // std::set_terminate, std::abort
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 49e7d82..b33f289 100644
+index 49e7d82..fe3f5b1 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -5,7 +5,7 @@
@@ -72,3 +85,11 @@ index 49e7d82..b33f289 100644
  
  lib dl : : <link>shared ;
  lib gcc_s ;
+@@ -30,6 +30,7 @@ project
+     <warnings>all
+     <test-info>always_show_run_output
+     <visibility>hidden
++    <include>..
+   ;
+ 
+ local FORCE_SYMBOL_EXPORT = <target-os>freebsd:<linkflags>"-rdynamic" <target-os>solaris:<linkflags>"-Bdynamic" <target-os>aix:<linkflags>"-rdynamic"

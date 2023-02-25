@@ -10,7 +10,7 @@ project /boost/system
         <source>/boost/assert//boost_assert
         <source>/boost/config//boost_config
         <source>/boost/throw_exception//boost_throw_exception
-        <source>/boost/variant2//libs
+        <source>/boost/variant2//boost_variant2
         <source>/boost/winapi//boost_winapi
         <include>include
     ;

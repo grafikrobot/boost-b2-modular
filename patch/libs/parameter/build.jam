@@ -11,7 +11,7 @@ project /boost/parameter
         <source>/boost/core//boost_core
         <source>/boost/function//boost_function
         <source>/boost/fusion//boost_fusion
-        <source>/boost/mp11//libs
+        <source>/boost/mp11//boost_mp11
         <source>/boost/mpl//boost_mpl
         <source>/boost/optional//boost_optional
         <source>/boost/type_traits//boost_type_traits

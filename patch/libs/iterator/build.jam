@@ -7,20 +7,20 @@ import project ;
 
 project /boost/iterator
     : common-requirements
-        <source>/boost/assert//libs
-        <source>/boost/concept_check//libs
-        <source>/boost/config//libs
-        <source>/boost/conversion//libs
-        <source>/boost/core//libs
-        <source>/boost/detail//libs
-        <source>/boost/function_types//libs
-        <source>/boost/fusion//libs
-        <source>/boost/mpl//libs
-        <source>/boost/optional//libs
-        <source>/boost/smart_ptr//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/utility//libs
+        <source>/boost/assert//boost_assert
+        <source>/boost/concept_check//boost_concept_check
+        <source>/boost/config//boost_config
+        <source>/boost/conversion//boost_conversion
+        <source>/boost/core//boost_core
+        <source>/boost/detail//boost_detail
+        <source>/boost/function_types//boost_function_types
+        <source>/boost/fusion//boost_fusion
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/optional//boost_optional
+        <source>/boost/smart_ptr//boost_smart_ptr
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

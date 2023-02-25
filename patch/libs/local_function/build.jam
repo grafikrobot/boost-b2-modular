@@ -7,13 +7,13 @@ import project ;
 
 project /boost/local_function
     : common-requirements
-        <source>/boost/config//libs
-        <source>/boost/mpl//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/scope_exit//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/typeof//libs
-        <source>/boost/utility//libs
+        <source>/boost/config//boost_config
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/scope_exit//boost_scope_exit
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/typeof//boost_typeof
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

@@ -7,14 +7,14 @@ import project ;
 
 project /boost/rational
     : common-requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/integer//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/utility//libs
+        <source>/boost/assert//boost_assert
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/integer//boost_integer
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

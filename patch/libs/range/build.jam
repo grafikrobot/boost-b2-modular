@@ -7,23 +7,23 @@ import project ;
 
 project /boost/range
     : common-requirements
-        <source>/boost/array//libs
-        <source>/boost/assert//libs
-        <source>/boost/concept_check//libs
-        <source>/boost/config//libs
-        <source>/boost/container_hash//libs
-        <source>/boost/conversion//libs
-        <source>/boost/core//libs
-        <source>/boost/detail//libs
-        <source>/boost/iterator//libs
-        <source>/boost/mpl//libs
-        <source>/boost/optional//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/regex//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/tuple//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/utility//libs
+        <source>/boost/array//boost_array
+        <source>/boost/assert//boost_assert
+        <source>/boost/concept_check//boost_concept_check
+        <source>/boost/config//boost_config
+        <source>/boost/container_hash//boost_container_hash
+        <source>/boost/conversion//boost_conversion
+        <source>/boost/core//boost_core
+        <source>/boost/detail//boost_detail
+        <source>/boost/iterator//boost_iterator
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/optional//boost_optional
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/regex//boost_regex
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/tuple//boost_tuple
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

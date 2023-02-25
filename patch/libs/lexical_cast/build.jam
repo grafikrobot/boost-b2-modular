@@ -7,17 +7,17 @@ import project ;
 
 project /boost/lexical_cast
     : common-requirements
-        <source>/boost/array//libs
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/container//libs
-        <source>/boost/core//libs
-        <source>/boost/integer//libs
-        <source>/boost/numeric_conversion//libs
-        <source>/boost/range//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/array//boost_array
+        <source>/boost/assert//boost_assert
+        <source>/boost/config//boost_config
+        <source>/boost/container//boost_container
+        <source>/boost/core//boost_core
+        <source>/boost/integer//boost_integer
+        <source>/boost/numeric_conversion//boost_numeric_conversion
+        <source>/boost/range//boost_range
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

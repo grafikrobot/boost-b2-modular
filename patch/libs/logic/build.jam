@@ -8,12 +8,12 @@ import project ;
 project /boost/logic
     : common-requirements
         <include>include
-        <source>/boost/config//libs
-        <source>/boost/core//libs
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
     : requirements
         <include>include
-        <source>/boost/config//libs
-        <source>/boost/core//libs
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
     ;
 
 explicit

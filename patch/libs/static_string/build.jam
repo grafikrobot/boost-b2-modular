@@ -7,11 +7,11 @@ import project ;
 
 project /boost/static_string
     : common-requirements
-        <source>/boost/assert//libs
-        <source>/boost/container_hash//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/utility//libs
+        <source>/boost/assert//boost_assert
+        <source>/boost/container_hash//boost_container_hash
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

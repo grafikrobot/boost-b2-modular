@@ -7,16 +7,16 @@ import project ;
 
 project /boost/multi_array
     : common-requirements
-        <source>/boost/array//libs
-        <source>/boost/assert//libs
-        <source>/boost/concept_check//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/functional//libs
-        <source>/boost/iterator//libs
-        <source>/boost/mpl//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/array//boost_array
+        <source>/boost/assert//boost_assert
+        <source>/boost/concept_check//boost_concept_check
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/functional//boost_functional
+        <source>/boost/iterator//boost_iterator
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

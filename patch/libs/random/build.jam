@@ -7,20 +7,20 @@ import project ;
 
 project /boost/random
     : common-requirements
-        <source>/boost/array//libs
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/dynamic_bitset//libs
-        <source>/boost/integer//libs
-        <source>/boost/io//libs
-        <source>/boost/range//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/system//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/fusion//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/utility//libs
+        <source>/boost/array//boost_array
+        <source>/boost/assert//boost_assert
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/dynamic_bitset//boost_dynamic_bitset
+        <source>/boost/integer//boost_integer
+        <source>/boost/io//boost_io
+        <source>/boost/range//boost_range
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/system//boost_system
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/fusion//boost_fusion
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

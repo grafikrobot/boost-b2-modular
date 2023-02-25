@@ -7,13 +7,13 @@ import project ;
 
 project /boost/numeric_conversion
     : common-requirements
-        <source>/boost/config//libs
-        <source>/boost/conversion//libs
-        <source>/boost/core//libs
-        <source>/boost/mpl//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/config//boost_config
+        <source>/boost/conversion//boost_conversion
+        <source>/boost/core//boost_core
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

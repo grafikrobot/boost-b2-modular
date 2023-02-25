@@ -7,15 +7,15 @@ import project ;
 
 project /boost/functional
     : common-requirements
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/function//libs
-        <source>/boost/function_types//libs
-        <source>/boost/mpl//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/typeof//libs
-        <source>/boost/utility//libs
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/function//boost_function
+        <source>/boost/function_types//boost_function_types
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/typeof//boost_typeof
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

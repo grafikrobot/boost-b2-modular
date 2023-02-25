@@ -7,13 +7,13 @@ import project ;
 
 project /boost/utility
     : common-requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/io//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/assert//boost_assert
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/io//boost_io
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

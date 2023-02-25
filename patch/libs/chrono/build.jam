@@ -7,21 +7,21 @@ import project ;
 
 project /boost/chrono
     : common-requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/integer//libs
-        <source>/boost/move//libs
-        <source>/boost/mpl//libs
-        <source>/boost/predef//libs
-        <source>/boost/ratio//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/system//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/typeof//libs
-        <source>/boost/utility//libs
-        <source>/boost/winapi//libs
+        <source>/boost/assert//boost_assert
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/integer//boost_integer
+        <source>/boost/move//boost_move
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/predef//boost_predef
+        <source>/boost/ratio//boost_ratio
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/system//boost_system
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/typeof//boost_typeof
+        <source>/boost/utility//boost_utility
+        <source>/boost/winapi//boost_winapi
         <include>include
     ;
 

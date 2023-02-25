@@ -20,7 +20,7 @@ in a subdirectory and reference the project location as a dependency where
 needed.
 
 ----
-exe my_thing : main.cpp : <dependency>/boost/predef//libs ;
+exe my_thing : main.cpp : <dependency>/boost/predef//boost_predef ;
 ----
 |#
 

@@ -7,12 +7,12 @@ import project ;
 
 project /boost/function_types
     : common-requirements
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/detail//libs
-        <source>/boost/mpl//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/detail//boost_detail
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

@@ -7,24 +7,24 @@ import project ;
 
 project /boost/test
     : common-requirements
-        <source>/boost/algorithm//libs
-        <source>/boost/assert//libs
-        <source>/boost/bind//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/detail//libs
-        <source>/boost/exception//libs
-        <source>/boost/function//libs
-        <source>/boost/io//libs
-        <source>/boost/iterator//libs
-        <source>/boost/mpl//libs
-        <source>/boost/numeric_conversion//libs
-        <source>/boost/optional//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/smart_ptr//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/utility//libs
+        <source>/boost/algorithm//boost_algorithm
+        <source>/boost/assert//boost_assert
+        <source>/boost/bind//boost_bind
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/detail//boost_detail
+        <source>/boost/exception//boost_exception
+        <source>/boost/function//boost_function
+        <source>/boost/io//boost_io
+        <source>/boost/iterator//boost_iterator
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/numeric_conversion//boost_numeric_conversion
+        <source>/boost/optional//boost_optional
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/smart_ptr//boost_smart_ptr
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

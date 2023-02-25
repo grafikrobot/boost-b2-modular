@@ -7,19 +7,19 @@ import project ;
 
 project /boost/program_options
     : common-requirements
-        <source>/boost/any//libs
-        <source>/boost/bind//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/detail//libs
-        <source>/boost/function//libs
-        <source>/boost/iterator//libs
-        <source>/boost/lexical_cast//libs
-        <source>/boost/smart_ptr//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/tokenizer//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/any//boost_any
+        <source>/boost/bind//boost_bind
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/detail//boost_detail
+        <source>/boost/function//boost_function
+        <source>/boost/iterator//boost_iterator
+        <source>/boost/lexical_cast//boost_lexical_cast
+        <source>/boost/smart_ptr//boost_smart_ptr
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/tokenizer//boost_tokenizer
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

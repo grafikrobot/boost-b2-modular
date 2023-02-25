@@ -7,12 +7,12 @@ import project ;
 
 project /boost/foreach
     : common-requirements
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/iterator//libs
-        <source>/boost/mpl//libs
-        <source>/boost/range//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/iterator//boost_iterator
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/range//boost_range
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

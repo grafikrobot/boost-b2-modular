@@ -7,16 +7,16 @@ import project ;
 
 project /boost/proto
     : common-requirements
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/fusion//libs
-        <source>/boost/mpl//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/range//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/typeof//libs
-        <source>/boost/utility//libs
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/fusion//boost_fusion
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/range//boost_range
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/typeof//boost_typeof
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

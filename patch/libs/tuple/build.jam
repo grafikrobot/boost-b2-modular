@@ -7,10 +7,10 @@ import project ;
 
 project /boost/tuple
     : common-requirements
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

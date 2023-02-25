@@ -7,18 +7,18 @@ import project ;
 
 project /boost/fusion
     : common-requirements
-        <source>/boost/config//libs
-        <source>/boost/container_hash//libs
-        <source>/boost/core//libs
-        <source>/boost/function_types//libs
-        <source>/boost/functional//libs
-        <source>/boost/mpl//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/tuple//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/typeof//libs
-        <source>/boost/utility//libs
+        <source>/boost/config//boost_config
+        <source>/boost/container_hash//boost_container_hash
+        <source>/boost/core//boost_core
+        <source>/boost/function_types//boost_function_types
+        <source>/boost/functional//boost_functional
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/tuple//boost_tuple
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/typeof//boost_typeof
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

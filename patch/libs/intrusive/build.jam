@@ -7,12 +7,12 @@ import project ;
 
 project /boost/intrusive
     : common-requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/container_hash//libs
-        <source>/boost/core//libs
-        <source>/boost/move//libs
-        <source>/boost/static_assert//libs
+        <source>/boost/assert//boost_assert
+        <source>/boost/config//boost_config
+        <source>/boost/container_hash//boost_container_hash
+        <source>/boost/core//boost_core
+        <source>/boost/move//boost_move
+        <source>/boost/static_assert//boost_static_assert
         <include>include
     ;
 

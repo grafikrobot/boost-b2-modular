@@ -7,24 +7,24 @@ import project ;
 
 project /boost/multi_index
     : common-requirements
-        <source>/boost/assert//libs
-        <source>/boost/bind//libs
-        <source>/boost/config//libs
-        <source>/boost/container_hash//libs
-        <source>/boost/core//libs
-        <source>/boost/foreach//libs
-        <source>/boost/integer//libs
-        <source>/boost/iterator//libs
-        <source>/boost/move//libs
-        <source>/boost/mpl//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/serialization//libs
-        <source>/boost/smart_ptr//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/throw_exception//libs
-        <source>/boost/tuple//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/utility//libs
+        <source>/boost/assert//boost_assert
+        <source>/boost/bind//boost_bind
+        <source>/boost/config//boost_config
+        <source>/boost/container_hash//boost_container_hash
+        <source>/boost/core//boost_core
+        <source>/boost/foreach//boost_foreach
+        <source>/boost/integer//boost_integer
+        <source>/boost/iterator//boost_iterator
+        <source>/boost/move//boost_move
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/serialization//boost_serialization
+        <source>/boost/smart_ptr//boost_smart_ptr
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/tuple//boost_tuple
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

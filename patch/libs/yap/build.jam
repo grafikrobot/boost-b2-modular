@@ -7,9 +7,9 @@ import project ;
 
 project /boost/yap
     : common-requirements
-        <source>/boost/hana//libs
-        <source>/boost/preprocessor//libs
-        <source>/boost/type_index//libs
+        <source>/boost/hana//boost_hana
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/type_index//boost_type_index
         <include>include
     ;
 

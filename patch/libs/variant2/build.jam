@@ -7,8 +7,8 @@ import project ;
 
 project /boost/variant2
     : common-requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
+        <source>/boost/assert//boost_assert
+        <source>/boost/config//boost_config
         <source>/boost/mp11//libs
         <include>include
     ;

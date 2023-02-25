@@ -7,12 +7,12 @@ import project ;
 
 project /boost/date_time
     : common-requirements
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/fusion//libs
-        <source>/boost/mpl//libs
-        <source>/boost/tuple//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/fusion//boost_fusion
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/tuple//boost_tuple
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

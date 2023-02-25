@@ -7,9 +7,9 @@ import project ;
 
 project /boost/stl_interfaces
     : common-requirements
-        <source>/boost/assert//libs
-        <source>/boost/config//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/assert//boost_assert
+        <source>/boost/config//boost_config
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

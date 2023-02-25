@@ -7,21 +7,21 @@ import project ;
 
 project /boost/lockfree
     : common-requirements
-        <source>/boost/align//libs
-        <source>/boost/array//libs
-        <source>/boost/assert//libs
-        <source>/boost/atomic//libs
-        <source>/boost/config//libs
-        <source>/boost/core//libs
-        <source>/boost/integer//libs
-        <source>/boost/iterator//libs
-        <source>/boost/mpl//libs
-        <source>/boost/parameter//libs
-        <source>/boost/predef//libs
-        <source>/boost/static_assert//libs
-        <source>/boost/tuple//libs
-        <source>/boost/type_traits//libs
-        <source>/boost/utility//libs
+        <source>/boost/align//boost_align
+        <source>/boost/array//boost_array
+        <source>/boost/assert//boost_assert
+        <source>/boost/atomic//boost_atomic
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/integer//boost_integer
+        <source>/boost/iterator//boost_iterator
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/parameter//boost_parameter
+        <source>/boost/predef//boost_predef
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/tuple//boost_tuple
+        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/utility//boost_utility
         <include>include
     ;
 

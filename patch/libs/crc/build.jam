@@ -7,10 +7,10 @@ import project ;
 
 project /boost/crc
     : common-requirements
-        <source>/boost/array//libs
-        <source>/boost/config//libs
-        <source>/boost/integer//libs
-        <source>/boost/type_traits//libs
+        <source>/boost/array//boost_array
+        <source>/boost/config//boost_config
+        <source>/boost/integer//boost_integer
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

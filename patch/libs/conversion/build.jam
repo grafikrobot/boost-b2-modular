@@ -19,6 +19,5 @@ project /boost/conversion
 
 explicit
     [ alias boost_conversion ]
-    [ alias libs ]
-    [ alias all : libs test ]
+    [ alias all : boost_conversion test ]
     ;

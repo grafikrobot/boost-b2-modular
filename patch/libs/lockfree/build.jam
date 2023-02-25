@@ -27,6 +27,5 @@ project /boost/lockfree
 
 explicit
     [ alias boost_lockfree ]
-    [ alias libs ]
-    [ alias all : examples libs test ]
+    [ alias all : boost_lockfree examples test ]
     ;

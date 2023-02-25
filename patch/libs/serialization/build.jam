@@ -32,6 +32,6 @@ project /boost/serialization
 
 explicit
     [ alias boost_serialization : build//boost_serialization ]
-    [ alias libs : boost_serialization ]
-    [ alias all : build//boost_serialization build//boost_wserialization example libs test ]
+    [ alias boost_wserialization : build//boost_wserialization ]
+    [ alias all : boost_serialization boost_wserialization example test ]
     ;

@@ -22,6 +22,5 @@ project /boost/proto
 
 explicit
     [ alias boost_proto ]
-    [ alias libs ]
-    [ alias all : example libs test ]
+    [ alias all : boost_proto example test ]
     ;

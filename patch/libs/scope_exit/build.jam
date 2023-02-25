@@ -17,6 +17,5 @@ project /boost/scope_exit
 
 explicit
     [ alias boost_scope_exit ]
-    [ alias libs ]
-    [ alias all : example libs test ]
+    [ alias all : boost_scope_exit example test ]
     ;

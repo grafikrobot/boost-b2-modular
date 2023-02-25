@@ -18,6 +18,5 @@ project /boost/nowide
 
 explicit
     [ alias boost_nowide : build//boost_nowide ]
-    [ alias libs : boost_nowide ]
-    [ alias all : libs test ]
+    [ alias all : boost_nowide test ]
     ;

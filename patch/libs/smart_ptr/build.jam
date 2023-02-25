@@ -19,6 +19,5 @@ project /boost/smart_ptr
 
 explicit
     [ alias boost_smart_ptr ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_smart_ptr test ]
     ;

@@ -41,6 +41,5 @@ rule requires_cxx11 ( requirements * )
 explicit
     [ alias boost_url : build//boost_url ]
     [ alias url_sources : build//url_sources ]
-    [ alias libs : boost_url ]
-    [ alias all : example libs test ]
+    [ alias all : boost_url url_sources example test ]
     ;

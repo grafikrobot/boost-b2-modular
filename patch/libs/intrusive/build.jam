@@ -18,6 +18,5 @@ project /boost/intrusive
 
 explicit
     [ alias boost_intrusive ]
-    [ alias libs ]
-    [ alias all : example test ]
+    [ alias all : boost_intrusive example test ]
     ;

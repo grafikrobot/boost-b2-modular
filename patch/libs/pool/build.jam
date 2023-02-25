@@ -18,6 +18,5 @@ project /boost/pool
 
 explicit
     [ alias boost_pool ]
-    [ alias libs ]
-    [ alias all : example test ]
+    [ alias all : boost_pool example test ]
     ;

@@ -19,6 +19,5 @@ project /boost/local_function
 
 explicit
     [ alias boost_local_function ]
-    [ alias libs ]
-    [ alias all : example libs test ]
+    [ alias all : boost_local_function example test ]
     ;

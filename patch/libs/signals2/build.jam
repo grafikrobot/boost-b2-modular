@@ -28,6 +28,5 @@ project /boost/signals2
 
 explicit
     [ alias boost_signals2 ]
-    [ alias libs ]
-    [ alias all : example libs test ]
+    [ alias all : example test ]
     ;

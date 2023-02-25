@@ -27,6 +27,5 @@ project /boost/chrono
 
 explicit
     [ alias boost_chrono : build//boost_chrono ]
-    [ alias libs : boost_chrono ]
-    [ alias all : libs test ]
+    [ alias all : boost_chrono test ]
     ;

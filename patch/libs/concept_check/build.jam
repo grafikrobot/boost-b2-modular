@@ -16,6 +16,5 @@ project /boost/concept_check
 
 explicit
     [ alias boost_concept_check ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_concept_check test ]
     ;

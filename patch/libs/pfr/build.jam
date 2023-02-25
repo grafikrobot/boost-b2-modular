@@ -12,6 +12,5 @@ project /boost/pfr
 
 explicit
     [ alias boost_pfr ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_pfr test ]
     ;

@@ -13,6 +13,5 @@ project /boost/assert
 
 explicit
     [ alias boost_assert ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_assert test ]
     ;

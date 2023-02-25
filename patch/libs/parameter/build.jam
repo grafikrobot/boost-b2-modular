@@ -21,6 +21,5 @@ project /boost/parameter
 
 explicit
     [ alias boost_parameter ]
-    [ alias libs ]
-    [ alias all : libs test ]
+    [ alias all : boost_parameter test ]
     ;

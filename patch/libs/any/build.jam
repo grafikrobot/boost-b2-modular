@@ -19,6 +19,5 @@ project /boost/any
 
 explicit
     [ alias boost_any ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_any test ]
     ;

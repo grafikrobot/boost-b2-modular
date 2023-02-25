@@ -17,5 +17,5 @@ project /boost/system
 
 explicit
     [ alias boost_system : build//boost_system ]
-    [ alias libs : build//boost_system ]
+    [ alias all : boost_system test ]
     ;

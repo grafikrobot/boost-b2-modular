@@ -14,6 +14,5 @@ project /boost/throw_exception
 
 explicit
     [ alias boost_throw_exception ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_throw_exception test ]
     ;

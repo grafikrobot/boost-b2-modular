@@ -20,6 +20,5 @@ project /boost/circular_buffer
 
 explicit
     [ alias boost_circular_buffer ]
-    [ alias libs ]
-    [ alias all : example test ]
+    [ alias all : boost_circular_buffer example test ]
     ;

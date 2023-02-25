@@ -16,6 +16,5 @@ project /boost/core
 
 explicit
     [ alias boost_core ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_core test ]
     ;

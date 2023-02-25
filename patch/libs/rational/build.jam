@@ -20,6 +20,5 @@ project /boost/rational
 
 explicit
     [ alias boost_rational ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_rational test ]
     ;

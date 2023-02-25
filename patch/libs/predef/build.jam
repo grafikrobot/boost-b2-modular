@@ -46,6 +46,5 @@ if [ project.is-jamroot-module $(__name__) ]
 
 explicit
     [ alias boost_predef ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_predef test ]
     ;

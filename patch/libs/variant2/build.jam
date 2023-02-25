@@ -15,6 +15,5 @@ project /boost/variant2
 
 explicit
     [ alias boost_variant2 ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_variant2 test ]
     ;

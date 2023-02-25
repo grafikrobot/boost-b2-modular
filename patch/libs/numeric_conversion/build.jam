@@ -19,6 +19,5 @@ project /boost/numeric_conversion
 
 explicit
     [ alias boost_numeric_conversion ]
-    [ alias libs ]
-    [ alias all : libs test ]
+    [ alias all : boost_numeric_conversion test ]
     ;

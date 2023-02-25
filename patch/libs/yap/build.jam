@@ -15,6 +15,5 @@ project /boost/yap
 
 explicit
     [ alias boost_yap ]
-    [ alias libs ]
-    [ alias all : libs test ]
+    [ alias all : boost_yap test ]
     ;

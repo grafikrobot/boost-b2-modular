@@ -15,6 +15,5 @@ project /boost/interval
 
 explicit
     [ alias boost_interval ]
-    [ alias libs ]
-    [ alias all : examples test ]
+    [ alias all : boost_interval examples test ]
     ;

@@ -22,6 +22,5 @@ project /boost/coroutine
 
 explicit
     [ alias boost_coroutine : build//boost_coroutine ]
-    [ alias libs : boost_coroutine ]
-    [ alias all : libs test ]
+    [ alias all : boost_coroutine test ]
     ;

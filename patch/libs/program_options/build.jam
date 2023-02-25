@@ -25,6 +25,5 @@ project /boost/program_options
 
 explicit
     [ alias boost_program_options : build//boost_program_options ]
-    [ alias libs : boost_program_options ]
-    [ alias all : example libs test ]
+    [ alias all : boost_program_options example test ]
     ;

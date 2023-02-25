@@ -20,9 +20,8 @@ project /boost/json
     ;
 
 explicit
-    [ alias libs : build//boost_json ]
     [ alias boost_json : build//boost_json ]
     [ alias json_deps : build//json_deps ]
     [ alias json_sources : build//json_sources ]
-    [ alias all : bench example fuzzing test ]
+    [ alias all : boost_json json_deps json_sources bench example fuzzing test ]
     ;

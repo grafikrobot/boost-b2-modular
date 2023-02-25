@@ -18,6 +18,5 @@ project /boost/safe_numerics
 
 explicit
     [ alias boost_safe_numerics ]
-    [ alias libs ]
-    [ alias all : example test ]
+    [ alias all : boost_safe_numerics example test ]
     ;

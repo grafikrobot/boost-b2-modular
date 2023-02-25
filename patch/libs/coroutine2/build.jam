@@ -15,6 +15,5 @@ project /boost/coroutine2
 
 explicit
     [ alias boost_coroutine2 ]
-    [ alias libs ]
-    [ alias all : example libs test ]
+    [ alias all : boost_coroutine2 example test ]
     ;

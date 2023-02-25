@@ -16,6 +16,5 @@ project /boost/align
 
 explicit
     [ alias boost_align ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_align test ]
     ;

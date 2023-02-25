@@ -18,6 +18,5 @@ project /boost/function_types
 
 explicit
     [ alias boost_function_types ]
-    [ alias libs ]
-    [ alias all : example test ]
+    [ alias all : boost_function_types example test ]
     ;

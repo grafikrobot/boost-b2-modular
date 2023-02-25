@@ -23,6 +23,5 @@ project /boost/interprocess
 
 explicit
     [ alias boost_interprocess ]
-    [ alias libs ]
-    [ alias all : example libs test ]
+    [ alias all : boost_interprocess example test ]
     ;

@@ -22,6 +22,5 @@ project /boost/lambda
 
 explicit
     [ alias boost_lambda ]
-    [ alias libs ]
-    [ alias all : libs test ]
+    [ alias all : boost_lambda test ]
     ;

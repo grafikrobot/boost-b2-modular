@@ -24,6 +24,5 @@ project /boost/regex
 
 explicit
     [ alias boost_regex : build//boost_regex ]
-    [ alias libs : boost_regex ]
-    [ alias all : example performance libs test ]
+    [ alias all : boost_regex example performance test ]
     ;

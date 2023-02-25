@@ -17,6 +17,5 @@ project /boost/static_string
 
 explicit
     [ alias boost_static_string ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_static_string test ]
     ;

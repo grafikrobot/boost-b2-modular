@@ -19,6 +19,5 @@ project /boost/mpl
 
 explicit
     [ alias boost_mpl ]
-    [ alias libs ]
-    [ alias all : example test ]
+    [ alias all : boost_mpl example test ]
     ;

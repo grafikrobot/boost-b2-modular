@@ -18,6 +18,5 @@ project /boost/logic
 
 explicit
     [ alias boost_logic ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_logic test ]
     ;

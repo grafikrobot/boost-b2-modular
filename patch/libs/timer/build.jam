@@ -19,6 +19,5 @@ project /boost/timer
 
 explicit
     [ alias boost_timer : build//boost_timer ]
-    [ alias libs : boost_timer ]
-    [ alias all : build libs test ]
+    [ alias all : boost_timer build test ]
     ;

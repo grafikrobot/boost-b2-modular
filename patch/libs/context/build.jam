@@ -74,6 +74,5 @@ feature.set-default abi : [ default_abi ] ;
 
 explicit
     [ alias boost_context : build//boost_context ]
-    [ alias libs : boost_context ]
-    [ alias all : libs test ]
+    [ alias all : boost_context test ]
     ;

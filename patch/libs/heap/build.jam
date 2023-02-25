@@ -24,6 +24,5 @@ project /boost/heap
 
 explicit
     [ alias boost_heap ]
-    [ alias libs ]
-    [ alias all : libs test ]
+    [ alias all : boost_heap test ]
     ;

@@ -16,6 +16,5 @@ project /boost/outcome
 
 explicit
     [ alias boost_outcome ]
-    [ alias libs ]
-    [ alias all : libs test ]
+    [ alias all : boost_outcome test ]
     ;

@@ -26,6 +26,5 @@ project /boost/random
 
 explicit
     [ alias boost_random : build//boost_random ]
-    [ alias libs : boost_random ]
-    [ alias all : example extra libs test ]
+    [ alias all : boost_random example extra test ]
     ;

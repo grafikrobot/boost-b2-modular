@@ -21,6 +21,5 @@ project /boost/functional
 
 explicit
     [ alias boost_functional ]
-    [ alias libs ]
-    [ alias all : test factory/test forward/test overloaded_function/test ]
+    [ alias all : boost_functional test factory/test forward/test overloaded_function/test ]
     ;

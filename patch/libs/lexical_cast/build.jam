@@ -23,6 +23,5 @@ project /boost/lexical_cast
 
 explicit
     [ alias boost_lexical_cast ]
-    [ alias libs ]
-    [ alias all : libs test ]
+    [ alias all : boost_lexical_cast test ]
     ;

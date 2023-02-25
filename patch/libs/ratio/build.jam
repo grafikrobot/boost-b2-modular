@@ -19,6 +19,5 @@ project /boost/ratio
 
 explicit
     [ alias boost_ratio ]
-    [ alias libs ]
-    [ alias all : libs test ]
+    [ alias all : boost_ratio test ]
     ;

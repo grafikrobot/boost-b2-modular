@@ -19,6 +19,5 @@ project /boost/utility
 
 explicit
     [ alias boost_utility ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_utility test ]
     ;

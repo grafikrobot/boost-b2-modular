@@ -22,6 +22,5 @@ project /boost/optional
 
 explicit
     [ alias boost_optional ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_optional test ]
     ;

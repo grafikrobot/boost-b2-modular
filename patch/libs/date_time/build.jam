@@ -18,6 +18,5 @@ project /boost/date_time
 
 explicit
     [ alias boost_date_time : build//boost_date_time ]
-    [ alias libs : boost_date_time ]
-    [ alias all : example libs test ]
+    [ alias all : boost_date_time example test ]
     ;

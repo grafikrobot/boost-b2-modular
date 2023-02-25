@@ -12,6 +12,5 @@ project /boost/preprocessor
 
 explicit
     [ alias boost_preprocessor ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_preprocessor test ]
     ;

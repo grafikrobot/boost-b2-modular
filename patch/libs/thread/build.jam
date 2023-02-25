@@ -41,6 +41,5 @@ project /boost/thread
 
 explicit
     [ alias boost_thread : build//boost_thread ]
-    [ alias libs : boost_thread ]
-    [ alias all : example libs test ]
+    [ alias all : boost_thread example test ]
     ;

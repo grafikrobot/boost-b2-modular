@@ -34,6 +34,5 @@ project /boost/xpressive
 
 explicit
     [ alias boost_xpressive ]
-    [ alias libs ]
-    [ alias all : example libs perf test tools ]
+    [ alias all : boost_xpressive example perf test tools ]
     ;

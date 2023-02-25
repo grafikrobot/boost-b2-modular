@@ -13,6 +13,5 @@ project /boost/vmd
 
 explicit
     [ alias boost_vmd ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_vmd test ]
     ;

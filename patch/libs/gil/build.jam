@@ -24,6 +24,5 @@ project /boost/gil
 
 explicit
     [ alias boost_gil ]
-    [ alias libs ]
-    [ alias all : example libs test ]
+    [ alias all : boost_gil example test ]
     ;

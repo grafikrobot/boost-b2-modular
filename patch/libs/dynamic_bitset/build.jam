@@ -20,6 +20,5 @@ project /boost/dynamic_bitset
 
 explicit
     [ alias boost_dynamic_bitset ]
-    [ alias libs ]
-    [ alias all : example test ]
+    [ alias all : boost_dynamic_bitset example test ]
     ;

@@ -17,6 +17,5 @@ project /boost/array
 
 explicit
     [ alias boost_array ]
-    [ alias libs ]
-    [ alias all : test ]
+    [ alias all : boost_array test ]
     ;

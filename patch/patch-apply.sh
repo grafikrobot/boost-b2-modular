@@ -26,6 +26,7 @@ for submod in ${submods} ; do
     fi
 done
 rm -f "${rootdir}/libs/algorithm/Jamfile"
+rm -f "${rootdir}/libs/assign/Jamfile"
 rm -f "${rootdir}/libs/concept_check/Jamfile"
 rm -f "${rootdir}/libs/container/Jamfile"
 rm -f "${rootdir}/libs/date_time/Jamfile"

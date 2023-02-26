@@ -6,6 +6,7 @@
 import project ;
 import feature ;
 import os ;
+import predef ;
 
 project /boost/context
     : common-requirements
@@ -17,6 +18,10 @@ project /boost/context
         <source>/boost/predef//boost_predef
         <source>/boost/smart_ptr//boost_smart_ptr
         <include>include
+    : requirements
+        # Auto-detect toolset default address-model and architecture.
+        [ predef.address-model ]
+        [ predef.architecture ]
     ;
 
 feature.feature segmented-stacks : on : optional propagated composite ;

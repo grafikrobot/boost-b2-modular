@@ -23,7 +23,6 @@ explicit
         :   boost_format
             benchmark
             example
-            libs
             test
             tools
         :   <warnings>pedantic

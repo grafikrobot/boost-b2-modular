@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index a52dd3f..9191537 100644
+index a52dd3f..1591a9b 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -10,7 +10,7 @@ import modules ;
@@ -29,3 +29,18 @@ index a52dd3f..9191537 100644
  run sv_common_reference_test.cpp ;
  compile sv_common_reference_test2.cpp ;
  compile sv_windows_h_test.cpp ;
+@@ -363,10 +363,10 @@ run memory_resource_test.cpp ;
+ run data_test.cpp ;
+ run size_test.cpp ;
+ 
+-run serialization_nvp_test.cpp : : : <library>/boost//serialization/<warnings>off <undefined-sanitizer>norecover:<build>no ;
+-run serialization_split_free_test.cpp : : : <library>/boost//serialization/<warnings>off <undefined-sanitizer>norecover:<link>static ;
+-run serialization_split_member_test.cpp : : : <library>/boost//serialization/<warnings>off <undefined-sanitizer>norecover:<link>static ;
+-run serialization_construct_data_test.cpp : : : <library>/boost//serialization/<warnings>off <undefined-sanitizer>norecover:<link>static ;
++run serialization_nvp_test.cpp : : : <library>/boost/serialization//boost_serialization/<warnings>off <undefined-sanitizer>norecover:<build>no ;
++run serialization_split_free_test.cpp : : : <library>/boost/serialization//boost_serialization/<warnings>off <undefined-sanitizer>norecover:<link>static ;
++run serialization_split_member_test.cpp : : : <library>/boost/serialization//boost_serialization/<warnings>off <undefined-sanitizer>norecover:<link>static ;
++run serialization_construct_data_test.cpp : : : <library>/boost/serialization//boost_serialization/<warnings>off <undefined-sanitizer>norecover:<link>static ;
+ 
+ run identity_test.cpp ;
+ run identity_rvalue_test.cpp ;

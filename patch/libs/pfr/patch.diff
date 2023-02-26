@@ -39,3 +39,15 @@ index ad25a84..31e642f 100644
          <define>BOOST_PFR_DETAIL_STRICT_RVALUE_TESTING=1
          [ requires cxx14_constexpr ]
      ;
+diff --git a/test/core/run/issue33.cpp b/test/core/run/issue33.cpp
+index 009d82d..c123b2f 100644
+--- a/test/core/run/issue33.cpp
++++ b/test/core/run/issue33.cpp
+@@ -6,6 +6,7 @@
+ // Test case for https://github.com/boostorg/pfr/issues/33
+ 
+ #include <iostream>
++#include <memory>
+ #include <vector>
+ #include <boost/pfr.hpp>
+ #include <boost/core/lightweight_test.hpp>

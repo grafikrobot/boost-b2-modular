@@ -54,7 +54,7 @@ index 4aa2c3dd9..60a2489f0 100644
  for local ex in $(examples) {
     local dir = $(ex:P) ;
 diff --git a/example/karma/Jamfile b/example/karma/Jamfile
-index a93cbb7a7..4acef6c39 100644
+index a93cbb7a7..d3eeec155 100644
 --- a/example/karma/Jamfile
 +++ b/example/karma/Jamfile
 @@ -14,7 +14,7 @@ project spirit-karma-example
@@ -62,7 +62,7 @@ index a93cbb7a7..4acef6c39 100644
  exe actions_example : actions.cpp ;
  exe auto_facilities : auto_facilities.cpp ;
 -exe basic_facilities : basic_facilities.cpp /boost//date_time ;
-+exe basic_facilities : basic_facilities.cpp /boost/date_time//boost_date_time ;
++exe basic_facilities : basic_facilities.cpp /boost/date_time//boost_date_time /boost/tokenizer//boost_tokenizer ;
  exe karma_calc2_ast_dump : calc2_ast_dump.cpp ;
  exe karma_calc2_ast_rpn : calc2_ast_rpn.cpp ;
  exe karma_calc2_ast_vm : calc2_ast_vm.cpp ;

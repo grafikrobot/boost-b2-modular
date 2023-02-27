@@ -18,7 +18,6 @@ project /boost/multi_index
         <source>/boost/move//boost_move
         <source>/boost/mpl//boost_mpl
         <source>/boost/preprocessor//boost_preprocessor
-        <source>/boost/serialization//boost_serialization
         <source>/boost/smart_ptr//boost_smart_ptr
         <source>/boost/static_assert//boost_static_assert
         <source>/boost/throw_exception//boost_throw_exception

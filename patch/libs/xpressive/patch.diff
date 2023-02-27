@@ -1,8 +1,14 @@
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
-index ab9cd5d..b05778c 100644
+index ab9cd5d..54848c5 100644
 --- a/example/Jamfile.v2
 +++ b/example/Jamfile.v2
-@@ -12,13 +12,9 @@ project
+@@ -7,18 +7,15 @@ project
+         <toolset>msvc-8.0:<define>_SCL_SECURE_NO_DEPRECATE
+         <toolset>msvc-9.0:<define>_SCL_SECURE_NO_DEPRECATE
+         <toolset>msvc,<stdlib>stlport:<define>_STLP_EXPOSE_GLOBALS_IMPLEMENTATION
++        <source>/boost/assign//boost_assign
+     ;
+ 
  exe examples 
      :
          main.cpp
@@ -17,15 +23,17 @@ index ab9cd5d..b05778c 100644
 -        <include>$(BOOST_ROOT)
      ;
 diff --git a/perf/Jamfile.v2 b/perf/Jamfile.v2
-index 7769420..3eadec1 100644
+index 7769420..38cb73a 100644
 --- a/perf/Jamfile.v2
 +++ b/perf/Jamfile.v2
-@@ -34,9 +34,8 @@ exe xprperf
+@@ -34,9 +34,10 @@ exe xprperf
          time_boost.cpp
          time_dynamic_xpressive.cpp
          time_static_xpressive.cpp
 -        $(BOOST_ROOT)/libs/regex/src/$(BOOST_REGEX_SOURCES).cpp
 +        /boost/regex//boost_regex
++        /boost/timer//boost_timer
++        /boost/test//boost_unit_test_framework
      :
 -        <include>$(BOOST_ROOT)
          <define>BOOST_REGEX_NO_LIB=1

@@ -25,6 +25,17 @@ for submod in ${submods} ; do
         fi
     fi
 done
+cd "${rootdir}/libs/asio/example/cpp03"
+ln -f -s "${patchdir}/libs/asio/example/cpp03/build.jam" build.jam
+cd "${rootdir}/libs/asio/example/cpp11"
+ln -f -s "${patchdir}/libs/asio/example/cpp11/build.jam" build.jam
+cd "${rootdir}/libs/asio/example/cpp14"
+ln -f -s "${patchdir}/libs/asio/example/cpp14/build.jam" build.jam
+cd "${rootdir}/libs/asio/example/cpp17"
+ln -f -s "${patchdir}/libs/asio/example/cpp17/build.jam" build.jam
+cd "${rootdir}/libs/asio/example/cpp20"
+ln -f -s "${patchdir}/libs/asio/example/cpp20/build.jam" build.jam
+
 rm -f "${rootdir}/libs/algorithm/Jamfile"
 rm -f "${rootdir}/libs/assign/Jamfile"
 rm -f "${rootdir}/libs/concept_check/Jamfile"

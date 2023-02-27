@@ -15,7 +15,6 @@ project /boost/ptr_container
         <source>/boost/iterator//boost_iterator
         <source>/boost/mpl//boost_mpl
         <source>/boost/range//boost_range
-        <source>/boost/serialization//boost_serialization
         <source>/boost/smart_ptr//boost_smart_ptr
         <source>/boost/static_assert//boost_static_assert
         <source>/boost/type_traits//boost_type_traits

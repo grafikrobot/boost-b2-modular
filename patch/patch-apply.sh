@@ -38,6 +38,7 @@ ln -f -s "${patchdir}/libs/asio/example/cpp20/build.jam" build.jam
 
 rm -f "${rootdir}/libs/algorithm/Jamfile"
 rm -f "${rootdir}/libs/assign/Jamfile"
+rm -f "${rootdir}/libs/beast/Jamfile"
 rm -f "${rootdir}/libs/concept_check/Jamfile"
 rm -f "${rootdir}/libs/container/Jamfile"
 rm -f "${rootdir}/libs/date_time/Jamfile"

@@ -7,12 +7,21 @@ import project ;
 
 project /boost/date_time
     : common-requirements
+        <source>/boost/algorithm//boost_algorithm
+        <source>/boost/assert//boost_assert
         <source>/boost/config//boost_config
         <source>/boost/core//boost_core
-        <source>/boost/fusion//boost_fusion
-        <source>/boost/mpl//boost_mpl
-        <source>/boost/tuple//boost_tuple
+        <source>/boost/io//boost_io
+        <source>/boost/lexical_cast//boost_lexical_cast
+        <source>/boost/numeric_conversion//boost_numeric_conversion
+        <source>/boost/range//boost_range
+        <source>/boost/smart_ptr//boost_smart_ptr
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/tokenizer//boost_tokenizer
         <source>/boost/type_traits//boost_type_traits
+        <source>/boost/utility//boost_utility
+        <source>/boost/winapi//boost_winapi
         <include>include
     ;
 

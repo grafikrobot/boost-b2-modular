@@ -18,7 +18,6 @@ project /boost/random
         <source>/boost/static_assert//boost_static_assert
         <source>/boost/system//boost_system
         <source>/boost/throw_exception//boost_throw_exception
-        <source>/boost/fusion//boost_fusion
         <source>/boost/type_traits//boost_type_traits
         <source>/boost/utility//boost_utility
         <include>include

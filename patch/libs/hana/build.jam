@@ -12,7 +12,6 @@ project /boost/hana
         <source>/boost/fusion//boost_fusion
         <source>/boost/mpl//boost_mpl
         <source>/boost/tuple//boost_tuple
-        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

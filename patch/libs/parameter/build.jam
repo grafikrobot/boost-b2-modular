@@ -14,6 +14,7 @@ project /boost/parameter
         <source>/boost/mp11//boost_mp11
         <source>/boost/mpl//boost_mpl
         <source>/boost/optional//boost_optional
+        <source>/boost/preprocessor//boost_preprocessor
         <source>/boost/type_traits//boost_type_traits
         <source>/boost/utility//boost_utility
         <include>include

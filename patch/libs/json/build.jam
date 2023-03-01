@@ -11,6 +11,7 @@ project /boost/json
         <source>/boost/assert//boost_assert
         <source>/boost/config//boost_config
         <source>/boost/container//boost_container
+        <source>/boost/container_hash//boost_container_hash
         <source>/boost/core//boost_core
         <source>/boost/describe//boost_describe
         <source>/boost/mp11//boost_mp11

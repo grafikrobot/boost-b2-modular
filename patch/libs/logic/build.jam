@@ -10,10 +10,6 @@ project /boost/logic
         <include>include
         <source>/boost/config//boost_config
         <source>/boost/core//boost_core
-    : requirements
-        <include>include
-        <source>/boost/config//boost_config
-        <source>/boost/core//boost_core
     ;
 
 explicit

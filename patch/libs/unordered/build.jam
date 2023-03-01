@@ -18,6 +18,7 @@ project /boost/unordered
         <source>/boost/static_assert//boost_static_assert
         <source>/boost/throw_exception//boost_throw_exception
         <source>/boost/tuple//boost_tuple
+        <source>/boost/type_traits//boost_type_traits
         <include>include
     ;
 

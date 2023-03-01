@@ -12,7 +12,6 @@ project /boost/detail
         <source>/boost/core//boost_core
         <source>/boost/preprocessor//boost_preprocessor
         <source>/boost/static_assert//boost_static_assert
-        <source>/boost/throw_exception//boost_throw_exception
         <source>/boost/type_traits//boost_type_traits
     ;
 

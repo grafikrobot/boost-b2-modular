@@ -19,7 +19,6 @@ project /boost/xpressive
         <source>/boost/mpl//boost_mpl
         <source>/boost/numeric_conversion//boost_numeric_conversion
         <source>/boost/optional//boost_optional
-        <source>/boost/mpl//boost_mpl
         <source>/boost/preprocessor//boost_preprocessor
         <source>/boost/proto//boost_proto
         <source>/boost/range//boost_range

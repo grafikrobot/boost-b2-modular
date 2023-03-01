@@ -10,7 +10,6 @@ project /boost/intrusive
         <source>/boost/assert//boost_assert
         <source>/boost/config//boost_config
         <source>/boost/container_hash//boost_container_hash
-        <source>/boost/core//boost_core
         <source>/boost/move//boost_move
         <source>/boost/static_assert//boost_static_assert
         <include>include

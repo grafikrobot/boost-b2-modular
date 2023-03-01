@@ -11,7 +11,6 @@ project /boost/interprocess
         <source>/boost/config//boost_config
         <source>/boost/container//boost_container
         <source>/boost/core//boost_core
-        <source>/boost/integer//boost_integer
         <source>/boost/intrusive//boost_intrusive
         <source>/boost/move//boost_move
         <source>/boost/static_assert//boost_static_assert

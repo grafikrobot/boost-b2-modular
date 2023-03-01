@@ -8,11 +8,7 @@ import project ;
 project /boost/nowide
     : common-requirements
         <source>/boost/config//boost_config
-        <source>/boost/core//boost_core
-        <source>/boost/fusion//boost_fusion
-        <source>/boost/mpl//boost_mpl
-        <source>/boost/tuple//boost_tuple
-        <source>/boost/type_traits//boost_type_traits
+        <source>/boost/filesystem//boost_filesystem
         <include>include
     ;
 

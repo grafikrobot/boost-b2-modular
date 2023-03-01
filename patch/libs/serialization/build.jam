@@ -21,8 +21,10 @@ project /boost/serialization
         <source>/boost/optional//boost_optional
         <source>/boost/predef//boost_predef
         <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/smart_ptr//boost_smart_ptr
         <source>/boost/spirit//boost_spirit
         <source>/boost/static_assert//boost_static_assert
+        <source>/boost/throw_exception//boost_throw_exception
         <source>/boost/type_traits//boost_type_traits
         <source>/boost/unordered//boost_unordered
         <source>/boost/utility//boost_utility

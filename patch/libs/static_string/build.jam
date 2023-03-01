@@ -8,7 +8,9 @@ import project ;
 project /boost/static_string
     : common-requirements
         <source>/boost/assert//boost_assert
+        <source>/boost/config//boost_config
         <source>/boost/container_hash//boost_container_hash
+        <source>/boost/core//boost_core
         <source>/boost/static_assert//boost_static_assert
         <source>/boost/throw_exception//boost_throw_exception
         <source>/boost/utility//boost_utility

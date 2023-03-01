@@ -50,10 +50,10 @@ index 5ec2a296..a5295b38 100644
      [ test-bsl-run-no-lib performance_iterators ]
      [ test-bsl-run-no-lib performance_iterators_base64 ]
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index fafe1189..331799e1 100644
+index fafe1189..b8988b70 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -6,13 +6,13 @@
+@@ -6,13 +6,14 @@
  #  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
  #
  
@@ -62,6 +62,7 @@ index fafe1189..331799e1 100644
      : id serialization_test
 -    : requirements <library>/boost/filesystem
 +    : requirements <library>/boost/filesystem//boost_filesystem
++        <library>/boost/math//boost_math
      ;
  
  # import rules for testing conditional on config file variables

@@ -1,0 +1,162 @@
+diff --git a/example/cpp03/http/server/Jamfile.v2 b/example/cpp03/http/server/Jamfile.v2
+index 5a9d3912..552011a3 100644
+--- a/example/cpp03/http/server/Jamfile.v2
++++ b/example/cpp03/http/server/Jamfile.v2
+@@ -24,6 +24,7 @@ exe server
+     /boost/system//boost_system
+     /boost/chrono//boost_chrono
+     /boost/thread//boost_thread
++    /boost/logic//boost_logic
+   : <define>BOOST_ALL_NO_LIB=1
+     <threading>multi
+     <target-os>solaris:<library>socket
+diff --git a/example/cpp03/http/server2/Jamfile.v2 b/example/cpp03/http/server2/Jamfile.v2
+index fc127c53..45b00662 100644
+--- a/example/cpp03/http/server2/Jamfile.v2
++++ b/example/cpp03/http/server2/Jamfile.v2
+@@ -24,6 +24,7 @@ exe server
+     /boost/system//boost_system
+     /boost/chrono//boost_chrono
+     /boost/thread//boost_thread
++    /boost/logic//boost_logic
+   : <define>BOOST_ALL_NO_LIB=1
+     <threading>multi
+     <target-os>solaris:<library>socket
+diff --git a/example/cpp03/http/server3/Jamfile.v2 b/example/cpp03/http/server3/Jamfile.v2
+index 01e60a6c..46f76920 100644
+--- a/example/cpp03/http/server3/Jamfile.v2
++++ b/example/cpp03/http/server3/Jamfile.v2
+@@ -23,6 +23,7 @@ exe server
+     /boost/system//boost_system
+     /boost/chrono//boost_chrono
+     /boost/thread//boost_thread
++    /boost/logic//boost_logic
+   : <define>BOOST_ALL_NO_LIB=1
+     <threading>multi
+     <target-os>solaris:<library>socket
+diff --git a/example/cpp03/http/server4/Jamfile.v2 b/example/cpp03/http/server4/Jamfile.v2
+index b9372100..3b391cd0 100644
+--- a/example/cpp03/http/server4/Jamfile.v2
++++ b/example/cpp03/http/server4/Jamfile.v2
+@@ -22,6 +22,7 @@ exe server
+     /boost/system//boost_system
+     /boost/chrono//boost_chrono
+     /boost/thread//boost_thread
++    /boost/logic//boost_logic
+   : <define>BOOST_ALL_NO_LIB=1
+     <threading>multi
+     <target-os>solaris:<library>socket
+diff --git a/example/cpp03/porthopper/Jamfile.v2 b/example/cpp03/porthopper/Jamfile.v2
+index 1257f183..1033f8bd 100644
+--- a/example/cpp03/porthopper/Jamfile.v2
++++ b/example/cpp03/porthopper/Jamfile.v2
+@@ -16,6 +16,7 @@ project
+   : requirements
+     <library>/boost/system//boost_system
+     <library>/boost/chrono//boost_chrono
++    <library>/boost/lambda//boost_lambda
+     <define>BOOST_ALL_NO_LIB=1
+     <threading>multi
+     <target-os>solaris:<library>socket
+diff --git a/example/cpp03/spawn/Jamfile.v2 b/example/cpp03/spawn/Jamfile.v2
+index 4d73b8ae..c3fd8dd7 100644
+--- a/example/cpp03/spawn/Jamfile.v2
++++ b/example/cpp03/spawn/Jamfile.v2
+@@ -36,6 +36,7 @@ exe parallel_grep
+     /boost/context//boost_context
+     /boost/coroutine//boost_coroutine
+     /boost/system//boost_system
++    /boost/thread//boost_thread
+   : <define>BOOST_ALL_NO_LIB=1
+     <threading>multi
+     <target-os>solaris:<library>socket
+diff --git a/example/cpp03/ssl/Jamfile.v2 b/example/cpp03/ssl/Jamfile.v2
+index 549b664c..675971c3 100644
+--- a/example/cpp03/ssl/Jamfile.v2
++++ b/example/cpp03/ssl/Jamfile.v2
+@@ -14,16 +14,7 @@ lib mswsock ; # NT
+ lib ipv6 ; # HPUX
+ lib network ; # HAIKU
+ 
+-if [ os.name ] = NT
+-{
+-  lib ssl : : <name>ssleay32 ;
+-  lib crypto : : <name>libeay32  ;
+-}
+-else
+-{
+-  lib ssl ;
+-  lib crypto ;
+-}
++using openssl ;
+ 
+ project
+   : requirements
+@@ -40,8 +31,8 @@ project
+     <target-os>hpux,<toolset>gcc:<define>_XOPEN_SOURCE_EXTENDED
+     <target-os>hpux:<library>ipv6
+     <target-os>haiku:<library>network
+-    <library>ssl
+-    <library>crypto
++    <library>/openssl//ssl
++    <library>/openssl//crypto
+   ;
+ 
+ exe client : client.cpp ;
+diff --git a/example/cpp03/timeouts/Jamfile.v2 b/example/cpp03/timeouts/Jamfile.v2
+index 8ac5e5c6..fe62422b 100644
+--- a/example/cpp03/timeouts/Jamfile.v2
++++ b/example/cpp03/timeouts/Jamfile.v2
+@@ -16,6 +16,7 @@ project
+   : requirements
+     <library>/boost/system//boost_system
+     <library>/boost/chrono//boost_chrono
++    <library>/boost/lambda//boost_lambda
+     <define>BOOST_ALL_NO_LIB=1
+     <threading>multi
+     <target-os>solaris:<library>socket
+diff --git a/example/cpp11/ssl/Jamfile.v2 b/example/cpp11/ssl/Jamfile.v2
+index 549b664c..675971c3 100644
+--- a/example/cpp11/ssl/Jamfile.v2
++++ b/example/cpp11/ssl/Jamfile.v2
+@@ -14,16 +14,7 @@ lib mswsock ; # NT
+ lib ipv6 ; # HPUX
+ lib network ; # HAIKU
+ 
+-if [ os.name ] = NT
+-{
+-  lib ssl : : <name>ssleay32 ;
+-  lib crypto : : <name>libeay32  ;
+-}
+-else
+-{
+-  lib ssl ;
+-  lib crypto ;
+-}
++using openssl ;
+ 
+ project
+   : requirements
+@@ -40,8 +31,8 @@ project
+     <target-os>hpux,<toolset>gcc:<define>_XOPEN_SOURCE_EXTENDED
+     <target-os>hpux:<library>ipv6
+     <target-os>haiku:<library>network
+-    <library>ssl
+-    <library>crypto
++    <library>/openssl//ssl
++    <library>/openssl//crypto
+   ;
+ 
+ exe client : client.cpp ;
+diff --git a/example/cpp14/parallel_group/Jamfile.v2 b/example/cpp14/parallel_group/Jamfile.v2
+index b9b45e58..573abf7e 100644
+--- a/example/cpp14/parallel_group/Jamfile.v2
++++ b/example/cpp14/parallel_group/Jamfile.v2
+@@ -16,6 +16,7 @@ project
+   : requirements
+     <library>/boost/system//boost_system
+     <library>/boost/chrono//boost_chrono
++    <library>/boost/thread//boost_thread
+     <define>BOOST_ALL_NO_LIB=1
+     <threading>multi
+     <target-os>solaris:<library>socket

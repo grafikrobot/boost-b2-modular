@@ -97,10 +97,10 @@ index 05a0694..c9ef162 100644
 -boost-install boost_context ;
 +# boost-install boost_context ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 54019a2..facc412 100644
+index 54019a2..6be2c47 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -12,11 +12,13 @@ import modules ;
+@@ -12,12 +12,15 @@ import modules ;
  import os ;
  import testing ;
  import toolset ;
@@ -110,8 +110,10 @@ index 54019a2..facc412 100644
  
  project boost/context/test
      : requirements
-+      <source>/boost/array//boost_array
-+      <source>/boost/lexical_cast//boost_lexical_cast
++      <library>/boost/array//boost_array
++      <library>/boost/lexical_cast//boost_lexical_cast
        <library>/boost/context//boost_context
++      <library>/boost/variant//boost_variant
        <target-os>linux,<toolset>gcc,<segmented-stacks>on:<cxxflags>-fsplit-stack
        <target-os>linux,<toolset>gcc,<segmented-stacks>on:<cxxflags>-DBOOST_USE_SEGMENTED_STACKS
+       <toolset>clang,<segmented-stacks>on:<cxxflags>-fsplit-stack

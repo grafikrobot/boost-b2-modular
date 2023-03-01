@@ -50,6 +50,18 @@ index 0a420ab..bac30e9 100644
  
  exe bench_format_no_locale
      : bench_format.cpp
+diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
+index 6029e89..da3e088 100644
+--- a/example/Jamfile.v2
++++ b/example/Jamfile.v2
+@@ -11,6 +11,6 @@ test-suite "format-examples"
+    :    [ run sample_advanced.cpp ]
+         [ run sample_formats.cpp ]
+         [ run sample_new_features.cpp ]
+-        [ run sample_userType.cpp ]
++        [ run sample_userType.cpp : : : <library>/boost/numeric_conversion//boost_numeric_conversion ]
+    ;
+ 
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
 index f77f97c..e2e4a56 100644
 --- a/test/Jamfile.v2
@@ -65,3 +77,15 @@ index f77f97c..e2e4a56 100644
  test-suite "format"
     :    [ run format_test1.cpp ]
          [ run format_test1.cpp : : : <toolset>msvc:<cxxflags>"/FIWindows.h" : format_test1_windows_h ]
+diff --git a/tools/Jamfile.v2 b/tools/Jamfile.v2
+index fe14823..d6a7488 100644
+--- a/tools/Jamfile.v2
++++ b/tools/Jamfile.v2
+@@ -13,6 +13,7 @@ project
+ 
+ exe format_matrix 
+     : format_matrix.cpp
++	  /boost/filesystem//boost_filesystem
+ 	  /boost/program_options//boost_program_options
+ 	  /boost/system//boost_system
+     ;

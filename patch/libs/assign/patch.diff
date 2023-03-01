@@ -15,9 +15,18 @@ index 0914294..0000000
 -# please order by name to ease maintenance
 -build-project test ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 7172745..4383901 100644
+index 7172745..cce3be9 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
+@@ -14,7 +14,7 @@ import regex ;
+ rule assign-test ( name )
+ {
+     return [
+-        run $(name).cpp /boost/test//boost_unit_test_framework/<link>static ]
++        run $(name).cpp /boost/test//boost_unit_test_framework/<link>static /boost/multi_index//boost_multi_index ]
+         ;
+ }
+ 
 @@ -27,10 +27,9 @@ rule test_headers
  {
      local all_rules = ;

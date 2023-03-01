@@ -18,7 +18,7 @@ index 13c540d..bb92567 100644
 -boost-install boost_filesystem ;
 +# boost-install boost_filesystem ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index d1ffc2a..636e132 100644
+index d1ffc2a..3fccce7 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -83,7 +83,7 @@ run locale_info.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 <test-info>always_s
@@ -30,3 +30,12 @@ index d1ffc2a..636e132 100644
  compile-fail cf_path_nullptr_test.cpp ;
  run path_test.cpp : : : <link>shared <define>BOOST_FILESYSTEM_VERSION=4 ;
  run path_test.cpp : : : <link>static <define>BOOST_FILESYSTEM_VERSION=4 : path_test_static ;
+@@ -94,7 +94,7 @@ run path_unit_test.cpp : : : <link>shared $(VIS) <define>BOOST_FILESYSTEM_VERSIO
+ run relative_test.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 ;
+ run ../example/simple_ls.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 ;
+ run ../example/file_status.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 ;
+-run foreach_test.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 ;
++run foreach_test.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 <source>/boost/foreach//boost_foreach ;
+ 
+ # `quick` target (for CI)
+ run quick.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 ;

@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index 873392d..7f39961 100644
+index 873392d..d71df87 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -5,11 +5,16 @@
@@ -31,3 +31,15 @@ index 873392d..7f39961 100644
  
  run ../example/printing_enums_ct.cpp : : : $(CXX14) ;
  run ../example/printing_enums_rt.cpp : : : $(CXX14) ;
+@@ -96,9 +101,9 @@ run ../example/print_function.cpp : : : $(CXX14) ;
+ run ../example/to_json.cpp : : : $(CXX14) $(JSON) ;
+ run ../example/from_json.cpp : : : $(CXX14) $(JSON) ;
+ run ../example/serialization.cpp : : : $(CXX14) $(SERIALIZATION) ;
+-run ../example/json_rpc.cpp : : : $(CXX14) $(JSON) ;
++run ../example/json_rpc.cpp : : : $(CXX14) $(JSON) <library>/boost/utility//boost_utility ;
+ run ../example/hash_value.cpp : : : $(CXX14) ;
+ run ../example/equality.cpp : : : $(CXX14) ;
+-link ../example/console.cpp : $(CXX14) $(JSON) ;
++link ../example/console.cpp : $(CXX14) $(JSON) <library>/boost/utility//boost_utility ;
+ run ../example/struct_to_tuple.cpp : : : $(CXX14) ;
+ run ../example/pm_to_string.cpp : : : $(CXX14) ;

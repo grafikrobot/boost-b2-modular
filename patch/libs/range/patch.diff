@@ -1,16 +1,19 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index cd2774e..11d3fcf 100644
+index cd2774e..2157015 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -14,19 +14,20 @@ import testing ;
+@@ -14,19 +14,23 @@ import testing ;
  
  project
      : requirements
 -        <library>/boost/test//boost_unit_test_framework/
 -        <library>/boost/regex//boost_regex/
 +        <source>/boost/assign//boost_assign
++        <source>/boost/foreach//boost_foreach
++        <source>/boost/lambda//boost_lambda
 +        <source>/boost/regex//boost_regex/<link>static
 +        <source>/boost/test//boost_unit_test_framework
++        <source>/boost/variant//boost_variant
          <link>static
          <threading>multi
      ;
@@ -28,7 +31,7 @@ index cd2774e..11d3fcf 100644
          ] ;
  }
  
-@@ -67,7 +68,7 @@ test-suite range :
+@@ -67,7 +71,7 @@ test-suite range :
      [ range-test adaptor_test/sliced ]
      [ range-test adaptor_test/strided ]
      [ range-test adaptor_test/strided2 ]

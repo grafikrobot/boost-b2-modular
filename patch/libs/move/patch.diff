@@ -32,14 +32,15 @@ index bc354e0..55c956c 100644
  {
     local all_rules = ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 2ce67bb..0c85d72 100644
+index 2ce67bb..a588f3a 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -9,6 +9,10 @@
+@@ -9,6 +9,11 @@
  
  import testing ;
  
 +project : requirements
++    <source>/boost/core//boost_core
 +    <source>/boost/container//boost_container
 +    ;
 +

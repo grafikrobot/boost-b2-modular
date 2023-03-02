@@ -55,7 +55,7 @@ index 4315385..1ad664c 100644
  install random_speed : random_speed.exe : <install-type>EXE <location>. ;
  install nondet_random_speed : nondet_random_speed.exe : <install-type>EXE <location>. ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 5d01f24..cc379c3 100644
+index 5d01f24..70fef00 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -8,57 +8,57 @@
@@ -163,12 +163,17 @@ index 5d01f24..cc379c3 100644
  
  # Disable by default.  These don't add much and the larger
  # ones can overflow the stack.
-@@ -68,66 +68,68 @@ explicit test_lagged_fibonacci1279 test_lagged_fibonacci2281
+@@ -68,66 +68,73 @@ explicit test_lagged_fibonacci1279 test_lagged_fibonacci2281
      test_lagged_fibonacci19937 test_lagged_fibonacci23209
      test_lagged_fibonacci44497 ;
  
 -run test_seed_seq.cpp /boost//unit_test_framework ;
-+alias math_test : /boost/math//boost_math /boost/exception//boost_exception /boost/lexical_cast//boost_lexical_cast ;
++alias math_test :
++    /boost/assign//boost_assign
++    /boost/exception//boost_exception
++    /boost/lexical_cast//boost_lexical_cast
++    /boost/math//boost_math
++    ;
  
 -run test_binomial.cpp ;
 -run test_binomial_distribution.cpp /boost//unit_test_framework ;
@@ -287,11 +292,11 @@ index 5d01f24..cc379c3 100644
 +run test_non_central_chi_squared.cpp math_test ;
 +run test_non_central_chi_squared_distribution.cpp /boost/test//unit_test_framework ;
 +run test_hyperexponential.cpp math_test ;
-+run test_hyperexponential_distribution.cpp math_test /boost/assign//boost_assign /boost/test//unit_test_framework ;
++run test_hyperexponential_distribution.cpp math_test /boost/test//unit_test_framework ;
  
  # run nondet_random_speed.cpp ;
  # run random_device.cpp ;
-@@ -143,6 +145,9 @@ explicit statistic_tests ;
+@@ -143,6 +150,9 @@ explicit statistic_tests ;
  #
  # Multiprecision tests:
  #

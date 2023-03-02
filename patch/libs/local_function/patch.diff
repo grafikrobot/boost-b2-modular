@@ -1,5 +1,5 @@
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
-index 1980271..a7adc53 100644
+index 1980271..2b16e83 100644
 --- a/example/Jamfile.v2
 +++ b/example/Jamfile.v2
 @@ -13,7 +13,7 @@ project : requirements <toolset>sun:<define>BOOST_TYPEOF_EMULATION ;
@@ -7,7 +7,7 @@ index 1980271..a7adc53 100644
  run add_global_functor.cpp ;
  run add_local_functor.cpp ;
 -run add_phoenix.cpp ;
-+run add_phoenix.cpp : : : <source>/boost/phoenix//boost_phoenix ;
++run add_phoenix.cpp : : : <source>/boost/spirit//boost_spirit ;
  
  run const_block.cpp ;
  compile-fail const_block_error.cpp : <variant>debug : ;

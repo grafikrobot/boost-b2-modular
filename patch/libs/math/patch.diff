@@ -1607,3 +1607,500 @@ index 8aa2bdcff..23fa208de 100644
     [ run test_constant_generate.cpp : : : release <define>USE_CPP_FLOAT=1 <exception-handling>off:<build>no  ]
  ;
  
+diff --git a/test/float128/log1p_expm1_test.cpp b/test/float128/log1p_expm1_test.cpp
+index 794861440..c46d5b099 100644
+--- a/test/float128/log1p_expm1_test.cpp
++++ b/test/float128/log1p_expm1_test.cpp
+@@ -14,7 +14,7 @@
+ 
+ #include "table_type.hpp"
+ 
+-#include "libs/math/test/log1p_expm1_test.hpp"
++#include "log1p_expm1_test.hpp"
+ 
+ //
+ // DESCRIPTION:
+diff --git a/test/float128/powm1_sqrtp1m1_test.cpp b/test/float128/powm1_sqrtp1m1_test.cpp
+index 73972bb7a..bfc219bcc 100644
+--- a/test/float128/powm1_sqrtp1m1_test.cpp
++++ b/test/float128/powm1_sqrtp1m1_test.cpp
+@@ -16,7 +16,7 @@
+ 
+ #include "table_type.hpp"
+ 
+-#include "libs/math/test/powm1_sqrtp1m1_test.hpp"
++#include "powm1_sqrtp1m1_test.hpp"
+ 
+ //
+ // DESCRIPTION:
+diff --git a/test/float128/table_type.hpp b/test/float128/table_type.hpp
+index 6560762db..7e5c07b24 100644
+--- a/test/float128/table_type.hpp
++++ b/test/float128/table_type.hpp
+@@ -5,7 +5,7 @@
+ 
+ #ifndef BOOST_MP_TABLE_TYPE
+ 
+-#include <libs/math/test/table_type.hpp>
++#include <table_type.hpp>
+ 
+ #define SC_(x) BOOST_FLOATMAX_C(x)
+ 
+diff --git a/test/float128/test_bessel_i.cpp b/test/float128/test_bessel_i.cpp
+index 952cc9d6a..7e0374cdf 100644
+--- a/test/float128/test_bessel_i.cpp
++++ b/test/float128/test_bessel_i.cpp
+@@ -12,7 +12,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/bessel.hpp>
+-#include "libs/math/test/test_bessel_i.hpp"
++#include "test_bessel_i.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_bessel_j.cpp b/test/float128/test_bessel_j.cpp
+index 7afeeebeb..f3bab11fd 100644
+--- a/test/float128/test_bessel_j.cpp
++++ b/test/float128/test_bessel_j.cpp
+@@ -12,7 +12,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/bessel.hpp>
+-#include "libs/math/test/test_bessel_j.hpp"
++#include "test_bessel_j.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_bessel_k.cpp b/test/float128/test_bessel_k.cpp
+index a5ec1e2b4..7f7144649 100644
+--- a/test/float128/test_bessel_k.cpp
++++ b/test/float128/test_bessel_k.cpp
+@@ -12,7 +12,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/bessel.hpp>
+-#include "libs/math/test/test_bessel_k.hpp"
++#include "test_bessel_k.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_bessel_y.cpp b/test/float128/test_bessel_y.cpp
+index 55bdf56e7..240d7785a 100644
+--- a/test/float128/test_bessel_y.cpp
++++ b/test/float128/test_bessel_y.cpp
+@@ -12,7 +12,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/bessel.hpp>
+-#include "libs/math/test/test_bessel_y.hpp"
++#include "test_bessel_y.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_beta.cpp b/test/float128/test_beta.cpp
+index 6cfddd566..ecdf34796 100644
+--- a/test/float128/test_beta.cpp
++++ b/test/float128/test_beta.cpp
+@@ -12,7 +12,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/beta.hpp>
+-#include "libs/math/test/test_beta.hpp"
++#include "test_beta.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_binomial_coeff.cpp b/test/float128/test_binomial_coeff.cpp
+index be208f4f5..392150b06 100644
+--- a/test/float128/test_binomial_coeff.cpp
++++ b/test/float128/test_binomial_coeff.cpp
+@@ -12,7 +12,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/binomial.hpp>
+-#include "libs/math/test/test_binomial_coeff.hpp"
++#include "test_binomial_coeff.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_carlson.cpp b/test/float128/test_carlson.cpp
+index 145849373..0954816c3 100644
+--- a/test/float128/test_carlson.cpp
++++ b/test/float128/test_carlson.cpp
+@@ -11,7 +11,7 @@
+ #include <boost/math/special_functions/ellint_rf.hpp>
+ #include <boost/math/special_functions/ellint_rj.hpp>
+ #include <boost/math/special_functions/ellint_rg.hpp>
+-#include "libs/math/test/test_carlson.hpp"
++#include "test_carlson.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_cbrt.cpp b/test/float128/test_cbrt.cpp
+index d6690bdd9..7b53b8a43 100644
+--- a/test/float128/test_cbrt.cpp
++++ b/test/float128/test_cbrt.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/cbrt.hpp>
+-#include "libs/math/test/test_cbrt.hpp"
++#include "test_cbrt.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_digamma.cpp b/test/float128/test_digamma.cpp
+index 9856223be..5702ccf73 100644
+--- a/test/float128/test_digamma.cpp
++++ b/test/float128/test_digamma.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/digamma.hpp>
+-#include "libs/math/test/test_digamma.hpp"
++#include "test_digamma.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_ellint_1.cpp b/test/float128/test_ellint_1.cpp
+index 5c259e940..90f9e1bed 100644
+--- a/test/float128/test_ellint_1.cpp
++++ b/test/float128/test_ellint_1.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/ellint_1.hpp>
+-#include "libs/math/test/test_ellint_1.hpp"
++#include "test_ellint_1.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_ellint_2.cpp b/test/float128/test_ellint_2.cpp
+index 8b0512467..3f43e8c1d 100644
+--- a/test/float128/test_ellint_2.cpp
++++ b/test/float128/test_ellint_2.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/ellint_2.hpp>
+-#include "libs/math/test/test_ellint_2.hpp"
++#include "test_ellint_2.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_ellint_3.cpp b/test/float128/test_ellint_3.cpp
+index e46268388..644dd1cbb 100644
+--- a/test/float128/test_ellint_3.cpp
++++ b/test/float128/test_ellint_3.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/ellint_3.hpp>
+-#include "libs/math/test/test_ellint_3.hpp"
++#include "test_ellint_3.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_erf.cpp b/test/float128/test_erf.cpp
+index 90efd139e..5f3bcaa46 100644
+--- a/test/float128/test_erf.cpp
++++ b/test/float128/test_erf.cpp
+@@ -8,7 +8,7 @@
+ #define TEST_UDT
+ 
+ #include <boost/math/special_functions/erf.hpp>
+-#include "libs/math/test/test_erf.hpp"
++#include "test_erf.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_expint.cpp b/test/float128/test_expint.cpp
+index 73a1f6bb5..ff9ece822 100644
+--- a/test/float128/test_expint.cpp
++++ b/test/float128/test_expint.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/expint.hpp>
+-#include "libs/math/test/test_expint.hpp"
++#include "test_expint.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_gamma.cpp b/test/float128/test_gamma.cpp
+index ddaae2adf..bcec76083 100644
+--- a/test/float128/test_gamma.cpp
++++ b/test/float128/test_gamma.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/gamma.hpp>
+-#include "libs/math/test/test_gamma.hpp"
++#include "test_gamma.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_hermite.cpp b/test/float128/test_hermite.cpp
+index f933c6d27..3b6fcdfb5 100644
+--- a/test/float128/test_hermite.cpp
++++ b/test/float128/test_hermite.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/hermite.hpp>
+-#include "libs/math/test/test_hermite.hpp"
++#include "test_hermite.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_ibeta.cpp b/test/float128/test_ibeta.cpp
+index 708a6950d..c46da7766 100644
+--- a/test/float128/test_ibeta.cpp
++++ b/test/float128/test_ibeta.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/beta.hpp>
+-#include "libs/math/test/test_ibeta.hpp"
++#include "test_ibeta.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_ibeta_inv_1.cpp b/test/float128/test_ibeta_inv_1.cpp
+index 68049024f..2fc059740 100644
+--- a/test/float128/test_ibeta_inv_1.cpp
++++ b/test/float128/test_ibeta_inv_1.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/beta.hpp>
+-#include "libs/math/test/test_ibeta_inv.hpp"
++#include "test_ibeta_inv.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_ibeta_inv_ab_4.cpp b/test/float128/test_ibeta_inv_ab_4.cpp
+index 3e0bc8581..d02a99f26 100644
+--- a/test/float128/test_ibeta_inv_ab_4.cpp
++++ b/test/float128/test_ibeta_inv_ab_4.cpp
+@@ -11,7 +11,7 @@
+ #define FULL_TEST
+ 
+ #include <boost/math/special_functions/beta.hpp>
+-#include "libs/math/test/test_ibeta_inv_ab.hpp"
++#include "test_ibeta_inv_ab.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_igamma.cpp b/test/float128/test_igamma.cpp
+index d53325484..7a987c643 100644
+--- a/test/float128/test_igamma.cpp
++++ b/test/float128/test_igamma.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/gamma.hpp>
+-#include "libs/math/test/test_igamma.hpp"
++#include "test_igamma.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_igamma_inv.cpp b/test/float128/test_igamma_inv.cpp
+index 122db9d42..bc9b4289e 100644
+--- a/test/float128/test_igamma_inv.cpp
++++ b/test/float128/test_igamma_inv.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/gamma.hpp>
+-#include "libs/math/test/test_igamma_inv.hpp"
++#include "test_igamma_inv.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_igamma_inva.cpp b/test/float128/test_igamma_inva.cpp
+index 0a244c2f4..19daa7cfa 100644
+--- a/test/float128/test_igamma_inva.cpp
++++ b/test/float128/test_igamma_inva.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/gamma.hpp>
+-#include "libs/math/test/test_igamma_inva.hpp"
++#include "test_igamma_inva.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_laguerre.cpp b/test/float128/test_laguerre.cpp
+index 04ae016b9..dfa475448 100644
+--- a/test/float128/test_laguerre.cpp
++++ b/test/float128/test_laguerre.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/laguerre.hpp>
+-#include "libs/math/test/test_laguerre.hpp"
++#include "test_laguerre.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_legendre.cpp b/test/float128/test_legendre.cpp
+index 463c2d90a..e6de9644a 100644
+--- a/test/float128/test_legendre.cpp
++++ b/test/float128/test_legendre.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/legendre.hpp>
+-#include "libs/math/test/test_legendre.hpp"
++#include "test_legendre.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_polygamma.cpp b/test/float128/test_polygamma.cpp
+index e62cef9af..1ff41e34f 100644
+--- a/test/float128/test_polygamma.cpp
++++ b/test/float128/test_polygamma.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/polygamma.hpp>
+-#include "libs/math/test/test_polygamma.hpp"
++#include "test_polygamma.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_tgamma_ratio.cpp b/test/float128/test_tgamma_ratio.cpp
+index 9d2568f55..0138ce472 100644
+--- a/test/float128/test_tgamma_ratio.cpp
++++ b/test/float128/test_tgamma_ratio.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/gamma.hpp>
+-#include "libs/math/test/test_tgamma_ratio.hpp"
++#include "test_tgamma_ratio.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_trigamma.cpp b/test/float128/test_trigamma.cpp
+index 8862b53d0..3ab2f9473 100644
+--- a/test/float128/test_trigamma.cpp
++++ b/test/float128/test_trigamma.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/trigamma.hpp>
+-#include "libs/math/test/test_trigamma.hpp"
++#include "test_trigamma.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/float128/test_zeta.cpp b/test/float128/test_zeta.cpp
+index 4dcdf19cc..67aebfbff 100644
+--- a/test/float128/test_zeta.cpp
++++ b/test/float128/test_zeta.cpp
+@@ -7,7 +7,7 @@
+ #include "table_type.hpp"
+ 
+ #include <boost/math/special_functions/zeta.hpp>
+-#include "libs/math/test/test_zeta.hpp"
++#include "test_zeta.hpp"
+ 
+ void expected_results()
+ {
+diff --git a/test/test_bernoulli_constants.cpp b/test/test_bernoulli_constants.cpp
+index 03ddc8c05..3e3a1469d 100644
+--- a/test/test_bernoulli_constants.cpp
++++ b/test/test_bernoulli_constants.cpp
+@@ -10,7 +10,7 @@
+ #include <boost/test/unit_test.hpp>
+ #include <boost/math/concepts/real_concept.hpp>
+ #include <boost/math/special_functions/bernoulli.hpp>
+-#include <libs/math/test/table_type.hpp>
++#include <table_type.hpp>
+ #include <boost/math/tools/test.hpp>
+ #include <iostream>
+ #include <iomanip>
+diff --git a/test/test_nonfinite_io.cpp b/test/test_nonfinite_io.cpp
+index b91754981..855843c71 100644
+--- a/test/test_nonfinite_io.cpp
++++ b/test/test_nonfinite_io.cpp
+@@ -14,8 +14,8 @@
+ #define BOOST_TEST_MAIN
+ 
+ #include <boost/test/unit_test.hpp>
+-#include <libs/math/test/almost_equal.ipp> // Similar to BOOST_CLOSE_FRACTION.
+-#include <libs/math/test/s_.ipp> // To create test strings like std::basic_string<CharType> s = S_("0 -0"); 
++#include <almost_equal.ipp> // Similar to BOOST_CLOSE_FRACTION.
++#include <s_.ipp> // To create test strings like std::basic_string<CharType> s = S_("0 -0"); 
+ #include <boost/math/special_functions/nonfinite_num_facets.hpp>
+ 
+ #include <locale>
+diff --git a/test/test_owens_t.cpp b/test/test_owens_t.cpp
+index 8c33e77f0..11389dd20 100644
+--- a/test/test_owens_t.cpp
++++ b/test/test_owens_t.cpp
+@@ -38,9 +38,9 @@ using boost::math::owens_t;
+ #include <boost/test/tools/floating_point_comparison.hpp>
+ #include <boost/array.hpp>
+ 
+-#include "libs/math/test/handle_test_result.hpp"
+-#include "libs/math/test/table_type.hpp"
+-#include "libs/math/test/functor.hpp"
++#include "handle_test_result.hpp"
++#include "table_type.hpp"
++#include "functor.hpp"
+ #include "boost/math/tools/test_value.hpp"
+ #include "test_owens_t.hpp"
+ 
+diff --git a/tools/ibeta_derivative_data.cpp b/tools/ibeta_derivative_data.cpp
+index f00fe4678..27d647410 100644
+--- a/tools/ibeta_derivative_data.cpp
++++ b/tools/ibeta_derivative_data.cpp
+@@ -17,11 +17,11 @@ using namespace boost::math::tools;
+ using namespace boost::math;
+ using namespace std;
+ 
+-#include <libs/math/test/table_type.hpp>
++#include <table_type.hpp>
+ 
+ #define T double
+ #define SC_(x) static_cast<double>(x)
+-#include <libs/math/test/ibeta_int_data.ipp>
++#include <ibeta_int_data.ipp>
+ 
+ int main(int, char* [])
+ {
+diff --git a/tools/nc_t_data.cpp b/tools/nc_t_data.cpp
+index 90b9e6155..ff3b99473 100644
+--- a/tools/nc_t_data.cpp
++++ b/tools/nc_t_data.cpp
+@@ -24,7 +24,7 @@
+ #include <boost/multiprecision/mpfr.hpp>
+ #include <fstream>
+ 
+-#include <libs/math/test/table_type.hpp>
++#include <table_type.hpp>
+ 
+ using namespace boost::math::tools;
+ using namespace boost::math;
+@@ -91,7 +91,7 @@ int main(int, char* [])
+    boost::math::quadrature::exp_sinh<big_t> integrator(10);
+    using T = float;
+ 
+-#include <libs/math/test/nct.ipp>
++#include <nct.ipp>
+ 
+ 
+    for (unsigned i = 0; i < nct.size(); ++i)
+@@ -127,7 +127,7 @@ int main(int, char* [])
+       std::cout << cdf << "), SC_(" << ccdf << ") }}," << std::endl;
+    }
+ 
+-#include <libs/math/test/nct_small_delta.ipp>
++#include <nct_small_delta.ipp>
+    for (unsigned i = 0; i < nct_small_delta.size(); ++i)
+    {
+       big_t error1, error2;

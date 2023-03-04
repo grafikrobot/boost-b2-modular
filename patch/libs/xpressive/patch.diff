@@ -23,10 +23,36 @@ index ab9cd5d..54848c5 100644
 -        <include>$(BOOST_ROOT)
      ;
 diff --git a/perf/Jamfile.v2 b/perf/Jamfile.v2
-index 7769420..38cb73a 100644
+index 7769420..1fc8246 100644
 --- a/perf/Jamfile.v2
 +++ b/perf/Jamfile.v2
-@@ -34,9 +34,10 @@ exe xprperf
+@@ -8,25 +8,6 @@
+ #    : requirements <library>../../../../boost/libs/regex/build//boost_regex
+ #    ;
+ 
+-BOOST_REGEX_SOURCES =
+-   c_regex_traits
+-   cpp_regex_traits
+-   cregex
+-   fileiter
+-   icu
+-   instances
+-   posix_api
+-   regex
+-   regex_debug
+-   regex_raw_buffer
+-   regex_traits_defaults
+-   static_mutex
+-   w32_regex_traits
+-   wc_regex_traits
+-   wide_posix_api
+-   winstances
+-   usinstances ;
+-
+ exe xprperf 
+     : 
+         command_line.cpp
+@@ -34,11 +15,9 @@ exe xprperf
          time_boost.cpp
          time_dynamic_xpressive.cpp
          time_static_xpressive.cpp
@@ -36,9 +62,11 @@ index 7769420..38cb73a 100644
 +        /boost/test//boost_unit_test_framework
      :
 -        <include>$(BOOST_ROOT)
-         <define>BOOST_REGEX_NO_LIB=1
-         <define>BOOST_REGEX_RECURSIVE
-         <define>BOOST_REGEX_USE_CPP_LOCALE
+-        <define>BOOST_REGEX_NO_LIB=1
+-        <define>BOOST_REGEX_RECURSIVE
+-        <define>BOOST_REGEX_USE_CPP_LOCALE
+         <define>BOOST_XPRESSIVE_USE_CPP_TRAITS
+     ;
 diff --git a/tools/Jamfile.v2 b/tools/Jamfile.v2
 index ec2bb96..e715e1b 100644
 --- a/tools/Jamfile.v2

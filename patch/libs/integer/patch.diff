@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index acefec0..dec9651 100644
+index acefec0..30f9dc6 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -13,18 +13,18 @@ explicit has_gmpxx ;
@@ -34,5 +34,5 @@ index acefec0..dec9651 100644
          [ compile-fail fail_uint_least.cpp ]
          [ compile-fail fail_uint_65.cpp ]
 -        [ run common_factor_test.cpp : : : [ check-target-builds has_gmpxx "Checking for gmpxx.h" : <define>BOOST_INTEGER_HAS_GMPXX_H=1 <linkflags>-lgmp <linkflags>-lgmpxx ] ]
-+        [ run common_factor_test.cpp : : : <library>/boost/mpl//boost_mpl <library>/boost/random//boost_random [ check-target-builds has_gmpxx "Checking for gmpxx.h" : <define>BOOST_INTEGER_HAS_GMPXX_H=1 <linkflags>-lgmp <linkflags>-lgmpxx ] ]
++        [ run common_factor_test.cpp : : : <library>/boost/mpl//boost_mpl <library>/boost/random//boost_random <library>/boost/rational//boost_rational <library>/boost/multiprecision//boost_multiprecision [ check-target-builds has_gmpxx "Checking for gmpxx.h" : <define>BOOST_INTEGER_HAS_GMPXX_H=1 <linkflags>-lgmp <linkflags>-lgmpxx ] ]
      ;

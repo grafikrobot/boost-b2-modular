@@ -115,6 +115,23 @@ index 8ac5e5c6..fe62422b 100644
      <define>BOOST_ALL_NO_LIB=1
      <threading>multi
      <target-os>solaris:<library>socket
+diff --git a/example/cpp11/files/Jamfile.v2 b/example/cpp11/files/Jamfile.v2
+index 78b35b9b..3358c0b0 100644
+--- a/example/cpp11/files/Jamfile.v2
++++ b/example/cpp11/files/Jamfile.v2
+@@ -5,9 +5,9 @@
+ # file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+ #
+ 
+-lib uring ; # LINUX
+-lib ws2_32 ; # NT
+-lib mswsock ; # NT
++searched-lib uring ; # LINUX
++searched-lib ws2_32 ; # NT
++searched-lib mswsock ; # NT
+ 
+ project
+   : requirements
 diff --git a/example/cpp11/ssl/Jamfile.v2 b/example/cpp11/ssl/Jamfile.v2
 index 549b664c..675971c3 100644
 --- a/example/cpp11/ssl/Jamfile.v2

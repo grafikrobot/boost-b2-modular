@@ -1,5 +1,5 @@
 diff --git a/config/Jamfile.v2 b/config/Jamfile.v2
-index 62c568cc..1279f9dd 100644
+index 62c568cc..fee9ce21 100644
 --- a/config/Jamfile.v2
 +++ b/config/Jamfile.v2
 @@ -5,7 +5,7 @@
@@ -19,8 +19,29 @@ index 62c568cc..1279f9dd 100644
     <search>$(gmp_path) 
     <search>$(mpfr_path) 
     <search>$(mpfr_path)/build.vc10/lib/Win32/Debug
+@@ -37,13 +36,13 @@ project : requirements
+    <toolset>gcc:<cxxflags>-Wextra
+    ;
+ 
+-lib gmp ;
+-lib mpfr ;
+-lib mpfi ;
+-lib mpc ;
+-lib quadmath ;
+-lib tommath ;
+-lib f2c ;
++searched-lib gmp : : <link>shared ;
++searched-lib mpfr : : <link>shared ;
++searched-lib mpfi : : <link>shared ;
++searched-lib mpc : : <link>shared ;
++searched-lib quadmath : : <link>shared ;
++searched-lib tommath : : <link>shared ;
++searched-lib f2c : : <link>shared ;
+ 
+ actions mp_simple_run_action
+ {
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
-index 552969b9..f96e475f 100644
+index 552969b9..4d6943f0 100644
 --- a/example/Jamfile.v2
 +++ b/example/Jamfile.v2
 @@ -11,7 +11,7 @@
@@ -41,15 +62,30 @@ index 552969b9..f96e475f 100644
       
        <toolset>gcc:<cxxflags>-Wno-missing-braces
        <toolset>darwin:<cxxflags>-Wno-missing-braces
-@@ -61,7 +59,7 @@ project
- lib gmp : : <search>$(gmp_path) ;
- lib mpfr : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug ;
- lib mpfi : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug <search>$(mpfi_path) <search>$(mpfi_path)/src ;
+@@ -58,10 +56,10 @@ project
+          ]
+     ;
+ 
+-lib gmp : : <search>$(gmp_path) ;
+-lib mpfr : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug ;
+-lib mpfi : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug <search>$(mpfi_path) <search>$(mpfi_path)/src ;
 -lib quadmath ;
-+lib quadmath : : <name>quadmath ;
++searched-lib gmp : : <search>$(gmp_path) ;
++searched-lib mpfr : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug ;
++searched-lib mpfi : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug <search>$(mpfi_path) <search>$(mpfi_path)/src ;
++searched-lib quadmath ;
  
  if $(tommath_path)
  {
+@@ -70,7 +68,7 @@ if $(tommath_path)
+ }
+ else
+ {
+-   lib tommath : : <search>$(tommath_path) ;
++   searched-lib tommath : : <search>$(tommath_path) ;
+    TOMMATH = tommath ;
+ }
+ 
 @@ -95,7 +93,7 @@ test-suite examples :
        [ run integer_examples.cpp no_eh_eg_support ]
        [ run logged_adaptor.cpp no_eh_eg_support mpfi mpfr gmp :  :  : [ check-target-builds ../config//has_mpfi : : <build>no ] ]
@@ -60,7 +96,7 @@ index 552969b9..f96e475f 100644
        [ run safe_prime.cpp no_eh_eg_support ]
  
 diff --git a/performance/Jamfile.v2 b/performance/Jamfile.v2
-index d6d89638..00db5a7e 100644
+index d6d89638..3dfdd337 100644
 --- a/performance/Jamfile.v2
 +++ b/performance/Jamfile.v2
 @@ -5,7 +5,7 @@
@@ -80,7 +116,7 @@ index d6d89638..00db5a7e 100644
     <search>$(gmp_path) 
     <search>$(mpfr_path) 
     <search>$(mpfr_path)/build.vc10/lib/Win32/Debug
-@@ -34,6 +33,9 @@ project : requirements
+@@ -34,13 +33,16 @@ project : requirements
     <define>BOOST_ALL_NO_LIB
     <debug-symbols>off
     <define>NDEBUG=1
@@ -89,6 +125,26 @@ index d6d89638..00db5a7e 100644
 +   : default-build release
     ;
  
+ 
+-lib gmp ;
+-lib mpfr ;
+-lib quadmath ;
+-lib f2c ;
++searched-lib gmp ;
++searched-lib mpfr ;
++searched-lib quadmath ;
++searched-lib f2c ;
+ 
+ if $(tommath_path)
+ {
+@@ -48,7 +50,7 @@ if $(tommath_path)
+ }
+ else
+ {
+-   lib tommath ;
++   searched-lib tommath ;
+    TOMMATH = tommath ;
+ }
  
 @@ -73,7 +75,7 @@ test-suite performance :
              performance_test_files/test16.cpp  performance_test_files/test33.cpp  performance_test_files/test50.cpp
@@ -117,11 +173,13 @@ index d6d89638..00db5a7e 100644
            [ check-target-builds ../config//has_gmp : <define>TEST_MPF <define>TEST_MPZ <source>gmp : ]
            [ check-target-builds ../config//has_mpfr : <define>TEST_MPFR <source>mpfr : ]
            [ check-target-builds ../config//has_float128 : <source>quadmath : ]
-@@ -150,106 +152,106 @@ test-suite performance :
+@@ -149,107 +151,107 @@ test-suite performance :
+           
  [ exe delaunay_test : delaunay_test.cpp /boost/system//boost_system /boost/chrono//boost_chrono ]
  
- [ exe voronoi_performance : voronoi_performance.cpp /boost/system//boost_system /boost/chrono//boost_chrono
+-[ exe voronoi_performance : voronoi_performance.cpp /boost/system//boost_system /boost/chrono//boost_chrono
 -   : release
++[ exe voronoi_performance : voronoi_performance.cpp /boost/system//boost_system /boost/chrono//boost_chrono /boost/polygon//boost_polygon
 +   :
            [ check-target-builds ../config//has_gmp : <define>TEST_GMP <source>gmp : ]
            [ check-target-builds ../config//has_tommath : <define>TEST_TOMMATH <source>$(TOMMATH) : ]
@@ -305,7 +363,7 @@ index 1e5d1555..5121062f 100644
     Real result = 0;
     for (unsigned i = 0; i < nct.size(); ++i)
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index e71e18b0..93acd095 100644
+index e71e18b0..370bcb59 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -6,7 +6,7 @@
@@ -334,6 +392,50 @@ index e71e18b0..93acd095 100644
     # We set these to make it easier to set up and test GMP and MPFR under Win32:
     <toolset>msvc:<runtime-link>static
     <toolset>msvc:<link>static
+@@ -92,11 +91,11 @@ project : requirements
+ local enable-specfun = [ MATCH (--enable-specfun) : [ modules.peek : ARGV ] ] ;
+ local disable-concepts = [ MATCH (--disable-concepts) : [ modules.peek : ARGV ] ] ;
+ 
+-lib gmp : : <search>$(gmp_path) ;
+-lib mpfr : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug ;
+-lib mpfi : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug <search>$(mpfi_path) <search>$(mpfi_path)/src ;
+-lib quadmath ;
+-lib mpc ;
++searched-lib gmp : : <search>$(gmp_path) ;
++searched-lib mpfr : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug ;
++searched-lib mpfi : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug <search>$(mpfi_path) <search>$(mpfi_path)/src ;
++searched-lib quadmath ;
++searched-lib mpc ;
+ 
+ if $(tommath_path)
+ {
+@@ -105,7 +104,7 @@ if $(tommath_path)
+ }
+ else
+ {
+-   lib tommath : : <search>$(tommath_path) ;
++   searched-lib tommath : : <search>$(tommath_path) ;
+    TOMMATH = tommath ;
+ }
+ 
+@@ -132,7 +131,7 @@ test-suite arithmetic_tests :
+    [ run test_arithmetic_mpf.cpp gmp no_eh_support : : : [ check-target-builds ../config//has_gmp : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
+    [ run test_arithmetic_mpz.cpp gmp no_eh_support : : : [ check-target-builds ../config//has_gmp : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
+    [ run test_arithmetic_mpz_rat.cpp gmp no_eh_support : : : [ check-target-builds ../config//has_gmp : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
+-   [ run test_arithmetic_mpz_br.cpp gmp no_eh_support : : : [ check-target-builds ../config//has_gmp : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
++   [ run test_arithmetic_mpz_br.cpp gmp no_eh_support /boost/rational//boost_rational : : : [ check-target-builds ../config//has_gmp : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
+    [ run test_arithmetic_mpq.cpp gmp no_eh_support : : : [ check-target-builds ../config//has_gmp : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
+ 
+    [ run test_arithmetic_mpfr.cpp mpfr gmp no_eh_support : : : [ check-target-builds ../config//has_mpfr : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
+@@ -141,7 +140,7 @@ test-suite arithmetic_tests :
+ 
+    [ run test_arithmetic_tommath.cpp $(TOMMATH) no_eh_support : : : [ check-target-builds ../config//has_tommath : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
+    [ run test_arithmetic_tommath_rat.cpp $(TOMMATH) no_eh_support : : : [ check-target-builds ../config//has_tommath : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
+-   [ run test_arithmetic_tommath_br.cpp $(TOMMATH) no_eh_support : : : [ check-target-builds ../config//has_tommath : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
++   [ run test_arithmetic_tommath_br.cpp /boost/rational//boost_rational $(TOMMATH) no_eh_support : : : [ check-target-builds ../config//has_tommath : : <build>no ] [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
+ 
+    [ run test_arithmetic_cpp_int_1.cpp no_eh_support : : : <toolset>msvc:<cxxflags>-bigobj [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
+    [ run test_arithmetic_cpp_int_2.cpp no_eh_support  : : : <toolset>msvc:<cxxflags>-bigobj [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
 @@ -166,7 +165,7 @@ test-suite arithmetic_tests :
     [ run test_arithmetic_cpp_int_21.cpp no_eh_support : : : <toolset>msvc:<cxxflags>-bigobj [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
     [ run test_arithmetic_cpp_int_22.cpp no_eh_support : : : <toolset>msvc:<cxxflags>-bigobj [ check-target-builds ../config//has_float128 : <source>quadmath ] ]
@@ -349,6 +451,15 @@ index e71e18b0..93acd095 100644
  
 -      [ run test_int_io.cpp no_eh_support $(TOMMATH)
 +      [ run test_int_io.cpp no_eh_support $(TOMMATH) /boost/algorithm//boost_algorithm
+               : # command line
+               : # input files
+               : # requirements
+@@ -780,7 +779,7 @@ test-suite conversions :
+                [ check-target-builds ../config//has_tommath : : <build>no ]
+               : test_int_io_tommath ]
+ 
+-      [ run test_int_io.cpp no_eh_support gmp
++      [ run test_int_io.cpp no_eh_support gmp /boost/algorithm//boost_algorithm
                : # command line
                : # input files
                : # requirements
@@ -395,6 +506,15 @@ index e71e18b0..93acd095 100644
                : # command line
                : # input files
                : # requirements
+@@ -874,7 +873,7 @@ test-suite conversions :
+ 
+ test-suite cpp_int_tests :
+ 
+-      [ run test_int_io.cpp no_eh_support
++      [ run test_int_io.cpp no_eh_support /boost/algorithm//boost_algorithm
+            : # command line
+            : # input files
+            : # requirements
 @@ -1000,12 +999,12 @@ test-suite cpp_int_tests :
        [ run test_checked_cpp_int.cpp no_eh_support ]
        [ run test_unchecked_cpp_int.cpp no_eh_support : : : release ]
@@ -430,7 +550,7 @@ index e71e18b0..93acd095 100644
                 ]
  
 -      [ run test_rational_io.cpp $(TOMMATH) no_eh_support
-+      [ run test_rational_io.cpp $(TOMMATH) no_eh_support /boost/algorithm//boost_algorithm
++      [ run test_rational_io.cpp $(TOMMATH) no_eh_support /boost/algorithm//boost_algorithm /boost/rational//boost_rational
                : # command line
                : # input files
                : # requirements
@@ -439,7 +559,7 @@ index e71e18b0..93acd095 100644
                : test_rational_io_tommath ]
  
 -      [ run test_rational_io.cpp gmp no_eh_support
-+      [ run test_rational_io.cpp gmp no_eh_support /boost/algorithm//boost_algorithm
++      [ run test_rational_io.cpp gmp no_eh_support /boost/algorithm//boost_algorithm /boost/rational//boost_rational
                : # command line
                : # input files
                : # requirements
@@ -448,7 +568,7 @@ index e71e18b0..93acd095 100644
                : test_rational_io_mpz ]
  
 -      [ run test_rational_io.cpp no_eh_support
-+      [ run test_rational_io.cpp no_eh_support /boost/algorithm//boost_algorithm
++      [ run test_rational_io.cpp no_eh_support /boost/algorithm//boost_algorithm /boost/rational//boost_rational
                : # command line
                : # input files
                : # requirements
@@ -575,7 +695,7 @@ index e71e18b0..93acd095 100644
     {
  
 -      result += [ compile $(source)  mpfr
-+      result += [ compile $(source)  mpfr /boost/math//boost_math
++      result += [ compile $(source)  mpfr /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_MPFR_50
                 [ check-target-builds ../config//has_mpfr : : <build>no ]
@@ -584,7 +704,7 @@ index e71e18b0..93acd095 100644
                : $(source:B)_mpfr_50 ] ;
  
 -      result += [ compile $(source)  mpfr
-+      result += [ compile $(source)  mpfr /boost/math//boost_math
++      result += [ compile $(source)  mpfr /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_MPFR_6
                 [ check-target-builds ../config//has_mpfr : : <build>no ]
@@ -593,7 +713,7 @@ index e71e18b0..93acd095 100644
                : $(source:B)_mpfr_6 ] ;
  
 -      result += [ compile $(source)  mpfr
-+      result += [ compile $(source)  mpfr /boost/math//boost_math
++      result += [ compile $(source)  mpfr /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_MPFR_15
                 [ check-target-builds ../config//has_mpfr : : <build>no ]
@@ -602,7 +722,7 @@ index e71e18b0..93acd095 100644
                : $(source:B)_mpfr_15 ] ;
  
 -      result += [ compile $(source)  mpfr
-+      result += [ compile $(source)  mpfr /boost/math//boost_math
++      result += [ compile $(source)  mpfr /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_MPFR_17
                 [ check-target-builds ../config//has_mpfr : : <build>no ]
@@ -611,7 +731,7 @@ index e71e18b0..93acd095 100644
                : $(source:B)_mpfr_17 ] ;
  
 -      result += [ compile $(source)  mpfr
-+      result += [ compile $(source)  mpfr /boost/math//boost_math
++      result += [ compile $(source)  mpfr /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_MPFR_30
                 [ check-target-builds ../config//has_mpfr : : <build>no ]
@@ -620,7 +740,7 @@ index e71e18b0..93acd095 100644
                : $(source:B)_mpfr_30 ] ;
  
 -      result += [ compile $(source)  gmp
-+      result += [ compile $(source)  gmp /boost/math//boost_math
++      result += [ compile $(source)  gmp /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_MPF_50
                 [ check-target-builds ../config//has_gmp : : <build>no ]
@@ -629,7 +749,7 @@ index e71e18b0..93acd095 100644
                : $(source:B)_mpf50 ] ;
  
 -      result += [ compile $(source)
-+      result += [ compile $(source) /boost/math//boost_math
++      result += [ compile $(source) /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_CPP_DEC_FLOAT
                 <debug-symbols>off
@@ -637,7 +757,7 @@ index e71e18b0..93acd095 100644
                : $(source:B)_cpp_dec_float ] ;
  
 -      result += [ compile $(source)
-+      result += [ compile $(source) /boost/math//boost_math
++      result += [ compile $(source) /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_CPP_BIN_FLOAT
                 <debug-symbols>off
@@ -645,7 +765,7 @@ index e71e18b0..93acd095 100644
                : $(source:B)_cpp_bin_float ] ;
  
 -      result += [ compile $(source)
-+      result += [ compile $(source) /boost/math//boost_math
++      result += [ compile $(source) /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_CPP_DEC_FLOAT_NO_ET
                 <debug-symbols>off
@@ -653,7 +773,7 @@ index e71e18b0..93acd095 100644
                : $(source:B)_cpp_dec_float_no_et ] ;
  
 -      result += [ compile $(source)
-+      result += [ compile $(source) /boost/math//boost_math
++      result += [ compile $(source) /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_BACKEND
                 <debug-symbols>off
@@ -661,7 +781,7 @@ index e71e18b0..93acd095 100644
                : $(source:B)_backend_concept ] ;
  
 -      result += [ compile $(source)
-+      result += [ compile $(source) /boost/math//boost_math
++      result += [ compile $(source) /boost/math//boost_math /boost/math//testing
                : # requirements
                <define>TEST_LOGGED_ADAPTER
                 <debug-symbols>off
@@ -799,7 +919,7 @@ index 4eb1a39a..0c366f9e 100644
  
  #ifndef SC_
 diff --git a/test/math/instances/Jamfile.v2 b/test/math/instances/Jamfile.v2
-index 4c66a907..a9496c9c 100644
+index 4c66a907..d91d7887 100644
 --- a/test/math/instances/Jamfile.v2
 +++ b/test/math/instances/Jamfile.v2
 @@ -20,7 +20,6 @@ project : requirements
@@ -810,6 +930,21 @@ index 4c66a907..a9496c9c 100644
     # We set these to make it easier to set up and test GMP and MPFR under Win32:
     #<toolset>msvc:<runtime-link>static
     #<toolset>msvc:<link>static
+@@ -36,10 +35,10 @@ project : requirements
+    <define>BOOST_OPTIONAL_USE_OLD_DEFINITION_OF_NONE
+    ;
+ 
+-lib gmp : : <search>$(gmp_path) ;
+-lib mpfr : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug ;
+-lib mpfi : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug <search>$(mpfi_path) <search>$(mpfi_path)/src ;
+-lib quadmath ;
++searched-lib gmp : : <search>$(gmp_path) ;
++searched-lib mpfr : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug ;
++searched-lib mpfi : : <search>$(gmp_path) <search>$(mpfr_path) <search>$(mpfr_path)/build.vc10/lib/Win32/Debug <search>$(mpfi_path) <search>$(mpfi_path)/src ;
++searched-lib quadmath ;
+ 
+ rule generate_objs ( suffix : variant_count : build_opts * )
+ {
 diff --git a/test/math/log1p_expm1_test.cpp b/test/math/log1p_expm1_test.cpp
 index b2f1b19e..18aa6819 100644
 --- a/test/math/log1p_expm1_test.cpp

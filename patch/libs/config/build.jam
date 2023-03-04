@@ -27,3 +27,5 @@ explicit
             <include>test
         ]
     ;
+
+use-project /boost/architecture : checks/architecture ;

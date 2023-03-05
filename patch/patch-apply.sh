@@ -35,6 +35,11 @@ cd "${rootdir}/libs/asio/example/cpp17"
 ln -f -s "${patchdir}/libs/asio/example/cpp17/build.jam" build.jam
 cd "${rootdir}/libs/asio/example/cpp20"
 ln -f -s "${patchdir}/libs/asio/example/cpp20/build.jam" build.jam
+cd "${rootdir}/libs/beast"
+rm -rf build
+mkdir build
+cd build
+ln -f -s "${patchdir}/libs/beast/build/jamfile" Jamfile
 
 rm -f "${rootdir}/libs/algorithm/Jamfile"
 rm -f "${rootdir}/libs/assign/Jamfile"

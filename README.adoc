@@ -3,15 +3,73 @@
 This is a work-in-progress version of the Boost {CPP} Libraries that build as
 modular components. What does it mean to be modular? It means that..
 
-. Each library is separable from the rest.
-. Each library does not assume a particular directory arrangement in a parent
+* Each library is separable from the rest.
+* Each library does not assume a particular directory arrangement in a parent
   Boost super-project.
-. The Boost super-project doesn't need to exist at all, only requirement is that
+* The Boost super-project doesn't need to exist at all, only requirement is that
   library dependencies be pre-declared.
+* No no need for creating the headers tree.
+* Makes it possible for package managers, and hence users, to use the individual
+  libraries they need.
+
+== Goals
+
+This repository is a moving goal for the transition of Boost to a modular build.
+It is one end of the goal posts for such a transition. The idea is that this
+repo will incrementally work it's way toward becoming identical to the main
+Boost repo (https://github.com/boostorg/boost) and related sub-repos. While at
+the same time the main Boost repo will work towards changing to become this
+repo. Meeting at some point in the middle when both are equivalent.
+
+== Structure
+
+Like the main Boost repo, it is composed of many git submodules for all the
+libraries, tools, and support code. But there is one key difference: the
+submodules are not branched from the originals. Instead all the submodules are
+patched, and subsequently edited, and new patches generated, and repeating that
+cycle. All the patching scripts, extra files, and patches are in the patch
+directory. When the time comes that the this and the main Boost repos are
+equivalent it's expected that all the patch files here will be empty.
+
+To try out the patched version of this Boost tree you first need an installed
+B2 (see https://www.bfgroup.xyz/b2/manual/release/index.html#bbv2.installation
+for install instructions). Note that this requires the use of the most recent
+in progress release branch. As there are continuing fixes, and adjustments, to
+B2 to facilitate this effort. Currently you need to `git clone` the
+`version/4.9.5` branch. Or download a ZIP snapshot
+(https://github.com/bfgroup/b2/archive/refs/heads/version/4.9.5.zip).
+
+After that you only need to clone this repo and run the patch procedure:
 
 [source,shell]
 ----
 git clone --recursive https://github.com/grafikrobot/boost-b2-modular.git
 cd boost-b2-modular
-./patch/patch-update.sh
+./patch/patch-apply.sh
 ----
+
+== Making Changes
+
+While I, René, I'm making all the changes to make this conversion happen
+(by hand) I will not turn away others from wanting to contribute. Assuming
+you have the repo cloned there are a couple of scripts to run that
+automate some of the work.
+
+Instead of running the `patch/patch-apply.sh` script one should use the
+`patch/patch-update.sh` script that updates all the library submodules to their
+latest `develop` state and subsequently applies the patches. The script takes
+care of resetting to a clean state before the update and patching.
+
+NOTE: A possible effect of the patching is for it to fail to apply if there
+are conflicts. You will need to resolve those, if you can. Or wait for me to
+do so.
+
+After you do changes to a library, or other, submodule you can run the
+`patch/patch-gen.sh` script to generate new patch file(s). It's those patch
+files that you can contribute back here.
+
+There might be new files that need to get added, or old one deleted, also.
+For those you can add the new files in the `patch/libs/<lib>/` directories
+and add appropriate symbolic link commands in the `patch/patch-apply.sh` script.
+There are also commands in that script to delete any files that should no longer
+exist.

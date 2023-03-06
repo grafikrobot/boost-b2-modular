@@ -15,7 +15,7 @@ for submod in ${submods} ; do
     echo "============================== ${d}"
     if test -e "build.jam" ; then
         set +e
-        b2 all
+        b2 all define=BOOST_DISABLE_PRAGMA_MESSAGE=1
         set -e
     fi
 done

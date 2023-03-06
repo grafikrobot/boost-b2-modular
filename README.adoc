@@ -1,3 +1,14 @@
+= Modular Boost w/B2
+
+This is a work-in-progress version of the Boost {CPP} Libraries that build as
+modular components. What does it mean to be modular? It means that..
+
+. Each library is separable from the rest.
+. Each library does not assume a particular directory arrangement in a parent
+  Boost super-project.
+. The Boost super-project doesn't need to exist at all, only requirement is that
+  library dependencies be pre-declared.
+
 [source,shell]
 ----
 git clone --recursive https://github.com/grafikrobot/boost-b2-modular.git

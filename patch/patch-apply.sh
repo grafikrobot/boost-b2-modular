@@ -39,7 +39,7 @@ cd "${rootdir}/libs/beast"
 rm -rf build
 mkdir build
 cd build
-ln -f -s "${patchdir}/libs/beast/build/jamfile" Jamfile
+ln -f -s "${patchdir}/libs/beast/build/Jamfile" Jamfile
 
 rm -f "${rootdir}/libs/algorithm/Jamfile"
 rm -f "${rootdir}/libs/assign/Jamfile"

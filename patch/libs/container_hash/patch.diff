@@ -10,7 +10,7 @@ index bb28ba9..402a94e 100644
 +run template.cpp /boost/unordered//boost_unordered : : : <toolset>msvc-8.0:<build>no ;
  run point2.cpp ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 4406ab4..e2e8eae 100644
+index 63d9ed3..2cee14d 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -10,6 +10,8 @@ local clang-flags = $(gcc-flags) -Wno-c99-extensions ;
@@ -32,9 +32,9 @@ index 4406ab4..e2e8eae 100644
  # for gcc-4.8
  local fs-path-req = "-<toolset>gcc:<cxxflags>-Wshadow" "-<toolset>gcc:<cxxflags>-Wconversion" ;
  
--run hash_fs_path_test.cpp /boost//filesystem/<warnings>off : : : $(fs-path-req) <toolset>msvc-14.0,<cxxstd>latest:<build>no <toolset>msvc-8.0:<build>no ;
+-run hash_fs_path_test.cpp /boost//filesystem/<warnings>off : : : $(fs-path-req) <toolset>msvc-14.0,<cxxstd>latest:<build>no <toolset>msvc-8.0:<build>no <undefined-sanitizer>norecover:<link>static ;
 -run is_range_test2.cpp : : : $(fs-path-req) <toolset>msvc-8.0:<build>no ;
-+run hash_fs_path_test.cpp /boost/filesystem//boost_filesystem/<warnings>off : : : $(fs-path-req) <toolset>msvc-14.0,<cxxstd>latest:<build>no <toolset>msvc-8.0:<build>no ;
++run hash_fs_path_test.cpp /boost/filesystem//boost_filesystem/<warnings>off : : : $(fs-path-req) <toolset>msvc-14.0,<cxxstd>latest:<build>no <toolset>msvc-8.0:<build>no <undefined-sanitizer>norecover:<link>static ;
 +run is_range_test2.cpp /boost/filesystem//boost_filesystem : : : $(fs-path-req) <toolset>msvc-8.0:<build>no ;
  
  run hash_container_test.cpp ;

@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index 51a477b..a21a635 100644
+index 2816879..98b80c6 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -11,6 +11,10 @@ import testing ;

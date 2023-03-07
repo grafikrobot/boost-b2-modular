@@ -68,5 +68,6 @@ rm -f "${rootdir}/libs/spirit/Jamfile"
 rm -f "${rootdir}/libs/static_string/Jamfile"
 rm -f "${rootdir}/libs/test/Jamfile"
 rm -f "${rootdir}/libs/url/Jamfile.v2"
+rm -f "${rootdir}/libs/uuid/Jamfile.v2"
 cd "${rootdir}"
 pwd

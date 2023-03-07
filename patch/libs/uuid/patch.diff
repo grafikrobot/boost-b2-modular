@@ -1,5 +1,33 @@
+diff --git a/Jamfile b/Jamfile
+deleted file mode 100644
+index 1e3698c..0000000
+--- a/Jamfile
++++ /dev/null
+@@ -1,22 +0,0 @@
+-#  Boost.Uuid Library Jamfile
+-#
+-#  Copyright (c) 2017 James E. King III
+-#
+-#  Use, modification, and distribution are subject to the
+-#  Boost Software License, Version 1.0. (See accompanying file
+-#  LICENSE_1_0.txt or copy at https://www.boost.org/LICENSE_1_0.txt)
+-
+-project libs/uuid
+-    : requirements
+-
+-      <warnings>all
+-
+-      <toolset>clang:<cxxflags>-Wextra
+-      <toolset>clang:<cxxflags>-pedantic
+-
+-      <toolset>gcc:<cxxflags>-Wextra
+-      <toolset>gcc:<cxxflags>-pedantic
+-    ;
+-
+-# please order by name to ease maintenance
+-build-project test ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index c74658d..fd54d9d 100644
+index c74658d..38884fe 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -4,9 +4,9 @@
@@ -14,7 +42,16 @@ index c74658d..fd54d9d 100644
      : requirements
  
        # boost.jam defines BOOST_ALL_NO_LIB, this makes library management
-@@ -82,12 +82,12 @@ if ! [ os.environ UBSAN_OPTIONS ]
+@@ -23,6 +23,8 @@ project libs/uuid/test
+       # link static for easier debugging
+       <link>static
+ 
++      <warnings>pedantic
++
+ ;
+ 
+ import os ;
+@@ -82,12 +84,12 @@ if ! [ os.environ UBSAN_OPTIONS ]
  {
  test-suite uuid-serialization :
      # test serializing uuids
@@ -30,7 +67,7 @@ index c74658d..fd54d9d 100644
      #     : : : <dependency>../../config/test/all//BOOST_NO_STD_WSTREAMBUF
      # ]
      ;
-@@ -106,7 +106,7 @@ test-suite uuid :
+@@ -106,7 +108,7 @@ test-suite uuid :
      [ run test_uuid_no_simd.cpp ]
  
      # test uuid_io.hpp
@@ -39,7 +76,7 @@ index c74658d..fd54d9d 100644
  
      # test generators
      [ run test_nil_generator.cpp ]
-@@ -136,7 +136,7 @@ test-suite uuid :
+@@ -136,7 +138,7 @@ test-suite uuid :
            : : : <build>no <toolset>msvc-12.0:<build>yes <variant>release <debug-symbols>on : test_msvc_simd_bug981648 ]
  
      # a small benchmark test for random generation

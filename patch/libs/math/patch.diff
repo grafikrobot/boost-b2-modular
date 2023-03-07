@@ -39,7 +39,7 @@ index 77aca7c2e..650e88880 100644
  obj has_long_double_support : has_long_double_support.cpp ;
  obj has_mpfr_class : has_mpfr_class.cpp :
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
-index c4038e031..eb2c3416e 100644
+index c4038e031..c507b8ff8 100644
 --- a/example/Jamfile.v2
 +++ b/example/Jamfile.v2
 @@ -7,10 +7,11 @@
@@ -72,6 +72,20 @@ index c4038e031..eb2c3416e 100644
  
     [ run c_error_policy_example.cpp  ]
     [ run chi_square_std_dev_test.cpp : : : <exception-handling>off:<build>no  ]
+@@ -93,11 +93,11 @@ test-suite examples :
+ 
+    [ run nonfinite_num_facet.cpp  ]
+    [ run nonfinite_facet_simple.cpp  ]
+-   [ run nonfinite_num_facet_serialization.cpp ../../serialization/build//boost_serialization : : : <exception-handling>off:<build>no <toolset>gcc-mingw:<link>static  ]
++   [ run nonfinite_num_facet_serialization.cpp /boost/serialization//boost_serialization : : : <exception-handling>off:<build>no <toolset>gcc-mingw:<link>static  ]
+    #[ # run lexical_cast_native.cpp  ] # Expected to fail on some (but not all) platforms.
+    [ run lexical_cast_nonfinite_facets.cpp  ]
+    [ run nonfinite_loopback_ok.cpp  ]
+-   [ run nonfinite_serialization_archives.cpp ../../serialization/build//boost_serialization  : : : <exception-handling>off:<build>no <toolset>gcc-mingw:<link>static  ]
++   [ run nonfinite_serialization_archives.cpp /boost/serialization//boost_serialization  : : : <exception-handling>off:<build>no <toolset>gcc-mingw:<link>static  ]
+    [ run nonfinite_facet_sstream.cpp  ]
+ 
+    [ run constants_eg1.cpp  ]
 @@ -113,7 +113,7 @@ test-suite examples :
     [ run policy_eg_6.cpp  ]
     [ run policy_eg_7.cpp  ]
@@ -278,7 +292,7 @@ index 6ea5bc8a2..6d4a8ca58 100644
  
  test-suite report_gen : [ all-tests ] test_cbrt_msvc_debug test_cbrt_msvc_release_32 test_cbrt_msvc_release_64 test_cbrt_intel_release 
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index daff6520e..78cfef8e3 100644
+index daff6520e..b0e92e2c8 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -12,7 +12,7 @@ import testing ;
@@ -290,17 +304,18 @@ index daff6520e..78cfef8e3 100644
  
  local ntl-path = [ modules.peek : NTL_PATH ] ;
  local gmp_path = [ modules.peek : GMP_PATH ] ;
-@@ -34,6 +34,9 @@ obj no_eh : noeh_support.cpp ;
+@@ -34,6 +34,10 @@ obj no_eh : noeh_support.cpp ;
  
  project
      : requirements
 +      <library>/boost/multiprecision//boost_multiprecision
 +      <library>/boost/test//boost_test
 +      <library>/boost/type_index//boost_type_index
++      <library>/boost/ublas//boost_ublas
        $(OBJ_REMOVAL_OPTIONS)
        <toolset>acc:<cxxflags>+W2068,2461,2236,4070,4069
        <toolset>intel-win:<cxxflags>-nologo
-@@ -58,7 +61,6 @@ project
+@@ -58,7 +62,6 @@ project
        <toolset>borland:<runtime-link>static
        # <toolset>msvc:<cxxflags>/wd4506 has no effect?
        # suppress xstring(237) : warning C4506: no definition for inline function
@@ -308,7 +323,7 @@ index daff6520e..78cfef8e3 100644
        <exception-handling>off:<source>no_eh
        <link>shared:<define>BOOST_REGEX_DYN_LINK=1
        # For simplicities sake, make everything a static lib:
-@@ -83,172 +85,179 @@ if $(ntl-path)
+@@ -83,172 +86,179 @@ if $(ntl-path)
  }
  else
  {
@@ -600,7 +615,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -256,7 +265,7 @@ test-suite special_fun :
+@@ -256,7 +266,7 @@ test-suite special_fun :
            <define>TEST_DATA=1
            <toolset>intel:<pch>off
          : test_ibeta_real_concept1  ]
@@ -609,7 +624,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -264,7 +273,7 @@ test-suite special_fun :
+@@ -264,7 +274,7 @@ test-suite special_fun :
            <define>TEST_DATA=2
            <toolset>intel:<pch>off
          : test_ibeta_real_concept2  ]
@@ -618,7 +633,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -272,7 +281,7 @@ test-suite special_fun :
+@@ -272,7 +282,7 @@ test-suite special_fun :
            <define>TEST_DATA=3
            <toolset>intel:<pch>off
          : test_ibeta_real_concept3  ]
@@ -627,7 +642,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -281,7 +290,7 @@ test-suite special_fun :
+@@ -281,7 +291,7 @@ test-suite special_fun :
            <toolset>intel:<pch>off
          : test_ibeta_real_concept4  ]
  
@@ -636,7 +651,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -289,7 +298,7 @@ test-suite special_fun :
+@@ -289,7 +299,7 @@ test-suite special_fun :
            <toolset>intel:<pch>off
            <toolset>gcc:<cxxflags>-Wno-overflow
          : test_ibeta_derivative_float  ]
@@ -645,7 +660,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -297,7 +306,7 @@ test-suite special_fun :
+@@ -297,7 +307,7 @@ test-suite special_fun :
            <toolset>intel:<pch>off
            <toolset>gcc:<cxxflags>-Wno-overflow
          : test_ibeta_derivative_double  ]
@@ -654,7 +669,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -305,7 +314,7 @@ test-suite special_fun :
+@@ -305,7 +315,7 @@ test-suite special_fun :
            <toolset>intel:<pch>off
            <toolset>gcc:<cxxflags>-Wno-overflow
          : test_ibeta_derivative_long_double  ]
@@ -663,7 +678,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -314,7 +323,7 @@ test-suite special_fun :
+@@ -314,7 +324,7 @@ test-suite special_fun :
            <toolset>intel:<pch>off
            <toolset>gcc:<cxxflags>-Wno-overflow
          : test_ibeta_derivative_real_concept1  ]
@@ -672,7 +687,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -323,7 +332,7 @@ test-suite special_fun :
+@@ -323,7 +333,7 @@ test-suite special_fun :
            <toolset>intel:<pch>off
            <toolset>gcc:<cxxflags>-Wno-overflow
          : test_ibeta_derivative_real_concept2  ]
@@ -681,7 +696,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -332,7 +341,7 @@ test-suite special_fun :
+@@ -332,7 +342,7 @@ test-suite special_fun :
            <toolset>intel:<pch>off
            <toolset>gcc:<cxxflags>-Wno-overflow
          : test_ibeta_derivative_real_concept3  ]
@@ -690,7 +705,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -342,28 +351,28 @@ test-suite special_fun :
+@@ -342,28 +352,28 @@ test-suite special_fun :
            <toolset>gcc:<cxxflags>-Wno-overflow
          : test_ibeta_derivative_real_concept4  ]
  
@@ -723,7 +738,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -371,7 +380,7 @@ test-suite special_fun :
+@@ -371,7 +381,7 @@ test-suite special_fun :
            <define>TEST_DATA=1
            <toolset>intel:<pch>off
          : test_ibeta_inv_real_concept1  ]
@@ -732,7 +747,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -379,7 +388,7 @@ test-suite special_fun :
+@@ -379,7 +389,7 @@ test-suite special_fun :
            <define>TEST_DATA=2
            <toolset>intel:<pch>off
          : test_ibeta_inv_real_concept2  ]
@@ -741,7 +756,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -387,7 +396,7 @@ test-suite special_fun :
+@@ -387,7 +397,7 @@ test-suite special_fun :
            <define>TEST_DATA=3
            <toolset>intel:<pch>off
          : test_ibeta_inv_real_concept3  ]
@@ -750,7 +765,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -395,28 +404,28 @@ test-suite special_fun :
+@@ -395,28 +405,28 @@ test-suite special_fun :
            <define>TEST_DATA=4
            <toolset>intel:<pch>off
          : test_ibeta_inv_real_concept4  ]
@@ -783,7 +798,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -424,7 +433,7 @@ test-suite special_fun :
+@@ -424,7 +434,7 @@ test-suite special_fun :
            <define>TEST_DATA=1
            <toolset>intel:<pch>off
          : test_ibeta_inv_ab_real_concept1  ]
@@ -792,7 +807,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -432,7 +441,7 @@ test-suite special_fun :
+@@ -432,7 +442,7 @@ test-suite special_fun :
            <define>TEST_DATA=2
            <toolset>intel:<pch>off
          : test_ibeta_inv_ab_real_concept2  ]
@@ -801,7 +816,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -440,57 +449,57 @@ test-suite special_fun :
+@@ -440,57 +450,57 @@ test-suite special_fun :
            <define>TEST_DATA=3
            <toolset>intel:<pch>off
          : test_ibeta_inv_ab_real_concept3  ]
@@ -868,7 +883,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -499,23 +508,23 @@ test-suite special_fun :
+@@ -499,23 +509,23 @@ test-suite special_fun :
          : test_igamma_inva_real_concept  ]
     [ run test_instantiate1.cpp test_instantiate2.cpp  ]
     [ run test_instantiate1.cpp test_instantiate2.cpp  : : : <exception-handling>off : test_instantiate_no_eh ]
@@ -907,7 +922,7 @@ index daff6520e..78cfef8e3 100644
     [ run chebyshev_transform_test.cpp ../config//fftw3f : : : <define>TEST1 [ requires cxx11_smart_ptr cxx11_defaulted_functions cxx11_auto_declarations cxx11_range_based_for ] [ check-target-builds ../config//has_fftw3 "libfftw3" : : <build>no ] : chebyshev_transform_test_1 ]
     [ run chebyshev_transform_test.cpp ../config//fftw3 : : : <define>TEST2 [ requires cxx11_smart_ptr cxx11_defaulted_functions cxx11_auto_declarations cxx11_range_based_for ] [ check-target-builds ../config//has_fftw3 "libfftw3" : : <build>no ] : chebyshev_transform_test_2 ]
     [ run chebyshev_transform_test.cpp ../config//fftw3l : : : <define>TEST3 [ requires cxx11_smart_ptr cxx11_defaulted_functions cxx11_auto_declarations cxx11_range_based_for ] [ check-target-builds ../config//has_fftw3 "libfftw3" : : <build>no ] : chebyshev_transform_test_3 ]
-@@ -527,51 +536,51 @@ test-suite special_fun :
+@@ -527,51 +537,51 @@ test-suite special_fun :
     [ run cardinal_trigonometric_test.cpp ../config//fftw3q ../config//quadmath : : : <define>TEST4 [ requires cxx11_auto_declarations cxx11_range_based_for ] [ check-target-builds ../config//has_fftw3 "libfftw3" : : <build>no ] [ check-target-builds ../config//has_float128 "__float128" : : <build>no ] : cardinal_trigonometric_test_4 ]
  
  
@@ -982,7 +997,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -579,7 +588,7 @@ test-suite distribution_tests :
+@@ -579,7 +589,7 @@ test-suite distribution_tests :
            <define>TEST_ROUNDING=0
            <toolset>intel:<pch>off
          : test_binomial_real_concept0  ]
@@ -991,7 +1006,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -587,7 +596,7 @@ test-suite distribution_tests :
+@@ -587,7 +597,7 @@ test-suite distribution_tests :
            <define>TEST_ROUNDING=1
            <toolset>intel:<pch>off
          : test_binomial_real_concept1  ]
@@ -1000,7 +1015,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -595,7 +604,7 @@ test-suite distribution_tests :
+@@ -595,7 +605,7 @@ test-suite distribution_tests :
            <define>TEST_ROUNDING=2
            <toolset>intel:<pch>off
          : test_binomial_real_concept2  ]
@@ -1009,7 +1024,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -603,7 +612,7 @@ test-suite distribution_tests :
+@@ -603,7 +613,7 @@ test-suite distribution_tests :
            <define>TEST_ROUNDING=3
            <toolset>intel:<pch>off
          : test_binomial_real_concept3  ]
@@ -1018,7 +1033,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -611,7 +620,7 @@ test-suite distribution_tests :
+@@ -611,7 +621,7 @@ test-suite distribution_tests :
            <define>TEST_ROUNDING=4
            <toolset>intel:<pch>off
          : test_binomial_real_concept4  ]
@@ -1027,7 +1042,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -619,7 +628,7 @@ test-suite distribution_tests :
+@@ -619,7 +629,7 @@ test-suite distribution_tests :
            <define>TEST_ROUNDING=5
            <toolset>intel:<pch>off
          : test_binomial_real_concept5  ]
@@ -1036,7 +1051,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -627,145 +636,145 @@ test-suite distribution_tests :
+@@ -627,145 +637,145 @@ test-suite distribution_tests :
            <define>TEST_ROUNDING=6
            <toolset>intel:<pch>off
          : test_binomial_real_concept6  ]
@@ -1219,7 +1234,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -773,7 +782,7 @@ test-suite distribution_tests :
+@@ -773,7 +783,7 @@ test-suite distribution_tests :
            <define>TEST_DATA=1
            <toolset>intel:<pch>off
          : test_nc_beta_real_concept1  ]
@@ -1228,7 +1243,7 @@ index daff6520e..78cfef8e3 100644
          : # command line
          : # input files
          : # requirements
-@@ -781,74 +790,74 @@ test-suite distribution_tests :
+@@ -781,74 +791,74 @@ test-suite distribution_tests :
            <define>TEST_DATA=2
            <toolset>intel:<pch>off
          : test_nc_beta_real_concept2  ]
@@ -1322,7 +1337,7 @@ index daff6520e..78cfef8e3 100644
  
     [ run  compile_test/dist_bernoulli_incl_test.cpp compile_test_main : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ]  ]
     [ run  compile_test/dist_beta_incl_test.cpp compile_test_main : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ]  ]
-@@ -885,30 +894,30 @@ test-suite distribution_tests :
+@@ -885,30 +895,30 @@ test-suite distribution_tests :
     [ compile  compile_test/dist_empirical_cumulative_dist_func_incl_test.cpp : [ requires cxx17_if_constexpr cxx17_std_apply ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ]  ]
     [ run  compile_test/dist_inv_gaussian_incl_test.cpp compile_test_main : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ]  ]
  
@@ -1371,7 +1386,7 @@ index daff6520e..78cfef8e3 100644
     [ run test_estrin.cpp ]
     [ run polynomial_concept_check.cpp ]
  
-@@ -936,13 +945,13 @@ test-suite misc :
+@@ -936,13 +946,13 @@ test-suite misc :
     ../build//boost_math_tr1f
     ../build//boost_math_c99
     ../build//boost_math_c99f
@@ -1387,7 +1402,7 @@ index daff6520e..78cfef8e3 100644
        : : :
        <define>TEST_LD=1
        [ check-target-builds ../config//has_long_double_support "long double support" : : <build>no ]
-@@ -955,7 +964,7 @@ test-suite misc :
+@@ -955,7 +965,7 @@ test-suite misc :
        ../build//boost_math_tr1f
        ../build//boost_math_c99
        ../build//boost_math_c99f
@@ -1396,7 +1411,7 @@ index daff6520e..78cfef8e3 100644
        : : : #requirements
        :
        test_tr1_c
-@@ -964,23 +973,23 @@ test-suite misc :
+@@ -964,23 +974,23 @@ test-suite misc :
     [ run test_tr1.c
        ../build//boost_math_tr1l
        ../build//boost_math_c99l
@@ -1431,7 +1446,7 @@ index daff6520e..78cfef8e3 100644
        test_rational_instances/test_rational_double1.cpp
        test_rational_instances/test_rational_double2.cpp
        test_rational_instances/test_rational_double3.cpp
-@@ -1001,49 +1010,49 @@ test-suite misc :
+@@ -1001,49 +1011,49 @@ test-suite misc :
        test_rational_instances/test_rational_real_concept4.cpp
        test_rational_instances/test_rational_real_concept5.cpp
     ]
@@ -1510,7 +1525,7 @@ index daff6520e..78cfef8e3 100644
     [ run  compile_test/interpolators_cubic_spline_incl_test.cpp compile_test_main : : :  [ requires cxx11_smart_ptr cxx11_defaulted_functions cxx11_auto_declarations ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ run  compile_test/interpolators_barycentric_rational_incl_test.cpp compile_test_main : : :  [ requires cxx11_smart_ptr cxx11_defaulted_functions cxx11_auto_declarations cxx11_unified_initialization_syntax ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ compile  compile_test/interpolators_cubic_hermite_incl_test.cpp :  [ requires cxx11_smart_ptr cxx11_defaulted_functions cxx11_auto_declarations ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
-@@ -1132,7 +1141,7 @@ test-suite misc :
+@@ -1132,7 +1142,7 @@ test-suite misc :
     [ compile compile_test/std_real_concept_check.cpp  : <define>EMULATE128 [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] : std_real_concept_check_128 ]
     [ run  compile_test/cstdfloat_concept_check_1.cpp
        : : : [ check-target-builds ../config//has_intel_quad "Intel _Quad datatype support" : <cxxflags>-Qoption,cpp,--extended_float_type ]
@@ -1519,7 +1534,7 @@ index daff6520e..78cfef8e3 100644
     [ run  compile_test/cstdfloat_concept_check_2.cpp  : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ run  compile_test/cstdfloat_concept_check_3.cpp  : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ run  compile_test/cstdfloat_concept_check_4.cpp  : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
-@@ -1141,7 +1150,7 @@ test-suite misc :
+@@ -1141,7 +1151,7 @@ test-suite misc :
     [ compile  compile_test/cstdfloat_iostream_incl_test.cpp : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ compile  compile_test/cstdfloat_limits_incl_test.cpp : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ compile  compile_test/cstdfloat_types_incl_test.cpp : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
@@ -1528,7 +1543,7 @@ index daff6520e..78cfef8e3 100644
     [ run  compile_test/sf_airy_incl_test.cpp compile_test_main  : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ run  compile_test/sf_hankel_incl_test.cpp compile_test_main  : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ run  compile_test/sf_jacobi_incl_test.cpp compile_test_main  : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
-@@ -1195,14 +1204,14 @@ test-suite misc :
+@@ -1195,14 +1205,14 @@ test-suite misc :
     [ compile  compile_test/sf_legendre_stieltjes_concept_test.cpp : [ requires cxx11_auto_declarations cxx11_defaulted_functions cxx11_lambdas ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ]  ]
     [ compile  compile_test/quad_trapezoidal_concept_test.cpp : [ requires cxx11_auto_declarations cxx11_lambdas cxx11_decltype cxx11_unified_initialization_syntax cxx11_variadic_templates ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ run octonion_test.cpp
@@ -1546,7 +1561,7 @@ index daff6520e..78cfef8e3 100644
  
  #   [ run __temporary_test.cpp test_instances//test_instances : : : <test-info>always_show_run_output <pch>off ]
     [ compile test_no_long_double_policy.cpp ]
-@@ -1212,128 +1221,128 @@ test-suite misc :
+@@ -1212,128 +1222,128 @@ test-suite misc :
  ;
  
  test-suite interpolators :
@@ -1746,7 +1761,7 @@ index daff6520e..78cfef8e3 100644
       [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] : exp_sinh_quadrature_test_10 ]
  
     [ run  compile_test/quad_exp_sinh_incl_test.cpp compile_test_main : : : [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
-@@ -1347,27 +1356,27 @@ test-suite quadrature :
+@@ -1347,27 +1357,27 @@ test-suite quadrature :
     [ compile  compile_test/quad_sinh_sinh_concept_test.cpp : [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ compile  compile_test/quad_tanh_sinh_concept_test.cpp : [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax sfinae_expr ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
  
@@ -1785,7 +1800,7 @@ index daff6520e..78cfef8e3 100644
       [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] <debug-symbols>off <toolset>msvc:<cxxflags>/bigobj release [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] : adaptive_gauss_quadrature_test_3 ]
  
     [ run naive_monte_carlo_test.cpp : : :
-@@ -1473,20 +1482,20 @@ test-suite quadrature :
+@@ -1473,20 +1483,20 @@ test-suite quadrature :
  ;
  
  test-suite autodiff :
@@ -1818,7 +1833,7 @@ index daff6520e..78cfef8e3 100644
  ;
  
  #
-@@ -1495,18 +1504,18 @@ test-suite autodiff :
+@@ -1495,18 +1505,18 @@ test-suite autodiff :
  #  too much time:
  #
  test-suite long-running-tests :
@@ -1849,7 +1864,7 @@ index daff6520e..78cfef8e3 100644
     [ run test_constant_generate.cpp : : : release <define>USE_CPP_FLOAT=1 <exception-handling>off:<build>no  ]
  ;
  
-@@ -1524,9 +1533,7 @@ rule get_float128_tests
+@@ -1524,9 +1534,7 @@ rule get_float128_tests
             : # command line
             : # input files
             : # requirements

@@ -7,7 +7,6 @@ import project ;
 
 project /boost/compute
     : common-requirements
-    #                           
         <source>/boost/algorithm//boost_algorithm
         <source>/boost/array//boost_array
         <source>/boost/assert//boost_assert

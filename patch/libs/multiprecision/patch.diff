@@ -363,7 +363,7 @@ index 1e5d1555..5121062f 100644
     Real result = 0;
     for (unsigned i = 0; i < nct.size(); ++i)
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index e71e18b0..370bcb59 100644
+index e71e18b0..ce9e51d7 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -6,7 +6,7 @@
@@ -581,7 +581,41 @@ index e71e18b0..370bcb59 100644
        [ run test_native_integer.cpp no_eh_support ]
  
        [ run test_mixed_move_cpp_int.cpp no_eh_support ]
-@@ -1193,12 +1192,12 @@ test-suite misc :
+@@ -1174,31 +1173,31 @@ test-suite misc :
+       [ compile include_test/cpp_dec_float_include_test.cpp ]
+       [ compile include_test/cpp_bin_float_include_test.cpp ]
+ 
+-      [ run ublas_interop/test1.cpp ublas_interop/test11.cpp ublas_interop/test12.cpp ublas_interop/test13.cpp no_eh_support ]
+-      [ run ublas_interop/test2.cpp ublas_interop/test21.cpp ublas_interop/test22.cpp ublas_interop/test23.cpp no_eh_support ]
+-      #[ run ublas_interop/test3.cpp ublas_interop/test31.cpp ublas_interop/test32.cpp ublas_interop/test33.cpp ]
+-      [ run ublas_interop/test4.cpp ublas_interop/test42.cpp ublas_interop/test43.cpp no_eh_support ]
+-      [ run ublas_interop/test5.cpp ublas_interop/test52.cpp ublas_interop/test53.cpp no_eh_support ]
+-      [ run ublas_interop/test6.cpp ublas_interop/test62.cpp ublas_interop/test63.cpp no_eh_support ]
+-      #[ run ublas_interop/test7.cpp ublas_interop/test71.cpp ublas_interop/test72.cpp ublas_interop/test73.cpp ]
+-
+-      [ run ublas_interop/test1.cpp ublas_interop/test11.cpp ublas_interop/test12.cpp ublas_interop/test13.cpp no_eh_support : : : <define>TEST_ET=1 : ublas1_et ]
+-      [ run ublas_interop/test2.cpp ublas_interop/test21.cpp ublas_interop/test22.cpp ublas_interop/test23.cpp no_eh_support : : : <define>TEST_ET=1 : ublas2_et ]
+-      #[ run ublas_interop/test3.cpp ublas_interop/test31.cpp ublas_interop/test32.cpp ublas_interop/test33.cpp : : : <define>TEST_ET=1 : ublas3_et ]
+-      [ run ublas_interop/test4.cpp ublas_interop/test42.cpp ublas_interop/test43.cpp no_eh_support : : : <define>TEST_ET=1 : ublas3_et ]
+-      [ run ublas_interop/test5.cpp ublas_interop/test52.cpp ublas_interop/test53.cpp no_eh_support : : : <define>TEST_ET=1 : ublas4_et ]
+-      [ run ublas_interop/test6.cpp ublas_interop/test62.cpp ublas_interop/test63.cpp no_eh_support : : : <define>TEST_ET=1 : ublas5_et ]
+-      #[ run ublas_interop/test7.cpp ublas_interop/test71.cpp ublas_interop/test72.cpp ublas_interop/test73.cpp : : : <define>TEST_ET=1 : ublas6_et ]
++      [ run ublas_interop/test1.cpp ublas_interop/test11.cpp ublas_interop/test12.cpp ublas_interop/test13.cpp no_eh_support /boost/ublas//boost_ublas ]
++      [ run ublas_interop/test2.cpp ublas_interop/test21.cpp ublas_interop/test22.cpp ublas_interop/test23.cpp no_eh_support /boost/ublas//boost_ublas ]
++      #[ run ublas_interop/test3.cpp ublas_interop/test31.cpp ublas_interop/test32.cpp ublas_interop/test33.cpp /boost/ublas//boost_ublas ]
++      [ run ublas_interop/test4.cpp ublas_interop/test42.cpp ublas_interop/test43.cpp no_eh_support /boost/ublas//boost_ublas ]
++      [ run ublas_interop/test5.cpp ublas_interop/test52.cpp ublas_interop/test53.cpp no_eh_support /boost/ublas//boost_ublas ]
++      [ run ublas_interop/test6.cpp ublas_interop/test62.cpp ublas_interop/test63.cpp no_eh_support /boost/ublas//boost_ublas ]
++      #[ run ublas_interop/test7.cpp ublas_interop/test71.cpp ublas_interop/test72.cpp ublas_interop/test73.cpp /boost/ublas//boost_ublas ]
++
++      [ run ublas_interop/test1.cpp ublas_interop/test11.cpp ublas_interop/test12.cpp ublas_interop/test13.cpp no_eh_support /boost/ublas//boost_ublas : : : <define>TEST_ET=1 : ublas1_et ]
++      [ run ublas_interop/test2.cpp ublas_interop/test21.cpp ublas_interop/test22.cpp ublas_interop/test23.cpp no_eh_support /boost/ublas//boost_ublas : : : <define>TEST_ET=1 : ublas2_et ]
++      #[ run ublas_interop/test3.cpp ublas_interop/test31.cpp ublas_interop/test32.cpp ublas_interop/test33.cpp /boost/ublas//boost_ublas : : : <define>TEST_ET=1 : ublas3_et ]
++      [ run ublas_interop/test4.cpp ublas_interop/test42.cpp ublas_interop/test43.cpp no_eh_support /boost/ublas//boost_ublas : : : <define>TEST_ET=1 : ublas3_et ]
++      [ run ublas_interop/test5.cpp ublas_interop/test52.cpp ublas_interop/test53.cpp no_eh_support /boost/ublas//boost_ublas : : : <define>TEST_ET=1 : ublas4_et ]
++      [ run ublas_interop/test6.cpp ublas_interop/test62.cpp ublas_interop/test63.cpp no_eh_support /boost/ublas//boost_ublas : : : <define>TEST_ET=1 : ublas5_et ]
++      #[ run ublas_interop/test7.cpp ublas_interop/test71.cpp ublas_interop/test72.cpp ublas_interop/test73.cpp /boost/ublas//boost_ublas : : : <define>TEST_ET=1 : ublas6_et ]
+ 
        #
        # Serialization tests, run in release mode so we cycle through more values:
        #

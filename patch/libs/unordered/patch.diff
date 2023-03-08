@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 4f7a537f..acb219a0 100644
+index 31b17efd..2a577441 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -15,6 +15,7 @@ local msvc-flags = /wd4494 ;

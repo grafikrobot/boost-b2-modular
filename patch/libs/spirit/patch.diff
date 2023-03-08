@@ -346,16 +346,6 @@ index 080970f5e..60164a3d7 100644
  run repeat.cpp ;
  run rule1.cpp ;
  run rule2.cpp ;
-diff --git a/test/support/Jamfile b/test/support/Jamfile
-index 5ee0a0d90..fba1862a7 100644
---- a/test/support/Jamfile
-+++ b/test/support/Jamfile
-@@ -58,4 +58,4 @@ compile regression_multi_pass_functor.cpp ;
- compile regression_multi_pass_position_iterator.cpp ;
- run regression_multi_pass_error_handler.cpp ;
- run regression_multi_pass_parse.cpp ;
--run regression_line_pos_iterator.cpp ;
-+run regression_line_pos_iterator.cpp /boost/assign//boost_assign ;
 diff --git a/test/test_headers/Jamfile b/test/test_headers/Jamfile
 index cddbc19b7..84594f337 100644
 --- a/test/test_headers/Jamfile

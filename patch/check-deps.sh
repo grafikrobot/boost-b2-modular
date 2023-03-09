@@ -14,7 +14,7 @@ for submod in ${submods} ; do
     if test -e "build.jam" ; then
         echo "======== ${submod}"
         set +e
-        deps=`grep -E -o "<source>/boost/([a-z_]+)" build.jam`
+        deps=`grep -E -o "<(source|use)>/boost/([a-z_]+)" build.jam`
         deps=`echo "${deps}" | grep -E -o "([a-z_]+)$" -`
         deps1=$(mktemp "${TMPDIR:-/tmp/}XXXXXXXXXX")
         for dep in ${deps} ; do

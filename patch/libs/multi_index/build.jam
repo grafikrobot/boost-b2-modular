@@ -12,7 +12,6 @@ project /boost/multi_index
         <source>/boost/config//boost_config
         <source>/boost/container_hash//boost_container_hash
         <source>/boost/core//boost_core
-        <source>/boost/foreach//boost_foreach
         <source>/boost/integer//boost_integer
         <source>/boost/iterator//boost_iterator
         <source>/boost/move//boost_move

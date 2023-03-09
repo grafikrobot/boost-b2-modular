@@ -346,6 +346,19 @@ index 080970f5e..60164a3d7 100644
  run repeat.cpp ;
  run rule1.cpp ;
  run rule2.cpp ;
+diff --git a/test/support/Jamfile b/test/support/Jamfile
+index e71f72152..88019d6c2 100644
+--- a/test/support/Jamfile
++++ b/test/support/Jamfile
+@@ -50,7 +50,7 @@ rule compile-fail ( sources + : requirements * : target-name ? )
+ 
+ run char_encoding.cpp ;
+ run istream_iterator_basic.cpp ;
+-run line_pos_iterator.cpp ;
++run line_pos_iterator.cpp /boost/assign//boost_assign ;
+ run multi_pass_error_handler.cpp ;
+ run multi_pass_parse.cpp ;
+ run unused_type.cpp ;
 diff --git a/test/test_headers/Jamfile b/test/test_headers/Jamfile
 index cddbc19b7..84594f337 100644
 --- a/test/test_headers/Jamfile

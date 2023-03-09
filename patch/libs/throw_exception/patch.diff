@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 40cfe1d..0fc1f2a 100644
+index 40cfe1d..83418ec 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -9,11 +9,15 @@
@@ -7,7 +7,7 @@ index 40cfe1d..0fc1f2a 100644
  
  project : requirements
 +  <source>/boost/core//boost_core
-+  <source>/boost/exception//boost_exception
++  <use>/boost/exception//boost_exception
 +
    <warnings>extra
    <toolset>msvc:<warnings-as-errors>on

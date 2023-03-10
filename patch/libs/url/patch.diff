@@ -111,10 +111,10 @@ index 6a1a596..29e1c2b 100644
      : requirements
        <library>/boost/url//boost_url
 diff --git a/example/router/Jamfile b/example/router/Jamfile
-index 81016bc..7ed7596 100644
+index 81016bc..f47facf 100644
 --- a/example/router/Jamfile
 +++ b/example/router/Jamfile
-@@ -7,14 +7,13 @@
+@@ -7,14 +7,14 @@
  # Official repository: https://github.com/boostorg/url
  #
  
@@ -126,7 +126,8 @@ index 81016bc..7ed7596 100644
        <toolset>clang-5:<warnings-as-errors>off
        <define>BOOST_ASIO_DISABLE_FENCED_BLOCK
        <library>/boost/url//boost_url
-+      <library>/boost/beast//lib-beast
++      <library>/boost/beast//boost_beast/<link>static
++      <library>/boost/beast//boost_beast_asio/<link>static
        <toolset>gcc-7:<cxxflags>"-Wno-maybe-uninitialized"
      ;
  

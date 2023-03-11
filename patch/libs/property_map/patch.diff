@@ -1,0 +1,17 @@
+diff --git a/Jamfile b/Jamfile
+deleted file mode 100644
+index fe20ff6..0000000
+--- a/Jamfile
++++ /dev/null
+@@ -1,11 +0,0 @@
+-#  Boost.PropertyMap Library Jamfile
+-#
+-#  Copyright (c) 2018 James E. King III
+-#
+-#  Use, modification, and distribution are subject to the
+-#  Boost Software License, Version 1.0. (See accompanying file
+-#  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-
+-# please order by name to ease maintenance
+-build-project example ;
+-build-project test ;

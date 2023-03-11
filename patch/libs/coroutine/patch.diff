@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index f1a0a4d..5aa4f2d 100644
+index f1a0a4d..f9f6655 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -8,7 +8,7 @@ import feature ;
@@ -11,16 +11,15 @@ index f1a0a4d..5aa4f2d 100644
      : requirements
        <library>/boost/context//boost_context
        <target-os>linux,<toolset>gcc,<segmented-stacks>on:<cxxflags>-fsplit-stack
-@@ -37,7 +37,7 @@ lib boost_coroutine
+@@ -37,7 +37,5 @@ lib boost_coroutine
      : detail/coroutine_context.cpp
        exceptions.cpp
        stack_traits_sources
 -    : <link>shared:<library>../../context/build//boost_context
 +    : <link>shared:<library>/boost/context//boost_context
      ;
- 
+-
 -boost-install boost_coroutine ;
-+# boost-install boost_coroutine ;
 diff --git a/example/asymmetric/Jamfile.v2 b/example/asymmetric/Jamfile.v2
 index 1b29457..0b1cf47 100644
 --- a/example/asymmetric/Jamfile.v2

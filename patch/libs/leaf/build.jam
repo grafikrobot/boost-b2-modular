@@ -14,3 +14,7 @@ explicit
     [ alias boost_leaf ]
     [ alias all : boost_leaf test ]
     ;
+
+call-if
+    : boost-library leaf
+    ;

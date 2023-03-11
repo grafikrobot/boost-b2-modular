@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index dcef696..673c330 100644
+index dcef696..903d9d5 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -7,7 +7,7 @@
@@ -11,12 +11,12 @@ index dcef696..673c330 100644
      : source-location ../src
      : usage-requirements  # pass these requirement to dependents (i.e. users)
        <link>shared:<define>BOOST_SYSTEM_DYN_LINK=1
-@@ -22,4 +22,4 @@ lib boost_system
+@@ -21,5 +21,3 @@ lib boost_system
+    : <link>shared:<define>BOOST_SYSTEM_DYN_LINK=1
       <link>static:<define>BOOST_SYSTEM_STATIC_LINK=1
     ;
- 
+-
 -boost-install boost_system ;
-+# boost-install boost_system ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
 index df74b5e..00dcf4e 100644
 --- a/test/Jamfile.v2

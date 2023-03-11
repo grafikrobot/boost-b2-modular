@@ -16,7 +16,7 @@ index c8fe547..0000000
 -build-project example ;
 -build-project test ;
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index a8cf24f..680234b 100644
+index a8cf24f..872fb74 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -7,10 +7,10 @@
@@ -32,12 +32,12 @@ index a8cf24f..680234b 100644
      : usage-requirements
          <define>DATE_TIME_INLINE
          <link>shared:<define>BOOST_DATE_TIME_DYN_LINK=1
-@@ -21,4 +21,4 @@ project boost/date_time
+@@ -20,5 +20,3 @@ project boost/date_time
+ # greg_month.cpp is now just a stub so that there is
  # still a boost_date_time library to link for backward compatibility
  lib boost_date_time : gregorian/greg_month.cpp ;
- 
+-
 -boost-install boost_date_time ;
-+# boost-install boost_date_time ;
 diff --git a/example/Jamfile b/example/Jamfile
 index 89e0ad1..3be1d36 100644
 --- a/example/Jamfile

@@ -17,3 +17,7 @@ explicit
     [ alias boost_typeof ]
     [ alias all : boost_typeof test ]
     ;
+
+call-if
+    : boost-library typeof
+    ;

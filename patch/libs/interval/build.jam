@@ -17,3 +17,7 @@ explicit
     [ alias boost_interval ]
     [ alias all : boost_interval examples test ]
     ;
+
+call-if
+    : boost-library interval
+    ;

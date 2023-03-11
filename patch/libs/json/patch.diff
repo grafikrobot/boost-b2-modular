@@ -20,7 +20,7 @@ index 4ab8fe7..0000000
 -build-project fuzzing ;
 -build-project example ;
 diff --git a/build/Jamfile b/build/Jamfile
-index d591a9b..acd7c26 100644
+index d591a9b..48c2a45 100644
 --- a/build/Jamfile
 +++ b/build/Jamfile
 @@ -9,7 +9,7 @@
@@ -57,13 +57,12 @@ index d591a9b..acd7c26 100644
     ;
  
  explicit json_deps json_sources ;
-@@ -91,7 +91,7 @@ explicit json_deps json_sources ;
+@@ -91,7 +91,5 @@ explicit json_deps json_sources ;
  lib boost_json
     : json_sources
     : usage-requirements
 -     <library>/boost//container/<warnings-as-errors>off
 +     <library>/boost/container//boost_container/<warnings-as-errors>off
     ;
- 
+-
 -boost-install boost_json ;
-+# boost-install boost_json ;

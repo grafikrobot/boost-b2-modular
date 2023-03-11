@@ -18,3 +18,7 @@ explicit
     [ alias boost_concept_check ]
     [ alias all : boost_concept_check test ]
     ;
+
+call-if
+    : boost-library concept_check
+    ;

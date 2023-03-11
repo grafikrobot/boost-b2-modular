@@ -26,3 +26,7 @@ explicit
     [ alias boost_heap ]
     [ alias all : boost_heap test ]
     ;
+
+call-if
+    : boost-library heap
+    ;

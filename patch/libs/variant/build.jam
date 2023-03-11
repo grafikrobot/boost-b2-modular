@@ -29,3 +29,7 @@ explicit
     [ alias boost_variant ]
     [ alias all : boost_variant test ]
     ;
+
+call-if
+    : boost-library variant
+    ;

@@ -24,3 +24,8 @@ explicit
     [ alias boost_coroutine : build//boost_coroutine ]
     [ alias all : boost_coroutine test ]
     ;
+
+call-if
+    : boost-library coroutine
+    : install boost_coroutine
+    ;

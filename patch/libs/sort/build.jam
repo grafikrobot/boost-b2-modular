@@ -19,3 +19,7 @@ explicit
     [ alias boost_sort ]
     [ alias all : boost_sort example test ]
     ;
+
+call-if
+    : boost-library sort
+    ;

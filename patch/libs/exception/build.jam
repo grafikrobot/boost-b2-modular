@@ -21,3 +21,8 @@ explicit
     [ alias boost_exception : build//boost_exception ]
     [ alias all : boost_exception example test ]
     ;
+
+call-if
+    : boost-library exception
+    : install boost_exception
+    ;

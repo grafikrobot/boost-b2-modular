@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index a795194..1c4716b 100644
+index a795194..d3fea29 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -42,7 +42,7 @@ rule check-synchronization-lib ( properties * )
@@ -11,9 +11,9 @@ index a795194..1c4716b 100644
      : requirements
        <include>../src
        <threading>multi
-@@ -144,4 +144,4 @@ lib boost_atomic
+@@ -143,5 +143,3 @@ lib boost_atomic
+     : usage-requirements
        <conditional>@check-synchronization-lib
     ;
- 
+-
 -boost-install boost_atomic ;
-+# boost-install boost_atomic ;

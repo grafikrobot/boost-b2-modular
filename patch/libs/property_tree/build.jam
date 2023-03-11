@@ -29,3 +29,7 @@ explicit
     [ alias boost_property_tree ]
     [ alias all : examples test ]
     ;
+
+call-if
+    : boost-library property_tree
+    ;

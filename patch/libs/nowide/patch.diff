@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 0eab169..569ea1c 100644
+index 0eab169..4665623 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -7,7 +7,7 @@
@@ -20,9 +20,9 @@ index 0eab169..569ea1c 100644
    : source-location ../src
    : requirements $(requirements)
      [ requires
-@@ -39,4 +39,4 @@ lib boost_nowide
+@@ -38,5 +38,3 @@ lib boost_nowide
+   : $(SOURCES).cpp
    : <include>../src
    ;
- 
+-
 -boost-install boost_nowide ;
-+# boost-install boost_nowide ;

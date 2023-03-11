@@ -30,3 +30,7 @@ explicit
             <toolset>gcc:<cxxflags>-ansi
         ]
     ;
+
+call-if
+    : boost-library format
+    ;

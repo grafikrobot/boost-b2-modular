@@ -21,3 +21,7 @@ explicit
     [ alias boost_any ]
     [ alias all : boost_any test ]
     ;
+
+call-if
+    : boost-library any
+    ;

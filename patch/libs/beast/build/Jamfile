@@ -88,5 +88,3 @@ lib boost_beast
     : requirements
     <link>static
     ;
-
-# boost-install boost_beast boost_beast_asio boost_beast_asio_ssl ;

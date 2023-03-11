@@ -19,3 +19,8 @@ explicit
     [ alias boost_system : build//boost_system ]
     [ alias all : boost_system test ]
     ;
+
+call-if
+    : boost-library system
+    : install boost_system
+    ;

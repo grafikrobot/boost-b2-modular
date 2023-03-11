@@ -20,3 +20,7 @@ explicit
     [ alias boost_integer ]
     [ alias all : boost_integer test ]
     ;
+
+call-if
+    : boost-library integer
+    ;

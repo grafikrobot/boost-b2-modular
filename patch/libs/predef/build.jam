@@ -48,3 +48,7 @@ explicit
     [ alias boost_predef ]
     [ alias all : boost_predef test ]
     ;
+
+call-if
+    : boost-library predef
+    ;

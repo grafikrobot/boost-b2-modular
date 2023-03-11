@@ -19,3 +19,7 @@ explicit
     [ alias boost_intrusive ]
     [ alias all : boost_intrusive example test ]
     ;
+
+call-if
+    : boost-library intrusive
+    ;

@@ -1,8 +1,8 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index fb47659..48aee74 100644
+index fb47659..da214ff 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
-@@ -5,10 +5,10 @@
+@@ -5,10 +5,9 @@
  # Distributed under the Boost Software License, Version 1.0. (See accompanying
  # file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
  
@@ -14,7 +14,6 @@ index fb47659..48aee74 100644
  
  lib boost_exception : clone_current_exception_non_intrusive.cpp ;
 -boost-install boost_exception ;
-+# boost-install boost_exception ;
 diff --git a/example/Jamfile b/example/Jamfile
 index 44e18bf..1040b8f 100644
 --- a/example/Jamfile

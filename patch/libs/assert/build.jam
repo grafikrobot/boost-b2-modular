@@ -15,3 +15,7 @@ explicit
     [ alias boost_assert ]
     [ alias all : boost_assert test ]
     ;
+
+call-if
+    : boost-library assert
+    ;

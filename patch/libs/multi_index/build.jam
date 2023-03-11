@@ -30,3 +30,7 @@ explicit
     [ alias boost_multi_index ]
     [ alias all : boost_multi_index example perf test ]
     ;
+
+call-if
+    : boost-library multi_index
+    ;

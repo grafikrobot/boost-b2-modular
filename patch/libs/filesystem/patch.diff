@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 13c540d..bb92567 100644
+index 13c540d..23f49d2 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -122,7 +122,7 @@ rule check-linkflag-no-undefined ( properties * )
@@ -11,12 +11,12 @@ index 13c540d..bb92567 100644
      : requirements
        <host-os>hpux,<toolset>gcc:<define>_INCLUDE_STDC__SOURCE_199901
        [ check-target-builds ../config//has_attribute_init_priority "has init_priority attribute" : <define>BOOST_FILESYSTEM_HAS_INIT_PRIORITY ]
-@@ -196,4 +196,4 @@ lib boost_filesystem
+@@ -195,5 +195,3 @@ lib boost_filesystem
+     :
      :
      ;
- 
+-
 -boost-install boost_filesystem ;
-+# boost-install boost_filesystem ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
 index d1ffc2a..3fccce7 100644
 --- a/test/Jamfile.v2

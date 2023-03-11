@@ -16,7 +16,7 @@ index f0de2e0..0000000
 -build-project example ;
 -build-project test ;
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 852054d..58bb64c 100644
+index 852054d..a90b51c 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -1,5 +1,5 @@
@@ -26,7 +26,7 @@ index 852054d..58bb64c 100644
      : source-location ../src 
      ;
  
-@@ -9,8 +9,11 @@ SOURCES =
+@@ -9,8 +9,9 @@ SOURCES =
      convert winmain split
      ;
  
@@ -39,8 +39,6 @@ index 852054d..58bb64c 100644
 \ No newline at end of file
 +      <link>shared:<define>BOOST_PROGRAM_OPTIONS_DYN_LINK=1
 +    ;
-+
-+# boost-install boost_program_options ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
 index 0f1a6e7..968b5a8 100644
 --- a/test/Jamfile.v2

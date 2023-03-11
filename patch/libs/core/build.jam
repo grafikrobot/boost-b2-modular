@@ -18,3 +18,7 @@ explicit
     [ alias boost_core ]
     [ alias all : boost_core test ]
     ;
+
+call-if
+    : boost-library core
+    ;

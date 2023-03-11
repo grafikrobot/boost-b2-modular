@@ -42,3 +42,7 @@ explicit
     [ alias boost_compute ]
     [ alias all : boost_compute test ]
     ;
+
+call-if
+    : boost-library compute
+    ;

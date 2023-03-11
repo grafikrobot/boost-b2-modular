@@ -24,3 +24,7 @@ explicit
     [ alias boost_proto ]
     [ alias all : boost_proto example test ]
     ;
+
+call-if
+    : boost-library proto
+    ;

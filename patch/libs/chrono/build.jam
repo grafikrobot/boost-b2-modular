@@ -29,3 +29,8 @@ explicit
     [ alias boost_chrono : build//boost_chrono ]
     [ alias all : boost_chrono test ]
     ;
+
+call-if
+    : boost-library chrono
+    : install boost_chrono
+    ;

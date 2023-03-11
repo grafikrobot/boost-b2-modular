@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 5bb135e..5a16833 100644
+index 5bb135e..9f576d0 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -15,7 +15,7 @@ import toolset ;
@@ -112,12 +112,6 @@ index 5bb135e..5a16833 100644
      :
        encoding/codepage.cpp
        shared/date_time.cpp
-@@ -431,3 +431,5 @@ boost-lib locale
-       <conditional>@configure
-     : : $(cxx_requirements)
-     ;
-+
-+# boost-install boost_locale ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
 index 4646fc6..bbc487a 100644
 --- a/test/Jamfile.v2

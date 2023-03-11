@@ -26,3 +26,7 @@ explicit
     [ alias boost_unordered ]
     [ alias all : boost_unordered test ]
     ;
+
+call-if
+    : boost-library unordered
+    ;

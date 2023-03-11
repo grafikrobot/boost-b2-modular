@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 0f214e87..b5e4ed64 100644
+index 0f214e87..87e99265 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -6,7 +6,7 @@
@@ -11,12 +11,12 @@ index 0f214e87..b5e4ed64 100644
      : source-location ../src
      : requirements
        <conditional>@include-spirit
-@@ -180,4 +180,4 @@ lib boost_wserialization
+@@ -179,5 +179,3 @@ lib boost_wserialization
+     # switch - don't change it to BOOST_WSERIALIZATION_DYN_LINK
      <link>shared:<define>BOOST_SERIALIZATION_DYN_LINK=1
      ;
- 
+-
 -boost-install boost_serialization boost_wserialization ;
-+# boost-install boost_serialization boost_wserialization ;
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
 index cce6ee65..a467dc93 100644
 --- a/example/Jamfile.v2

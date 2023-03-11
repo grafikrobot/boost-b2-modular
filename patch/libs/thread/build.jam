@@ -43,3 +43,8 @@ explicit
     [ alias boost_thread : build//boost_thread ]
     [ alias all : boost_thread example test ]
     ;
+
+call-if
+    : boost-library thread
+    : install boost_thread
+    ;

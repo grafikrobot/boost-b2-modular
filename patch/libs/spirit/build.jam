@@ -69,3 +69,7 @@ explicit
     [ alias boost_spirit ]
     [ alias all : boost_spirit example test ]
     ;
+
+call-if
+    : boost-library spirit
+    ;

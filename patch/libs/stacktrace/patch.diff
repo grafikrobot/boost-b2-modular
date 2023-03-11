@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 230d5a8..06306dd 100644
+index 230d5a8..41fd325 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -6,7 +6,6 @@
@@ -46,7 +46,7 @@ index 230d5a8..06306dd 100644
    : # default build
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
-@@ -122,10 +121,10 @@ lib boost_stacktrace_windbg_cached
+@@ -122,10 +121,8 @@ lib boost_stacktrace_windbg_cached
      <warnings>all
      <library>Dbgeng <library>ole32
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
@@ -56,9 +56,8 @@ index 230d5a8..06306dd 100644
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
    ;
- 
+-
 -boost-install boost_stacktrace_noop boost_stacktrace_backtrace boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_windbg boost_stacktrace_windbg_cached ;
-+# boost-install boost_stacktrace_noop boost_stacktrace_backtrace boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_windbg boost_stacktrace_windbg_cached ;
 diff --git a/example/user_config.cpp b/example/user_config.cpp
 index cb80a58..fa845cf 100644
 --- a/example/user_config.cpp

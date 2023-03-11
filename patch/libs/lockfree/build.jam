@@ -29,3 +29,7 @@ explicit
     [ alias boost_lockfree ]
     [ alias all : boost_lockfree examples test ]
     ;
+
+call-if
+    : boost-library lockfree
+    ;

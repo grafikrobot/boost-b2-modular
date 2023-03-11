@@ -15,3 +15,7 @@ explicit
     [ alias boost_io ]
     [ alias all : boost_io test ]
     ;
+
+call-if
+    : boost-library io
+    ;

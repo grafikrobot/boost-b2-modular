@@ -15,3 +15,7 @@ explicit
     [ alias boost_vmd ]
     [ alias all : boost_vmd test ]
     ;
+
+call-if
+    : boost-library vmd
+    ;

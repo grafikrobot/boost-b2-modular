@@ -15,3 +15,7 @@ explicit
     [ alias boost_polygon ]
     [ alias all : boost_polygon test ]
     ;
+
+call-if
+    : boost-library polygon
+    ;

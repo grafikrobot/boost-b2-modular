@@ -16,3 +16,7 @@ explicit
     [ alias boost_bind ]
     [ alias all : boost_bind test ]
     ;
+
+call-if
+    : boost-library bind
+    ;

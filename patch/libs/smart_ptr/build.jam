@@ -21,3 +21,7 @@ explicit
     [ alias boost_smart_ptr ]
     [ alias all : boost_smart_ptr test ]
     ;
+
+call-if
+    : boost-library smart_ptr
+    ;

@@ -25,3 +25,7 @@ explicit
     [ alias boost_assign ]
     [ alias all : boost_assign test ]
     ;
+
+call-if
+    : boost-library assign
+    ;

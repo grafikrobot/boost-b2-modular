@@ -18,3 +18,7 @@ explicit
     [ alias boost_tuple ]
     [ alias all : boost_tuple test ]
     ;
+
+call-if
+    : boost-library tuple
+    ;

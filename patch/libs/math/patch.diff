@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index fd840287e..ad58b1323 100644
+index fd840287e..a360f4bc9 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -5,7 +5,7 @@
@@ -11,12 +11,12 @@ index fd840287e..ad58b1323 100644
  
  project  
      : requirements 
-@@ -122,4 +122,4 @@ lib boost_math_c99l : ../src/tr1/$(C99_SOURCES)l.cpp pch
+@@ -121,5 +121,3 @@ lib boost_math_c99l : ../src/tr1/$(C99_SOURCES)l.cpp pch
+          <include>../src/tr1
           [ check-target-builds ../config//has_long_double_support "long double support" : : <build>no ]
     ;
- 
+-
 -boost-install boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l ;
-+# boost-install boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l ;
 diff --git a/config/Jamfile.v2 b/config/Jamfile.v2
 index 77aca7c2e..650e88880 100644
 --- a/config/Jamfile.v2

@@ -36,3 +36,14 @@ explicit
         test
         ]
     ;
+
+call-if
+    : boost-library stacktrace
+    : install
+        boost_stacktrace_noop
+        boost_stacktrace_backtrace
+        boost_stacktrace_addr2line
+        boost_stacktrace_basic
+        boost_stacktrace_windbg
+        boost_stacktrace_windbg_cached
+    ;

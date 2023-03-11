@@ -15,3 +15,7 @@ explicit
     [ alias boost_move ]
     [ alias all : boost_move example test ]
     ;
+
+call-if
+    : boost-library move
+    ;

@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 1a88d010..4655d2bb 100644
+index 1a88d010..28f5fbe3 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -40,7 +40,7 @@ import threadapi-feature ;
@@ -29,13 +29,12 @@ index 1a88d010..4655d2bb 100644
  }
  
  rule win32_pthread_paths ( properties * )
-@@ -316,4 +323,4 @@ lib boost_thread
+@@ -315,5 +322,3 @@ lib boost_thread
+       <link>static:<define>BOOST_THREAD_USE_LIB=1
        <conditional>@usage-requirements
      ;
- 
+-
 -boost-install boost_thread ;
-\ No newline at end of file
-+# boost-install boost_thread ;
 \ No newline at end of file
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
 index bfc8a59b..fbdf760c 100644

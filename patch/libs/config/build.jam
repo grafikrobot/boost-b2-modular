@@ -28,4 +28,8 @@ explicit
         ]
     ;
 
+call-if
+    : boost-library config
+    ;
+
 use-project /boost/architecture : checks/architecture ;

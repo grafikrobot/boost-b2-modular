@@ -22,3 +22,7 @@ explicit
     [ alias boost_rational ]
     [ alias all : boost_rational test ]
     ;
+
+call-if
+    : boost-library rational
+    ;

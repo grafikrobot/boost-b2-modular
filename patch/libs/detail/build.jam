@@ -19,3 +19,7 @@ explicit
     [ alias boost_detail ]
     [ alias all : boost_detail test ]
     ;
+
+call-if
+    : boost-library detail
+    ;

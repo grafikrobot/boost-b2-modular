@@ -24,3 +24,7 @@ explicit
             <include>test
         ]
     ;
+
+call-if
+    : boost-library type_traits
+    ;

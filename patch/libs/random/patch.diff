@@ -1,8 +1,8 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 34d7f24..3983f92 100644
+index 34d7f24..6a5e30f 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
-@@ -7,7 +7,7 @@
+@@ -7,12 +7,10 @@
  # accompanying file LICENSE_1_0.txt or copy at
  # http://www.boost.org/LICENSE_1_0.txt)
  
@@ -11,12 +11,11 @@ index 34d7f24..3983f92 100644
    : source-location ../src
    : requirements <link>shared:<define>BOOST_RANDOM_DYN_LINK
    : usage-requirements <link>shared:<define>BOOST_RANDOM_DYN_LINK
-@@ -15,4 +15,4 @@ project /boost/random
+ ;
  
  lib boost_random : [ glob *.cpp ] ;
- 
+-
 -boost-install boost_random ;
-+# boost-install boost_random ;
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
 index c598e78..803b217 100644
 --- a/example/Jamfile.v2

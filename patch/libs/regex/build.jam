@@ -26,3 +26,8 @@ explicit
     [ alias boost_regex : build//boost_regex ]
     [ alias all : boost_regex example test ]
     ;
+
+call-if
+    : boost-library regex
+    : install boost_regex
+    ;

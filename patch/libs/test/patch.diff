@@ -14,7 +14,7 @@ index cc332e11..00000000
 -build-project example ;
 -build-project test ;
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index c4fa6e0c..4831cb28 100644
+index c4fa6e0c..bf9a8ed2 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -6,11 +6,11 @@
@@ -31,16 +31,14 @@ index c4fa6e0c..4831cb28 100644
      : source-location ../src
      : requirements <link>shared:<define>BOOST_TEST_DYN_LINK=1
                     <toolset>borland:<cxxflags>-w-8080
-@@ -114,6 +114,6 @@ alias minimal ;
+@@ -113,7 +113,3 @@ lib boost_unit_test_framework
+ alias minimal ;
  
  alias included ;
- 
+-
 -boost-install boost_prg_exec_monitor
 -              boost_test_exec_monitor
 -              boost_unit_test_framework ;
-+# boost-install boost_prg_exec_monitor
-+#               boost_test_exec_monitor
-+#               boost_unit_test_framework ;
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
 index 5afb37e0..29e9e1d5 100644
 --- a/example/Jamfile.v2

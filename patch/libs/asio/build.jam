@@ -34,3 +34,7 @@ explicit
     [ alias boost_asio ]
     [ alias all : boost_asio test $(examples:D) ]
     ;
+
+call-if
+    : boost-library asio
+    ;

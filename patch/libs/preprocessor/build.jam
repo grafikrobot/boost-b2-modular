@@ -14,3 +14,7 @@ explicit
     [ alias boost_preprocessor ]
     [ alias all : boost_preprocessor test ]
     ;
+
+call-if
+    : boost-library preprocessor
+    ;

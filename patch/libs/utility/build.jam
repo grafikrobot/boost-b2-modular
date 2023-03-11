@@ -21,3 +21,7 @@ explicit
     [ alias boost_utility ]
     [ alias all : boost_utility test ]
     ;
+
+call-if
+    : boost-library utility
+    ;

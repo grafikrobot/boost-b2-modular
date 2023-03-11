@@ -5,8 +5,6 @@
 
 import project ;
 
-#                             
-
 project /boost/log
     : common-requirements
         <source>/boost/align//boost_align
@@ -58,4 +56,9 @@ explicit
     [ alias boost_log : build//boost_log ]
     [ alias boost_log_setup : build//boost_log_setup ]
     [ alias all : boost_log boost_log_setup example test ]
+    ;
+
+call-if
+    : boost-library log
+    : install boost_log boost_log_setup
     ;

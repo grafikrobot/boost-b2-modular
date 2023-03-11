@@ -19,3 +19,8 @@ explicit
     [ alias boost_container : build//boost_container ]
     [ alias all : boost_container example test ]
     ;
+
+call-if
+    : boost-library container
+    : install boost_container
+    ;

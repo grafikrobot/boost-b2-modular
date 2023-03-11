@@ -19,3 +19,7 @@ explicit
     [ alias boost_tokenizer ]
     [ alias all : boost_tokenizer example test ]
     ;
+
+call-if
+    : boost-library tokenizer
+    ;

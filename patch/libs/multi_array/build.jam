@@ -24,3 +24,7 @@ explicit
     [ alias boost_multi_array ]
     [ alias all : boost_multi_array test ]
     ;
+
+call-if
+    : boost-library multi_array
+    ;

@@ -16,3 +16,8 @@ explicit
     [ alias boost_nowide : build//boost_nowide ]
     [ alias all : boost_nowide test ]
     ;
+
+call-if
+    : boost-library nowide
+    : install boost_nowide
+    ;

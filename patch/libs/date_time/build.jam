@@ -29,3 +29,8 @@ explicit
     [ alias boost_date_time : build//boost_date_time ]
     [ alias all : boost_date_time example test ]
     ;
+
+call-if
+    : boost-library date_time
+    : install boost_date_time
+    ;

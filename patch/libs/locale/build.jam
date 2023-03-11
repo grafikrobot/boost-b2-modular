@@ -20,3 +20,8 @@ explicit
     [ alias boost_locale : build//boost_locale ]
     [ alias all : boost_locale test ]
     ;
+
+call-if
+    : boost-library locale
+    : install boost_locale
+    ;

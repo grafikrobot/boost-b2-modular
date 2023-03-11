@@ -26,3 +26,7 @@ explicit
     [ alias boost_gil ]
     [ alias all : boost_gil example test ]
     ;
+
+call-if
+    : boost-library gil
+    ;

@@ -24,3 +24,7 @@ explicit
     [ alias boost_optional ]
     [ alias all : boost_optional test ]
     ;
+
+call-if
+    : boost-library optional
+    ;

@@ -22,3 +22,8 @@ explicit
     [ alias boost_atomic : build//boost_atomic ]
     [ alias all : boost_atomic test ]
     ;
+
+call-if
+    : boost-library atomic
+    : install boost_atomic
+    ;

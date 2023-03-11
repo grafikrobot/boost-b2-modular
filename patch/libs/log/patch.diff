@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index a81fb8b..432df8d 100644
+index a81fb8b..4a9a710 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -27,18 +27,18 @@ project.load [ path.join [ path.make $(here:D) ] ../config/atomic-int32 ] ;
@@ -39,12 +39,12 @@ index a81fb8b..432df8d 100644
      : source-location ../src
      : requirements
          <conditional>@check-instruction-set
-@@ -432,4 +432,4 @@ lib boost_log_setup
+@@ -431,5 +431,3 @@ lib boost_log_setup
+         <link>shared:<define>BOOST_LOG_SETUP_DYN_LINK=1
          <threading>single:<define>BOOST_LOG_NO_THREADS
      ;
- 
+-
 -boost-install boost_log boost_log_setup ;
-+# boost-install boost_log boost_log_setup ;
 diff --git a/example/doc/Jamfile.v2 b/example/doc/Jamfile.v2
 index 1a1fe40..769a116 100644
 --- a/example/doc/Jamfile.v2

@@ -28,3 +28,7 @@ explicit
     [ alias boost_phoenix ]
     [ alias all : boost_phoenix test ]
     ;
+
+call-if
+    : boost-library phoenix
+    ;

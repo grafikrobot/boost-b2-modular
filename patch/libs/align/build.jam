@@ -18,3 +18,7 @@ explicit
     [ alias boost_align ]
     [ alias all : boost_align test ]
     ;
+
+call-if
+    : boost-library align
+    ;

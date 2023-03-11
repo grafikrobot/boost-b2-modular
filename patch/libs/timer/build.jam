@@ -21,3 +21,8 @@ explicit
     [ alias boost_timer : build//boost_timer ]
     [ alias all : boost_timer build test ]
     ;
+
+call-if
+    : boost-library timer
+    : install boost_timer
+    ;

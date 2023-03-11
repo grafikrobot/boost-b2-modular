@@ -25,7 +25,7 @@ index cd2a846..0000000
 -    ]
 -    ;
 diff --git a/build/Jamfile b/build/Jamfile
-index 1bb70e5..6c4943d 100644
+index 1bb70e5..9896566 100644
 --- a/build/Jamfile
 +++ b/build/Jamfile
 @@ -8,9 +8,8 @@
@@ -39,12 +39,12 @@ index 1bb70e5..6c4943d 100644
        <link>shared:<define>BOOST_URL_DYN_LINK=1
        <link>static:<define>BOOST_URL_STATIC_LINK=1
        <define>BOOST_URL_SOURCE
-@@ -32,4 +31,4 @@ lib boost_url
+@@ -31,5 +30,3 @@ explicit url_sources ;
+ lib boost_url
     : url_sources
     ;
- 
+-
 -boost-install boost_url ;
-+# boost-install boost_url ;
 diff --git a/example/file_router/Jamfile b/example/file_router/Jamfile
 index be7dd14..50db477 100644
 --- a/example/file_router/Jamfile

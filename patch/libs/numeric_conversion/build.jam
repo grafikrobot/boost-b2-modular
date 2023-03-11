@@ -21,3 +21,7 @@ explicit
     [ alias boost_numeric_conversion ]
     [ alias all : boost_numeric_conversion test ]
     ;
+
+call-if
+    : boost-library numeric_conversion
+    ;

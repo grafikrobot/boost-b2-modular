@@ -20,3 +20,7 @@ explicit
     [ alias boost_pool ]
     [ alias all : boost_pool example test ]
     ;
+
+call-if
+    : boost-library pool
+    ;

@@ -24,4 +24,8 @@ explicit
     [ alias all : boost_multiprecision test ]
     ;
 
+call-if
+    : boost-library multiprecision
+    ;
+
 use-project /boost/multiprecision/config : config ;

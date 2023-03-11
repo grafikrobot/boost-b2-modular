@@ -17,3 +17,7 @@ explicit
     [ alias boost_coroutine2 ]
     [ alias all : boost_coroutine2 example test ]
     ;
+
+call-if
+    : boost-library coroutine2
+    ;

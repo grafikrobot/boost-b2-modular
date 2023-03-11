@@ -21,3 +21,7 @@ explicit
     [ alias boost_mpl ]
     [ alias all : boost_mpl example test ]
     ;
+
+call-if
+    : boost-library mpl
+    ;

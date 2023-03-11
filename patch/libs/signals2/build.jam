@@ -30,3 +30,7 @@ explicit
     [ alias boost_signals2 ]
     [ alias all : example test ]
     ;
+
+call-if
+    : boost-library signals2
+    ;

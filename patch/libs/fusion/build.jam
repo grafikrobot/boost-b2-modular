@@ -26,3 +26,7 @@ explicit
     [ alias boost_fusion ]
     [ alias all : boost_fusion test ]
     ;
+
+call-if
+    : boost-library fusion
+    ;

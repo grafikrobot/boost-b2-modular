@@ -21,3 +21,7 @@ explicit
     [ alias boost_conversion ]
     [ alias all : boost_conversion test ]
     ;
+
+call-if
+    : boost-library conversion
+    ;

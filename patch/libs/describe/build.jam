@@ -15,3 +15,7 @@ explicit
     [ alias boost_describe ]
     [ alias all : boost_describe test ]
     ;
+
+call-if
+    : boost-library describe
+    ;

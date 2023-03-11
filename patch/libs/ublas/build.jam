@@ -27,3 +27,7 @@ explicit
     [ alias boost_ublas ]
     [ alias all : boost_ublas benchmarks examples/tensor test ]
     ;
+
+call-if
+    : boost-library ublas
+    ;

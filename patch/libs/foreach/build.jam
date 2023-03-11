@@ -20,3 +20,7 @@ explicit
     [ alias boost_foreach ]
     [ alias all : boost_foreach test ]
     ;
+
+call-if
+    : boost-library foreach
+    ;

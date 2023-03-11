@@ -31,3 +31,7 @@ explicit
     [ alias boost_range ]
     [ alias all : boost_range test ]
     ;
+
+call-if
+    : boost-library range
+    ;

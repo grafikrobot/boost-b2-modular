@@ -25,7 +25,7 @@ project /boost/flyweight
 
 explicit
     [ alias boost_flyweight ]
-    [ alias all : boost_flyweight test ]
+    [ alias all : boost_flyweight example test ]
     ;
 
 call-if

@@ -1,0 +1,26 @@
+diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
+index 8a75066..66d590d 100644
+--- a/example/Jamfile.v2
++++ b/example/Jamfile.v2
+@@ -9,7 +9,7 @@
+ 
+ project
+     : requirements
+-      <os>LINUX:<threading>multi
++      <target-os>linux:<threading>multi
+     ;
+ 
+ exe basic
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index e18eb8f..688b0cb 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -9,7 +9,7 @@
+ 
+ project
+     : requirements
+-      <os>LINUX:<threading>multi
++      <target-os>linux:<threading>multi
+     ;
+ 
+ test-suite "flyweight" :

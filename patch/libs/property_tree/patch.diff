@@ -1,8 +1,8 @@
 diff --git a/examples/Jamfile.v2 b/examples/Jamfile.v2
-index 07c382a..e8a13bc 100644
+index 07c382a..cab5ee8 100644
 --- a/examples/Jamfile.v2
 +++ b/examples/Jamfile.v2
-@@ -5,8 +5,6 @@
+@@ -5,8 +5,7 @@
  
  project
      : requirements
@@ -11,4 +11,6 @@ index 07c382a..e8a13bc 100644
 -		;
 +    ;
  
- exe debug_settings : debug_settings.cpp ;
+-exe debug_settings : debug_settings.cpp ;
++exe debug_settings : debug_settings.cpp
++    /boost/foreach//boost_foreach ;

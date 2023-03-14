@@ -363,7 +363,7 @@ index 1e5d1555..5121062f 100644
     Real result = 0;
     for (unsigned i = 0; i < nct.size(); ++i)
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 1a677357..d0b54811 100644
+index c80eca88..b3db8681 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -6,7 +6,7 @@
@@ -634,7 +634,7 @@ index 1a677357..d0b54811 100644
  
        #
        # Mixed mode comparison tests, see: https://svn.boost.org/trac/boost/ticket/11328
-@@ -1342,7 +1341,7 @@ rule get_specfun_tests_mpfr
+@@ -1343,7 +1342,7 @@ rule get_specfun_tests_mpfr
              <define>BOOST_ALL_NO_LIB
              <define>BOOST_OPTIONAL_USE_OLD_DEFINITION_OF_NONE
              <toolset>msvc:<cxxflags>-bigobj
@@ -643,7 +643,7 @@ index 1a677357..d0b54811 100644
              release
             : $(source:B)_mpfr ] ;
     }
-@@ -1359,7 +1358,7 @@ rule get_specfun_tests_mpfr
+@@ -1360,7 +1359,7 @@ rule get_specfun_tests_mpfr
              <toolset>msvc:<cxxflags>-bigobj
              [ check-target-builds ../config//has_mpfr : <define>TEST_MPFR <source>gmp <source>mpfr : <build>no ]
              [ check-target-builds ../config//has_float128 : <source>quadmath ]
@@ -652,7 +652,7 @@ index 1a677357..d0b54811 100644
              release
              : test_gamma_mpfr_$(digits) ] ;
  
-@@ -1384,7 +1383,7 @@ rule get_specfun_tests_gmp
+@@ -1385,7 +1384,7 @@ rule get_specfun_tests_gmp
              <define>TEST_MPF_50
              <define>BOOST_ALL_NO_LIB
              <toolset>msvc:<cxxflags>-bigobj
@@ -661,7 +661,7 @@ index 1a677357..d0b54811 100644
              release
             : $(source:B)_mpf ] ;
     }
-@@ -1401,7 +1400,7 @@ rule get_specfun_tests_gmp
+@@ -1402,7 +1401,7 @@ rule get_specfun_tests_gmp
              <toolset>msvc:<cxxflags>-bigobj
              [ check-target-builds ../config//has_gmp : <define>TEST_MPF <source>gmp : <build>no ]
              [ check-target-builds ../config//has_float128 : <source>quadmath ]
@@ -670,7 +670,7 @@ index 1a677357..d0b54811 100644
              release
              : test_gamma_gmp_$(digits) ] ;
  
-@@ -1423,7 +1422,7 @@ rule get_specfun_tests_cpp_dec_float
+@@ -1424,7 +1423,7 @@ rule get_specfun_tests_cpp_dec_float
              <define>TEST_CPP_DEC_FLOAT
              <define>BOOST_ALL_NO_LIB
              <toolset>msvc:<cxxflags>-bigobj
@@ -679,7 +679,7 @@ index 1a677357..d0b54811 100644
              release
             : $(source:B)_cpp_dec_float ] ;
     }
-@@ -1439,7 +1438,7 @@ rule get_specfun_tests_cpp_dec_float
+@@ -1440,7 +1439,7 @@ rule get_specfun_tests_cpp_dec_float
              <define>TEST_PRECISION=$(digits)
              <toolset>msvc:<cxxflags>-bigobj
              <define>TEST_CPP_DEC_FLOAT
@@ -688,7 +688,7 @@ index 1a677357..d0b54811 100644
              release
              : test_gamma_cpp_dec_float_$(digits) ] ;
     }
-@@ -1459,7 +1458,7 @@ rule get_specfun_tests_cpp_bin_float
+@@ -1460,7 +1459,7 @@ rule get_specfun_tests_cpp_bin_float
              <define>TEST_CPP_BIN_FLOAT
              <define>BOOST_ALL_NO_LIB
              <toolset>msvc:<cxxflags>-bigobj
@@ -697,7 +697,7 @@ index 1a677357..d0b54811 100644
              release
              [ check-target-builds ../config//has_float128 : <source>quadmath ]
             : $(source:B)_cpp_bin_float ] ;
-@@ -1477,7 +1476,7 @@ rule get_specfun_tests_cpp_bin_float
+@@ -1478,7 +1477,7 @@ rule get_specfun_tests_cpp_bin_float
              <toolset>msvc:<cxxflags>-bigobj
              <define>TEST_CPP_BIN_FLOAT
              [ check-target-builds ../config//has_float128 : <source>quadmath ]
@@ -706,7 +706,7 @@ index 1a677357..d0b54811 100644
              release
              : test_gamma_cpp_bin_float_$(digits) ] ;
  
-@@ -1502,7 +1501,7 @@ rule get_specfun_tests_float128
+@@ -1503,7 +1502,7 @@ rule get_specfun_tests_float128
              <define>BOOST_ALL_NO_LIB
              <define>BOOST_OPTIONAL_USE_OLD_DEFINITION_OF_NONE
              <toolset>msvc:<cxxflags>-bigobj
@@ -715,7 +715,7 @@ index 1a677357..d0b54811 100644
              release
             : $(source:B)_float128 ] ;
     }
-@@ -1527,7 +1526,7 @@ rule get_specfun_tests_intel_quad
+@@ -1528,7 +1527,7 @@ rule get_specfun_tests_intel_quad
              <define>BOOST_ALL_NO_LIB
              <define>BOOST_OPTIONAL_USE_OLD_DEFINITION_OF_NONE
              <toolset>msvc:<cxxflags>-bigobj
@@ -724,7 +724,7 @@ index 1a677357..d0b54811 100644
              release
             : $(source:B)_intel_quad ] ;
     }
-@@ -1575,7 +1574,7 @@ rule get_concept_checks
+@@ -1576,7 +1575,7 @@ rule get_concept_checks
     for local source in [ glob concepts/*.cpp ]
     {
  
@@ -733,7 +733,7 @@ index 1a677357..d0b54811 100644
                : # requirements
                <define>TEST_MPFR_50
                 [ check-target-builds ../config//has_mpfr : : <build>no ]
-@@ -1583,7 +1582,7 @@ rule get_concept_checks
+@@ -1584,7 +1583,7 @@ rule get_concept_checks
                 <optimization>space
                : $(source:B)_mpfr_50 ] ;
  
@@ -742,7 +742,7 @@ index 1a677357..d0b54811 100644
                : # requirements
                <define>TEST_MPFR_6
                 [ check-target-builds ../config//has_mpfr : : <build>no ]
-@@ -1591,7 +1590,7 @@ rule get_concept_checks
+@@ -1592,7 +1591,7 @@ rule get_concept_checks
                 <optimization>space
                : $(source:B)_mpfr_6 ] ;
  
@@ -751,7 +751,7 @@ index 1a677357..d0b54811 100644
                : # requirements
                <define>TEST_MPFR_15
                 [ check-target-builds ../config//has_mpfr : : <build>no ]
-@@ -1599,7 +1598,7 @@ rule get_concept_checks
+@@ -1600,7 +1599,7 @@ rule get_concept_checks
                 <optimization>space
                : $(source:B)_mpfr_15 ] ;
  
@@ -760,7 +760,7 @@ index 1a677357..d0b54811 100644
                : # requirements
                <define>TEST_MPFR_17
                 [ check-target-builds ../config//has_mpfr : : <build>no ]
-@@ -1607,7 +1606,7 @@ rule get_concept_checks
+@@ -1608,7 +1607,7 @@ rule get_concept_checks
                 <optimization>space
                : $(source:B)_mpfr_17 ] ;
  
@@ -769,7 +769,7 @@ index 1a677357..d0b54811 100644
                : # requirements
                <define>TEST_MPFR_30
                 [ check-target-builds ../config//has_mpfr : : <build>no ]
-@@ -1615,7 +1614,7 @@ rule get_concept_checks
+@@ -1616,7 +1615,7 @@ rule get_concept_checks
                 <optimization>space
                : $(source:B)_mpfr_30 ] ;
  
@@ -778,7 +778,7 @@ index 1a677357..d0b54811 100644
                : # requirements
                <define>TEST_MPF_50
                 [ check-target-builds ../config//has_gmp : : <build>no ]
-@@ -1623,35 +1622,35 @@ rule get_concept_checks
+@@ -1624,35 +1623,35 @@ rule get_concept_checks
                 <optimization>space
                : $(source:B)_mpf50 ] ;
  

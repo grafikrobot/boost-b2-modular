@@ -1,0 +1,19 @@
+diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
+index c07fe24..d1bb74e 100644
+--- a/build/Jamfile.v2
++++ b/build/Jamfile.v2
+@@ -30,7 +30,7 @@ import indirect ;
+ import path ;
+ import configure ;
+ 
+-project boost/sync
++project
+     : source-location ../src
+     : requirements
+       <threading>multi
+@@ -177,4 +177,4 @@ lib boost_sync
+     ;
+ 
+ 
+-boost-install boost_sync ;
++# boost-install boost_sync ;

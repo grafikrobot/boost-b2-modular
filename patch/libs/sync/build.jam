@@ -1,0 +1,36 @@
+# Copyright René Ferdinand Rivera Morell 2023
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/sync
+    : common-requirements
+        <source>/boost/assert//boost_assert
+        <source>/boost/atomic//boost_atomic
+        <source>/boost/chrono//boost_chrono
+        <source>/boost/config//boost_config
+        <source>/boost/core//boost_core
+        <source>/boost/date_time//boost_date_time
+        <source>/boost/intrusive//boost_intrusive
+        <source>/boost/move//boost_move
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/preprocessor//boost_preprocessor
+        <source>/boost/ratio//boost_ratio
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/system//boost_system
+        <source>/boost/throw_exception//boost_throw_exception
+        <source>/boost/winapi//boost_winapi
+        <include>include
+    ;
+
+explicit
+    [ alias boost_sync : build//boost_sync ]
+    [ alias all : boost_sync test ]
+    ;
+
+call-if
+    : boost-library sync
+    : install boost_sync
+    ;

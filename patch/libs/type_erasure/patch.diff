@@ -1,8 +1,8 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 3a77b5e..0e6ccb7 100644
+index 3a77b5e..0ceb3f9 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
-@@ -6,12 +6,12 @@
+@@ -6,12 +6,10 @@
  # accompanying file LICENSE_1_0.txt or copy at
  # http://www.boost.org/LICENSE_1_0.txt)
  
@@ -14,10 +14,9 @@ index 3a77b5e..0e6ccb7 100644
  ;
  
 -lib boost_type_erasure : dynamic_binding.cpp /boost//thread ;
-+lib boost_type_erasure : dynamic_binding.cpp /boost/thread//boost_thread ;
- 
+-
 -boost-install boost_type_erasure ;
-+# boost-install boost_type_erasure ;
++lib boost_type_erasure : dynamic_binding.cpp /boost/thread//boost_thread ;
 diff --git a/example/Jamfile.jam b/example/Jamfile.jam
 index d96922f..9d554c2 100644
 --- a/example/Jamfile.jam

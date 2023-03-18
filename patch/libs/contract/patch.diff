@@ -1,0 +1,78 @@
+diff --git a/Jamfile.v2 b/Jamfile.v2
+deleted file mode 100644
+index 4e921c6..0000000
+--- a/Jamfile.v2
++++ /dev/null
+@@ -1,14 +0,0 @@
+-#  Boost.Contract Library Jamfile
+-#
+-#  Use, modification, and distribution are subject to the
+-#  Boost Software License, Version 1.0. (See accompanying file
+-#  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-
+-# please order by name to ease maintenance (this is used by CI)
+-#
+-# CI build of examples disabled at repository owner's request (examples are
+-# meant for docs so for simplicity might omit work-around to build on all plat)
+-# build-project example ;
+-#
+-build-project test ;
+-
+diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
+index 3894232..09832f2 100644
+--- a/build/Jamfile.v2
++++ b/build/Jamfile.v2
+@@ -4,7 +4,7 @@
+ # file LICENSE_1_0.txt or a copy at http://www.boost.org/LICENSE_1_0.txt).
+ # See: http://www.boost.org/doc/libs/release/libs/contract/doc/html/index.html
+ 
+-project boost/contract
++project
+     : source-location ../src
+     : requirements
+         <link>shared:<define>BOOST_CONTRACT_DYN_LINK
+@@ -19,5 +19,3 @@ project boost/contract
+ # If lib as header-only, none of following will be used.
+ lib boost_contract : contract.cpp : <link>shared ;
+ lib boost_contract : contract.cpp : <link>static ;
+-
+-boost-install boost_contract ;
+diff --git a/build/boost_contract_build.jam b/build/boost_contract_build.jam
+index 06b7869..a92407b 100644
+--- a/build/boost_contract_build.jam
++++ b/build/boost_contract_build.jam
+@@ -49,7 +49,7 @@
+ import boost_contract_no ;
+ import feature ;
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ # Iff "no", link to boost_contract (else, no lib build so don't link to it).
+ feature.feature bc_hdr : lib only :
+diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
+index 3fe6e2f..6dd2a7b 100644
+--- a/example/Jamfile.v2
++++ b/example/Jamfile.v2
+@@ -5,7 +5,7 @@
+ # See: http://www.boost.org/doc/libs/release/libs/contract/doc/html/index.html
+ 
+ import ../build/boost_contract_build ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ test-suite features :
+     [ boost_contract_build.subdir-run features : introduction_comments ]
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 2026b8d..2a9920e 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -5,7 +5,7 @@
+ # See: http://www.boost.org/doc/libs/release/libs/contract/doc/html/index.html
+ 
+ import ../build/boost_contract_build ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ test-suite constructor :
+     [ boost_contract_build.subdir-run-cxx11 constructor : smoke ]

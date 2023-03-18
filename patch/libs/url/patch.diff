@@ -206,7 +206,7 @@ index 8ef9973..af9edf1 100644
        <include>.
        <include>../../extra
 diff --git a/test/unit/Jamfile b/test/unit/Jamfile
-index f8ee073..ba56d02 100644
+index aab2dd3..b06bddc 100644
 --- a/test/unit/Jamfile
 +++ b/test/unit/Jamfile
 @@ -11,7 +11,6 @@ import testing ;
@@ -233,7 +233,7 @@ index f8ee073..ba56d02 100644
      grammar/dec_octet_rule.cpp
      grammar/delim_rule.cpp
      grammar/digit_chars.cpp
-@@ -106,5 +103,7 @@ for local f in $(SOURCES)
+@@ -107,5 +104,7 @@ for local f in $(SOURCES)
  {
      run $(f) : : : ;
  }

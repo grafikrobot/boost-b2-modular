@@ -50,7 +50,7 @@ cd boost-b2-modular
 
 == Making Changes
 
-While I, René, I'm making all the changes to make this conversion happen
+While I, René, am making all the changes to make this conversion happen
 (by hand) I will not turn away others from wanting to contribute. Assuming
 you have the repo cloned there are a couple of scripts to run that
 automate some of the work.

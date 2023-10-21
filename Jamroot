@@ -4,7 +4,9 @@
 # (See accompanying file LICENSE_1_0.txt or copy at
 # http://www.boost.org/LICENSE_1_0.txt)
 
-constant BOOST_VERSION : 1.82.0 ;
+import project ;
+
+constant BOOST_VERSION : 1.83.0 ;
 
 project boost
     : requirements
@@ -20,26 +22,28 @@ project boost
         bin.v2
     ;
 
-rule boost-library ( id ? : options * : * )
-{
-    for n in 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
-    {
-        local option = $($(n)) ;
-        if $(option)
-        {
-            call-if : boost-$(option[1]) $(option[2-]) ;
-        }
-    }
-}
+# rule boost-library ( id ? : options * : * )
+# {
+#     for n in 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+#     {
+#         local option = $($(n)) ;
+#         if $(option)
+#         {
+#             call-if : boost-$(option[1]) $(option[2-]) ;
+#         }
+#     }
+# }
 
-rule boost-install ( libraries * )
-{
-}
+# rule boost-install ( libraries * )
+# {
+# }
 
-all-libraries = [ MATCH .*libs/(.*)/build.jam : [ glob libs/*/build.jam ] ] ;
+project-search /boost : libs ;
 
-# Make project ids of all libraries known.
-for local l in $(all-libraries)
-{
-    use-project /boost/$(l) : libs/$(l) ;
-}
+# all-libraries = [ MATCH .*libs/(.*)/build.jam : [ glob libs/*/build.jam ] ] ;
+
+# # Make project ids of all libraries known.
+# for local l in $(all-libraries)
+# {
+#     use-project /boost/$(l) : libs/$(l) ;
+# }

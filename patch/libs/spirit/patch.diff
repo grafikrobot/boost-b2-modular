@@ -1,0 +1,373 @@
+diff --git a/example/Jamfile b/example/Jamfile
+index 4aa2c3dd9..60a2489f0 100644
+--- a/example/Jamfile
++++ b/example/Jamfile
+@@ -9,7 +9,7 @@
+ 
+ # build all examples
+ 
+-local examples = [ glob-tree [jJ]amfile [jJ]amfile.v2 ] ;
++local examples = [ glob-tree "[jJ]amfile" "[jJ]amfile.v2" ] ;
+ 
+ for local ex in $(examples) {
+    local dir = $(ex:P) ;
+diff --git a/example/karma/Jamfile b/example/karma/Jamfile
+index a93cbb7a7..5eef37335 100644
+--- a/example/karma/Jamfile
++++ b/example/karma/Jamfile
+@@ -12,9 +12,9 @@ project spirit-karma-example
+     :
+     ;
+ 
+-exe actions_example : actions.cpp ;
++exe actions_example : actions.cpp /boost/lambda//boost_lambda ;
+ exe auto_facilities : auto_facilities.cpp ;
+-exe basic_facilities : basic_facilities.cpp /boost//date_time ;
++exe basic_facilities : basic_facilities.cpp /boost/date_time//boost_date_time /boost/tokenizer//boost_tokenizer ;
+ exe karma_calc2_ast_dump : calc2_ast_dump.cpp ;
+ exe karma_calc2_ast_rpn : calc2_ast_rpn.cpp ;
+ exe karma_calc2_ast_vm : calc2_ast_vm.cpp ;
+@@ -31,7 +31,7 @@ exe mini_xml_karma : mini_xml_karma.cpp ;
+ exe printf_style_double_format : printf_style_double_format.cpp ;
+ exe quick_start1 : quick_start1.cpp ;
+ exe karma_reference : reference.cpp ;
+-exe karma_reorder_struct : reorder_struct.cpp ;
++exe karma_reorder_struct : reorder_struct.cpp /boost/assign//boost_assign ;
+ exe karma_escaped_string : escaped_string.cpp ;
+ exe simple_columns_directive : simple_columns_directive.cpp ;
+ exe quoted_strings : quoted_strings.cpp ;
+diff --git a/example/lex/Jamfile b/example/lex/Jamfile
+index 79887762d..4b6be112f 100644
+--- a/example/lex/Jamfile
++++ b/example/lex/Jamfile
+@@ -24,7 +24,7 @@ exe print_number_tokenids   : print_number_tokenids.cpp ;
+ exe word_count              : word_count.cpp ;
+ exe word_count_functor      : word_count_functor.cpp ;
+ exe word_count_lexer        : word_count_lexer.cpp ;
+-exe word_count_functor_flex : word_count_functor_flex.cpp ;
++exe word_count_functor_flex : word_count_functor_flex.cpp /boost/timer//boost_timer ;
+ exe strip_comments          : strip_comments.cpp ;
+ exe strip_comments_lexer    : strip_comments_lexer.cpp ;
+ exe custom_token_attribute  : custom_token_attribute.cpp ;
+diff --git a/example/qi/Jamfile b/example/qi/Jamfile
+index a071c0d26..9d5248e5d 100644
+--- a/example/qi/Jamfile
++++ b/example/qi/Jamfile
+@@ -11,22 +11,22 @@ project spirit-qi-example
+     :
+     ;
+ 
+-exe actions_ : actions.cpp ;
++exe actions_ : actions.cpp /boost/lambda//boost_lambda ;
+ exe sum : sum.cpp ;
+ exe complex_number : complex_number.cpp ;
+ exe employee : employee.cpp  ;
+ exe roman : roman.cpp ;
+ exe reference : reference.cpp ;
+-exe mini_xml1 : mini_xml1.cpp ;
+-exe mini_xml2 : mini_xml2.cpp ;
+-exe mini_xml3 : mini_xml3.cpp ;
++exe mini_xml1 : mini_xml1.cpp /boost/foreach//boost_foreach ;
++exe mini_xml2 : mini_xml2.cpp /boost/foreach//boost_foreach ;
++exe mini_xml3 : mini_xml3.cpp /boost/foreach//boost_foreach ;
+ exe num_list1 : num_list1.cpp ;
+ exe num_list2 : num_list2.cpp ;
+ exe num_list3 : num_list3.cpp ;
+ exe num_list4 : num_list4.cpp ;
+-exe reorder_struct : reorder_struct.cpp ;
++exe reorder_struct : reorder_struct.cpp /boost/foreach//boost_foreach ;
+ exe parse_date : parse_date.cpp ;
+-exe expect : expect.cpp ;
++exe expect : expect.cpp /boost/foreach//boost_foreach ;
+ 
+ exe key_value_sequence : key_value_sequence.cpp ;
+ exe key_value_sequence_ordered : key_value_sequence_ordered.cpp ;
+diff --git a/example/qi/compiler_tutorial/Jamfile b/example/qi/compiler_tutorial/Jamfile
+index bda2fad4b..a12baa3ab 100644
+--- a/example/qi/compiler_tutorial/Jamfile
++++ b/example/qi/compiler_tutorial/Jamfile
+@@ -12,48 +12,52 @@ project spirit-qi-compiler_tutorial
+ 
+ import modules ;
+ 
+-exe calc1 : calc1.cpp ;
+-exe calc2 : calc2.cpp ;
+-exe calc3 : calc3.cpp ;
+-exe calc4 : calc4.cpp ;
+-exe calc5 : calc5.cpp ;
+-exe calc6 : calc6.cpp ;
+-
+-exe calc7 :
++exe calc1_exe : calc1.cpp ;
++exe calc2_exe : calc2.cpp ;
++exe calc3_exe : calc3.cpp ;
++exe calc4_exe : calc4.cpp /boost/foreach//boost_foreach ;
++exe calc5_exe : calc5.cpp /boost/foreach//boost_foreach ;
++exe calc6_exe : calc6.cpp /boost/foreach//boost_foreach ;
++
++exe calc7_exe :
+     calc7/vm.cpp
+     calc7/compiler.cpp
+     calc7/expression.cpp
+     calc7/statement.cpp
+     calc7/main.cpp
++    /boost/foreach//boost_foreach
+ ;
+ 
+-exe calc8 :
++exe calc8_exe :
+     calc8/vm.cpp
+     calc8/compiler.cpp
+     calc8/expression.cpp
+     calc8/statement.cpp
+     calc8/main.cpp
++    /boost/foreach//boost_foreach
+ ;
+ 
+-exe mini_c :
++exe mini_c_exe :
+     mini_c/vm.cpp
+     mini_c/compiler.cpp
+     mini_c/expression.cpp
+     mini_c/statement.cpp
+     mini_c/function.cpp
+     mini_c/main.cpp
++    /boost/foreach//boost_foreach
+ ;
+ 
+-exe conjure1 :
++exe conjure1_exe :
+     conjure1/vm.cpp
+     conjure1/compiler.cpp
+     conjure1/expression.cpp
+     conjure1/statement.cpp
+     conjure1/function.cpp
+     conjure1/main.cpp
++    /boost/foreach//boost_foreach
+ ;
+ 
+-exe conjure2 :
++exe conjure2_exe :
+     conjure2/compiler.cpp
+     conjure2/expression.cpp
+     conjure2/function.cpp
+@@ -61,6 +65,7 @@ exe conjure2 :
+     conjure2/main.cpp
+     conjure2/statement.cpp
+     conjure2/vm.cpp
++    /boost/foreach//boost_foreach
+ ;
+ 
+ #==============================================================================
+@@ -117,7 +122,7 @@ if $(LLVM_PATH)
+         build_exe_1 $(target-name) : $(sources) : <variant>release ;
+     }
+ 
+-    build_exe conjure3 :
++    build_exe conjure3_exe :
+         conjure3/compiler.cpp
+         conjure3/expression.cpp
+         conjure3/function.cpp
+diff --git a/example/x3/Jamfile b/example/x3/Jamfile
+index f7da1217c..3935c2b8e 100644
+--- a/example/x3/Jamfile
++++ b/example/x3/Jamfile
+@@ -47,7 +47,7 @@ exe x3_calc7 :
+ ;
+ 
+ exe x3_calc8 :
+-    /boost//filesystem
++    /boost/filesystem//boost_filesystem
+     calc/calc8/vm.cpp
+     calc/calc8/compiler.cpp
+     calc/calc8/expression.cpp
+@@ -56,7 +56,7 @@ exe x3_calc8 :
+ ;
+ 
+ exe x3_calc9 :
+-    /boost//filesystem
++    /boost/filesystem//boost_filesystem
+     calc/calc9/vm.cpp
+     calc/calc9/compiler.cpp
+     calc/calc9/expression.cpp
+diff --git a/example/x3/rexpr/rexpr_full/Jamfile b/example/x3/rexpr/rexpr_full/Jamfile
+index c799b5f9b..8574e0a53 100644
+--- a/example/x3/rexpr/rexpr_full/Jamfile
++++ b/example/x3/rexpr/rexpr_full/Jamfile
+@@ -8,7 +8,6 @@
+ project spirit-x3-example-rexpr
+    : requirements
+       <c++-template-depth>512
+-      <use>/boost//headers
+       <define>BOOST_SPIRIT_X3_NO_FILESYSTEM
+       <include>.
+    ;
+diff --git a/example/x3/rexpr/rexpr_full/test/Jamfile b/example/x3/rexpr/rexpr_full/test/Jamfile
+index 4952e281b..05db04a60 100644
+--- a/example/x3/rexpr/rexpr_full/test/Jamfile
++++ b/example/x3/rexpr/rexpr_full/test/Jamfile
+@@ -10,8 +10,8 @@ import testing ;
+ project
+    : requirements
+       <source>..//rexpr
+-      <source>/boost//regex
+-      <source>/boost//filesystem
++      <source>/boost/regex//boost_regex
++      <source>/boost/filesystem//boost_filesystem
+       <c++-template-depth>300
+    ;
+ 
+diff --git a/test/karma/Jamfile b/test/karma/Jamfile
+index 39078ac54..26e7af4e0 100644
+--- a/test/karma/Jamfile
++++ b/test/karma/Jamfile
+@@ -68,7 +68,7 @@ rule compile-fail ( sources + : requirements * : target-name ? )
+ 
+ compile-fail grammar_fail.cpp ;
+ compile-fail rule_fail.cpp ;
+-run actions.cpp ;
++run actions.cpp /boost/lambda//boost_lambda ;
+ run alternative1.cpp ;
+ run alternative2.cpp ;
+ run and_predicate.cpp ;
+@@ -96,7 +96,7 @@ run duplicate.cpp ;
+ run encoding.cpp ;
+ run eol.cpp ;
+ run eps.cpp ;
+-run format_manip.cpp ;
++run format_manip.cpp /boost/assign//boost_assign ;
+ run format_manip_attr.cpp ;
+ run format_pointer_container.cpp ;
+ run generate_attr.cpp ;
+@@ -104,10 +104,10 @@ run grammar.cpp ;
+ run int1.cpp ;
+ run int2.cpp ;
+ run int3.cpp ;
+-run kleene.cpp ;
++run kleene.cpp /boost/assign//boost_assign ;
+ run lazy.cpp ;
+ run left_alignment.cpp ;
+-run list.cpp ;
++run list.cpp /boost/assign//boost_assign ;
+ run lit.cpp ;
+ run maxwidth.cpp ;
+ run not_predicate.cpp ;
+@@ -117,12 +117,12 @@ run pattern1.cpp ;
+ run pattern2.cpp ;
+ run pattern3.cpp ;
+ run pattern4.cpp ;
+-run plus.cpp ;
+-run real1.cpp ;
+-run real2.cpp ;
+-run real3.cpp ;
+-run repeat1.cpp ;
+-run repeat2.cpp ;
++run plus.cpp /boost/assign//boost_assign ;
++run real1.cpp /boost/math//boost_math ;
++run real2.cpp /boost/math//boost_math ;
++run real3.cpp /boost/math//boost_math ;
++run repeat1.cpp /boost/assign//boost_assign ;
++run repeat2.cpp /boost/assign//boost_assign ;
+ run right_alignment.cpp ;
+ run sequence1.cpp ;
+ run sequence2.cpp ;
+diff --git a/test/qi/Jamfile b/test/qi/Jamfile
+index 3ecfc79a0..a4398aff8 100644
+--- a/test/qi/Jamfile
++++ b/test/qi/Jamfile
+@@ -67,7 +67,7 @@ rule compile-fail ( sources + : requirements * : target-name ? )
+ 
+ compile-fail grammar_fail.cpp ;
+ compile-fail rule_fail.cpp ;
+-run actions.cpp : : : <pch>off ; # Enable PCH when boostorg/proto#13 is merged.
++run actions.cpp /boost/lambda//boost_lambda : : : <pch>off ; # Enable PCH when boostorg/proto#13 is merged.
+ run actions2.cpp : : : <pch>off ;
+ run alternative.cpp ;
+ run attr.cpp ;
+@@ -115,13 +115,13 @@ run pass_container1.cpp ;
+ run pass_container2.cpp ;
+ run permutation.cpp ;
+ run plus.cpp ;
+-run range_run.cpp ;
++run range_run.cpp /boost/dynamic_bitset//boost_dynamic_bitset /boost/random//boost_random ;
+ run raw.cpp ;
+-run real1.cpp ;
+-run real2.cpp ;
+-run real3.cpp ;
+-run real4.cpp ;
+-run real5.cpp ;
++run real1.cpp /boost/math//boost_math ;
++run real2.cpp /boost/math//boost_math ;
++run real3.cpp /boost/math//boost_math ;
++run real4.cpp /boost/math//boost_math ;
++run real5.cpp /boost/math//boost_math ;
+ run repeat.cpp ;
+ run rule1.cpp ;
+ run rule2.cpp ;
+diff --git a/test/support/Jamfile b/test/support/Jamfile
+index 45d8c16ce..fb66551a9 100644
+--- a/test/support/Jamfile
++++ b/test/support/Jamfile
+@@ -60,7 +60,7 @@ rule compile-fail ( sources + : requirements * : target-name ? )
+ 
+ run char_encoding.cpp ;
+ run istream_iterator_basic.cpp ;
+-run line_pos_iterator.cpp ;
++run line_pos_iterator.cpp /boost/assign//boost_assign ;
+ run multi_pass_error_handler.cpp ;
+ run multi_pass_parse.cpp ;
+ run unused_type.cpp ;
+diff --git a/test/test_headers/Jamfile b/test/test_headers/Jamfile
+index cddbc19b7..84594f337 100644
+--- a/test/test_headers/Jamfile
++++ b/test/test_headers/Jamfile
+@@ -16,16 +16,14 @@ import print ;
+ import sequence ;
+ import feature ;
+ 
+-project boost/spirit/test/test_headers 
++project 
+     : requirements 
+-        <include>$(BOOST_ROOT) 
+-        <include>../../../..
+         <c++-template-depth>300
+     ;
+ 
+ headers = 
+ [ 
+-    path.glob-tree ../../../../boost/spirit/include : *.hpp : classic* phoenix1* 
++    glob-tree-ex ../../include/boost/spirit/include : *.hpp : classic* phoenix1* 
+ ] ;
+ 
+ for local file in $(headers)
+@@ -35,7 +33,7 @@ for local file in $(headers)
+             <define>BOOST_SPIRIT_HEADER_NAME=$(file)
+             <dependency>$(file)
+         : # test name
+-            [ regex.replace [ path.relative-to ../../../../boost/spirit $(file) ] "/" "_" ] 
++            [ regex.replace [ path.relative-to ../../include/boost/spirit/include $(file) ] "/" "_" ] 
+         ;
+ }
+ 
+@@ -45,6 +43,8 @@ rule generate-include-all ( target : sources * : properties * )
+ {
+     print.output $(target) ;
+ 
++    sources = [ MATCH "(.*[.]hpp)" : $(sources) ] ;
++
+     if <generate-include-all-order>reverse in $(properties)
+     {
+         sources = [ sequence.reverse $(sources) ] ;
+diff --git a/test/x3/Jamfile b/test/x3/Jamfile
+index f2671e6ba..ffc7f1412 100644
+--- a/test/x3/Jamfile
++++ b/test/x3/Jamfile
+@@ -99,7 +99,7 @@ run raw.cpp ;
+ run real1.cpp ;
+ run real2.cpp ;
+ run real3.cpp ;
+-run real4.cpp ;
++run real4.cpp /boost/math//boost_math ;
+ run rule1.cpp ;
+ run rule2.cpp ;
+ run rule3.cpp ;

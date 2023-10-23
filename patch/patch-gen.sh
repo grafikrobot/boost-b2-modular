@@ -6,13 +6,11 @@ cd `dirname ${0}`
 patchdir=`pwd`
 cd ..
 rootdir=`pwd`
-pwd
+echo "*****" `pwd`
 cd "${rootdir}/libs"
 submods=`ls -1`
 for submod in ${submods} ; do
-    cd "${rootdir}/libs/${submod}"
-    pwd
-    git diff -p "--output=${patchdir}/libs/${submod}/patch.diff" --no-renames
+    ${patchdir}/patch-gen-1.sh ${submod}
 done
 cd "${rootdir}"
-pwd
+echo "*****" `pwd`

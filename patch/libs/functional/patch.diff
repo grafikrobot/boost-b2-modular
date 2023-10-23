@@ -1,0 +1,15 @@
+diff --git a/factory/test/Jamfile b/factory/test/Jamfile
+index 7030e93..b8f740c 100644
+--- a/factory/test/Jamfile
++++ b/factory/test/Jamfile
+@@ -8,6 +8,10 @@
+ 
+ import testing ;
+ 
++project : requirements
++    <source>/boost/smart_ptr//boost_smart_ptr
++    ;
++
+ run value_factory.cpp ;
+ run value_factory_args.cpp ;
+ run value_factory_move.cpp ;

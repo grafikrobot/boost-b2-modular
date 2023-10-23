@@ -6,12 +6,12 @@ cd `dirname ${0}`
 patchdir=`pwd`
 cd ..
 rootdir=`pwd`
-pwd
+echo "*****" `pwd`
 cd "${patchdir}/libs"
 submods=`ls -1`
 for submod in ${submods} ; do
     cd "${rootdir}/libs/${submod}"
-    pwd
+    echo ===== `pwd`
     if test -s "${patchdir}/libs/${submod}/patch.diff" ; then
         patch -uN -p1 "--input=${patchdir}/libs/${submod}/patch.diff"
     fi
@@ -68,9 +68,10 @@ rm -f "${rootdir}/libs/safe_numerics/Jamfile.v2"
 rm -f "${rootdir}/libs/signals2/Jamfile"
 rm -f "${rootdir}/libs/sort/Jamfile.v2"
 rm -f "${rootdir}/libs/spirit/Jamfile"
+rm -f "${rootdir}/libs/static_assert/Jamfile.v2"
 rm -f "${rootdir}/libs/static_string/Jamfile"
 rm -f "${rootdir}/libs/test/Jamfile"
 rm -f "${rootdir}/libs/url/Jamfile.v2"
 rm -f "${rootdir}/libs/uuid/Jamfile.v2"
 cd "${rootdir}"
-pwd
+echo "*****" `pwd`

@@ -1,0 +1,19 @@
+diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
+index f42b020..9d9abd9 100644
+--- a/build/Jamfile.v2
++++ b/build/Jamfile.v2
+@@ -47,7 +47,7 @@ local cxx_requirements = [ requires
+       cxx11_static_assert
+     ] ;
+ 
+-project boost/atomic
++project
+     : requirements
+       <include>../src
+       <threading>multi
+@@ -150,5 +150,3 @@ lib boost_atomic
+       <conditional>@check-synchronization-lib
+       $(cxx_requirements)
+    ;
+-
+-boost-install boost_atomic ;

@@ -1,0 +1,21 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 09d62122..46fd5b7b 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -7,7 +7,7 @@
+ import path ;
+ import regex ;
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ path-constant TOP : . ;
+ 
+@@ -20,6 +20,7 @@ local msvc-flags = /wd4494 ;
+ 
+ project
+     : requirements
++        <source>/boost/concept_check//boost_concept_check
+         <warnings>pedantic
+         <toolset>intel:<warnings>on
+ 

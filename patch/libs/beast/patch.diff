@@ -1,0 +1,63 @@
+diff --git a/example/Jamfile b/example/Jamfile
+index 8b49d5fd..c7998722 100644
+--- a/example/Jamfile
++++ b/example/Jamfile
+@@ -8,7 +8,7 @@
+ #
+ 
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ project /boost/beast/example
+     : requirements
+@@ -22,6 +22,7 @@ project /boost/beast/example
+     ]
+     <library>/boost/beast//lib-asio/<link>static
+     <boost.beast.separate-compilation>on:<library>/boost/beast//lib-beast/<link>static
++    <include>..
+     ;
+ 
+ build-project advanced ;
+diff --git a/example/http/client/body/Jamfile b/example/http/client/body/Jamfile
+index 3b2f249c..db8caabd 100644
+--- a/example/http/client/body/Jamfile
++++ b/example/http/client/body/Jamfile
+@@ -11,4 +11,5 @@ exe json_client : json_client.cpp
+     :
+     <variant>coverage:<build>no
+     <variant>ubasan:<build>no
++    <library>/boost/json//boost_json
+     ;
+diff --git a/test/Jamfile b/test/Jamfile
+index dd6d0a23..e2508c4d 100644
+--- a/test/Jamfile
++++ b/test/Jamfile
+@@ -8,16 +8,14 @@
+ #
+ 
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ lib lib-test
+     : lib_test.cpp
+     : requirements
+     <link>static
+-    $(defines)
+     : usage-requirements
+-    <include>./extras/include
+-    $(defines)
++    <include>extras/include
+     ;
+ 
+ project /boost/beast/test
+@@ -30,7 +28,7 @@ project /boost/beast/test
+         cxx11_template_aliases
+         cxx11_variadic_templates
+     ]
+-    <include>./extern
++    <include>extern
+     <define>BOOST_BEAST_TESTS
+     <target-os>darwin:<define>Z_HAVE_UNISTD_H=1
+     <library>/boost/beast//lib-asio/<link>static

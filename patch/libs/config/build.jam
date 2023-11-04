@@ -7,9 +7,7 @@ import project ;
 import modules ;
 
 path-constant BOOST_CONFIG_ROOT : . ;
-
-modules.poke : BOOST_BUILD_PATH
-    : $(BOOST_CONFIG_ROOT)/checks [ modules.peek : BOOST_BUILD_PATH ] ;
+import-search $(BOOST_CONFIG_ROOT)/checks ;
 
 project /boost/config
     : common-requirements

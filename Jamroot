@@ -4,15 +4,18 @@
 # (See accompanying file LICENSE_1_0.txt or copy at
 # http://www.boost.org/LICENSE_1_0.txt)
 
+import boostcpp ;
 import project ;
 
-constant BOOST_VERSION : 1.83.0 ;
+constant BOOST_VERSION : 1.84.0 ;
 
 project boost
     : requirements
         # Disable auto-linking for all targets here, primarily because it caused
         # troubles with V2.
         <define>BOOST_ALL_NO_LIB=1
+        # Used to encode variant in target name. See the 'tag' rule below.
+        <tag>@boostcpp.tag
 
     : default-build
         <visibility>hidden

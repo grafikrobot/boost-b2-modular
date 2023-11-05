@@ -1,0 +1,13 @@
+diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
+index abfba37..af5db3e 100644
+--- a/build/Jamfile.v2
++++ b/build/Jamfile.v2
+@@ -84,7 +84,7 @@ lib boost_mpi
+                 <link>shared:<define>BOOST_PYTHON_DYN_LINK=1
+                 <define>BOOST_MPI_PYTHON_SOURCE=1
+                 <python-debugging>on:<define>BOOST_DEBUG_PYTHON
+-                -<tag>@$(BOOST_JAMROOT_MODULE)%$(BOOST_JAMROOT_MODULE).tag
++                -<tag>@%boostcpp.tag
+                 <tag>@python-tag
+                 <conditional>@python.require-py
+                 <local-visibility>global

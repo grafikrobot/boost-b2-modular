@@ -1,10 +1,13 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index c07847a..deadc60 100644
+index c07847a..122d15f 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
-@@ -7,23 +7,14 @@
+@@ -6,24 +6,17 @@
+ #    (See accompanying file LICENSE_1_0.txt or copy at
  #          http://www.boost.org/LICENSE_1_0.txt)
  
++import-search /boost/config/checks ;
++
  import common ;
 -import feature ;
  import indirect ;
@@ -29,7 +32,7 @@ index c07847a..deadc60 100644
      : requirements
        <target-os>windows:<define>_WIN32_WINNT=0x0601
        <target-os>linux,<toolset>gcc,<segmented-stacks>on:<cxxflags>-fsplit-stack
-@@ -54,53 +45,6 @@ project boost/context
+@@ -54,53 +47,6 @@ project boost/context
      ;
  
  
@@ -83,7 +86,7 @@ index c07847a..deadc60 100644
  feature.feature context-impl
      : fcontext
        ucontext
-@@ -112,6 +56,7 @@ feature.set-default context-impl : fcontext ;
+@@ -112,6 +58,7 @@ feature.set-default context-impl : fcontext ;
  feature.compose <context-impl>ucontext : <define>BOOST_USE_UCONTEXT ;
  feature.compose <context-impl>winfib : <define>BOOST_USE_WINFIB ;
  
@@ -91,7 +94,7 @@ index c07847a..deadc60 100644
  # ARM
  # ARM/AAPCS/ELF
  alias asm_sources
-@@ -962,5 +907,3 @@ lib boost_context
+@@ -962,5 +909,3 @@ lib boost_context
     : impl_sources
       stack_traits_sources
     ;

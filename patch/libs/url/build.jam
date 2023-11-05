@@ -3,7 +3,20 @@
 # (See accompanying file LICENSE_1_0.txt or copy at
 # http://www.boost.org/LICENSE_1_0.txt)
 
+import-search /boost/config/check ;
+
 import project ;
+import config : requires ;
+
+constant c11-requires :
+    [ requires
+    cxx11_constexpr
+    cxx11_decltype
+    cxx11_hdr_tuple
+    cxx11_template_aliases
+    cxx11_variadic_templates
+    ]
+    ;
 
 project /boost/url
     : common-requirements
@@ -20,23 +33,8 @@ project /boost/url
         <source>/boost/variant2//boost_variant2
         <include>include
     : requirements
-        <conditional>@requires_cxx11
+        $(c11-requires)
     ;
-
-# This is a deferred config check rule to be able to import config after its
-# been declared.
-rule requires_cxx11 ( requirements * )
-{
-    import config : requires ;
-    # Required C++11 features
-    return [ requires
-        cxx11_constexpr
-        cxx11_decltype
-        cxx11_hdr_tuple
-        cxx11_template_aliases
-        cxx11_variadic_templates
-        ] ;
-}
 
 explicit
     [ alias boost_url : build//boost_url ]

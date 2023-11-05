@@ -1,3 +1,16 @@
+diff --git a/bench/Jamfile b/bench/Jamfile
+index 3057fb9..39aa7d4 100644
+--- a/bench/Jamfile
++++ b/bench/Jamfile
+@@ -11,7 +11,7 @@ import common ;
+ import os ;
+ import path ;
+ import property ;
+-
++import notfile ;
+ import feature ;
+ 
+ path-constant HERE : . ;
 diff --git a/build/Jamfile b/build/Jamfile
 index 3eb4d55..532e08d 100644
 --- a/build/Jamfile

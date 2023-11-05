@@ -1,10 +1,13 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index a21728b..6f45ee7 100644
+index a21728b..54e7aaa 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
-@@ -3,9 +3,11 @@
+@@ -2,10 +2,14 @@
+ # Distributed under the Boost Software License, Version 1.0.
  # https://www.boost.org/LICENSE_1_0.txt
  
++import-search /boost/config/checks ;
++
  import testing ;
 -import ../../config/checks/config : requires ;
 +import config : requires ;
@@ -15,7 +18,7 @@ index a21728b..6f45ee7 100644
  
    <warnings>extra
  
-@@ -13,7 +15,8 @@ project : requirements
+@@ -13,7 +17,8 @@ project : requirements
  
    <toolset>msvc:<warnings-as-errors>on
    <toolset>clang:<warnings-as-errors>on

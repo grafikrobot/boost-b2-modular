@@ -1,10 +1,13 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index bce5f23..f000c9b 100644
+index bce5f23..ef06b8e 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -6,10 +6,12 @@
+@@ -5,11 +5,15 @@
+ # Distributed under the Boost Software License, Version 1.0.
  # (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  
++import-search /boost/config/checks ;
++
  import testing ;
 -import ../../config/checks/config : requires ;
 +import config : requires ;

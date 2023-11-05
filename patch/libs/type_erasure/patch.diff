@@ -28,7 +28,7 @@ index d96922f..9d554c2 100644
 -run multifunction.cpp ;
 +run multifunction.cpp /boost/variant//boost_variant /boost/phoenix//boost_phoenix ;
 diff --git a/test/Jamfile.jam b/test/Jamfile.jam
-index ae030ab..518ee02 100644
+index ae030ab..52374cb 100644
 --- a/test/Jamfile.jam
 +++ b/test/Jamfile.jam
 @@ -7,42 +7,42 @@
@@ -101,7 +101,7 @@ index ae030ab..518ee02 100644
 +run test_null.cpp /boost/test//unit_test_framework ;
 +run test_free.cpp /boost/test//unit_test_framework ;
 +run test_is_empty.cpp /boost/test//unit_test_framework ;
-+run test_dynamic_any_cast.cpp /boost/test//unit_test_framework /boost//type_erasure ;
++run test_dynamic_any_cast.cpp /boost/test//unit_test_framework /boost/type_erasure//boost_type_erasure ;
 +run test_limits.cpp /boost/test//unit_test_framework
    : requirements
      [ config.requires cxx11_rvalue_references

@@ -30,10 +30,10 @@ index 3b2f249c..db8caabd 100644
 +    <library>/boost/json//boost_json
      ;
 diff --git a/test/Jamfile b/test/Jamfile
-index dd6d0a23..e2508c4d 100644
+index dd6d0a23..0bfb7bc8 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
-@@ -8,16 +8,14 @@
+@@ -8,16 +8,15 @@
  #
  
  import testing ;
@@ -45,6 +45,7 @@ index dd6d0a23..e2508c4d 100644
      : requirements
      <link>static
 -    $(defines)
++    <include>..
      : usage-requirements
 -    <include>./extras/include
 -    $(defines)
@@ -52,7 +53,7 @@ index dd6d0a23..e2508c4d 100644
      ;
  
  project /boost/beast/test
-@@ -30,7 +28,7 @@ project /boost/beast/test
+@@ -30,7 +29,7 @@ project /boost/beast/test
          cxx11_template_aliases
          cxx11_variadic_templates
      ]

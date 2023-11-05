@@ -1,10 +1,13 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index 335c812..4c3eef3 100644
+index 335c812..8c353e7 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
-@@ -7,10 +7,13 @@
+@@ -6,11 +6,16 @@
+ #  See accompanying file LICENSE_1_0.txt or copy at
  #  http://www.boost.org/LICENSE_1_0.txt
  
++import-search /boost/config/checks ;
++
  import testing ;
 -import ../../config/checks/config : requires ;
 +import config : requires ;

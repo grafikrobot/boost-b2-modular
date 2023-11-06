@@ -3,7 +3,7 @@
 # (See accompanying file LICENSE_1_0.txt or copy at
 # http://www.boost.org/LICENSE_1_0.txt)
 
-import-search /boost/config/check ;
+import-search /boost/config/checks ;
 
 import project ;
 import config : requires ;

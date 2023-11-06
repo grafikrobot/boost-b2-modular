@@ -70,7 +70,7 @@ index 47341da..78a461f 100644
  compile-fail fail_implicit_conversion.cpp ;
  compile-fail fail_quantity_construct.cpp ;
 diff --git a/test_headers/Jamfile.v2 b/test_headers/Jamfile.v2
-index 8bcd832..a026873 100644
+index 8bcd832..a7ee1f0 100644
 --- a/test_headers/Jamfile.v2
 +++ b/test_headers/Jamfile.v2
 @@ -14,11 +14,10 @@ import print ;
@@ -101,7 +101,7 @@ index 8bcd832..a026873 100644
      for local file in $(sources)
      {
 -        print.text "#include <$(file:G=)>
-+        if $(sources:S) == ".hpp"
++        if $(sources:S) = ".hpp"
 +        {
 +            print.text "#include <$(file:G=)>
  " : overwrite ;

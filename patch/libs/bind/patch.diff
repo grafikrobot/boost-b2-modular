@@ -1,10 +1,10 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 3125851..2598b6b 100644
+index f81884a..bf95b64 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -9,6 +9,11 @@
- # bring in rules for testing
- import testing ;
+@@ -26,6 +26,11 @@ project
+     <toolset>clang:<cxxflags>$(gcc-flags)
+   ;
  
 +project : requirements
 +    <source>/boost/smart_ptr//boost_smart_ptr

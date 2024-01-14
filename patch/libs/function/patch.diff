@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index b3c08b0..bc5c9e9 100644
+index 717a163..20cee05 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -24,7 +24,7 @@ run function_test.cpp : : : <rtti>off <toolset>gcc-4.4,<cxxstd>0x:<build>no : fu

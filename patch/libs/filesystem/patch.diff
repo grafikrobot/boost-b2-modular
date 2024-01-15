@@ -1,36 +1,36 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index f6c8e5d..7372e1b 100644
+index d2fd77c..5e784d1 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
-@@ -136,7 +136,7 @@ local cxx_requirements = [ requires
-     cxx11_override
- ] ;
+@@ -122,7 +122,7 @@ rule check-linkflag-no-undefined ( properties * )
+     return $(result) ;
+ }
  
 -project boost/filesystem
 +project
      : requirements
        <host-os>hpux,<toolset>gcc:<define>_INCLUDE_STDC__SOURCE_199901
        [ check-target-builds ../config//has_attribute_init_priority "has init_priority attribute" : <define>BOOST_FILESYSTEM_HAS_INIT_PRIORITY ]
-@@ -214,5 +214,3 @@ lib boost_filesystem
-     : usage-requirements
-       $(cxx_requirements)
+@@ -196,5 +196,3 @@ lib boost_filesystem
+     :
+     :
      ;
 -
 -boost-install boost_filesystem ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 0ac5e6c..a9a95ff 100644
+index 0abe6e4..4825fd4 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -85,7 +85,7 @@ run operations_test.cpp : : : <link>shared <define>BOOST_FILESYSTEM_VERSION=4 <t
+@@ -84,7 +84,7 @@ run locale_info.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 <test-info>always_s
+ run operations_test.cpp : : : <link>shared <define>BOOST_FILESYSTEM_VERSION=4 <test-info>always_show_run_output ;
  run operations_test.cpp : : : <link>static <define>BOOST_FILESYSTEM_VERSION=4 : operations_test_static ;
- run operations_test.cpp : : : <link>shared <define>BOOST_FILESYSTEM_VERSION=3 : operations_test_v3 ;
  run operations_unit_test.cpp : $(HERE) : : <link>shared <define>BOOST_FILESYSTEM_VERSION=4 <test-info>always_show_run_output ;
 -run copy_test.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 ;
 +run copy_test.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 <source>/boost/exception//boost_exception ;
  compile-fail cf_path_nullptr_test.cpp ;
  compile path_iter_ctor_overload_test.cpp ;
  compile path_operator_ambiguity.cpp : <toolset>gcc:<warnings-as-errors>on ;
-@@ -98,7 +98,7 @@ run path_unit_test.cpp : : : <link>shared $(VIS) <define>BOOST_FILESYSTEM_VERSIO
+@@ -97,7 +97,7 @@ run path_unit_test.cpp : : : <link>shared $(VIS) <define>BOOST_FILESYSTEM_VERSIO
  run relative_test.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 ;
  run ../example/simple_ls.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 ;
  run ../example/file_status.cpp : : : <define>BOOST_FILESYSTEM_VERSION=4 ;

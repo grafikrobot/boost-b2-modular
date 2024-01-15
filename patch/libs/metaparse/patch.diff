@@ -1,0 +1,42 @@
+diff --git a/example/minimal_rational/Jamfile.v2 b/example/minimal_rational/Jamfile.v2
+index 6f9000d..44e2799 100644
+--- a/example/minimal_rational/Jamfile.v2
++++ b/example/minimal_rational/Jamfile.v2
+@@ -1 +1,5 @@
++project : requirements
++    <source>/boost/rational//boost_rational
++    ;
++
+ exe minimal_rational :  main.cpp ;
+diff --git a/example/rational/Jamfile.v2 b/example/rational/Jamfile.v2
+index 91886f7..5020c11 100644
+--- a/example/rational/Jamfile.v2
++++ b/example/rational/Jamfile.v2
+@@ -1 +1,5 @@
++project : requirements
++    <source>/boost/rational//boost_rational
++    ;
++
+ exe rational :  main.cpp ;
+diff --git a/example/regexp/Jamfile.v2 b/example/regexp/Jamfile.v2
+index 6650684..d65e39e 100644
+--- a/example/regexp/Jamfile.v2
++++ b/example/regexp/Jamfile.v2
+@@ -1 +1,5 @@
++project : requirements
++    <source>/boost/xpressive//boost_xpressive
++    ;
++
+ exe regexp :  main.cpp ;
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 2ac4b8b..3b128de 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -1,6 +1,6 @@
+ import testing ;
+ 
+-project metaparse :
++project :
+   requirements
+     <toolset>gcc:<cxxflags>"-ftemplate-depth-300"
+     <toolset>clang:<cxxflags>"-ftemplate-depth-300"

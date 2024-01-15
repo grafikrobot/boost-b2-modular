@@ -1,0 +1,1700 @@
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 22d61b9..458f1dd 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -6,8 +6,10 @@
+ # VariadicMacroData testing Jamfile
+ #
+ 
++import-search /boost/predef/tools/check ;
++
+ import testing ;
+-import ../../predef/check/predef
++import predef
+     : check require
+     : predef-check predef-require ;
+ 
+@@ -21,6 +23,10 @@ project variadic_macro_data_tests : requirements <warnings>on
+                                                  <toolset>gcc-4.3.0:<cxxflags>-U__STRICT_ANSI__
+                                                  <toolset>gcc-4.4.0:<cxxflags>-U__STRICT_ANSI__
+                                                  <toolset>gcc-4.5.0:<linkflags>"-Wl,--enable-auto-import"
++                                                 <include>.
++
++                                                 <source>/boost/predef//boost_predef
++                                                 <source>/boost/core//boost_core
+                                                  ;
+                                                  
+ alias variadic_macro_data
+diff --git a/test/test_after_array_elem.cpp b/test/test_after_array_elem.cpp
+index f1beb56..ef3db7e 100644
+--- a/test/test_after_array_elem.cpp
++++ b/test/test_after_array_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_after_array_elem.cxx>
++#include "test_after_array_elem.cxx"
+diff --git a/test/test_after_identifier_elem.cpp b/test/test_after_identifier_elem.cpp
+index 8007633..dbb5cc8 100644
+--- a/test/test_after_identifier_elem.cpp
++++ b/test/test_after_identifier_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_after_identifier_elem.cxx>
++#include "test_after_identifier_elem.cxx"
+diff --git a/test/test_after_list_elem.cpp b/test/test_after_list_elem.cpp
+index 09d498c..5ba701c 100644
+--- a/test/test_after_list_elem.cpp
++++ b/test/test_after_list_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_after_list_elem.cxx>
++#include "test_after_list_elem.cxx"
+diff --git a/test/test_after_number_elem.cpp b/test/test_after_number_elem.cpp
+index 8f55241..a2158dd 100644
+--- a/test/test_after_number_elem.cpp
++++ b/test/test_after_number_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_after_number_elem.cxx>
++#include "test_after_number_elem.cxx"
+diff --git a/test/test_after_seq_elem.cpp b/test/test_after_seq_elem.cpp
+index 505cd48..caf1ae5 100644
+--- a/test/test_after_seq_elem.cpp
++++ b/test/test_after_seq_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_after_seq_elem.cxx>
++#include "test_after_seq_elem.cxx"
+diff --git a/test/test_after_tuple_elem.cpp b/test/test_after_tuple_elem.cpp
+index e67decc..cea2a2f 100644
+--- a/test/test_after_tuple_elem.cpp
++++ b/test/test_after_tuple_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_after_tuple_elem.cxx>
++#include "test_after_tuple_elem.cxx"
+diff --git a/test/test_after_type_elem.cpp b/test/test_after_type_elem.cpp
+index 4c8eafa..82bcffb 100644
+--- a/test/test_after_type_elem.cpp
++++ b/test/test_after_type_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_after_type_elem.cxx>
++#include "test_after_type_elem.cxx"
+diff --git a/test/test_android.cpp b/test/test_android.cpp
+index eaf61a0..23255ca 100644
+--- a/test/test_android.cpp
++++ b/test/test_android.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_android.cxx>
++#include "test_android.cxx"
+diff --git a/test/test_array_elem.cpp b/test/test_array_elem.cpp
+index 8e94540..f015baa 100644
+--- a/test/test_array_elem.cpp
++++ b/test/test_array_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_array_elem.cxx>
++#include "test_array_elem.cxx"
+diff --git a/test/test_array_empty.cpp b/test/test_array_empty.cpp
+index 230ce39..91cf072 100644
+--- a/test/test_array_empty.cpp
++++ b/test/test_array_empty.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_array_empty.cxx>
++#include "test_array_empty.cxx"
+diff --git a/test/test_array_equal.cpp b/test/test_array_equal.cpp
+index 0bdf043..08e5348 100644
+--- a/test/test_array_equal.cpp
++++ b/test/test_array_equal.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_array_equal.cxx>
++#include "test_array_equal.cxx"
+diff --git a/test/test_array_to_seq.cpp b/test/test_array_to_seq.cpp
+index 4d6d3bc..ae8383e 100644
+--- a/test/test_array_to_seq.cpp
++++ b/test/test_array_to_seq.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_array_to_seq.cxx>
++#include "test_array_to_seq.cxx"
+diff --git a/test/test_array_to_tuple.cpp b/test/test_array_to_tuple.cpp
+index b8804e0..32b17de 100644
+--- a/test/test_array_to_tuple.cpp
++++ b/test/test_array_to_tuple.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_array_to_tuple.cxx>
++#include "test_array_to_tuple.cxx"
+diff --git a/test/test_ary.cpp b/test/test_ary.cpp
+index 19f762e..f336b4e 100644
+--- a/test/test_ary.cpp
++++ b/test/test_ary.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_ary.cxx>
++#include "test_ary.cxx"
+diff --git a/test/test_assert.cpp b/test/test_assert.cpp
+index 351a5c4..3e1bf69 100644
+--- a/test/test_assert.cpp
++++ b/test/test_assert.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert.cxx>
++#include "test_assert.cxx"
+diff --git a/test/test_assert_fail.cpp b/test/test_assert_fail.cpp
+index af7f1bf..7892141 100644
+--- a/test/test_assert_fail.cpp
++++ b/test/test_assert_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail.cxx>
++#include "test_assert_fail.cxx"
+diff --git a/test/test_assert_fail_array.cpp b/test/test_assert_fail_array.cpp
+index dc09c53..2009466 100644
+--- a/test/test_assert_fail_array.cpp
++++ b/test/test_assert_fail_array.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_array.cxx>
++#include "test_assert_fail_array.cxx"
+diff --git a/test/test_assert_fail_identifier.cpp b/test/test_assert_fail_identifier.cpp
+index 86487b4..e5433e5 100644
+--- a/test/test_assert_fail_identifier.cpp
++++ b/test/test_assert_fail_identifier.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_identifier.cxx>
++#include "test_assert_fail_identifier.cxx"
+diff --git a/test/test_assert_fail_is_empty.cpp b/test/test_assert_fail_is_empty.cpp
+index a04e35d..810cecd 100644
+--- a/test/test_assert_fail_is_empty.cpp
++++ b/test/test_assert_fail_is_empty.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_is_empty.cxx>
++#include "test_assert_fail_is_empty.cxx"
+diff --git a/test/test_assert_fail_is_identifier.cpp b/test/test_assert_fail_is_identifier.cpp
+index 49cb181..8d2426c 100644
+--- a/test/test_assert_fail_is_identifier.cpp
++++ b/test/test_assert_fail_is_identifier.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_is_identifier.cxx>
++#include "test_assert_fail_is_identifier.cxx"
+diff --git a/test/test_assert_fail_is_number.cpp b/test/test_assert_fail_is_number.cpp
+index 45641ac..2c95671 100644
+--- a/test/test_assert_fail_is_number.cpp
++++ b/test/test_assert_fail_is_number.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_is_number.cxx>
++#include "test_assert_fail_is_number.cxx"
+diff --git a/test/test_assert_fail_list.cpp b/test/test_assert_fail_list.cpp
+index e5aa707..c478b7a 100644
+--- a/test/test_assert_fail_list.cpp
++++ b/test/test_assert_fail_list.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_list.cxx>
++#include "test_assert_fail_list.cxx"
+diff --git a/test/test_assert_fail_number.cpp b/test/test_assert_fail_number.cpp
+index d5b4938..69482a3 100644
+--- a/test/test_assert_fail_number.cpp
++++ b/test/test_assert_fail_number.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_number.cxx>
++#include "test_assert_fail_number.cxx"
+diff --git a/test/test_assert_fail_number2.cpp b/test/test_assert_fail_number2.cpp
+index d5fa6e7..25659fb 100644
+--- a/test/test_assert_fail_number2.cpp
++++ b/test/test_assert_fail_number2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_number2.cxx>
++#include "test_assert_fail_number2.cxx"
+diff --git a/test/test_assert_fail_seq.cpp b/test/test_assert_fail_seq.cpp
+index f4b4c41..6661ec4 100644
+--- a/test/test_assert_fail_seq.cpp
++++ b/test/test_assert_fail_seq.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_seq.cxx>
++#include "test_assert_fail_seq.cxx"
+diff --git a/test/test_assert_fail_tuple.cpp b/test/test_assert_fail_tuple.cpp
+index 74234e0..0d416e1 100644
+--- a/test/test_assert_fail_tuple.cpp
++++ b/test/test_assert_fail_tuple.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_tuple.cxx>
++#include "test_assert_fail_tuple.cxx"
+diff --git a/test/test_assert_fail_vcstring.cpp b/test/test_assert_fail_vcstring.cpp
+index 4244af6..16099df 100644
+--- a/test/test_assert_fail_vcstring.cpp
++++ b/test/test_assert_fail_vcstring.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_fail_vcstring.cxx>
++#include "test_assert_fail_vcstring.cxx"
+diff --git a/test/test_assert_is_array.cpp b/test/test_assert_is_array.cpp
+index c8731ad..4343bca 100644
+--- a/test/test_assert_is_array.cpp
++++ b/test/test_assert_is_array.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_array.cxx>
++#include "test_assert_is_array.cxx"
+diff --git a/test/test_assert_is_array_fail.cpp b/test/test_assert_is_array_fail.cpp
+index 8301c32..7fe3c42 100644
+--- a/test/test_assert_is_array_fail.cpp
++++ b/test/test_assert_is_array_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_array_fail.cxx>
++#include "test_assert_is_array_fail.cxx"
+diff --git a/test/test_assert_is_array_fail2.cpp b/test/test_assert_is_array_fail2.cpp
+index 0652bfb..f3ab019 100644
+--- a/test/test_assert_is_array_fail2.cpp
++++ b/test/test_assert_is_array_fail2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_array_fail2.cxx>
++#include "test_assert_is_array_fail2.cxx"
+diff --git a/test/test_assert_is_array_fail3.cpp b/test/test_assert_is_array_fail3.cpp
+index a4b00bb..b8d3506 100644
+--- a/test/test_assert_is_array_fail3.cpp
++++ b/test/test_assert_is_array_fail3.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_array_fail3.cxx>
++#include "test_assert_is_array_fail3.cxx"
+diff --git a/test/test_assert_is_array_fail4.cpp b/test/test_assert_is_array_fail4.cpp
+index b712e2d..db7a2e9 100644
+--- a/test/test_assert_is_array_fail4.cpp
++++ b/test/test_assert_is_array_fail4.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_array_fail4.cxx>
++#include "test_assert_is_array_fail4.cxx"
+diff --git a/test/test_assert_is_empty.cpp b/test/test_assert_is_empty.cpp
+index 261b248..bed6d57 100644
+--- a/test/test_assert_is_empty.cpp
++++ b/test/test_assert_is_empty.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_empty.cxx>
++#include "test_assert_is_empty.cxx"
+diff --git a/test/test_assert_is_empty_fail.cpp b/test/test_assert_is_empty_fail.cpp
+index f28ce18..81501b8 100644
+--- a/test/test_assert_is_empty_fail.cpp
++++ b/test/test_assert_is_empty_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_empty_fail.cxx>
++#include "test_assert_is_empty_fail.cxx"
+diff --git a/test/test_assert_is_empty_fail2.cpp b/test/test_assert_is_empty_fail2.cpp
+index fa4973c..c5c0a74 100644
+--- a/test/test_assert_is_empty_fail2.cpp
++++ b/test/test_assert_is_empty_fail2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_empty_fail2.cxx>
++#include "test_assert_is_empty_fail2.cxx"
+diff --git a/test/test_assert_is_empty_fail3.cpp b/test/test_assert_is_empty_fail3.cpp
+index 1c6abaa..75c4646 100644
+--- a/test/test_assert_is_empty_fail3.cpp
++++ b/test/test_assert_is_empty_fail3.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_empty_fail3.cxx>
++#include "test_assert_is_empty_fail3.cxx"
+diff --git a/test/test_assert_is_identifier.cpp b/test/test_assert_is_identifier.cpp
+index aa765da..7905db2 100644
+--- a/test/test_assert_is_identifier.cpp
++++ b/test/test_assert_is_identifier.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_identifier.cxx>
++#include "test_assert_is_identifier.cxx"
+diff --git a/test/test_assert_is_identifier_fail.cpp b/test/test_assert_is_identifier_fail.cpp
+index 9a3c717..a88f7f0 100644
+--- a/test/test_assert_is_identifier_fail.cpp
++++ b/test/test_assert_is_identifier_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_identifier_fail.cxx>
++#include "test_assert_is_identifier_fail.cxx"
+diff --git a/test/test_assert_is_list.cpp b/test/test_assert_is_list.cpp
+index ede28f1..d45783b 100644
+--- a/test/test_assert_is_list.cpp
++++ b/test/test_assert_is_list.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_list.cxx>
++#include "test_assert_is_list.cxx"
+diff --git a/test/test_assert_is_list_fail.cpp b/test/test_assert_is_list_fail.cpp
+index 00684c8..eea477e 100644
+--- a/test/test_assert_is_list_fail.cpp
++++ b/test/test_assert_is_list_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_list_fail.cxx>
++#include "test_assert_is_list_fail.cxx"
+diff --git a/test/test_assert_is_list_fail2.cpp b/test/test_assert_is_list_fail2.cpp
+index 4b1fbd6..76604eb 100644
+--- a/test/test_assert_is_list_fail2.cpp
++++ b/test/test_assert_is_list_fail2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_list_fail2.cxx>
++#include "test_assert_is_list_fail2.cxx"
+diff --git a/test/test_assert_is_list_fail3.cpp b/test/test_assert_is_list_fail3.cpp
+index 0d6c979..698e5f0 100644
+--- a/test/test_assert_is_list_fail3.cpp
++++ b/test/test_assert_is_list_fail3.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_list_fail3.cxx>
++#include "test_assert_is_list_fail3.cxx"
+diff --git a/test/test_assert_is_list_fail4.cpp b/test/test_assert_is_list_fail4.cpp
+index 907744a..12e709a 100644
+--- a/test/test_assert_is_list_fail4.cpp
++++ b/test/test_assert_is_list_fail4.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_list_fail4.cxx>
++#include "test_assert_is_list_fail4.cxx"
+diff --git a/test/test_assert_is_number.cpp b/test/test_assert_is_number.cpp
+index 3d18865..1566cc0 100644
+--- a/test/test_assert_is_number.cpp
++++ b/test/test_assert_is_number.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_number.cxx>
++#include "test_assert_is_number.cxx"
+diff --git a/test/test_assert_is_number_fail.cpp b/test/test_assert_is_number_fail.cpp
+index cf112a1..0a1c46c 100644
+--- a/test/test_assert_is_number_fail.cpp
++++ b/test/test_assert_is_number_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_number_fail.cxx>
++#include "test_assert_is_number_fail.cxx"
+diff --git a/test/test_assert_is_seq.cpp b/test/test_assert_is_seq.cpp
+index 00c14c7..2cca1a6 100644
+--- a/test/test_assert_is_seq.cpp
++++ b/test/test_assert_is_seq.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_seq.cxx>
++#include "test_assert_is_seq.cxx"
+diff --git a/test/test_assert_is_seq_fail.cpp b/test/test_assert_is_seq_fail.cpp
+index 964e3cc..17c05b3 100644
+--- a/test/test_assert_is_seq_fail.cpp
++++ b/test/test_assert_is_seq_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_seq_fail.cxx>
++#include "test_assert_is_seq_fail.cxx"
+diff --git a/test/test_assert_is_seq_fail2.cpp b/test/test_assert_is_seq_fail2.cpp
+index d76981a..437e71a 100644
+--- a/test/test_assert_is_seq_fail2.cpp
++++ b/test/test_assert_is_seq_fail2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_seq_fail2.cxx>
++#include "test_assert_is_seq_fail2.cxx"
+diff --git a/test/test_assert_is_seq_fail3.cpp b/test/test_assert_is_seq_fail3.cpp
+index ffc9851..3244e27 100644
+--- a/test/test_assert_is_seq_fail3.cpp
++++ b/test/test_assert_is_seq_fail3.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_seq_fail3.cxx>
++#include "test_assert_is_seq_fail3.cxx"
+diff --git a/test/test_assert_is_seq_fail4.cpp b/test/test_assert_is_seq_fail4.cpp
+index 541ae3b..f5e1099 100644
+--- a/test/test_assert_is_seq_fail4.cpp
++++ b/test/test_assert_is_seq_fail4.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_seq_fail4.cxx>
++#include "test_assert_is_seq_fail4.cxx"
+diff --git a/test/test_assert_is_tuple.cpp b/test/test_assert_is_tuple.cpp
+index 7c5052c..e30a94d 100644
+--- a/test/test_assert_is_tuple.cpp
++++ b/test/test_assert_is_tuple.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_tuple.cxx>
++#include "test_assert_is_tuple.cxx"
+diff --git a/test/test_assert_is_tuple_fail.cpp b/test/test_assert_is_tuple_fail.cpp
+index 4e0b7ff..569a5aa 100644
+--- a/test/test_assert_is_tuple_fail.cpp
++++ b/test/test_assert_is_tuple_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_tuple_fail.cxx>
++#include "test_assert_is_tuple_fail.cxx"
+diff --git a/test/test_assert_is_tuple_fail2.cpp b/test/test_assert_is_tuple_fail2.cpp
+index 32b2c62..b6c27ed 100644
+--- a/test/test_assert_is_tuple_fail2.cpp
++++ b/test/test_assert_is_tuple_fail2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_tuple_fail2.cxx>
++#include "test_assert_is_tuple_fail2.cxx"
+diff --git a/test/test_assert_is_tuple_fail3.cpp b/test/test_assert_is_tuple_fail3.cpp
+index 6d049c8..a859e34 100644
+--- a/test/test_assert_is_tuple_fail3.cpp
++++ b/test/test_assert_is_tuple_fail3.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_tuple_fail3.cxx>
++#include "test_assert_is_tuple_fail3.cxx"
+diff --git a/test/test_assert_is_tuple_fail4.cpp b/test/test_assert_is_tuple_fail4.cpp
+index 4342476..2e6245f 100644
+--- a/test/test_assert_is_tuple_fail4.cpp
++++ b/test/test_assert_is_tuple_fail4.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_tuple_fail4.cxx>
++#include "test_assert_is_tuple_fail4.cxx"
+diff --git a/test/test_assert_is_type.cpp b/test/test_assert_is_type.cpp
+index cbb2743..75daa74 100644
+--- a/test/test_assert_is_type.cpp
++++ b/test/test_assert_is_type.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_type.cxx>
++#include "test_assert_is_type.cxx"
+diff --git a/test/test_assert_is_type_fail.cpp b/test/test_assert_is_type_fail.cpp
+index 771fe9f..071b189 100644
+--- a/test/test_assert_is_type_fail.cpp
++++ b/test/test_assert_is_type_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_assert_is_type_fail.cxx>
++#include "test_assert_is_type_fail.cxx"
+diff --git a/test/test_doc_assert.cpp b/test/test_doc_assert.cpp
+index 57a83fe..a40924f 100644
+--- a/test/test_doc_assert.cpp
++++ b/test/test_doc_assert.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_assert.cxx>
++#include "test_doc_assert.cxx"
+diff --git a/test/test_doc_assert_fail.cpp b/test/test_doc_assert_fail.cpp
+index 1d40d87..fa6fb7f 100644
+--- a/test/test_doc_assert_fail.cpp
++++ b/test/test_doc_assert_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_assert_fail.cxx>
++#include "test_doc_assert_fail.cxx"
+diff --git a/test/test_doc_empty.cpp b/test/test_doc_empty.cpp
+index 59cea06..d661f99 100644
+--- a/test/test_doc_empty.cpp
++++ b/test/test_doc_empty.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_empty.cxx>
++#include "test_doc_empty.cxx"
+diff --git a/test/test_doc_empty_fail.cpp b/test/test_doc_empty_fail.cpp
+index e371c33..120ccda 100644
+--- a/test/test_doc_empty_fail.cpp
++++ b/test/test_doc_empty_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_empty_fail.cxx>
++#include "test_doc_empty_fail.cxx"
+diff --git a/test/test_doc_empty_fail2.cpp b/test/test_doc_empty_fail2.cpp
+index 6466481..d7fe78c 100644
+--- a/test/test_doc_empty_fail2.cpp
++++ b/test/test_doc_empty_fail2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_empty_fail2.cxx>
++#include "test_doc_empty_fail2.cxx"
+diff --git a/test/test_doc_empty_fail3.cpp b/test/test_doc_empty_fail3.cpp
+index 9666d80..ee6f9f1 100644
+--- a/test/test_doc_empty_fail3.cpp
++++ b/test/test_doc_empty_fail3.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_empty_fail3.cxx>
++#include "test_doc_empty_fail3.cxx"
+diff --git a/test/test_doc_empty_fail4.cpp b/test/test_doc_empty_fail4.cpp
+index 6f5f5f1..5e7d085 100644
+--- a/test/test_doc_empty_fail4.cpp
++++ b/test/test_doc_empty_fail4.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_empty_fail4.cxx>
++#include "test_doc_empty_fail4.cxx"
+diff --git a/test/test_doc_empty_fail6.cpp b/test/test_doc_empty_fail6.cpp
+index 836855f..e64d42c 100644
+--- a/test/test_doc_empty_fail6.cpp
++++ b/test/test_doc_empty_fail6.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_empty_fail6.cxx>
++#include "test_doc_empty_fail6.cxx"
+diff --git a/test/test_doc_empty_fail7.cpp b/test/test_doc_empty_fail7.cpp
+index 37a899b..a75cad8 100644
+--- a/test/test_doc_empty_fail7.cpp
++++ b/test/test_doc_empty_fail7.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_empty_fail7.cxx>
++#include "test_doc_empty_fail7.cxx"
+diff --git a/test/test_doc_empty_fail8.cpp b/test/test_doc_empty_fail8.cpp
+index ec6ebed..4a7f701 100644
+--- a/test/test_doc_empty_fail8.cpp
++++ b/test/test_doc_empty_fail8.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_empty_fail8.cxx>
++#include "test_doc_empty_fail8.cxx"
+diff --git a/test/test_doc_equality.cpp b/test/test_doc_equality.cpp
+index ffb441e..4c29688 100644
+--- a/test/test_doc_equality.cpp
++++ b/test/test_doc_equality.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_equality.cxx>
++#include "test_doc_equality.cxx"
+diff --git a/test/test_doc_example_switch.cpp b/test/test_doc_example_switch.cpp
+index c1d7333..57b3615 100644
+--- a/test/test_doc_example_switch.cpp
++++ b/test/test_doc_example_switch.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_example_switch.cxx>
++#include "test_doc_example_switch.cxx"
+diff --git a/test/test_doc_example_switch.cxx b/test/test_doc_example_switch.cxx
+index 42985d2..710a3c5 100644
+--- a/test/test_doc_example_switch.cxx
++++ b/test/test_doc_example_switch.cxx
+@@ -6,7 +6,7 @@
+ 
+ #include <boost/vmd/equal.hpp>
+ #include <boost/vmd/identity.hpp>
+-#include <libs/vmd/test/test_doc_example_switch.hpp>
++#include "test_doc_example_switch.hpp"
+ #include <boost/detail/lightweight_test.hpp>
+ 
+ int main()
+diff --git a/test/test_doc_get_type.cpp b/test/test_doc_get_type.cpp
+index 3ccb4b8..094bdbb 100644
+--- a/test/test_doc_get_type.cpp
++++ b/test/test_doc_get_type.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_get_type.cxx>
++#include "test_doc_get_type.cxx"
+diff --git a/test/test_doc_identifier.cpp b/test/test_doc_identifier.cpp
+index 725b787..78e75fc 100644
+--- a/test/test_doc_identifier.cpp
++++ b/test/test_doc_identifier.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_identifier.cxx>
++#include "test_doc_identifier.cxx"
+diff --git a/test/test_doc_identifier_subtyping.cpp b/test/test_doc_identifier_subtyping.cpp
+index c587711..0f836a2 100644
+--- a/test/test_doc_identifier_subtyping.cpp
++++ b/test/test_doc_identifier_subtyping.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_identifier_subtyping.cxx>
++#include "test_doc_identifier_subtyping.cxx"
+diff --git a/test/test_doc_modifiers_filter.cpp b/test/test_doc_modifiers_filter.cpp
+index babbb55..1625852 100644
+--- a/test/test_doc_modifiers_filter.cpp
++++ b/test/test_doc_modifiers_filter.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_modifiers_filter.cxx>
++#include "test_doc_modifiers_filter.cxx"
+diff --git a/test/test_doc_modifiers_identifier.cpp b/test/test_doc_modifiers_identifier.cpp
+index 5af4f16..89b5152 100644
+--- a/test/test_doc_modifiers_identifier.cpp
++++ b/test/test_doc_modifiers_identifier.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_modifiers_identifier.cxx>
++#include "test_doc_modifiers_identifier.cxx"
+diff --git a/test/test_doc_modifiers_index.cpp b/test/test_doc_modifiers_index.cpp
+index 9737517..b35dc71 100644
+--- a/test/test_doc_modifiers_index.cpp
++++ b/test/test_doc_modifiers_index.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_modifiers_index.cxx>
++#include "test_doc_modifiers_index.cxx"
+diff --git a/test/test_doc_modifiers_return_type.cpp b/test/test_doc_modifiers_return_type.cpp
+index f6bb6f2..d04d0df 100644
+--- a/test/test_doc_modifiers_return_type.cpp
++++ b/test/test_doc_modifiers_return_type.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_modifiers_return_type.cxx>
++#include "test_doc_modifiers_return_type.cxx"
+diff --git a/test/test_doc_modifiers_splitting.cpp b/test/test_doc_modifiers_splitting.cpp
+index 69dceaf..bd11d4d 100644
+--- a/test/test_doc_modifiers_splitting.cpp
++++ b/test/test_doc_modifiers_splitting.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_modifiers_splitting.cxx>
++#include "test_doc_modifiers_splitting.cxx"
+diff --git a/test/test_doc_number.cpp b/test/test_doc_number.cpp
+index 78669b7..557c5f2 100644
+--- a/test/test_doc_number.cpp
++++ b/test/test_doc_number.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_number.cxx>
++#include "test_doc_number.cxx"
+diff --git a/test/test_doc_pp_data_types.cpp b/test/test_doc_pp_data_types.cpp
+index 08ed429..8b068ea 100644
+--- a/test/test_doc_pp_data_types.cpp
++++ b/test/test_doc_pp_data_types.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_pp_data_types.cxx>
++#include "test_doc_pp_data_types.cxx"
+diff --git a/test/test_doc_sequence.cpp b/test/test_doc_sequence.cpp
+index e0ef12e..aa7701e 100644
+--- a/test/test_doc_sequence.cpp
++++ b/test/test_doc_sequence.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_sequence.cxx>
++#include "test_doc_sequence.cxx"
+diff --git a/test/test_doc_sequence_access.cpp b/test/test_doc_sequence_access.cpp
+index 5031e04..db28a88 100644
+--- a/test/test_doc_sequence_access.cpp
++++ b/test/test_doc_sequence_access.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_sequence_access.cxx>
++#include "test_doc_sequence_access.cxx"
+diff --git a/test/test_doc_sequence_convert.cpp b/test/test_doc_sequence_convert.cpp
+index 72eb0d8..d8ee4b3 100644
+--- a/test/test_doc_sequence_convert.cpp
++++ b/test/test_doc_sequence_convert.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_sequence_convert.cxx>
++#include "test_doc_sequence_convert.cxx"
+diff --git a/test/test_doc_type.cpp b/test/test_doc_type.cpp
+index fb3b0a1..0d8d331 100644
+--- a/test/test_doc_type.cpp
++++ b/test/test_doc_type.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_type.cxx>
++#include "test_doc_type.cxx"
+diff --git a/test/test_doc_whyhow.cpp b/test/test_doc_whyhow.cpp
+index e20c0b7..3458109 100644
+--- a/test/test_doc_whyhow.cpp
++++ b/test/test_doc_whyhow.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_doc_whyhow.cxx>
++#include "test_doc_whyhow.cxx"
+diff --git a/test/test_equal.cpp b/test/test_equal.cpp
+index 941ca97..5f45fd4 100644
+--- a/test/test_equal.cpp
++++ b/test/test_equal.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_equal.cxx>
++#include "test_equal.cxx"
+diff --git a/test/test_equal_array.cpp b/test/test_equal_array.cpp
+index 7fb6b78..df89c50 100644
+--- a/test/test_equal_array.cpp
++++ b/test/test_equal_array.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_equal_array.cxx>
++#include "test_equal_array.cxx"
+diff --git a/test/test_equal_identifier.cpp b/test/test_equal_identifier.cpp
+index 1e8fae5..13a689c 100644
+--- a/test/test_equal_identifier.cpp
++++ b/test/test_equal_identifier.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_equal_identifier.cxx>
++#include "test_equal_identifier.cxx"
+diff --git a/test/test_equal_list.cpp b/test/test_equal_list.cpp
+index cb367ef..57c9d2f 100644
+--- a/test/test_equal_list.cpp
++++ b/test/test_equal_list.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_equal_list.cxx>
++#include "test_equal_list.cxx"
+diff --git a/test/test_equal_multi.cpp b/test/test_equal_multi.cpp
+index 2f2ffee..c606bc3 100644
+--- a/test/test_equal_multi.cpp
++++ b/test/test_equal_multi.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_equal_multi.cxx>
++#include "test_equal_multi.cxx"
+diff --git a/test/test_equal_number.cpp b/test/test_equal_number.cpp
+index e313d2c..472053f 100644
+--- a/test/test_equal_number.cpp
++++ b/test/test_equal_number.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_equal_number.cxx>
++#include "test_equal_number.cxx"
+diff --git a/test/test_equal_seq.cpp b/test/test_equal_seq.cpp
+index 7cbe568..47b2f63 100644
+--- a/test/test_equal_seq.cpp
++++ b/test/test_equal_seq.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_equal_seq.cxx>
++#include "test_equal_seq.cxx"
+diff --git a/test/test_equal_tuple.cpp b/test/test_equal_tuple.cpp
+index db069fe..66d75e3 100644
+--- a/test/test_equal_tuple.cpp
++++ b/test/test_equal_tuple.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_equal_tuple.cxx>
++#include "test_equal_tuple.cxx"
+diff --git a/test/test_equal_type.cpp b/test/test_equal_type.cpp
+index da0a06f..af136c4 100644
+--- a/test/test_equal_type.cpp
++++ b/test/test_equal_type.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_equal_type.cxx>
++#include "test_equal_type.cxx"
+diff --git a/test/test_identifier_elem.cpp b/test/test_identifier_elem.cpp
+index b5880b8..91941ae 100644
+--- a/test/test_identifier_elem.cpp
++++ b/test/test_identifier_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_identifier_elem.cxx>
++#include "test_identifier_elem.cxx"
+diff --git a/test/test_identifier_equal.cpp b/test/test_identifier_equal.cpp
+index c0a9e41..989c860 100644
+--- a/test/test_identifier_equal.cpp
++++ b/test/test_identifier_equal.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_identifier_equal.cxx>
++#include "test_identifier_equal.cxx"
+diff --git a/test/test_is_array.cpp b/test/test_is_array.cpp
+index de05339..e6eb39f 100644
+--- a/test/test_is_array.cpp
++++ b/test/test_is_array.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_array.cxx>
++#include "test_is_array.cxx"
+diff --git a/test/test_is_array_fail.cpp b/test/test_is_array_fail.cpp
+index ea13648..70934b4 100644
+--- a/test/test_is_array_fail.cpp
++++ b/test/test_is_array_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_array_fail.cxx>
++#include "test_is_array_fail.cxx"
+diff --git a/test/test_is_array_fail2.cpp b/test/test_is_array_fail2.cpp
+index 40296b4..17125b7 100644
+--- a/test/test_is_array_fail2.cpp
++++ b/test/test_is_array_fail2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_array_fail2.cxx>
++#include "test_is_array_fail2.cxx"
+diff --git a/test/test_is_array_fail3.cpp b/test/test_is_array_fail3.cpp
+index 5a35e35..054c3eb 100644
+--- a/test/test_is_array_fail3.cpp
++++ b/test/test_is_array_fail3.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_array_fail3.cxx>
++#include "test_is_array_fail3.cxx"
+diff --git a/test/test_is_array_fail4.cpp b/test/test_is_array_fail4.cpp
+index 6324ab0..c4843eb 100644
+--- a/test/test_is_array_fail4.cpp
++++ b/test/test_is_array_fail4.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_array_fail4.cxx>
++#include "test_is_array_fail4.cxx"
+diff --git a/test/test_is_empty.cpp b/test/test_is_empty.cpp
+index ed99228..6cbf7bf 100644
+--- a/test/test_is_empty.cpp
++++ b/test/test_is_empty.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_empty.cxx>
++#include "test_is_empty.cxx"
+diff --git a/test/test_is_empty_fail.cpp b/test/test_is_empty_fail.cpp
+index 5981ef7..1a5886e 100644
+--- a/test/test_is_empty_fail.cpp
++++ b/test/test_is_empty_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_empty_fail.cxx>
++#include "test_is_empty_fail.cxx"
+diff --git a/test/test_is_empty_tuple_succeed.cpp b/test/test_is_empty_tuple_succeed.cpp
+index fb93f78..c665f20 100644
+--- a/test/test_is_empty_tuple_succeed.cpp
++++ b/test/test_is_empty_tuple_succeed.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_empty_tuple_succeed.cxx>
++#include "test_is_empty_tuple_succeed.cxx"
+diff --git a/test/test_is_general_identifier.cpp b/test/test_is_general_identifier.cpp
+index 38ffb3e..ab85507 100644
+--- a/test/test_is_general_identifier.cpp
++++ b/test/test_is_general_identifier.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_general_identifier.cxx>
++#include "test_is_general_identifier.cxx"
+diff --git a/test/test_is_identifier.cpp b/test/test_is_identifier.cpp
+index d2a3be4..ba3d735 100644
+--- a/test/test_is_identifier.cpp
++++ b/test/test_is_identifier.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_identifier.cxx>
++#include "test_is_identifier.cxx"
+diff --git a/test/test_is_list.cpp b/test/test_is_list.cpp
+index e9933e1..1073f76 100644
+--- a/test/test_is_list.cpp
++++ b/test/test_is_list.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_list.cxx>
++#include "test_is_list.cxx"
+diff --git a/test/test_is_list_fail.cpp b/test/test_is_list_fail.cpp
+index c9b563f..c725ed7 100644
+--- a/test/test_is_list_fail.cpp
++++ b/test/test_is_list_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_list_fail.cxx>
++#include "test_is_list_fail.cxx"
+diff --git a/test/test_is_list_fail2.cpp b/test/test_is_list_fail2.cpp
+index 07a858b..1f7447b 100644
+--- a/test/test_is_list_fail2.cpp
++++ b/test/test_is_list_fail2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_list_fail2.cxx>
++#include "test_is_list_fail2.cxx"
+diff --git a/test/test_is_list_fail3.cpp b/test/test_is_list_fail3.cpp
+index 5ba52b3..12ecde9 100644
+--- a/test/test_is_list_fail3.cpp
++++ b/test/test_is_list_fail3.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_list_fail3.cxx>
++#include "test_is_list_fail3.cxx"
+diff --git a/test/test_is_list_fail4.cpp b/test/test_is_list_fail4.cpp
+index 1d3d69e..1b41718 100644
+--- a/test/test_is_list_fail4.cpp
++++ b/test/test_is_list_fail4.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_list_fail4.cxx>
++#include "test_is_list_fail4.cxx"
+diff --git a/test/test_is_number.cpp b/test/test_is_number.cpp
+index e9a6acc..85aaf3a 100644
+--- a/test/test_is_number.cpp
++++ b/test/test_is_number.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_number.cxx>
++#include "test_is_number.cxx"
+diff --git a/test/test_is_parens_empty.cpp b/test/test_is_parens_empty.cpp
+index 3542a2e..727b9ee 100644
+--- a/test/test_is_parens_empty.cpp
++++ b/test/test_is_parens_empty.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_parens_empty.cxx>
++#include "test_is_parens_empty.cxx"
+diff --git a/test/test_is_seq.cpp b/test/test_is_seq.cpp
+index 20d4330..dc1745c 100644
+--- a/test/test_is_seq.cpp
++++ b/test/test_is_seq.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_seq.cxx>
++#include "test_is_seq.cxx"
+diff --git a/test/test_is_seq_fail.cpp b/test/test_is_seq_fail.cpp
+index a4643a9..531423d 100644
+--- a/test/test_is_seq_fail.cpp
++++ b/test/test_is_seq_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_seq_fail.cxx>
++#include "test_is_seq_fail.cxx"
+diff --git a/test/test_is_seq_fail2.cpp b/test/test_is_seq_fail2.cpp
+index fdfab6b..543cd1d 100644
+--- a/test/test_is_seq_fail2.cpp
++++ b/test/test_is_seq_fail2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_seq_fail2.cxx>
++#include "test_is_seq_fail2.cxx"
+diff --git a/test/test_is_seq_fail3.cpp b/test/test_is_seq_fail3.cpp
+index e0a3c5d..e892845 100644
+--- a/test/test_is_seq_fail3.cpp
++++ b/test/test_is_seq_fail3.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_seq_fail3.cxx>
++#include "test_is_seq_fail3.cxx"
+diff --git a/test/test_is_seq_fail4.cpp b/test/test_is_seq_fail4.cpp
+index e6d7c40..ba92e2e 100644
+--- a/test/test_is_seq_fail4.cpp
++++ b/test/test_is_seq_fail4.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_seq_fail4.cxx>
++#include "test_is_seq_fail4.cxx"
+diff --git a/test/test_is_tuple.cpp b/test/test_is_tuple.cpp
+index 46484d5..e1d5bc1 100644
+--- a/test/test_is_tuple.cpp
++++ b/test/test_is_tuple.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_tuple.cxx>
++#include "test_is_tuple.cxx"
+diff --git a/test/test_is_tuple_fail.cpp b/test/test_is_tuple_fail.cpp
+index 0ae5968..b4f2515 100644
+--- a/test/test_is_tuple_fail.cpp
++++ b/test/test_is_tuple_fail.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_tuple_fail.cxx>
++#include "test_is_tuple_fail.cxx"
+diff --git a/test/test_is_tuple_fail2.cpp b/test/test_is_tuple_fail2.cpp
+index 001591e..286229b 100644
+--- a/test/test_is_tuple_fail2.cpp
++++ b/test/test_is_tuple_fail2.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_tuple_fail2.cxx>
++#include "test_is_tuple_fail2.cxx"
+diff --git a/test/test_is_tuple_fail3.cpp b/test/test_is_tuple_fail3.cpp
+index 38cf2b8..1ecf553 100644
+--- a/test/test_is_tuple_fail3.cpp
++++ b/test/test_is_tuple_fail3.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_tuple_fail3.cxx>
++#include "test_is_tuple_fail3.cxx"
+diff --git a/test/test_is_tuple_fail4.cpp b/test/test_is_tuple_fail4.cpp
+index d52fb53..ad4f719 100644
+--- a/test/test_is_tuple_fail4.cpp
++++ b/test/test_is_tuple_fail4.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_tuple_fail4.cxx>
++#include "test_is_tuple_fail4.cxx"
+diff --git a/test/test_is_type.cpp b/test/test_is_type.cpp
+index 22aaea3..71b9c26 100644
+--- a/test/test_is_type.cpp
++++ b/test/test_is_type.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_type.cxx>
++#include "test_is_type.cxx"
+diff --git a/test/test_is_vmd_seq.cpp b/test/test_is_vmd_seq.cpp
+index 8c9e939..630f6ab 100644
+--- a/test/test_is_vmd_seq.cpp
++++ b/test/test_is_vmd_seq.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_vmd_seq.cxx>
++#include "test_is_vmd_seq.cxx"
+diff --git a/test/test_is_vmd_tuple.cpp b/test/test_is_vmd_tuple.cpp
+index 04e5f3c..bd64051 100644
+--- a/test/test_is_vmd_tuple.cpp
++++ b/test/test_is_vmd_tuple.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_is_vmd_tuple.cxx>
++#include "test_is_vmd_tuple.cxx"
+diff --git a/test/test_list_elem.cpp b/test/test_list_elem.cpp
+index 624f990..ddf1d07 100644
+--- a/test/test_list_elem.cpp
++++ b/test/test_list_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_list_elem.cxx>
++#include "test_list_elem.cxx"
+diff --git a/test/test_list_empty.cpp b/test/test_list_empty.cpp
+index 5556b5d..edb74f0 100644
+--- a/test/test_list_empty.cpp
++++ b/test/test_list_empty.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_list_empty.cxx>
++#include "test_list_empty.cxx"
+diff --git a/test/test_list_equal.cpp b/test/test_list_equal.cpp
+index 3321290..b0600d3 100644
+--- a/test/test_list_equal.cpp
++++ b/test/test_list_equal.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_list_equal.cxx>
++#include "test_list_equal.cxx"
+diff --git a/test/test_list_to_seq.cpp b/test/test_list_to_seq.cpp
+index f9438dc..8f0eefc 100644
+--- a/test/test_list_to_seq.cpp
++++ b/test/test_list_to_seq.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_list_to_seq.cxx>
++#include "test_list_to_seq.cxx"
+diff --git a/test/test_list_to_tuple.cpp b/test/test_list_to_tuple.cpp
+index 2c10b29..a441807 100644
+--- a/test/test_list_to_tuple.cpp
++++ b/test/test_list_to_tuple.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_list_to_tuple.cxx>
++#include "test_list_to_tuple.cxx"
+diff --git a/test/test_number_elem.cpp b/test/test_number_elem.cpp
+index 407e05a..9ca7920 100644
+--- a/test/test_number_elem.cpp
++++ b/test/test_number_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_number_elem.cxx>
++#include "test_number_elem.cxx"
+diff --git a/test/test_number_equal.cpp b/test/test_number_equal.cpp
+index a233b69..a177625 100644
+--- a/test/test_number_equal.cpp
++++ b/test/test_number_equal.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_number_equal.cxx>
++#include "test_number_equal.cxx"
+diff --git a/test/test_seq_elem.cpp b/test/test_seq_elem.cpp
+index 1e412d7..cc4edbd 100644
+--- a/test/test_seq_elem.cpp
++++ b/test/test_seq_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_elem.cxx>
++#include "test_seq_elem.cxx"
+diff --git a/test/test_seq_equal.cpp b/test/test_seq_equal.cpp
+index f217d67..ed22b8e 100644
+--- a/test/test_seq_equal.cpp
++++ b/test/test_seq_equal.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_equal.cxx>
++#include "test_seq_equal.cxx"
+diff --git a/test/test_seq_pop_back.cpp b/test/test_seq_pop_back.cpp
+index c5031ff..92b4ac9 100644
+--- a/test/test_seq_pop_back.cpp
++++ b/test/test_seq_pop_back.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_pop_back.cxx>
++#include "test_seq_pop_back.cxx"
+diff --git a/test/test_seq_pop_front.cpp b/test/test_seq_pop_front.cpp
+index a647733..4ed165b 100644
+--- a/test/test_seq_pop_front.cpp
++++ b/test/test_seq_pop_front.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_pop_front.cxx>
++#include "test_seq_pop_front.cxx"
+diff --git a/test/test_seq_push_back.cpp b/test/test_seq_push_back.cpp
+index 03a5318..e111992 100644
+--- a/test/test_seq_push_back.cpp
++++ b/test/test_seq_push_back.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_push_back.cxx>
++#include "test_seq_push_back.cxx"
+diff --git a/test/test_seq_push_front.cpp b/test/test_seq_push_front.cpp
+index f4dd834..c3b4168 100644
+--- a/test/test_seq_push_front.cpp
++++ b/test/test_seq_push_front.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_push_front.cxx>
++#include "test_seq_push_front.cxx"
+diff --git a/test/test_seq_remove.cpp b/test/test_seq_remove.cpp
+index 05bd270..378edbc 100644
+--- a/test/test_seq_remove.cpp
++++ b/test/test_seq_remove.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_remove.cxx>
++#include "test_seq_remove.cxx"
+diff --git a/test/test_seq_size.cpp b/test/test_seq_size.cpp
+index 05c67fa..d61e00b 100644
+--- a/test/test_seq_size.cpp
++++ b/test/test_seq_size.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_size.cxx>
++#include "test_seq_size.cxx"
+diff --git a/test/test_seq_to_array.cpp b/test/test_seq_to_array.cpp
+index b3ca817..e2e52aa 100644
+--- a/test/test_seq_to_array.cpp
++++ b/test/test_seq_to_array.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_to_array.cxx>
++#include "test_seq_to_array.cxx"
+diff --git a/test/test_seq_to_list.cpp b/test/test_seq_to_list.cpp
+index 5e154a2..bac46b2 100644
+--- a/test/test_seq_to_list.cpp
++++ b/test/test_seq_to_list.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_to_list.cxx>
++#include "test_seq_to_list.cxx"
+diff --git a/test/test_seq_to_tuple.cpp b/test/test_seq_to_tuple.cpp
+index c4d674f..c2a5ac0 100644
+--- a/test/test_seq_to_tuple.cpp
++++ b/test/test_seq_to_tuple.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_seq_to_tuple.cxx>
++#include "test_seq_to_tuple.cxx"
+diff --git a/test/test_sequence_after_elem.cpp b/test/test_sequence_after_elem.cpp
+index 1f0d75d..3f21087 100644
+--- a/test/test_sequence_after_elem.cpp
++++ b/test/test_sequence_after_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_sequence_after_elem.cxx>
++#include "test_sequence_after_elem.cxx"
+diff --git a/test/test_sequence_elem.cpp b/test/test_sequence_elem.cpp
+index f07ce92..4d2dfb7 100644
+--- a/test/test_sequence_elem.cpp
++++ b/test/test_sequence_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_sequence_elem.cxx>
++#include "test_sequence_elem.cxx"
+diff --git a/test/test_sequence_enum.cpp b/test/test_sequence_enum.cpp
+index bc171ec..91047b7 100644
+--- a/test/test_sequence_enum.cpp
++++ b/test/test_sequence_enum.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_sequence_enum.cxx>
++#include "test_sequence_enum.cxx"
+diff --git a/test/test_sequence_size.cpp b/test/test_sequence_size.cpp
+index b666db4..3509d99 100644
+--- a/test/test_sequence_size.cpp
++++ b/test/test_sequence_size.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_sequence_size.cxx>
++#include "test_sequence_size.cxx"
+diff --git a/test/test_sequence_to_array.cpp b/test/test_sequence_to_array.cpp
+index 9b3ef9d..7374f68 100644
+--- a/test/test_sequence_to_array.cpp
++++ b/test/test_sequence_to_array.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_sequence_to_array.cxx>
++#include "test_sequence_to_array.cxx"
+diff --git a/test/test_sequence_to_list.cpp b/test/test_sequence_to_list.cpp
+index 6b749e0..8f301f9 100644
+--- a/test/test_sequence_to_list.cpp
++++ b/test/test_sequence_to_list.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_sequence_to_list.cxx>
++#include "test_sequence_to_list.cxx"
+diff --git a/test/test_sequence_to_seq.cpp b/test/test_sequence_to_seq.cpp
+index 287488f..4cf9c13 100644
+--- a/test/test_sequence_to_seq.cpp
++++ b/test/test_sequence_to_seq.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_sequence_to_seq.cxx>
++#include "test_sequence_to_seq.cxx"
+diff --git a/test/test_sequence_to_tuple.cpp b/test/test_sequence_to_tuple.cpp
+index 3c5bf35..1b0c013 100644
+--- a/test/test_sequence_to_tuple.cpp
++++ b/test/test_sequence_to_tuple.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_sequence_to_tuple.cxx>
++#include "test_sequence_to_tuple.cxx"
+diff --git a/test/test_tuple_elem.cpp b/test/test_tuple_elem.cpp
+index 0239d34..2bfc4b6 100644
+--- a/test/test_tuple_elem.cpp
++++ b/test/test_tuple_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_elem.cxx>
++#include "test_tuple_elem.cxx"
+diff --git a/test/test_tuple_equal.cpp b/test/test_tuple_equal.cpp
+index 5fba990..f95a769 100644
+--- a/test/test_tuple_equal.cpp
++++ b/test/test_tuple_equal.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_equal.cxx>
++#include "test_tuple_equal.cxx"
+diff --git a/test/test_tuple_pop_back.cpp b/test/test_tuple_pop_back.cpp
+index 081915b..e6ea580 100644
+--- a/test/test_tuple_pop_back.cpp
++++ b/test/test_tuple_pop_back.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_pop_back.cxx>
++#include "test_tuple_pop_back.cxx"
+diff --git a/test/test_tuple_pop_front.cpp b/test/test_tuple_pop_front.cpp
+index 7f60bed..ddfa1d4 100644
+--- a/test/test_tuple_pop_front.cpp
++++ b/test/test_tuple_pop_front.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_pop_front.cxx>
++#include "test_tuple_pop_front.cxx"
+diff --git a/test/test_tuple_push_back.cpp b/test/test_tuple_push_back.cpp
+index a0beceb..dd082b5 100644
+--- a/test/test_tuple_push_back.cpp
++++ b/test/test_tuple_push_back.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_push_back.cxx>
++#include "test_tuple_push_back.cxx"
+diff --git a/test/test_tuple_push_front.cpp b/test/test_tuple_push_front.cpp
+index 27061ad..c60917c 100644
+--- a/test/test_tuple_push_front.cpp
++++ b/test/test_tuple_push_front.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_push_front.cxx>
++#include "test_tuple_push_front.cxx"
+diff --git a/test/test_tuple_remove.cpp b/test/test_tuple_remove.cpp
+index fa6ff2c..4e1645f 100644
+--- a/test/test_tuple_remove.cpp
++++ b/test/test_tuple_remove.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_remove.cxx>
++#include "test_tuple_remove.cxx"
+diff --git a/test/test_tuple_size.cpp b/test/test_tuple_size.cpp
+index c72e87e..a8ceec1 100644
+--- a/test/test_tuple_size.cpp
++++ b/test/test_tuple_size.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_size.cxx>
++#include "test_tuple_size.cxx"
+diff --git a/test/test_tuple_to_array.cpp b/test/test_tuple_to_array.cpp
+index 456e0e6..da987e9 100644
+--- a/test/test_tuple_to_array.cpp
++++ b/test/test_tuple_to_array.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_to_array.cxx>
++#include "test_tuple_to_array.cxx"
+diff --git a/test/test_tuple_to_list.cpp b/test/test_tuple_to_list.cpp
+index 04aff1e..3fbb456 100644
+--- a/test/test_tuple_to_list.cpp
++++ b/test/test_tuple_to_list.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_to_list.cxx>
++#include "test_tuple_to_list.cxx"
+diff --git a/test/test_tuple_to_seq.cpp b/test/test_tuple_to_seq.cpp
+index 42bb582..45c82b9 100644
+--- a/test/test_tuple_to_seq.cpp
++++ b/test/test_tuple_to_seq.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_tuple_to_seq.cxx>
++#include "test_tuple_to_seq.cxx"
+diff --git a/test/test_type.cpp b/test/test_type.cpp
+index 5c44758..28a536b 100644
+--- a/test/test_type.cpp
++++ b/test/test_type.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_type.cxx>
++#include "test_type.cxx"
+diff --git a/test/test_type_elem.cpp b/test/test_type_elem.cpp
+index e44b7d0..fac58ab 100644
+--- a/test/test_type_elem.cpp
++++ b/test/test_type_elem.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_type_elem.cxx>
++#include "test_type_elem.cxx"
+diff --git a/test/test_type_equal.cpp b/test/test_type_equal.cpp
+index f10dd76..fa0604e 100644
+--- a/test/test_type_equal.cpp
++++ b/test/test_type_equal.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_type_equal.cxx>
++#include "test_type_equal.cxx"
+diff --git a/test/test_variadic_macro.cpp b/test/test_variadic_macro.cpp
+index afacbeb..0c46ab8 100644
+--- a/test/test_variadic_macro.cpp
++++ b/test/test_variadic_macro.cpp
+@@ -4,4 +4,4 @@
+ //  Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ //  http://www.boost.org/LICENSE_1_0.txt).
+ 
+-#include <libs/vmd/test/test_variadic_macro.cxx>
++#include "test_variadic_macro.cxx"

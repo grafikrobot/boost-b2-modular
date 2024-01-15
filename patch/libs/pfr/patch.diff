@@ -1,0 +1,65 @@
+diff --git a/test/config/Jamfile.v2 b/test/config/Jamfile.v2
+index 240d039..2193421 100644
+--- a/test/config/Jamfile.v2
++++ b/test/config/Jamfile.v2
+@@ -5,13 +5,17 @@
+ # http://www.boost.org/LICENSE_1_0.txt)
+ #
+ 
++import-search /boost/config/checks ;
++
+ import python ;
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ project
+     : source-location .
+     : requirements
++        <source>/boost/config//boost_config
++
+         <define>BOOST_PFR_DETAIL_STRICT_RVALUE_TESTING=1
+     ;
+ 
+diff --git a/test/core/Jamfile.v2 b/test/core/Jamfile.v2
+index ad25a84..b4e727e 100644
+--- a/test/core/Jamfile.v2
++++ b/test/core/Jamfile.v2
+@@ -5,13 +5,20 @@
+ # http://www.boost.org/LICENSE_1_0.txt)
+ #
+ 
++import-search /boost/config/checks ;
++
+ import python ;
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ project
+     : source-location .
+     : requirements
++        <source>/boost/config//boost_config
++        <source>/boost/core//boost_core
++        <source>/boost/functional//boost_functional
++        <source>/boost/type_index//boost_type_index
++
+         <define>BOOST_PFR_DETAIL_STRICT_RVALUE_TESTING=1
+         [ requires cxx14_constexpr ]
+     ;
+diff --git a/test/core_name/Jamfile.v2 b/test/core_name/Jamfile.v2
+index 13b1e4c..bbdce33 100644
+--- a/test/core_name/Jamfile.v2
++++ b/test/core_name/Jamfile.v2
+@@ -8,8 +8,10 @@
+ # The way to make it union and UB free by X-Ryl669, https://github.com/X-Ryl669
+ #
+ 
++import-search /boost/config/checks ;
++
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ ########## BEGIN of helpers to detect C++20 features support
+ 

@@ -1,0 +1,22 @@
+diff --git a/build/Jamfile b/build/Jamfile
+index 03b69a25..7663f8ae 100644
+--- a/build/Jamfile
++++ b/build/Jamfile
+@@ -92,7 +92,7 @@ lib boost_python
+         [ unless [ python.configured ] : <build>no ]
+         <dependency>config-warning
+         <python-debugging>on:<define>BOOST_DEBUG_PYTHON
+-        -<tag>@$(BOOST_JAMROOT_MODULE)%$(BOOST_JAMROOT_MODULE).tag
++        -<tag>@%boostcpp.tag
+         <tag>@python-tag
+         <conditional>@python.require-py
+ 
+@@ -120,7 +120,7 @@ lib boost_numpy
+         <library>/python//numpy
+         <library>boost_python
+         <python-debugging>on:<define>BOOST_DEBUG_PYTHON
+-        -<tag>@$(BOOST_JAMROOT_MODULE)%$(BOOST_JAMROOT_MODULE).tag
++        -<tag>@%boostcpp.tag
+         <tag>@python-tag
+         <conditional>@python.require-py
+ 

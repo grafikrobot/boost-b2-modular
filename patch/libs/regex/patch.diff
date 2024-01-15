@@ -1,0 +1,309 @@
+diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
+index 08f98195..755f5882 100644
+--- a/build/Jamfile.v2
++++ b/build/Jamfile.v2
+@@ -160,6 +160,3 @@ lib boost_regex : ../src/$(SOURCES) icu_options
+ 	     <link>shared:<define>BOOST_REGEX_DYN_LINK=1
+ 	     <toolset>gcc-cygwin:<link>static
+     ;
+-
+-boost-install boost_regex ;
+-
+diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
+index dd958c7d..f285e910 100644
+--- a/example/Jamfile.v2
++++ b/example/Jamfile.v2
+@@ -4,15 +4,15 @@
+ # http://www.boost.org/LICENSE_1_0.txt.
+ 
+ project
+-    : requirements 
++    : requirements
++      <source>/boost/timer//boost_timer
+       <threading>multi 
+       <link>shared:<define>BOOST_REGEX_DYN_LINK=1
+       # There are unidentified linker problems on these platforms:
+       <toolset>mipspro-7.4:<link>static
+       <toolset>sun-5.9:<link>static
+       <toolset>msvc:<warnings>all
+-      <toolset>gcc:<warnings>all
+-      <toolset>gcc:<cxxflags>-Wextra
++      <toolset>gcc:<warnings>extra
+       <define>U_USING_ICU_NAMESPACE=0
+       #<toolset>gcc-mw:<link>static
+ 	  #<toolset>gcc-mingw:<link>static
+@@ -26,7 +26,7 @@ rule regex-test-run ( sources + : input * : name * )
+              # sources
+              $(sources)
+              # dependencies
+-             ../build//boost_regex
++             /boost/regex//boost_regex
+          :  # additional args
+             $(input)
+          :  # test-files
+@@ -37,45 +37,33 @@ rule regex-test-run ( sources + : input * : name * )
+         ] ;
+ }
+ 
++path-constant HERE : . ;
++
+ test-suite regex-examples :
+ 
+-[ regex-test-run timer/regex_timer.cpp : $(BOOST_ROOT)/libs/regex/example/timer/input_script.txt ]
+-[ regex-test-run grep/grep.cpp ../../program_options/build//boost_program_options/<link>static : -n -b $(BOOST_ROOT)/boost/regex.hpp $(BOOST_ROOT)/boost/type_traits.hpp : test_grep ]
++[ regex-test-run timer/regex_timer.cpp : $(HERE)/timer/input_script.txt ]
++[ regex-test-run grep/grep.cpp /boost/program_options//boost_program_options/<link>static : -n -b $(HERE)/../include/boost/regex.hpp : test_grep ]
+ [ regex-test-run snippets/credit_card_example.cpp ]
+ [ regex-test-run snippets/mfc_example.cpp ]
+ [ regex-test-run snippets/icu_example.cpp ]
+-[ regex-test-run snippets/partial_regex_grep.cpp : $(BOOST_ROOT)/libs/regex/index.htm ]
+-[ regex-test-run snippets/partial_regex_iterate.cpp : $(BOOST_ROOT)/libs/regex/index.htm ]
++[ regex-test-run snippets/partial_regex_grep.cpp : $(HERE)/../index.htm ]
++[ regex-test-run snippets/partial_regex_iterate.cpp : $(HERE)/../index.htm ]
+ [ regex-test-run snippets/partial_regex_match.cpp : 1234-5678-8765-4 ]
+-[ regex-test-run snippets/regex_grep_example_1.cpp : $(BOOST_ROOT)/boost/rational.hpp ]
+-[ regex-test-run snippets/regex_grep_example_2.cpp : $(BOOST_ROOT)/boost/rational.hpp ]
+-[ regex-test-run snippets/regex_grep_example_3.cpp : $(BOOST_ROOT)/boost/rational.hpp ]
+-[ regex-test-run snippets/regex_grep_example_4.cpp : $(BOOST_ROOT)/boost/rational.hpp ]
++[ regex-test-run snippets/regex_grep_example_1.cpp : $(HERE)/../include/boost/regex/v5/regex_iterator.hpp ]
++[ regex-test-run snippets/regex_grep_example_2.cpp : $(HERE)/../include/boost/regex/v5/regex_iterator.hpp ]
++[ regex-test-run snippets/regex_grep_example_3.cpp : $(HERE)/../include/boost/regex/v5/regex_iterator.hpp ]
++[ regex-test-run snippets/regex_grep_example_4.cpp : $(HERE)/../include/boost/regex/v5/regex_iterator.hpp ]
+ [ regex-test-run snippets/regex_match_example.cpp : -auto ]
+-[ regex-test-run snippets/regex_merge_example.cpp : $(BOOST_ROOT)/boost/rational.hpp ]
+-[ regex-test-run snippets/regex_replace_example.cpp : $(BOOST_ROOT)/boost/rational.hpp ]
+-[ regex-test-run snippets/regex_search_example.cpp : $(BOOST_ROOT)/boost/rational.hpp ]
++[ regex-test-run snippets/regex_merge_example.cpp : $(HERE)/../include/boost/regex/v5/regex_iterator.hpp ]
++[ regex-test-run snippets/regex_replace_example.cpp : $(HERE)/../include/boost/regex/v5/regex_iterator.hpp ]
++[ regex-test-run snippets/regex_search_example.cpp : $(HERE)/../include/boost/regex/v5/regex_iterator.hpp ]
+ [ regex-test-run snippets/regex_split_example_1.cpp : -auto ]
+-[ regex-test-run snippets/regex_split_example_2.cpp : $(BOOST_ROOT)/libs/regex/doc/html/index.html ]
++[ regex-test-run snippets/regex_split_example_2.cpp : $(HERE)/../doc/html/index.html ]
+ [ regex-test-run snippets/regex_token_iterator_eg_1.cpp : -auto ]
+-[ regex-test-run snippets/regex_token_iterator_eg_2.cpp : $(BOOST_ROOT)/libs/regex/doc/html/index.html ]
+-[ regex-test-run snippets/regex_iterator_example.cpp : $(BOOST_ROOT)/boost/rational.hpp ]
++[ regex-test-run snippets/regex_token_iterator_eg_2.cpp : $(HERE)/../doc/html/index.html ]
++[ regex-test-run snippets/regex_iterator_example.cpp : $(HERE)/../include/boost/regex/v5/regex_iterator.hpp ]
+ [ run snippets/captures_example.cpp
+   ../test/captures//boost_regex_extra
+   : : :  <threading>multi <define>BOOST_REGEX_MATCH_EXTRA=1 ]
+ 
+ ;
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index edbe190a..b4b8c3e7 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -5,6 +5,7 @@
+ 
+ project
+     : requirements 
++      <source>/boost/detail//boost_detail
+       <threading>multi 
+       <link>shared:<define>BOOST_REGEX_DYN_LINK=1 
+       <toolset>msvc-7.1:<define>TEST_MFC=1 
+@@ -21,6 +22,7 @@ project
+       #<toolset>gcc-mingw:<link>static
+       #<toolset>gcc-cygwin:<link>static
+       <toolset>sun:<link>static
++      <include>../src
+     ;
+ 
+ #
+@@ -28,7 +30,7 @@ project
+ #
+ rule regex-test ( name : sources + : requirements * : input-files * )
+ {
+-    return [ run $(sources) ../build//boost_regex
++    return [ run $(sources) /boost/regex//boost_regex
+                :
+                : $(input-files)
+                : $(requirements)
+@@ -80,22 +82,22 @@ local regress-sources = regress/$(R_SOURCE) ;
+ 
+ test-suite regex
+       : 
+-      [ run regress/$(R_SOURCE) ../build//boost_regex ../build//icu_options
++      [ run regress/$(R_SOURCE) /boost/regex//boost_regex ../build//icu_options
+         : # command line
+         : # input files
+         : # requirements
+         : regex_regress ]
+ 
+-      [ run regress/$(R_SOURCE) ../build//boost_regex
+-                                ../../thread/build//boost_thread ../build//icu_options
++      [ run regress/$(R_SOURCE) /boost/regex//boost_regex
++                                /boost/thread//boost_thread ../build//icu_options
+         : # command line
+         : # input files
+         : # requirements
+         <define>TEST_THREADS
+         : regex_regress_threaded ]
+ 
+-      [ run regress/$(R_SOURCE) ../build//boost_regex
+-                                ../../thread/build//boost_thread ../build//icu_options
++      [ run regress/$(R_SOURCE) /boost/regex//boost_regex
++                                /boost/thread//boost_thread ../build//icu_options
+         : # command line
+         : # input files
+         : # requirements
+@@ -114,67 +116,71 @@ test-suite regex
+           : c_compiler_checks/wide_posix_api_check.cpp ]
+ 
+       [ run pathology/bad_expression_test.cpp : : :
+-            [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++            [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
+       ]
+ 
+       [ run pathology/recursion_test.cpp : : :
+-            [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++            [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
+       ]
+       
+       [ run named_subexpressions/named_subexpressions_test.cpp : : :
+-            [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++            [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
+       ]
+       
+       [ run unicode/unicode_iterator_test.cpp : : : 
+-            [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++            [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
+             release <define>TEST_UTF8 : unicode_iterator_test_utf8 ]
+       [ run unicode/unicode_iterator_test.cpp : : : 
+-            [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++            [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
+             release <define>TEST_UTF16 : unicode_iterator_test_utf16 ]
+       [ run unicode/unicode_casefold_test.cpp 
+-            ../build//boost_regex ../build//icu_options      
++            /boost/regex//boost_regex ../build//icu_options
+       ]
+       [ run static_mutex/static_mutex_test.cpp
+-            ../../thread/build//boost_thread ../build//boost_regex
++            /boost/thread//boost_thread /boost/regex//boost_regex
++            /boost/timer//boost_timer
+       ]
+       [ run object_cache/object_cache_test.cpp : : :
+-            [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++            [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
+       ]
+       
+       [ run config_info/regex_config_info.cpp 
+-         ../build//boost_regex/<link>static 
++         /boost/regex//boost_regex/<link>static 
+          : # command line
+          : # input files
+          : <test-info>always_show_run_output
++           <use>/boost/config//testing
+       ]
+-      [ run config_info/regex_config_info.cpp ../build//boost_regex 
++      [ run config_info/regex_config_info.cpp /boost/regex//boost_regex 
+         : # command line
+         : # input files
+         : <test-info>always_show_run_output
++          <use>/boost/config//testing
+         : regex_dll_config_info
+-      ]    
++      ]
+ 
+-      [ run collate_info/collate_info.cpp ../build//boost_regex
++      [ run collate_info/collate_info.cpp /boost/regex//boost_regex
+       : : : <test-info>always_show_run_output : test_collate_info ]
+ 
+ 
+       [ link concepts/concept_check.cpp :
+-            [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++            [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
+       ]
+       [ link concepts/concept_check.cpp :
+             <define>BOOST_REGEX_STANDALONE [ check-target-builds ../build//is_legacy_03 : : <build>no ] : standalone_concept_check
+       ]
+       [ link concepts/icu_concept_check.cpp :
+-            <define>BOOST_REGEX_STANDALONE [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++            <define>BOOST_REGEX_STANDALONE [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
+       ]
+       [ link concepts/icu_concept_check.cpp :
+             [ check-target-builds ../build//is_legacy_03 : : <build>no ] : standalone_icu_concept_check
+       ]
+       [ link concepts/range_concept_check.cpp :
+-            [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++            [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
++             <source>/boost/range//boost_range
+       ]
+       [ run concepts/test_bug_11988.cpp : : :
+-            [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++            [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
+       ]
+       
+      [ run
+@@ -184,10 +190,11 @@ test-suite regex
+  :  # additional args
+  :  # test-files
+  :  # requirements
++    <source>/boost/array//boost_array
+     <threading>multi
+     <define>BOOST_REGEX_MATCH_EXTRA=1
+     <define>BOOST_REGEX_NO_LIB=1
+-    [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
++    [ check-target-builds ../build//is_legacy_03 : : <source>/boost/regex//boost_regex ]
+  :  # test name
+     captures_test
+  ]
+@@ -219,7 +226,7 @@ compile test_consolidated.cpp ;
+ build-project ../example ;
+ 
+ # `quick` target (for CI)
+-run quick.cpp ../build//boost_regex ;
++run quick.cpp /boost/regex//boost_regex ;
+ 
+ compile test_warnings.cpp 
+    :     <toolset>msvc:<warnings>all <toolset>msvc:<warnings-as-errors>on
+@@ -239,4 +246,4 @@ compile test_windows_defs_2.cpp ;
+ compile test_windows_defs_3.cpp ;
+ compile test_windows_defs_4.cpp ;
+ 
+-run issue153.cpp : : : <toolset>msvc:<linkflags>-STACK:2097152 ;
++run issue153.cpp : : : "<toolset>msvc:<linkflags>-STACK:2097152" ;
+diff --git a/test/config_info/regex_config_info.cpp b/test/config_info/regex_config_info.cpp
+index 211e9ec0..fb37c29f 100644
+--- a/test/config_info/regex_config_info.cpp
++++ b/test/config_info/regex_config_info.cpp
+@@ -19,7 +19,7 @@
+ #endif
+ 
+ #define main OLD_MAIN
+-#include <libs/config/test/config_info.cpp>
++#include <config_info.cpp>
+ #undef main
+ #ifndef NEW_MAIN
+ #  define NEW_MAIN main
+diff --git a/test/test_consolidated.cpp b/test/test_consolidated.cpp
+index d5415f2b..d51448da 100644
+--- a/test/test_consolidated.cpp
++++ b/test/test_consolidated.cpp
+@@ -10,8 +10,8 @@
+  */
+ 
+ 
+-#include <libs/regex/src/posix_api.cpp>
+-#include <libs/regex/src/regex.cpp>
+-#include <libs/regex/src/regex_debug.cpp>
+-#include <libs/regex/src/static_mutex.cpp>
+-#include <libs/regex/src/wide_posix_api.cpp>
++#include <posix_api.cpp>
++#include <regex.cpp>
++#include <regex_debug.cpp>
++#include <static_mutex.cpp>
++#include <wide_posix_api.cpp>

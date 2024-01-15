@@ -17,7 +17,7 @@ index 1868a4d..c69b61e 100644
  
  exe queue : queue.cpp ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 7e69843..54b43ed 100644
+index 3b7dd27..5054d3a 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -11,10 +11,12 @@ lib boost_thread ;
@@ -43,4 +43,4 @@ index 7e69843..54b43ed 100644
 -        <library>../../thread/build//boost_thread/
          <threading>multi
          <link>static
-         <define>BOOST_TEST_NO_OLD_TOOLS
+       ] ;

@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index f1e2d05..a501bdd 100644
+index 16bc9df..abb882f 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -15,7 +15,7 @@ import toolset ;
@@ -103,7 +103,7 @@ index f1e2d05..a501bdd 100644
  }
  
  ICU_OPTS =
-@@ -409,7 +409,7 @@ local cxx_requirements = [ requires
+@@ -402,7 +402,7 @@ local cxx_requirements = [ requires
        cxx11_variadic_templates
      ] ;
  

@@ -1,5 +1,5 @@
 diff --git a/examples/user_defined_typeinfo.cpp b/examples/user_defined_typeinfo.cpp
-index 86d769c..6939326 100644
+index fe73b7d..889b0ae 100644
 --- a/examples/user_defined_typeinfo.cpp
 +++ b/examples/user_defined_typeinfo.cpp
 @@ -14,7 +14,7 @@
@@ -12,7 +12,7 @@ index 86d769c..6939326 100644
  //] [/type_index_my_type_index_worldwide_macro]
  
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 5cf540a..8c89519 100644
+index adc8cb2..dc9f2e1 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -47,10 +47,10 @@ exe testing_crossmodule_anonymous_no_rtti : testing_crossmodule_anonymous.cpp te

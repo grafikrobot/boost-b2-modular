@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 33964a30..ce5241b7 100644
+index 2ad5754d..818b3dd9 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -6,7 +6,7 @@
@@ -11,7 +11,7 @@ index 33964a30..ce5241b7 100644
      : source-location ../src
      : requirements
        <conditional>@include-spirit
-@@ -143,5 +143,3 @@ lib boost_wserialization
+@@ -144,5 +144,3 @@ lib boost_wserialization
      # switch - don't change it to BOOST_WSERIALIZATION_DYN_LINK
      <link>shared:<define>BOOST_SERIALIZATION_DYN_LINK=1
      ;
@@ -50,7 +50,7 @@ index 5ec2a296..a5295b38 100644
      [ test-bsl-run-no-lib performance_iterators ]
      [ test-bsl-run-no-lib performance_iterators_base64 ]
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index cf160568..5dd3845e 100644
+index 3e69b981..2883df3f 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -6,13 +6,14 @@

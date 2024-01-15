@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index 335c812..8c353e7 100644
+index 8fc035c..5a373fa 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -6,11 +6,16 @@

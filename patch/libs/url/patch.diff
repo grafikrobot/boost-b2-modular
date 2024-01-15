@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile b/build/Jamfile
-index a42674c..868e437 100644
+index 43bd66d..16cb7d0 100644
 --- a/build/Jamfile
 +++ b/build/Jamfile
 @@ -8,9 +8,8 @@
@@ -12,8 +12,8 @@ index a42674c..868e437 100644
 -      $(c11-requires)
        <define>BOOST_URL_SOURCE
        <toolset>msvc-14.0:<build>no
-       <toolset>gcc-7:<cxxflags>"-Wno-maybe-uninitialized"    # variant2
-@@ -30,5 +29,3 @@ explicit url_sources ;
+       # Warnings in dependencies
+@@ -37,5 +36,3 @@ explicit url_sources ;
  lib boost_url
     : url_sources
     ;
@@ -119,18 +119,10 @@ index 90a4d1a..14e48c9 100644
      : requirements
        <library>/boost/url//boost_url
 diff --git a/test/Jamfile b/test/Jamfile
-index 72b3fa8..c718ed9 100644
+index 42239ab..5e36c09 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
-@@ -19,6 +19,7 @@ project
-     <toolset>clang:<warnings-as-errors>on
-     <toolset>msvc:<cxxflags>"/we4265" # Extra errors that are disabled by default
-     <toolset>gcc:<cxxflags>"-Wno-unused-but-set-variable"      # Warnings in dependencies
-+    <toolset>clang:<cxxflags>"-Wno-unknown-warning-option"
-     <toolset>gcc-7:<cxxflags>"-Wno-maybe-uninitialized"        # Warnings in dependencies
-     <toolset>clang-4:<cxxflags>"-Wno-unused-but-set-variable"  # Warnings in dependencies
-     <toolset>clang-5:<cxxflags>"-Wno-unused-but-set-variable"  # Warnings in dependencies
-@@ -31,24 +32,6 @@ project
+@@ -40,24 +40,6 @@ project
      <undefined-sanitizer>norecover:<visibility>global
      ;
  

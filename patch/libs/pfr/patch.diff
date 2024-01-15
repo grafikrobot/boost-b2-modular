@@ -22,7 +22,7 @@ index 240d039..2193421 100644
      ;
  
 diff --git a/test/core/Jamfile.v2 b/test/core/Jamfile.v2
-index ad25a84..b4e727e 100644
+index 42efedd..0b2934c 100644
 --- a/test/core/Jamfile.v2
 +++ b/test/core/Jamfile.v2
 @@ -5,13 +5,20 @@

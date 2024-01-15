@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index f9d4049..54bbda7 100644
+index bcca3d8..8518fe0 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -8,7 +8,6 @@
@@ -59,7 +59,7 @@ index f9d4049..54bbda7 100644
 -
 -boost-install boost_stacktrace_noop boost_stacktrace_backtrace boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_windbg boost_stacktrace_windbg_cached ;
 diff --git a/example/user_config.cpp b/example/user_config.cpp
-index cb80a58..fa845cf 100644
+index a1403cf..3830ccd 100644
 --- a/example/user_config.cpp
 +++ b/example/user_config.cpp
 @@ -4,7 +4,7 @@
@@ -72,7 +72,7 @@ index cb80a58..fa845cf 100644
  #include <boost/array.hpp>
  #include <exception>    // std::set_terminate, std::abort
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 6ccd7d7..23c9738 100644
+index ffdcdb4..fb8ae3e 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -5,7 +5,7 @@

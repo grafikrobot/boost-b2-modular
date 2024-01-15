@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index 92d64f1..b2a5e74 100644
+index e3ad4e6..2c66296 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -12,6 +12,10 @@ import ../../config/checks/config : requires ;
@@ -31,7 +31,7 @@ index 92d64f1..b2a5e74 100644
  
  run sp_constexpr_test.cpp ;
  run sp_constexpr_test2.cpp ;
-@@ -401,19 +405,19 @@ run lsp_hash_test.cpp
+@@ -406,19 +410,19 @@ run lsp_hash_test.cpp
  run lsp_hash_test2.cpp ;
  
  run atomic_count_mt_test.cpp

@@ -45,17 +45,9 @@ index a4dc9c3..41914be 100644
      ;
  
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index fea3033..a125408 100644
+index fea3033..01aded7 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -1,6 +1,6 @@
- # Boost.MultiIndex tests Jamfile
- #
--# Copyright 2003-2020 Joaqu�n M L�pez Mu�oz.
-+# Copyright 2003-2020 Joaqu�n M L�pez Mu�oz.
- # Distributed under the Boost Software License, Version 1.0.
- # (See accompanying file LICENSE_1_0.txt or copy at
- # http://www.boost.org/LICENSE_1_0.txt)
 @@ -46,7 +46,8 @@ test-suite "multi_index" :
      [ run test_conv_iterators.cpp   test_conv_iterators_main.cpp   ]
      [ run test_copy_assignment.cpp  test_copy_assignment_main.cpp  ]

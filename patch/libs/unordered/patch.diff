@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 09d62122..0be28201 100644
+index f1ab8d81..3407fc38 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -7,7 +7,7 @@
@@ -19,7 +19,7 @@ index 09d62122..0be28201 100644
          <warnings>pedantic
          <toolset>intel:<warnings>on
  
-@@ -144,7 +145,7 @@ run unordered/serialization_tests.cpp
+@@ -145,7 +146,7 @@ run unordered/serialization_tests.cpp
        <toolset>gcc:<optimization>space
        <toolset>clang:<inlining>on
        <toolset>clang:<optimization>space
@@ -28,7 +28,7 @@ index 09d62122..0be28201 100644
  
  compile-fail unordered/insert_node_type_fail.cpp : <define>UNORDERED_TEST_MAP      : insert_node_type_fail_map ;
  compile-fail unordered/insert_node_type_fail.cpp : <define>UNORDERED_TEST_MULTIMAP : insert_node_type_fail_multimap ;
-@@ -243,7 +244,7 @@ run unordered/serialization_tests.cpp
+@@ -245,7 +246,7 @@ run unordered/serialization_tests.cpp
        <toolset>gcc:<optimization>space
        <toolset>clang:<inlining>on
        <toolset>clang:<optimization>space
@@ -37,7 +37,7 @@ index 09d62122..0be28201 100644
      : foa_serialization_tests ;
  
  local FOA_EXCEPTION_TESTS =
-@@ -346,7 +347,7 @@ run cfoa/serialization_tests.cpp
+@@ -348,7 +349,7 @@ run cfoa/serialization_tests.cpp
        <toolset>gcc:<optimization>space
        <toolset>clang:<inlining>on
        <toolset>clang:<optimization>space

@@ -54,12 +54,12 @@ index 4315385..1ad664c 100644
  install random_speed : random_speed.exe : <install-type>EXE <location>. ;
  install nondet_random_speed : nondet_random_speed.exe : <install-type>EXE <location>. ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 5d01f24..147d816 100644
+index e189cae..942b281 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -8,57 +8,57 @@
- # bring in rules for testing
+@@ -9,58 +9,58 @@
  import testing ;
+ import ../../config/checks/config : requires ;
  
 -project /boost/random/test : requirements <toolset>msvc:<define>_SCL_SECURE_NO_WARNINGS ;
 +project : requirements <toolset>msvc:<define>_SCL_SECURE_NO_WARNINGS ;
@@ -114,6 +114,7 @@ index 5d01f24..147d816 100644
 -run test_lagged_fibonacci23209.cpp /boost//unit_test_framework ;
 -run test_lagged_fibonacci44497.cpp /boost//unit_test_framework ;
 -run test_zero_seed.cpp /boost//unit_test_framework ;
+-run test_splitmix64.cpp /boost//unit_test_framework ;
 +run test_minstd_rand0.cpp /boost/test//unit_test_framework ;
 +run test_minstd_rand.cpp /boost/test//unit_test_framework ;
 +run test_rand48.cpp /boost/test//unit_test_framework ;
@@ -151,7 +152,8 @@ index 5d01f24..147d816 100644
 +run test_lagged_fibonacci19937.cpp /boost/test//unit_test_framework ;
 +run test_lagged_fibonacci23209.cpp /boost/test//unit_test_framework ;
 +run test_lagged_fibonacci44497.cpp /boost/test//unit_test_framework ;
-+run test_zero_seed.cpp /boost/random//boost_random /boost/test//unit_test_framework ;
++run test_zero_seed.cpp /boost/test//unit_test_framework ;
++run test_splitmix64.cpp /boost/test//unit_test_framework ;
  
 -run niederreiter_base2_validate.cpp /boost//unit_test_framework ;
 -run sobol_validate.cpp /boost//unit_test_framework ;
@@ -162,7 +164,7 @@ index 5d01f24..147d816 100644
  
  # Disable by default.  These don't add much and the larger
  # ones can overflow the stack.
-@@ -68,66 +68,73 @@ explicit test_lagged_fibonacci1279 test_lagged_fibonacci2281
+@@ -70,66 +70,73 @@ explicit test_lagged_fibonacci1279 test_lagged_fibonacci2281
      test_lagged_fibonacci19937 test_lagged_fibonacci23209
      test_lagged_fibonacci44497 ;
  
@@ -295,15 +297,12 @@ index 5d01f24..147d816 100644
  
  # run nondet_random_speed.cpp ;
  # run random_device.cpp ;
-@@ -143,6 +150,9 @@ explicit statistic_tests ;
+@@ -145,6 +152,6 @@ explicit statistic_tests ;
  #
  # Multiprecision tests:
  #
--run multiprecision_int_test.cpp /boost//unit_test_framework ;
-+alias multiprecision_test : math_test
-+    # /boost/multiprecision//boost_multiprecision
-+    ;
-+run multiprecision_int_test.cpp multiprecision_test /boost/test//unit_test_framework /boost/multiprecision//boost_multiprecision ;
- # This one runs too slow in debug mode, we really need inline expansions turned on amonst other things:
--run multiprecision_float_test.cpp /boost//unit_test_framework : : : release ;
-+run multiprecision_float_test.cpp multiprecision_test /boost/test//unit_test_framework /boost/multiprecision//boost_multiprecision : : : release ;
+-run multiprecision_int_test.cpp /boost//unit_test_framework : : : [ requires cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx14_variable_templates cxx14_constexpr ] ;
++run multiprecision_int_test.cpp /boost/test//unit_test_framework /boost/multiprecision//boost_multiprecision : : : [ requires cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx14_variable_templates cxx14_constexpr ] ;
+ # This one runs too slow in debug mode, we really need inline expansions turned on amongst other things:
+-run multiprecision_float_test.cpp /boost//unit_test_framework : : : [ requires cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx14_variable_templates cxx14_constexpr ] release ;
++run multiprecision_float_test.cpp /boost/test//unit_test_framework /boost/multiprecision//boost_multiprecision : : : [ requires cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx14_variable_templates cxx14_constexpr ] release ;

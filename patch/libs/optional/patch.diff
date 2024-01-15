@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index c965863..c289b61 100644
+index 1906eb4..a2a4fce 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -17,7 +17,7 @@ import testing ;
@@ -10,8 +10,8 @@ index c965863..c289b61 100644
 +    [ run optional_test.cpp : : : <source>/boost/bind//boost_bind <source>/boost/mpl//boost_mpl ]
      [ run optional_test_assign.cpp ]
      [ run optional_test_swap.cpp ]
-     [ run optional_test_conversions_from_U.cpp ]
-@@ -28,7 +28,7 @@ import testing ;
+     [ compile optional_test_wuninitialized.cpp ]
+@@ -29,7 +29,7 @@ import testing ;
      [ run optional_test_flat_map.cpp ]
      [ run optional_test_hash.cpp ]
      [ run optional_test_map.cpp ]

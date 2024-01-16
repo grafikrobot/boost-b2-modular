@@ -1558,6 +1558,19 @@ index b6dbd9d2..f84ab0ba 100644
  
  using namespace boost::multiprecision;
  
+diff --git a/test/test_arithmetic_cpp_bin_float_6.cpp b/test/test_arithmetic_cpp_bin_float_6.cpp
+index 8fa90bcf..0cd7740b 100644
+--- a/test/test_arithmetic_cpp_bin_float_6.cpp
++++ b/test/test_arithmetic_cpp_bin_float_6.cpp
+@@ -5,7 +5,7 @@
+ 
+ #include <boost/multiprecision/cpp_bin_float.hpp>
+ 
+-#include "libs/multiprecision/test/test_arithmetic.hpp"
++#include "test_arithmetic.hpp"
+ 
+ #if 0
+ template <unsigned Digits, boost::multiprecision::backends::digit_base_type DigitBase, class Allocator, class Exponent, Exponent MinExponent, Exponent MaxExponent, boost::multiprecision::expression_template_option ET>
 diff --git a/test/test_arithmetic_mpc.cpp b/test/test_arithmetic_mpc.cpp
 index 4bb82477..8967b3c4 100644
 --- a/test/test_arithmetic_mpc.cpp

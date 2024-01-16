@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 4b41a3a..55eed9f 100644
+index 4b41a3a..34567f2 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -6,11 +6,13 @@ import testing ;
@@ -17,10 +17,12 @@ index 4b41a3a..55eed9f 100644
      for file in [ path.glob-tree $(headers_path) : *.hpp : detail ]
      {
          local rel_file = [ path.relative-to $(headers_path) $(file) ] ;
-@@ -30,6 +32,7 @@ rule test_all
+@@ -29,7 +31,8 @@ rule test_all
+                 :  # additional args
                  :  # test-files
                  : <library>/boost/test//boost_unit_test_framework # requirements
-                   <library>/boost/container
+-                  <library>/boost/container
++                  <library>/boost/container//boost_container
 +                  <library>/boost/foreach//boost_foreach
              ] ;
          }

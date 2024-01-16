@@ -292,7 +292,7 @@ index 6ea5bc8a2..6d4a8ca58 100644
  
  test-suite report_gen : [ all-tests ] test_cbrt_msvc_debug test_cbrt_msvc_release_32 test_cbrt_msvc_release_64 test_cbrt_intel_release 
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index f40aa6b9b..4cf90702a 100644
+index f40aa6b9b..54a7bcefb 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -12,7 +12,7 @@ import testing ;
@@ -1632,7 +1632,7 @@ index f40aa6b9b..4cf90702a 100644
     [ run compile_test/interpolators_catmull_rom_incl_test.cpp compile_test_main  : : : [ requires cxx11_hdr_array cxx11_hdr_initializer_list ] ]
     [ run compile_test/interpolators_catmull_rom_concept_test.cpp compile_test_main   : : : [ requires cxx11_hdr_array cxx11_hdr_initializer_list ] ]
     [ run test_standalone_asserts.cpp ]
-@@ -1259,95 +1269,96 @@ test-suite interpolators :
+@@ -1259,95 +1269,95 @@ test-suite interpolators :
  ;
  
  test-suite quadrature :
@@ -1667,9 +1667,9 @@ index f40aa6b9b..4cf90702a 100644
       [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax sfinae_expr ] :
     tanh_sinh_quadrature_test_2a ]
 -   [ run  tanh_sinh_quadrature_test.cpp ../../test/build//boost_unit_test_framework
+-     : : : <toolset>msvc:<cxxflags>/bigobj <define>TEST3 [ check-target-builds ../config//has_float128 "GCC libquadmath and __float128 support" : <linkflags>-lquadmath ]
 +   [ run  tanh_sinh_quadrature_test.cpp /boost/test//boost_unit_test_framework
 +     : : : <toolset>msvc:<cxxflags>/bigobj <define>TEST3 <use>float128_type
-      : : : <toolset>msvc:<cxxflags>/bigobj <define>TEST3 [ check-target-builds ../config//has_float128 "GCC libquadmath and __float128 support" : <linkflags>-lquadmath ]
       [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax sfinae_expr ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] :
     tanh_sinh_quadrature_test_3 ]
 -   [ run  tanh_sinh_quadrature_test.cpp ../../test/build//boost_unit_test_framework
@@ -1777,7 +1777,7 @@ index f40aa6b9b..4cf90702a 100644
       [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] : exp_sinh_quadrature_test_10 ]
  
     [ run  compile_test/quad_exp_sinh_incl_test.cpp compile_test_main : : : [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
-@@ -1361,27 +1372,27 @@ test-suite quadrature :
+@@ -1361,27 +1371,27 @@ test-suite quadrature :
     [ compile  compile_test/quad_sinh_sinh_concept_test.cpp : [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ compile  compile_test/quad_tanh_sinh_concept_test.cpp : [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax sfinae_expr ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
  
@@ -1816,7 +1816,7 @@ index f40aa6b9b..4cf90702a 100644
       [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] <debug-symbols>off <toolset>msvc:<cxxflags>/bigobj release [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] : adaptive_gauss_quadrature_test_3 ]
  
     [ run naive_monte_carlo_test.cpp : : :
-@@ -1485,26 +1496,26 @@ test-suite quadrature :
+@@ -1485,26 +1495,26 @@ test-suite quadrature :
     [ compile compile_test/gauss_kronrod_concept_test.cpp : [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ run git_issue_898.cpp ]
  
@@ -1857,7 +1857,7 @@ index f40aa6b9b..4cf90702a 100644
  ;
  
  #
-@@ -1513,18 +1524,18 @@ test-suite autodiff :
+@@ -1513,18 +1523,18 @@ test-suite autodiff :
  #  too much time:
  #
  test-suite long-running-tests :
@@ -1888,7 +1888,7 @@ index f40aa6b9b..4cf90702a 100644
     [ run test_constant_generate.cpp : : : release <define>USE_CPP_FLOAT=1 <exception-handling>off:<build>no  ]
  ;
  
-@@ -1542,9 +1553,7 @@ rule get_float128_tests
+@@ -1542,9 +1552,7 @@ rule get_float128_tests
             : # command line
             : # input files
             : # requirements

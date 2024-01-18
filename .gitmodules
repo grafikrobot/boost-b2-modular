@@ -749,3 +749,7 @@
 [submodule "mp"]
 	path = libs/mp11
 	url = ../../boostorg/mp11.git
+[submodule "compat"]
+	path = libs/compat
+	url = ../../boostorg/compat.git
+	branch = develop

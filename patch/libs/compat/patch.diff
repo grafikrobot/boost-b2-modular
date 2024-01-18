@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index feb3106..9c72b83 100644
+index feb3106..c13c38c 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -4,7 +4,7 @@
@@ -11,7 +11,7 @@ index feb3106..9c72b83 100644
  
  project
    : default-build
-@@ -20,10 +20,12 @@ project
+@@ -20,6 +20,8 @@ project
      <toolset>msvc:<warnings-as-errors>on
      <toolset>gcc:<warnings-as-errors>on
      <toolset>clang:<warnings-as-errors>on
@@ -20,9 +20,3 @@ index feb3106..9c72b83 100644
    ;
  
  run quick.cpp ;
- 
--run latch_test.cpp ;
--run shared_lock_test.cpp ;
-+run latch_test.cpp : : : <library>/boost/thread//boost_thread ;
-+run shared_lock_test.cpp : : : <library>/boost/thread//boost_thread  ;
- run shared_lock_test.cpp : : : <exception-handling>off : shared_lock_test_nx ;

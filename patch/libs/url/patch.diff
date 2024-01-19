@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile b/build/Jamfile
-index 43bd66d..16cb7d0 100644
+index 0c95d9b..a391785 100644
 --- a/build/Jamfile
 +++ b/build/Jamfile
 @@ -8,9 +8,8 @@
@@ -13,7 +13,7 @@ index 43bd66d..16cb7d0 100644
        <define>BOOST_URL_SOURCE
        <toolset>msvc-14.0:<build>no
        # Warnings in dependencies
-@@ -37,5 +36,3 @@ explicit url_sources ;
+@@ -31,5 +30,3 @@ explicit url_sources ;
  lib boost_url
     : url_sources
     ;
@@ -119,10 +119,20 @@ index 90a4d1a..14e48c9 100644
      : requirements
        <library>/boost/url//boost_url
 diff --git a/test/Jamfile b/test/Jamfile
-index 42239ab..5e36c09 100644
+index 638cf9b..d59dfd6 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
-@@ -40,24 +40,6 @@ project
+@@ -22,28 +22,16 @@ project
+     <toolset>gcc:<cxxflags>"-Wno-maybe-uninitialized"
+     <toolset>clang:<cxxflags>"-Wno-unused-but-set-variable"
+     <toolset>gcc,<target-os>windows:<cxxflags>"-Wno-error=array-bounds"
++    <toolset>clang:<cxxflags>"-Wno-unknown-warning-option"
++    <toolset>clang-13:<cxxflags>"-Wno-unused-but-set-variable"
++    <toolset>clang-14:<cxxflags>"-Wno-unused-but-set-variable"
++    <toolset>clang-15:<cxxflags>"-Wno-unused-but-set-variable"
+ 
+     # Different typeinfos confuse ubsan
+     <undefined-sanitizer>norecover:<link>static
      <undefined-sanitizer>norecover:<visibility>global
      ;
  
@@ -133,9 +143,6 @@ index 42239ab..5e36c09 100644
 -
 -  : requirements
 -
--    <toolset>msvc:<warnings-as-errors>on
--    <toolset>gcc:<warnings-as-errors>on
--    <toolset>clang:<warnings-as-errors>on
 -    <toolset>gcc:<cxxflags>"-Wno-unused-but-set-variable"      # Warnings in dependencies
 -    <toolset>clang:<cxxflags>"-Wno-unknown-warning-option"
 -    <toolset>clang-13:<cxxflags>"-Wno-unused-but-set-variable" # Warnings in dependencies
@@ -147,6 +154,7 @@ index 42239ab..5e36c09 100644
  build-project extra ;
  build-project limits ;
  build-project unit ;
+-
 diff --git a/test/extra/Jamfile b/test/extra/Jamfile
 index 237fc52..d3f7f1a 100644
 --- a/test/extra/Jamfile

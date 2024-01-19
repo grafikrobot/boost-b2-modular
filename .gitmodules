@@ -757,3 +757,7 @@
 	path = libs/redis
 	url = ../../boostorg/redis.git
 	branch = develop
+[submodule "cobalt"]
+	path = libs/cobalt
+	url = ../../boostorg/cobalt.git
+	branch = develop

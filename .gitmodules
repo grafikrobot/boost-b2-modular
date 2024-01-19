@@ -753,3 +753,7 @@
 	path = libs/compat
 	url = ../../boostorg/compat.git
 	branch = develop
+[submodule "redis"]
+	path = libs/redis
+	url = ../../boostorg/redis.git
+	branch = develop

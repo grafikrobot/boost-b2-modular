@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index bcca3d8..8518fe0 100644
+index 7639bf5..ac6d892 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -8,7 +8,6 @@
@@ -9,8 +9,8 @@ index bcca3d8..8518fe0 100644
 -  : source-location .
    : requirements
      [ requires cxx11_rvalue_references ]
-     <visibility>hidden
-@@ -73,7 +72,7 @@ lib boost_stacktrace_backtrace
+   : default-build
+@@ -74,7 +73,7 @@ lib boost_stacktrace_backtrace
      <target-os>linux:<library>dl
      <library>backtrace
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
@@ -19,7 +19,7 @@ index bcca3d8..8518fe0 100644
    : # default build
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
-@@ -86,7 +85,7 @@ lib boost_stacktrace_addr2line
+@@ -87,7 +86,7 @@ lib boost_stacktrace_addr2line
      <warnings>all
      <target-os>linux:<library>dl
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
@@ -28,7 +28,7 @@ index bcca3d8..8518fe0 100644
    : # default build
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
-@@ -99,7 +98,7 @@ lib boost_stacktrace_basic
+@@ -100,7 +99,7 @@ lib boost_stacktrace_basic
      <warnings>all
      <target-os>linux:<library>dl
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
@@ -37,7 +37,7 @@ index bcca3d8..8518fe0 100644
    : # default build
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
-@@ -112,7 +111,7 @@ lib boost_stacktrace_windbg
+@@ -113,7 +112,7 @@ lib boost_stacktrace_windbg
      <warnings>all
      <library>Dbgeng <library>ole32
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
@@ -46,7 +46,7 @@ index bcca3d8..8518fe0 100644
    : # default build
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
-@@ -125,10 +124,8 @@ lib boost_stacktrace_windbg_cached
+@@ -126,10 +125,8 @@ lib boost_stacktrace_windbg_cached
      <warnings>all
      <library>Dbgeng <library>ole32
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1

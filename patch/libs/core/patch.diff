@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index bff2deb..dd4eca4 100644
+index 11fc013..429a4ef 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -10,7 +10,7 @@ import modules ;
@@ -29,12 +29,12 @@ index bff2deb..dd4eca4 100644
  run sv_common_reference_test.cpp ;
  compile sv_common_reference_test2.cpp ;
  compile sv_windows_h_test.cpp ;
-@@ -378,7 +378,7 @@ run memory_resource_test.cpp ;
- run data_test.cpp ;
- run size_test.cpp ;
+@@ -382,7 +382,7 @@ import ../../config/checks/config : requires ;
  
--local with-serialization = <library>/boost//serialization/<warnings>off $(warnings-as-errors-off) <undefined-sanitizer>norecover:<link>static ;
-+local with-serialization = <library>/boost/serialization//boost_serialization/<warnings>off $(warnings-as-errors-off) <undefined-sanitizer>norecover:<link>static ;
+ local CPP11 = [ requires cxx11_variadic_templates cxx11_template_aliases cxx11_decltype cxx11_constexpr cxx11_noexcept ] ;
+ 
+-local with-serialization = <library>/boost//serialization/<warnings>off $(warnings-as-errors-off) <undefined-sanitizer>norecover:<link>static $(CPP11) ;
++local with-serialization = <library>/boost/serialization//boost_serialization/<warnings>off <undefined-sanitizer>norecover:<link>static $(CPP11) ;
  
  run serialization_nvp_test.cpp : : : $(with-serialization) <undefined-sanitizer>norecover:<build>no ;
  run serialization_split_free_test.cpp : : : $(with-serialization) ;

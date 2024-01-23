@@ -1,8 +1,8 @@
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
-index 1980271..2b16e83 100644
+index 068ef6d..f5ba6f9 100644
 --- a/example/Jamfile.v2
 +++ b/example/Jamfile.v2
-@@ -13,7 +13,7 @@ project : requirements <toolset>sun:<define>BOOST_TYPEOF_EMULATION ;
+@@ -18,7 +18,7 @@ project :
  run add_cxx11_lambda.cpp ;
  run add_global_functor.cpp ;
  run add_local_functor.cpp ;
@@ -10,8 +10,8 @@ index 1980271..2b16e83 100644
 +run add_phoenix.cpp : : : <source>/boost/spirit//boost_spirit ;
  
  run const_block.cpp ;
- compile-fail const_block_error.cpp : <variant>debug : ;
-@@ -38,8 +38,8 @@ run n2550_find_if.cpp ;
+ compile-fail const_block_error.cpp : <variant>debug ;
+@@ -43,8 +43,8 @@ run n2550_find_if.cpp ;
  compile-fail noncopyable_cxx11_lambda_error.cpp ;
  run noncopyable_local_function.cpp ;
  
@@ -22,7 +22,7 @@ index 1980271..2b16e83 100644
  
  # Only compile but do not run profiling programs (they take a long time to run).
  exe profile_global_functor : profile_global_functor.cpp
-@@ -70,8 +70,9 @@ exe profile_local_functor : profile_local_functor.cpp
+@@ -75,8 +75,9 @@ exe profile_local_functor : profile_local_functor.cpp
  exe profile_phoenix : profile_phoenix.cpp
      :   <library>/boost/chrono//boost_chrono
          <library>/boost/system//boost_system
@@ -33,38 +33,16 @@ index 1980271..2b16e83 100644
 -run scope_exit.cpp ;
 +run scope_exit.cpp : : : <source>/boost/foreach//boost_foreach ;
  
-diff --git a/example/profile_phoenix.cpp b/example/profile_phoenix.cpp
-index 7bd2088..8ac447c 100644
---- a/example/profile_phoenix.cpp
-+++ b/example/profile_phoenix.cpp
-@@ -5,10 +5,10 @@
- // http://www.boost.org/LICENSE_1_0.txt)
- // Home at http://www.boost.org/libs/local_function
- 
--#include <boost/spirit/home/phoenix/statement/sequence.hpp>
--#include <boost/spirit/home/phoenix/core/reference.hpp>
--#include <boost/spirit/home/phoenix/core/argument.hpp>
--#include <boost/spirit/home/phoenix/operator/arithmetic.hpp>
-+#include <boost/phoenix/statement/sequence.hpp>
-+#include <boost/phoenix/core/reference.hpp>
-+#include <boost/phoenix/core/argument.hpp>
-+#include <boost/phoenix/operator/arithmetic.hpp>
- #include <boost/chrono.hpp>
- #include <iostream>
- #include <vector>
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 47d95d0..f3157a0 100644
+index 20bed34..8cda65f 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -8,7 +8,10 @@
- import testing ;
- 
- # Sun does not automatically detect type-of emulation mode (force it).
--project : requirements <toolset>sun:<define>BOOST_TYPEOF_EMULATION ;
-+project : requirements <toolset>sun:<define>BOOST_TYPEOF_EMULATION
+@@ -13,6 +13,8 @@ project :
+     <toolset>sun:<define>BOOST_TYPEOF_EMULATION
+     <toolset>gcc:<cxxflags>-Wno-unused-local-typedefs
+     <toolset>clang:<cxxflags>-Wno-unused-local-typedefs
 +    <source>/boost/concept_check//boost_concept_check
 +    <source>/boost/functional//boost_functional
-+    ;
+     ;
  
  rule vaseq ( command target )
- {

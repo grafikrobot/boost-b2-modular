@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 4316061..39a1338 100644
+index b266127..04828b4 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -48,7 +48,7 @@ test-suite conversion

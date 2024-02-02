@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index b64a094..049dfa9 100644
+index d69d3ee..94d0ea1 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -10,7 +10,7 @@ import modules ;
@@ -11,16 +11,16 @@ index b64a094..049dfa9 100644
    <warnings>extra
    <toolset>msvc:<warnings-as-errors>on
    <toolset>clang:<warnings-as-errors>on
-@@ -187,7 +187,7 @@ compile-fail scoped_enum_compile_fail_conv_to_int.cpp
- 
- run underlying_type.cpp ;
+@@ -190,7 +190,7 @@ run underlying_type.cpp ;
+ compile-fail null_deleter_compile_fail_adl.cpp
+   : $(warnings-as-errors-off) ;
  
 -run fclose_deleter_test.cpp : : : <target-os>windows:<define>_CRT_SECURE_NO_WARNINGS <target-os>windows:<define>_CRT_SECURE_NO_DEPRECATE ;
-+run fclose_deleter_test.cpp /boost/move//boost_move : : : <source>/boost/smart_ptr//boost_smart_ptr <target-os>windows:<define>_CRT_SECURE_NO_WARNINGS <target-os>windows:<define>_CRT_SECURE_NO_DEPRECATE ;
++run fclose_deleter_test.cpp /boost/move//boost_move /boost/smart_ptr//boost_smart_ptr : : : <target-os>windows:<define>_CRT_SECURE_NO_WARNINGS <target-os>windows:<define>_CRT_SECURE_NO_DEPRECATE ;
+ compile-fail fclose_deleter_compile_fail_adl.cpp
+   : <target-os>windows:<define>_CRT_SECURE_NO_WARNINGS <target-os>windows:<define>_CRT_SECURE_NO_DEPRECATE $(warnings-as-errors-off) ;
  
- run functor_test.cpp ;
- 
-@@ -346,7 +346,7 @@ run sv_eq_test.cpp ;
+@@ -354,7 +354,7 @@ run sv_eq_test.cpp ;
  run sv_lt_test.cpp ;
  run sv_stream_insert_test.cpp ;
  run sv_conversion_test.cpp ;
@@ -29,7 +29,7 @@ index b64a094..049dfa9 100644
  run sv_common_reference_test.cpp ;
  compile sv_common_reference_test2.cpp ;
  compile sv_windows_h_test.cpp ;
-@@ -384,7 +384,7 @@ import ../../config/checks/config : requires ;
+@@ -392,7 +392,7 @@ import ../../config/checks/config : requires ;
  
  local CPP11 = [ requires cxx11_variadic_templates cxx11_template_aliases cxx11_decltype cxx11_constexpr cxx11_noexcept ] ;
  

@@ -18,7 +18,7 @@ index dcef696..903d9d5 100644
 -
 -boost-install boost_system ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index ea7c78e..a1f1cc6 100644
+index 8e3e5a8..4dfaecc 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -17,6 +17,8 @@ project

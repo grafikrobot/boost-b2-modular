@@ -28,7 +28,6 @@ explicit
     [ alias all : boost_program_options example test ]
     ;
 
-call-if
-    : boost-library program_options
+call-if : boost-library program_options
     : install boost_program_options
     ;

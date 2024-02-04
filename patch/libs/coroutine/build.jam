@@ -25,7 +25,6 @@ explicit
     [ alias all : boost_coroutine test ]
     ;
 
-call-if
-    : boost-library coroutine
+call-if : boost-library coroutine
     : install boost_coroutine
     ;

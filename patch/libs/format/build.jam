@@ -31,6 +31,5 @@ explicit
         ]
     ;
 
-call-if
-    : boost-library format
+call-if : boost-library format
     ;

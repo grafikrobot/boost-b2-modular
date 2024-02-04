@@ -58,7 +58,6 @@ explicit
     [ alias all : boost_log boost_log_setup example test ]
     ;
 
-call-if
-    : boost-library log
+call-if : boost-library log
     : install boost_log boost_log_setup
     ;

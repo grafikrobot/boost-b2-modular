@@ -25,6 +25,5 @@ explicit
         ]
     ;
 
-call-if
-    : boost-library type_traits
+call-if : boost-library type_traits
     ;

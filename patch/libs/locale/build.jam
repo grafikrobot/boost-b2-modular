@@ -21,7 +21,6 @@ explicit
     [ alias all : boost_locale test ]
     ;
 
-call-if
-    : boost-library locale
+call-if : boost-library locale
     : install boost_locale
     ;

@@ -15,6 +15,5 @@ explicit
     [ alias all : boost_mp11 test ]
     ;
 
-call-if
-    : boost-library mp11
+call-if : boost-library mp11
     ;

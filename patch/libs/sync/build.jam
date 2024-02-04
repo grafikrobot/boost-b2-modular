@@ -30,7 +30,6 @@ explicit
     [ alias all : boost_sync test ]
     ;
 
-call-if
-    : boost-library sync
+call-if : boost-library sync
     : install boost_sync
     ;

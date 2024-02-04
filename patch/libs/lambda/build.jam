@@ -25,6 +25,5 @@ explicit
     [ alias all : boost_lambda test ]
     ;
 
-call-if
-    : boost-library lambda
+call-if : boost-library lambda
     ;

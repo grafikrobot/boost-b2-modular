@@ -28,6 +28,5 @@ explicit
     [ alias all : boost_bimap example test ]
     ;
 
-call-if
-    : boost-library bimap
+call-if : boost-library bimap
     ;

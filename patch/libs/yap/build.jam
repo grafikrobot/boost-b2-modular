@@ -18,6 +18,5 @@ explicit
     [ alias all : boost_yap test ]
     ;
 
-call-if
-    : boost-library yap
+call-if : boost-library yap
     ;

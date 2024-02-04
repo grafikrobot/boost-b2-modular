@@ -37,8 +37,7 @@ explicit
         ]
     ;
 
-call-if
-    : boost-library stacktrace
+call-if : boost-library stacktrace
     : install
         boost_stacktrace_noop
         boost_stacktrace_backtrace

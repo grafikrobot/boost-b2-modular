@@ -38,7 +38,6 @@ explicit
     [ alias all : boost_serialization boost_wserialization example test ]
     ;
 
-call-if
-    : boost-library serialization
+call-if : boost-library serialization
     : install boost_serialization boost_wserialization
     ;

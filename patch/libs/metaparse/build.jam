@@ -21,6 +21,5 @@ explicit
     [ alias all : boost_metaparse example test ]
     ;
 
-call-if
-    : boost-library metaparse
+call-if : boost-library metaparse
     ;

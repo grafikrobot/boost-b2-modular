@@ -22,6 +22,5 @@ explicit
     [ alias all : boost_local_function example test ]
     ;
 
-call-if
-    : boost-library local_function
+call-if : boost-library local_function
     ;

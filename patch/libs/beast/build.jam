@@ -43,8 +43,7 @@ explicit
     [ alias lib-asio-ssl : boost_beast_asio_ssl ]
     ;
 
-call-if
-    : boost-library beast
+call-if : boost-library beast
     : install boost_beast boost_beast_asio boost_beast_asio_ssl
     ;
 

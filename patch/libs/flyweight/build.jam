@@ -28,6 +28,5 @@ explicit
     [ alias all : boost_flyweight example test ]
     ;
 
-call-if
-    : boost-library flyweight
+call-if : boost-library flyweight
     ;

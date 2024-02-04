@@ -21,6 +21,5 @@ explicit
     [ alias all : boost_safe_numerics example test ]
     ;
 
-call-if
-    : boost-library safe_numerics
+call-if : boost-library safe_numerics
     ;

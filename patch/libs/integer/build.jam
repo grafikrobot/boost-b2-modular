@@ -21,6 +21,5 @@ explicit
     [ alias all : boost_integer test ]
     ;
 
-call-if
-    : boost-library integer
+call-if : boost-library integer
     ;

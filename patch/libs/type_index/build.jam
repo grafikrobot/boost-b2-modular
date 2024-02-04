@@ -22,6 +22,5 @@ explicit
     [ alias all : boost_type_index test ]
     ;
 
-call-if
-    : boost-library type_index
+call-if : boost-library type_index
     ;

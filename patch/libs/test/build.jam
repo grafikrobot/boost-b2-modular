@@ -42,8 +42,7 @@ explicit
         boost_unit_test_framework ]
     ;
 
-call-if
-    : boost-library test
+call-if : boost-library test
     : install
         boost_prg_exec_monitor
         boost_test_exec_monitor

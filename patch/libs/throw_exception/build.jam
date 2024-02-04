@@ -17,6 +17,5 @@ explicit
     [ alias all : boost_throw_exception test ]
     ;
 
-call-if
-    : boost-library throw_exception
+call-if : boost-library throw_exception
     ;

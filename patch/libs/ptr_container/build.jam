@@ -28,6 +28,5 @@ explicit
     [ alias all : boost_ptr_container test ]
     ;
 
-call-if
-    : boost-library ptr_container
+call-if : boost-library ptr_container
     ;

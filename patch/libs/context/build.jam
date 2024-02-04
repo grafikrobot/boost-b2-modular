@@ -84,7 +84,6 @@ explicit
     [ alias all : boost_context test ]
     ;
 
-call-if
-    : boost-library context
+call-if : boost-library context
     : install boost_context
     ;

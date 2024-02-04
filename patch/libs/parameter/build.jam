@@ -25,6 +25,5 @@ explicit
     [ alias all : boost_parameter test ]
     ;
 
-call-if
-    : boost-library parameter
+call-if : boost-library parameter
     ;

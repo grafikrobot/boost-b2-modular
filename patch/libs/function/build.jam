@@ -23,6 +23,5 @@ explicit
     [ alias all : boost_function example test ]
     ;
 
-call-if
-    : boost-library function
+call-if : boost-library function
     ;

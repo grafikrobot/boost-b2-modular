@@ -16,6 +16,5 @@ explicit
     [ alias all : boost_static_assert example test ]
     ;
 
-call-if
-    : boost-library static_assert
+call-if : boost-library static_assert
     ;

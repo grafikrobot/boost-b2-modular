@@ -20,6 +20,5 @@ explicit
     [ alias all : boost_scope_exit example test ]
     ;
 
-call-if
-    : boost-library scope_exit
+call-if : boost-library scope_exit
     ;

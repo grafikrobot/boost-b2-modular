@@ -17,6 +17,5 @@ explicit
     [ alias all : boost_winapi test ]
     ;
 
-call-if
-    : boost-library winapi
+call-if : boost-library winapi
     ;

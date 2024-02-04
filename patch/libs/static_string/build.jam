@@ -22,6 +22,5 @@ explicit
     [ alias all : boost_static_string test ]
     ;
 
-call-if
-    : boost-library static_string
+call-if : boost-library static_string
     ;

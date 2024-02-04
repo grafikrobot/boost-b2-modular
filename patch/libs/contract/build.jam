@@ -31,7 +31,6 @@ explicit
     [ alias all : boost_contract example test ]
     ;
 
-call-if
-    : boost-library contract
+call-if : boost-library contract
     : install boost_contract
     ;

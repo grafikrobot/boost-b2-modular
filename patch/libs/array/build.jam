@@ -20,6 +20,5 @@ explicit
     [ alias all : boost_array test ]
     ;
 
-call-if
-    : boost-library array
+call-if : boost-library array
     ;

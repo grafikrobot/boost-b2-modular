@@ -20,7 +20,6 @@ explicit
     [ alias all : boost_container example test ]
     ;
 
-call-if
-    : boost-library container
+call-if : boost-library container
     : install boost_container
     ;

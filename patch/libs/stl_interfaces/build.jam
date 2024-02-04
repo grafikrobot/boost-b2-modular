@@ -18,6 +18,5 @@ explicit
     [ alias all : boost_stl_interfaces test ]
     ;
 
-call-if
-    : boost-library stl_interfaces
+call-if : boost-library stl_interfaces
     ;

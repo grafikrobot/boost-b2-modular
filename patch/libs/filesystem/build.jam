@@ -29,7 +29,6 @@ explicit
     [ alias all : boost_filesystem bug example test ]
     ;
 
-call-if
-    : boost-library filesystem
+call-if : boost-library filesystem
     : install boost_filesystem
     ;

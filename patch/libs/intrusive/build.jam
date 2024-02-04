@@ -20,6 +20,5 @@ explicit
     [ alias all : boost_intrusive example test ]
     ;
 
-call-if
-    : boost-library intrusive
+call-if : boost-library intrusive
     ;

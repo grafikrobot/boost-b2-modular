@@ -29,6 +29,5 @@ explicit
     [ alias all : boost_uuid test ]
     ;
 
-call-if
-    : boost-library uuid
+call-if : boost-library uuid
     ;

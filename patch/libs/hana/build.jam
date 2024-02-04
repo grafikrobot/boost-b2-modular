@@ -20,6 +20,5 @@ explicit
     [ alias all : boost_hana test ]
     ;
 
-call-if
-    : boost-library hana
+call-if : boost-library hana
     ;

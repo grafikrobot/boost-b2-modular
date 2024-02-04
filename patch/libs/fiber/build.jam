@@ -26,7 +26,6 @@ explicit
     [ alias all : boost_fiber examples examples/numa performance/fiber performance/fiber/numa test ]
     ;
 
-call-if
-    : boost-library fiber
+call-if : boost-library fiber
     : install boost_fiber boost_fiber_numa
     ;

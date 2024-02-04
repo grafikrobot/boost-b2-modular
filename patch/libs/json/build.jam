@@ -27,7 +27,6 @@ explicit
     [ alias all : boost_json json_deps json_sources bench example fuzzing test ]
     ;
 
-call-if
-    : boost-library json
+call-if : boost-library json
     : install boost_json
     ;

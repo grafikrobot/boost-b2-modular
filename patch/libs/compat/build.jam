@@ -16,6 +16,5 @@ explicit
     [ alias all : boost_compat test ]
     ;
 
-call-if
-    : boost-library compat
+call-if : boost-library compat
     ;

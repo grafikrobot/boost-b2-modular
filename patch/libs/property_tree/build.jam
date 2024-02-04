@@ -30,6 +30,5 @@ explicit
     [ alias all : examples test ]
     ;
 
-call-if
-    : boost-library property_tree
+call-if : boost-library property_tree
     ;

@@ -23,6 +23,5 @@ explicit
     [ alias all : boost_circular_buffer example test ]
     ;
 
-call-if
-    : boost-library circular_buffer
+call-if : boost-library circular_buffer
     ;

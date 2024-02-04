@@ -44,7 +44,6 @@ explicit
     [ alias all : boost_thread example test ]
     ;
 
-call-if
-    : boost-library thread
+call-if : boost-library thread
     : install boost_thread
     ;

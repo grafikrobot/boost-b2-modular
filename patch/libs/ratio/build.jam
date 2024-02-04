@@ -22,6 +22,5 @@ explicit
     [ alias all : boost_ratio test ]
     ;
 
-call-if
-    : boost-library ratio
+call-if : boost-library ratio
     ;

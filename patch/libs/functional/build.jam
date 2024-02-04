@@ -24,6 +24,5 @@ explicit
     [ alias all : boost_functional test factory/test forward/test overloaded_function/test ]
     ;
 
-call-if
-    : boost-library functional
+call-if : boost-library functional
     ;

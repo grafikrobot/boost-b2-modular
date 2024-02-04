@@ -30,6 +30,5 @@ explicit
     [ alias all : boost_units example test test_headers ]
     ;
 
-call-if
-    : boost-library units
+call-if : boost-library units
     ;

@@ -16,6 +16,5 @@ explicit
     [ alias all : boost_move example test ]
     ;
 
-call-if
-    : boost-library move
+call-if : boost-library move
     ;

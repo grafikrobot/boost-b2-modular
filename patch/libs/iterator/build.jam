@@ -29,6 +29,5 @@ explicit
     [ alias all : boost_iterator test ]
     ;
 
-call-if
-    : boost-library iterator
+call-if : boost-library iterator
     ;

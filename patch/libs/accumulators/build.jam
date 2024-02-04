@@ -35,6 +35,5 @@ explicit
     [ alias all : boost_accumulators example test ]
     ;
 
-call-if
-    : boost-library algorithm
+call-if : boost-library algorithm
     ;

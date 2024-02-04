@@ -30,7 +30,6 @@ explicit
     [ alias all : boost_date_time example test ]
     ;
 
-call-if
-    : boost-library date_time
+call-if : boost-library date_time
     : install boost_date_time
     ;

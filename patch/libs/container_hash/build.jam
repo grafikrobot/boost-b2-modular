@@ -19,6 +19,5 @@ explicit
     [ alias all : boost_container_hash examples test ]
     ;
 
-call-if
-    : boost-library container_hash
+call-if : boost-library container_hash
     ;

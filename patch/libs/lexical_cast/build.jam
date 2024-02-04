@@ -26,6 +26,5 @@ explicit
     [ alias all : boost_lexical_cast test ]
     ;
 
-call-if
-    : boost-library lexical_cast
+call-if : boost-library lexical_cast
     ;

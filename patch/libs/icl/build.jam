@@ -33,6 +33,5 @@ explicit
         test ]
     ;
 
-call-if
-    : boost-library icl
+call-if : boost-library icl
     ;

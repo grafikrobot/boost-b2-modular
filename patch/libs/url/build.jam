@@ -42,7 +42,6 @@ explicit
     [ alias all : boost_url url_sources example test ]
     ;
 
-call-if
-    : boost-library url
+call-if : boost-library url
     : library boost_url
     ;

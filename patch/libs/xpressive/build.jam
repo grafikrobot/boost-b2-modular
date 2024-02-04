@@ -36,6 +36,5 @@ explicit
     [ alias all : boost_xpressive example perf test tools ]
     ;
 
-call-if
-    : boost-library xpressive
+call-if : boost-library xpressive
     ;

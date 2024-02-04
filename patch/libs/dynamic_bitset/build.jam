@@ -23,6 +23,5 @@ explicit
     [ alias all : boost_dynamic_bitset example test ]
     ;
 
-call-if
-    : boost-library dynamic_bitset
+call-if : boost-library dynamic_bitset
     ;

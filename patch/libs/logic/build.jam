@@ -17,6 +17,5 @@ explicit
     [ alias all : boost_logic test ]
     ;
 
-call-if
-    : boost-library logic
+call-if : boost-library logic
     ;

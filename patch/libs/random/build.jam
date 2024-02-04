@@ -28,7 +28,6 @@ explicit
     [ alias all : boost_random example extra test ]
     ;
 
-call-if
-    : boost-library random
+call-if : boost-library random
     : install boost_random
     ;

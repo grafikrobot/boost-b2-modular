@@ -35,7 +35,6 @@ explicit
     [ alias all : boost_iostreams example test ]
     ;
 
-call-if
-    : boost-library iostreams
+call-if : boost-library iostreams
     : install boost_iostreams
     ;

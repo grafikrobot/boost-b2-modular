@@ -23,7 +23,6 @@ explicit
     [ alias all : boost_atomic test ]
     ;
 
-call-if
-    : boost-library atomic
+call-if : boost-library atomic
     : install boost_atomic
     ;

@@ -19,6 +19,5 @@ explicit
     [ alias all : boost_outcome test ]
     ;
 
-call-if
-    : boost-library outcome
+call-if : boost-library outcome
     ;

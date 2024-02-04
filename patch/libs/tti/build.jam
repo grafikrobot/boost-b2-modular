@@ -20,6 +20,5 @@ explicit
     [ alias all : boost_tti test ]
     ;
 
-call-if
-    : boost-library tti
+call-if : boost-library tti
     ;

@@ -27,7 +27,6 @@ explicit
     [ alias all : boost_regex example test ]
     ;
 
-call-if
-    : boost-library regex
+call-if : boost-library regex
     : install boost_regex
     ;

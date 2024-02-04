@@ -28,6 +28,5 @@ explicit
     [ alias all : boost_cobalt test example ]
     ;
 
-call-if
-    : boost-library cobalt
+call-if : boost-library cobalt
     ;

@@ -30,7 +30,6 @@ explicit
     [ alias all : boost_chrono test ]
     ;
 
-call-if
-    : boost-library chrono
+call-if : boost-library chrono
     : install boost_chrono
     ;

@@ -21,7 +21,6 @@ explicit
     [ alias all : boost_function_types example test ]
     ;
 
-call-if
-    : boost-library function_types
+call-if : boost-library function_types
     : install boost_function_types
     ;

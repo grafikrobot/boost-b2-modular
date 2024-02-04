@@ -18,6 +18,5 @@ explicit
     [ alias all : boost_variant2 test ]
     ;
 
-call-if
-    : boost-library variant2
+call-if : boost-library variant2
     ;

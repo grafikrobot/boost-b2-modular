@@ -15,6 +15,5 @@ explicit
     [ alias all : boost_leaf test ]
     ;
 
-call-if
-    : boost-library leaf
+call-if : boost-library leaf
     ;

@@ -19,6 +19,5 @@ explicit
     [ alias all : boost_endian test ]
     ;
 
-call-if
-    : boost-library endian
+call-if : boost-library endian
     ;

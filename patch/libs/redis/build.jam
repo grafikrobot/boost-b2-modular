@@ -21,6 +21,5 @@ explicit
     [ alias all : boost_redis test ]
     ;
 
-call-if
-    : boost-library redis
+call-if : boost-library redis
     ;

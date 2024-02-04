@@ -30,6 +30,5 @@ explicit
     [ alias all : boost_property_map example test ]
     ;
 
-call-if
-    : boost-library property_map
+call-if : boost-library property_map
     ;

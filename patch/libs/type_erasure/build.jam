@@ -29,7 +29,6 @@ explicit
     [ alias all : boost_type_erasure example test ]
     ;
 
-call-if
-    : boost-library type_erasure
+call-if : boost-library type_erasure
     : install boost_type_erasure
     ;

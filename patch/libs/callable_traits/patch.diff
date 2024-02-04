@@ -1,8 +1,8 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index bce5f23..ef06b8e 100644
+index bce5f23..8d4d6ae 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -5,11 +5,15 @@
+@@ -5,8 +5,10 @@
  # Distributed under the Boost Software License, Version 1.0.
  # (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  
@@ -14,8 +14,3 @@ index bce5f23..ef06b8e 100644
  
  project :
      requirements
-+        <source>/boost/config//boost_config
-+
-         [ requires cxx11_constexpr ]
-         <toolset>clang:<cxxflags>"-pedantic -Wall -Wextra"
-         <toolset>darwin:<cxxflags>"-pedantic -Wall -Wextra"

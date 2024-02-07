@@ -1,0 +1,82 @@
+diff --git a/doc/Jamfile b/doc/Jamfile
+index 261e3083..61087d41 100644
+--- a/doc/Jamfile
++++ b/doc/Jamfile
+@@ -18,12 +18,12 @@ path-constant THIS_PATH : . ;
+ 
+ doxygen reference
+ :
+-  $(THIS_PATH)/../../../boost/histogram.hpp
+-  [ glob $(THIS_PATH)/../../../boost/histogram/*.hpp ]
+-  [ glob $(THIS_PATH)/../../../boost/histogram/accumulators/*.hpp ]
+-  [ glob $(THIS_PATH)/../../../boost/histogram/algorithm/*.hpp ]
+-  [ glob $(THIS_PATH)/../../../boost/histogram/axis/*.hpp ]
+-  [ glob $(THIS_PATH)/../../../boost/histogram/utility/*.hpp ]
++  $(THIS_PATH)/../include/boost/histogram.hpp
++  [ glob $(THIS_PATH)/../include/boost/histogram/*.hpp ]
++  [ glob $(THIS_PATH)/../include/boost/histogram/accumulators/*.hpp ]
++  [ glob $(THIS_PATH)/../include/boost/histogram/algorithm/*.hpp ]
++  [ glob $(THIS_PATH)/../include/boost/histogram/axis/*.hpp ]
++  [ glob $(THIS_PATH)/../include/boost/histogram/utility/*.hpp ]
+ :
+   <doxygen:param>QUIET=YES
+   <doxygen:param>WARNINGS=YES
+diff --git a/examples/Jamfile b/examples/Jamfile
+index e1b85e0e..ec50d28e 100644
+--- a/examples/Jamfile
++++ b/examples/Jamfile
+@@ -5,8 +5,12 @@
+ # Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ # http://www.boost.org/LICENSE_1_0.txt)
+ 
++require-b2 5.0.1 ;
++
++import-search /boost/config/checks ;
++
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ project
+     : requirements
+@@ -14,6 +18,7 @@ project
+       cxx14_constexpr cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx11_user_defined_literals
+       # list could go on...
+     ]
++    <source>/boost/format//boost_format
+     ;
+ 
+ alias cxx14 :
+diff --git a/test/Jamfile b/test/Jamfile
+index d38b5398..2a85ee1c 100644
+--- a/test/Jamfile
++++ b/test/Jamfile
+@@ -6,11 +6,15 @@
+ # Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
+ # http://www.boost.org/LICENSE_1_0.txt)
+ 
++require-b2 5.0.1 ;
++
++import-search /boost/config/checks ;
++
+ import python ;
+ import os ;
+ import regex ;
+ import testing ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ if ! [ python.configured ]
+ {
+@@ -146,9 +150,9 @@ alias math :
+     [ run utility_jeffreys_interval_test.cpp ]
+     : <warnings>off
+     ;
+-alias accumulators : [ run boost_accumulators_support_test.cpp ] : <warnings>off ;
++alias accumulators : [ run boost_accumulators_support_test.cpp : : : <source>/boost/accumulators//boost_accumulators ] : <warnings>off ;
+ alias range : [ run boost_range_support_test.cpp ] : <warnings>off ;
+-alias units : [ run boost_units_support_test.cpp ] : <warnings>off ;
++alias units : [ run boost_units_support_test.cpp : : : <source>/boost/units//boost_units ] : <warnings>off ;
+ alias serialization :
+     [ run accumulators_serialization_test.cpp libserial : $(THIS_PATH) ]
+     [ run detail_array_wrapper_serialization_test.cpp libserial ]

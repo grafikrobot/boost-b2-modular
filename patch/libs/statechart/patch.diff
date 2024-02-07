@@ -1,0 +1,68 @@
+diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
+index 2a4851c..f83b940 100644
+--- a/example/Jamfile.v2
++++ b/example/Jamfile.v2
+@@ -45,7 +45,7 @@ rule statechart-mt-example-build (
+   exe $(name) : [ independent-obj-build $(name)
+                     : $(directory) : $(cpp-sources)
+                     : <threading>multi $(requirements) ]
+-                ../../thread/build//boost_thread ;
++                /boost/thread//boost_thread ;
+ 
+   return $(name) ;
+ }
+@@ -59,17 +59,17 @@ stage run
+     [ statechart-st-example-build KeyboardNative
+         : Keyboard : Keyboard : $(native) ]
+     [ statechart-st-example-build PingPongSingle
+-        : PingPong : PingPong Player : $(custom) ]
++        : PingPong : PingPong Player : $(custom) <source>/boost/pool//boost_pool ]
+     [ statechart-mt-example-build PingPongMulti1
+-        : PingPong : PingPong Player : $(custom) ]
++        : PingPong : PingPong Player : $(custom) <source>/boost/pool//boost_pool ]
+     [ statechart-mt-example-build PingPongMulti2
+-        : PingPong : PingPong Player : $(custom) <define>USE_TWO_THREADS ]
++        : PingPong : PingPong Player : $(custom) <define>USE_TWO_THREADS <source>/boost/pool//boost_pool ]
+     [ statechart-st-example-build StopWatch : StopWatch : StopWatch ]
+     [ statechart-st-example-build StopWatch2 : StopWatch : StopWatch2 ]
+     [ statechart-st-example-build PerformanceNormal
+         : Performance : Performance ]
+     [ statechart-st-example-build PerformanceCustom
+-        : Performance : Performance : $(custom) ]
++        : Performance : Performance : $(custom) <source>/boost/pool//boost_pool ]
+     [ statechart-st-example-build PerformanceNative
+         : Performance : Performance : $(native) ]
+   : <install-dependencies>on <install-type>EXE <install-type>SHARED_LIB ;
+diff --git a/test/InvalidResultCopyTest.cpp b/test/InvalidResultCopyTest.cpp
+index 4b57df1..63bdc62 100644
+--- a/test/InvalidResultCopyTest.cpp
++++ b/test/InvalidResultCopyTest.cpp
+@@ -6,7 +6,7 @@
+ 
+ 
+ 
+-#include <libs/statechart/test/ThrowingBoostAssert.hpp>
++#include "ThrowingBoostAssert.hpp"
+ #include <boost/statechart/state_machine.hpp>
+ #include <boost/statechart/event.hpp>
+ #include <boost/statechart/simple_state.hpp>
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 0742412..a501019 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -4,10 +4,13 @@
+ # ing file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+ ##############################################################################
+ 
+-project libs/statechart/test ;
++project libs/statechart/test
++    : requirements
++        <include>.
++    ;
+ 
+ local test_monitor =
+-  ../../../libs/test/build//boost_test_exec_monitor/<link>static ;
++  /boost/test//boost_test_exec_monitor/<link>static ;
+ # Some platforms have either problems with the automatic detection of the
+ # threading mode (e.g. vc-7_1 & gcc >= 3.4.0) or don't support single-
+ # threaded mode (e.g. vc-8_0). We therefore manually turn MT off here

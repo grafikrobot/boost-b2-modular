@@ -1,7 +1,81 @@
+diff --git a/doc/src/examples/algorithms/Jamfile b/doc/src/examples/algorithms/Jamfile
+index 4d0f056a3..81621a0ff 100644
+--- a/doc/src/examples/algorithms/Jamfile
++++ b/doc/src/examples/algorithms/Jamfile
+@@ -17,7 +17,9 @@
+ 
+ 
+ project boost-geometry-doc-example-algorithms
+-    : # requirements
++    : requirements
++        <source>/boost/assign//boost_assign
++        <source>/boost/foreach//boost_foreach
+     ;
+ 
+ exe append : append.cpp ;
+diff --git a/doc/src/examples/core/Jamfile b/doc/src/examples/core/Jamfile
+index 4f46ca1de..72c1c97cb 100644
+--- a/doc/src/examples/core/Jamfile
++++ b/doc/src/examples/core/Jamfile
+@@ -29,5 +29,5 @@ exe interior_type : interior_type.cpp ;
+ exe point_type : point_type.cpp ;
+ exe ring_type : ring_type.cpp ;
+ exe rings : rings.cpp ;
+-exe tag : tag.cpp ;
++exe tag : tag.cpp : <source>/boost/assign//boost_assign ;
+ exe tag_cast : tag_cast.cpp ;
+diff --git a/doc/src/examples/geometries/adapted/boost_range/Jamfile b/doc/src/examples/geometries/adapted/boost_range/Jamfile
+index 364d30181..37705b333 100644
+--- a/doc/src/examples/geometries/adapted/boost_range/Jamfile
++++ b/doc/src/examples/geometries/adapted/boost_range/Jamfile
+@@ -10,7 +10,8 @@
+ 
+ 
+ project boost-geometry-doc-src-example-geometries-adapted-boost_range
+-    : # requirements
++    : requirements
++        <source>/boost/assign//boost_assign
+     ;
+ 
+ exe filtered : filtered.cpp ;
+diff --git a/example/Jamfile b/example/Jamfile
+index 17fae5000..2c5b233a1 100644
+--- a/example/Jamfile
++++ b/example/Jamfile
+@@ -11,7 +11,8 @@
+ 
+ 
+ project boost-geometry-example 
+-    : # requirements
++    : requirements
++        <source>/boost/foreach//boost_foreach
+     ;
+ 
+ exe 01_point_example : 01_point_example.cpp ;
+@@ -21,8 +22,8 @@ exe 05_a_overlay_polygon_example : 05_a_overlay_polygon_example.cpp ;
+ exe 05_b_overlay_linestring_polygon_example : 05_b_overlay_linestring_polygon_example.cpp ;
+ exe 06_a_transformation_example : 06_a_transformation_example.cpp ;
+ exe 06_b_transformation_example : 06_b_transformation_example.cpp ;
+-exe 07_a_graph_route_example : 07_a_graph_route_example.cpp ;
+-exe 07_b_graph_route_example : 07_b_graph_route_example.cpp ;
++# exe 07_a_graph_route_example : 07_a_graph_route_example.cpp : <library>/boost/graph//boost_graph ;
++# exe 07_b_graph_route_example : 07_b_graph_route_example.cpp : <library>/boost/graph//boost_graph ;
+ 
+ exe c01_custom_point_example : c01_custom_point_example.cpp ;
+ exe c02_custom_box_example : c02_custom_box_example.cpp ;
 diff --git a/index/example/Jamfile b/index/example/Jamfile
-index 3c7b5b2cd..cd296af33 100644
+index 3c7b5b2cd..a4e92f495 100644
 --- a/index/example/Jamfile
 +++ b/index/example/Jamfile
+@@ -18,7 +18,7 @@ import os ;
+ 
+ project boost-geometry-index-example
+     : requirements
+-        <implicit-dependency>/boost//headers
++        <source>/boost/foreach//boost_foreach
+     ;
+ 
+ local GLUT_ROOT = [ os.environ GLUT_ROOT ] ;
 @@ -44,11 +44,11 @@ if $(GLUT_ROOT)
  }
  
@@ -11,7 +85,7 @@ index 3c7b5b2cd..cd296af33 100644
 -link benchmark2.cpp /boost//chrono : <threading>multi ;
 -link benchmark3.cpp /boost//chrono : <threading>multi ;
 -link benchmark_experimental.cpp  /boost//chrono : <threading>multi ;
-+link serialize.cpp /boost/serialization//boost_serialization : ;
++link serialize.cpp /boost/serialization//boost_serialization /boost/timer//boost_timer : ;
 +link benchmark.cpp /boost/chrono//boost_chrono : <threading>multi ;
 +link benchmark2.cpp /boost/chrono//boost_chrono : <threading>multi ;
 +link benchmark3.cpp /boost/chrono//boost_chrono : <threading>multi ;
@@ -19,3 +93,111 @@ index 3c7b5b2cd..cd296af33 100644
  if $(GLUT_ROOT)
  {
      link glut_vis.cpp glut ;
+diff --git a/index/test/Jamfile b/index/test/Jamfile
+index 62d9618f8..a65c9a373 100644
+--- a/index/test/Jamfile
++++ b/index/test/Jamfile
+@@ -21,6 +21,7 @@ project boost-geometry-index-test
+         <toolset>msvc:<cxxflags>/bigobj
+         <host-os>windows,<toolset>intel:<cxxflags>/bigobj
+         <library>/boost/timer//boost_timer
++        <source>/boost/test//boost_test
+     ;
+ 
+ test-suite boost-geometry-index-detail
+diff --git a/index/test/rtree/interprocess/Jamfile b/index/test/rtree/interprocess/Jamfile
+index 23008aa61..b80c0ca06 100644
+--- a/index/test/rtree/interprocess/Jamfile
++++ b/index/test/rtree/interprocess/Jamfile
+@@ -25,6 +25,7 @@ rule test_all
+         <toolset>msvc:<cxxflags>/bigobj
+         <target-os>windows,<toolset>intel:<cxxflags>/bigobj
+         <target-os>linux:<linkflags>"-lrt"
++        <source>/boost/interprocess//boost_interprocess
+       ] ;
+    }
+ 
+diff --git a/test/Jamfile b/test/Jamfile
+index 492e41aa3..a9cbc622b 100644
+--- a/test/Jamfile
++++ b/test/Jamfile
+@@ -24,6 +24,9 @@ project boost-geometry-test
+         <toolset>clang:<cxxflags>-Wno-unneeded-internal-declaration # supress warning by Boost.None
+ 		<toolset>intel:<define>BOOST_GEOMETRY_TEST_ONLY_ONE_TYPE
+         <host-os>windows,<toolset>intel:<cxxflags>/bigobj
++        <source>/boost/test//boost_test
++        <source>/boost/foreach//boost_foreach
++        <source>/boost/assign//boost_assign
+     ;
+ 
+ # Run minimal testset
+diff --git a/test/headers/Jamfile b/test/headers/Jamfile
+index d9f07e2a5..e9905d110 100644
+--- a/test/headers/Jamfile
++++ b/test/headers/Jamfile
+@@ -14,6 +14,8 @@ import os ;
+ import path ;
+ import regex ;
+ 
++path-constant HEADERS : ../../include/boost/geometry ;
++
+ rule generate_self_contained_headers ( headers_subpath )
+ {
+     # This rule is based on script copied from similar rule in Boost.GIL
+@@ -29,7 +31,7 @@ rule generate_self_contained_headers ( headers_subpath )
+     # NOTE: All '/' in test names are replaced with '-' because apparently
+     #       test scripts have a problem with test names containing slashes.
+ 
+-    local top_headers_path = [ path.make $(BOOST_ROOT)/libs/geometry/include/boost/geometry ] ;
++    local top_headers_path = [ path.make $(HEADERS) ] ;
+ 
+     # Skip the OpenGL visualization related header
+     for local file in [ path.glob-tree $(top_headers_path)/$(headers_subpath) : *.hpp : gl_draw.hpp  ]
+@@ -38,7 +40,7 @@ rule generate_self_contained_headers ( headers_subpath )
+         local target_name = [ regex.replace h/$(rel_file) "/" "-" ] ;
+         local target_name = [ regex.replace $(target_name) "\.hpp" "" ] ;
+         targets += [
+-            compile $(BOOST_ROOT)/libs/geometry/test/headers/main.cpp
++            compile main.cpp
+             : <define>"BOOST_GEOMETRY_TEST_HEADER=$(rel_file)" <dependency>$(file)
+             : $(target_name)
+         ] ;
+diff --git a/test/robustness/convex_hull/Jamfile b/test/robustness/convex_hull/Jamfile
+index 20521d548..8689219e2 100644
+--- a/test/robustness/convex_hull/Jamfile
++++ b/test/robustness/convex_hull/Jamfile
+@@ -11,7 +11,7 @@
+ project random_multi_points
+     : requirements
+         <include>.
+-        <library>../../../../program_options/build//boost_program_options
++        <library>/boost/program_options//boost_program_options
+         <link>static
+     ;
+ 
+diff --git a/test/robustness/overlay/buffer/Jamfile b/test/robustness/overlay/buffer/Jamfile
+index f724fcf8c..88cc95ff8 100644
+--- a/test/robustness/overlay/buffer/Jamfile
++++ b/test/robustness/overlay/buffer/Jamfile
+@@ -12,7 +12,7 @@ project recursive_polygons_buffer
+     : requirements
+         <include>.
+         <include>../..
+-        <library>../../../../../program_options/build//boost_program_options
++        <library>/boost/program_options//boost_program_options
+         <link>static
+     ;
+ 
+diff --git a/test/robustness/overlay/linear_areal/Jamfile b/test/robustness/overlay/linear_areal/Jamfile
+index a31dadf15..fca297be9 100644
+--- a/test/robustness/overlay/linear_areal/Jamfile
++++ b/test/robustness/overlay/linear_areal/Jamfile
+@@ -12,7 +12,7 @@ project recursive_polygons_linear_areal
+     : requirements
+         <include>.
+         <include>../..
+-        <library>../../../../../program_options/build//boost_program_options
++        <library>/boost/program_options//boost_program_options
+         <link>static
+     ;
+ 

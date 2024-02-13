@@ -1,22 +1,147 @@
 diff --git a/build/Jamfile b/build/Jamfile
-index 03b69a25..7663f8ae 100644
+index 03b69a25..d85c165b 100644
 --- a/build/Jamfile
 +++ b/build/Jamfile
-@@ -92,7 +92,7 @@ lib boost_python
+@@ -30,7 +30,7 @@ else
+         ;
+ }
+ 
+-project boost/python
++project
+   : source-location ../src
+   ;
+ 
+@@ -38,6 +38,17 @@ rule cond ( test ? : yes * : no * ) { if $(test) { return $(yes) ; } else { retu
+ rule unless ( test ? : yes * : no * ) { if ! $(test) { return $(yes) ; } else { return $(no) ; } }
+ local rule eq ( a : b ) { if $(a) = $(b) { return 1 ; } }
+ 
++rule tag ( name : type ? : property-set )
++{
++    if python-tag in [ RULENAMES $(__name__) ]
++    {
++        return [  $(__name__).python-tag $(name) : $(type) : $(property-set) ] ;
++    }
++}
++
++if [ python.configured ]
++{
++
+ lib boost_python
+     : # sources
+     list.cpp
+@@ -92,8 +103,8 @@ lib boost_python
          [ unless [ python.configured ] : <build>no ]
          <dependency>config-warning
          <python-debugging>on:<define>BOOST_DEBUG_PYTHON
 -        -<tag>@$(BOOST_JAMROOT_MODULE)%$(BOOST_JAMROOT_MODULE).tag
+-        <tag>@python-tag
 +        -<tag>@%boostcpp.tag
-         <tag>@python-tag
++        <tag>@tag
          <conditional>@python.require-py
  
-@@ -120,7 +120,7 @@ lib boost_numpy
+     :   # default build
+@@ -103,6 +114,17 @@ lib boost_python
+         <python-debugging>on:<define>BOOST_DEBUG_PYTHON
+     ;
+ 
++}
++else
++{
++
++alias boost_python : config-warning ;
++
++}
++
++if [ python.configured ] && [ python.numpy ]
++{
++
+ numpy-include = [ python.numpy-include ] ;
+ lib boost_numpy
+     : # sources
+@@ -120,8 +142,8 @@ lib boost_numpy
          <library>/python//numpy
          <library>boost_python
          <python-debugging>on:<define>BOOST_DEBUG_PYTHON
 -        -<tag>@$(BOOST_JAMROOT_MODULE)%$(BOOST_JAMROOT_MODULE).tag
+-        <tag>@python-tag
 +        -<tag>@%boostcpp.tag
-         <tag>@python-tag
++        <tag>@tag
          <conditional>@python.require-py
  
+     :   # default build
+@@ -131,37 +153,10 @@ lib boost_numpy
+         <python-debugging>on:<define>BOOST_DEBUG_PYTHON
+     ;
+ 
+-# boost-install creates `stage` and `install` targets
+-#
+-# `stage` stages (builds and copies into `stage/lib`) the given libraries
+-#   `boost_python` and `boost_numpy` and their dependencies and is similar
+-#   to issuing `b2 --with-python stage` from top level
+-#
+-# `install` installs the two libraries and their dependencies and is similar
+-#   to issuing `b2 --with-python install` from top level
+-
+-if [ python.configured ]
+-{
+-    if [ python.numpy ]
+-    {
+-        boost-install boost_python boost_numpy ;
+-    }
+-    else
+-    {
+-        boost-install boost_python ;
+-    }
+ }
+ else
+ {
+ 
+-# When Python isn't configured, the above `boost-install` is not executed,
+-# so we create empty `stage` and `install` targets that do nothing but issue
+-# a warning message unless `--without-python` is given
+-
+-alias stage : config-warning ;
+-explicit stage ;
+-
+-alias install : config-warning ;
+-explicit install ;
++alias boost_numpy : config-warning ;
+ 
+ }
+diff --git a/example/README.md b/example/README.md
+index b090cbe1..af03f20b 100644
+--- a/example/README.md
++++ b/example/README.md
+@@ -3,7 +3,7 @@
+ # Examples
+ 
+ This directory contains various examples using Boost.Python.
+-You may compile these using the `bjam` command either in this directory
++You may compile these using the `b2` command either in this directory
+ or in any of the subdirectories.
+ You may need to adjust the paths in the Jamroot file if Boost.Python
+ is not installed in a default location.
+diff --git a/test/Jamfile b/test/Jamfile
+index 07cbd4c7..48e57487 100644
+--- a/test/Jamfile
++++ b/test/Jamfile
+@@ -2,14 +2,16 @@
+ # Software License, Version 1.0. (See accompanying
+ # file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+ 
++require-b2 5.0.1 ;
++import-search /boost/config/checks ;
++
+ import python ;
+ import os ;
+-import ../../config/checks/config : requires ;
++import config : requires ;
+ 
+ lib socket ;
+ 
+-use-project /boost/python : ../build ;
+-project /boost/python/test 
++project
+   : requirements
+     <toolset>gcc:<cxxflags>-Wextra
+     <target-os>qnxnto:<library>socket

@@ -1,13 +1,128 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index abfba37..af5db3e 100644
+index abfba37..82a7df2 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
-@@ -84,7 +84,7 @@ lib boost_mpi
+@@ -15,19 +15,18 @@ import python ;
+ import option ;
+ import regex ;
+ 
+-#
+-# The `version-suffix` rule really belongs into python.jam, and
+-# should be moved there. `split-version` is only duplicated here
+-# as a prerequisite. (See https://github.com/boostorg/build/pull/290)
+-#
+-
+-
+-mpi_python_libs = ;
++rule tag ( name : type ? : property-set )
++{
++    if python-tag in [ RULENAMES $(__name__) ]
++    {
++        return [  $(__name__).python-tag $(name) : $(type) : $(property-set) ] ;
++    }
++}
+ 
+ if [ mpi.configured ]
+ {
+ 
+-project boost/mpi
++project
+   : source-location ../src
+   ;
+ 
+@@ -57,7 +56,7 @@ lib boost_mpi
+     text_skeleton_oarchive.cpp
+     timer.cpp
+   : # Requirements
+-    <library>../../serialization/build//boost_serialization
++    <library>/boost/serialization//boost_serialization
+     <library>/mpi//mpi [ mpi.extra-requirements ]
+     <define>BOOST_MPI_SOURCE=1
+     <link>shared:<define>BOOST_MPI_DYN_LINK=1
+@@ -65,12 +64,12 @@ lib boost_mpi
+   : # Default build
+     <link>shared
+   : # Usage requirements
+-    <library>../../serialization/build//boost_serialization
++    <library>/boost/serialization//boost_serialization
+     <library>/mpi//mpi [ mpi.extra-requirements ]
+   ;
+ 
+-  if [ python.configured ]
+-  {
++    if [ python.configured ]
++    {
+             lib boost_mpi_python
+               : # Sources
+                 python/serialize.cpp
+@@ -84,8 +83,8 @@ lib boost_mpi
                  <link>shared:<define>BOOST_PYTHON_DYN_LINK=1
                  <define>BOOST_MPI_PYTHON_SOURCE=1
                  <python-debugging>on:<define>BOOST_DEBUG_PYTHON
 -                -<tag>@$(BOOST_JAMROOT_MODULE)%$(BOOST_JAMROOT_MODULE).tag
+-                <tag>@python-tag
 +                -<tag>@%boostcpp.tag
-                 <tag>@python-tag
++                <tag>@tag
                  <conditional>@python.require-py
                  <local-visibility>global
+ 
+@@ -93,6 +92,7 @@ lib boost_mpi
+                 <link>shared
+               : # Usage requirements
+                 <library>/mpi//mpi [ mpi.extra-requirements ]
++                <library>/python//python
+               ;
+ 
+             python-extension mpi
+@@ -120,22 +120,26 @@ lib boost_mpi
+                 <link>shared <runtime-link>shared
+                 <python-debugging>on:<define>BOOST_DEBUG_PYTHON
+               ;
+-
+-            mpi_python_libs = boost_mpi_python mpi ;
+-  }
++    }
++    else
++    {
++        alias boost_mpi_python ;
++        alias mpi ;
++    }
+ }
+ else if ! ( --without-mpi in  [ modules.peek : ARGV ] )
+ {
+-  message boost_mpi   
++  message boost_mpi
+       : "warning: skipping optional Message Passing Interface (MPI) library."
+       : "note: to enable MPI support, add \"using mpi ;\" to user-config.jam."
+-      : "note: to suppress this message, pass \"--without-mpi\" to bjam."
++      : "note: to suppress this message, pass \"--without-mpi\" to b2."
+       : "note: otherwise, you can safely ignore this message." 
+       ;
++    alias boost_mpi_python ;
++    alias mpi ;
++    alias boost_mpi ;
+ }
+ else
+ {
+   alias boost_mpi ;
+ }
+-
+-boost-install boost_mpi $(mpi_python_libs) ;
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 634c61f..21b84e5 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -9,9 +9,12 @@
+ # Authors: Douglas Gregor
+ #          Andrew Lumsdaine
+ 
+-project : requirements <library>/boost//mpi ;
+ import mpi : mpi-test ;
+ 
++project : requirements <library>/boost/mpi//boost_mpi
++    <source>/boost/test//boost_test
++    ;
++
+ if [ mpi.configured ]
+ {
+ test-suite mpi

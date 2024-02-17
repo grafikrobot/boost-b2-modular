@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index abfba37..82a7df2 100644
+index abfba37..967c5f0 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -15,19 +15,18 @@ import python ;
@@ -74,13 +74,22 @@ index abfba37..82a7df2 100644
                ;
  
              python-extension mpi
-@@ -120,22 +120,26 @@ lib boost_mpi
+@@ -120,22 +120,25 @@ lib boost_mpi
                  <link>shared <runtime-link>shared
                  <python-debugging>on:<define>BOOST_DEBUG_PYTHON
                ;
 -
 -            mpi_python_libs = boost_mpi_python mpi ;
 -  }
+-}
+-else if ! ( --without-mpi in  [ modules.peek : ARGV ] )
+-{
+-  message boost_mpi   
+-      : "warning: skipping optional Message Passing Interface (MPI) library."
+-      : "note: to enable MPI support, add \"using mpi ;\" to user-config.jam."
+-      : "note: to suppress this message, pass \"--without-mpi\" to bjam."
+-      : "note: otherwise, you can safely ignore this message." 
+-      ;
 +    }
 +    else
 +    {
@@ -88,39 +97,40 @@ index abfba37..82a7df2 100644
 +        alias mpi ;
 +    }
  }
- else if ! ( --without-mpi in  [ modules.peek : ARGV ] )
+ else
  {
--  message boost_mpi   
-+  message boost_mpi
-       : "warning: skipping optional Message Passing Interface (MPI) library."
-       : "note: to enable MPI support, add \"using mpi ;\" to user-config.jam."
--      : "note: to suppress this message, pass \"--without-mpi\" to bjam."
-+      : "note: to suppress this message, pass \"--without-mpi\" to b2."
-       : "note: otherwise, you can safely ignore this message." 
-       ;
+-  alias boost_mpi ;
++    if ! ( --without-mpi in  [ modules.peek : ARGV ] )
++    {
++        message boost_mpi
++            : "warning: skipping optional Message Passing Interface (MPI) library."
++            : "note: to enable MPI support, add \"using mpi ;\" to user-config.jam."
++            : "note: to suppress this message, pass \"--without-mpi\" to b2."
++            : "note: otherwise, you can safely ignore this message." 
++            ;
++    }
 +    alias boost_mpi_python ;
 +    alias mpi ;
 +    alias boost_mpi ;
  }
- else
- {
-   alias boost_mpi ;
- }
 -
 -boost-install boost_mpi $(mpi_python_libs) ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 634c61f..21b84e5 100644
+index 634c61f..96db2b7 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -9,9 +9,12 @@
+@@ -9,9 +9,15 @@
  # Authors: Douglas Gregor
  #          Andrew Lumsdaine
  
 -project : requirements <library>/boost//mpi ;
  import mpi : mpi-test ;
  
-+project : requirements <library>/boost/mpi//boost_mpi
++project : requirements
 +    <source>/boost/test//boost_test
++    <source>/boost/mpi//boost_mpi
++    <source>/boost/mpi//boost_mpi_python
++    <mpi.run-flags>--oversubscribe
 +    ;
 +
  if [ mpi.configured ]

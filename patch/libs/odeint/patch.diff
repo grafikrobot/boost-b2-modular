@@ -1,0 +1,377 @@
+diff --git a/examples/2d_lattice/Jamfile.v2 b/examples/2d_lattice/Jamfile.v2
+index c995ec16..67459744 100644
+--- a/examples/2d_lattice/Jamfile.v2
++++ b/examples/2d_lattice/Jamfile.v2
+@@ -6,7 +6,6 @@
+ 
+ project
+     : requirements 
+-      <include>../../../../..
+       <define>BOOST_ALL_NO_LIB=1
+     ;
+     
+diff --git a/examples/Jamfile.v2 b/examples/Jamfile.v2
+index 11813c84..dfb43654 100644
+--- a/examples/Jamfile.v2
++++ b/examples/Jamfile.v2
+@@ -9,6 +9,7 @@
+ project
+     : requirements 
+       <define>BOOST_ALL_NO_LIB=1
++      <library>/python//python
+     : 
+     ;
+     
+@@ -36,12 +37,12 @@ exe stochastic_euler : stochastic_euler.cpp ;
+ exe generation_functions : generation_functions.cpp ;
+ exe heun : heun.cpp ;
+ exe bind_member_functions : bind_member_functions.cpp ;
+-exe bind_member_functions_cpp11 : bind_member_functions_cpp11.cpp : <cxxflags>-std=c++0x ;
+-exe molecular_dynamics : molecular_dynamics.cpp : <cxxflags>-std=c++0x ;
+-exe molecular_dynamics_cells : molecular_dynamics_cells.cpp : <cxxflags>-std=c++0x ;
++exe bind_member_functions_cpp11 : bind_member_functions_cpp11.cpp : <cxxstd>14 ;
++exe molecular_dynamics : molecular_dynamics.cpp : <cxxstd>14 ;
++exe molecular_dynamics_cells : molecular_dynamics_cells.cpp : <cxxstd>14 ;
+ exe abm_precision : abm_precision.cpp ;
+ exe integrate_times : integrate_times.cpp ;
+-exe find_crossing : find_crossing.cpp : <cxxflags>-std=c++0x ;
++exe find_crossing : find_crossing.cpp : <cxxstd>14 ;
+ 
+ build-project multiprecision ;
+ # build-project mtl ;
+diff --git a/examples/mpi/Jamfile.v2 b/examples/mpi/Jamfile.v2
+index d3f18eb2..dcecc017 100644
+--- a/examples/mpi/Jamfile.v2
++++ b/examples/mpi/Jamfile.v2
+@@ -8,8 +8,8 @@
+ project
+     : requirements
+       <define>BOOST_ALL_NO_LIB=1
+-      <library>/boost//mpi
+-      <library>/boost//timer
++      <library>/boost/mpi//boost_mpi
++      <library>/boost/timer//boost_timer
+     ;
+ 
+ exe phase_chain : phase_chain.cpp ;
+diff --git a/examples/multiprecision/Jamfile b/examples/multiprecision/Jamfile
+index 9708d434..0392ad1e 100644
+--- a/examples/multiprecision/Jamfile
++++ b/examples/multiprecision/Jamfile
+@@ -8,6 +8,7 @@
+ project
+     : requirements 
+       <define>BOOST_ALL_NO_LIB=1
++      <source>/boost/multiprecision//boost_multiprecision
+     : 
+     ;
+     
+diff --git a/examples/nt2/Jamfile.v2 b/examples/nt2/Jamfile.v2
+index 05847cd1..626a8062 100644
+--- a/examples/nt2/Jamfile.v2
++++ b/examples/nt2/Jamfile.v2
+@@ -7,8 +7,6 @@
+ #                     http://www.boost.org/LICENSE_1_0.txt
+ #==============================================================================
+ 
+-use-project boost : $(BOOST_ROOT) ;
+-
+ import os ;
+ 
+ # This must be built using an NT2 installation.
+diff --git a/examples/openmp/Jamfile.v2 b/examples/openmp/Jamfile.v2
+index cef4f670..3723896f 100644
+--- a/examples/openmp/Jamfile.v2
++++ b/examples/openmp/Jamfile.v2
+@@ -5,14 +5,13 @@
+ # accompanying file LICENSE_1_0.txt or copy at
+ # http://www.boost.org/LICENSE_1_0.txt)
+ 
+-use-project /boost : $(BOOST_ROOT) ;
+ import openmp : * ;
+ 
+ project
+     : requirements
+       <include>..
+       <define>BOOST_ALL_NO_LIB=1
+-      <library>/boost//timer
++      <library>/boost/timer//boost_timer
+       [ openmp ]
+     ;
+ 
+diff --git a/examples/quadmath/Jamfile.v2 b/examples/quadmath/Jamfile.v2
+index 88a04632..7fd1d4d8 100644
+--- a/examples/quadmath/Jamfile.v2
++++ b/examples/quadmath/Jamfile.v2
+@@ -13,4 +13,4 @@ project
+     
+ lib quadmath : : <name>quadmath <link>shared ;
+ 
+-exe black_hole : black_hole.cpp quadmath : <cxxflags>-std=c++0x ;
+\ No newline at end of file
++exe black_hole : black_hole.cpp quadmath : <cxxstd>14 ;
+\ No newline at end of file
+diff --git a/examples/vexcl/Jamfile.v2 b/examples/vexcl/Jamfile.v2
+index 73dc8dae..5749fd5a 100644
+--- a/examples/vexcl/Jamfile.v2
++++ b/examples/vexcl/Jamfile.v2
+@@ -9,9 +9,6 @@
+ import boost ;
+ import os ;
+ 
+-boost.use-project ;
+-
+-
+ # change these lines to fit you configuration
+ local HOME = [ os.environ HOME ] ;
+ local VEXCL_INCLUDE = [ os.environ VEXCL_ROOT ] ;
+@@ -22,11 +19,10 @@ OPENCL_INCLUDE = /usr/local/cuda/include ;
+ lib opencl : : <name>OpenCL ;
+ 
+ project : requirements
+-        <implicit-dependency>/boost//headers
+         <include>$(VEXCL_INCLUDE)
+         <include>$(OPENCL_INCLUDE)
+         <toolset>gcc:<cxxflags>-std=c++0x
+-        <library>/boost//system/
++        <library>/boost/system//boost_system
+         ;
+ 
+ exe lorenz_ensemble : lorenz_ensemble.cpp opencl ;
+\ No newline at end of file
+diff --git a/performance/Jamfile.v2 b/performance/Jamfile.v2
+index e60e4ea1..aa2361c0 100644
+--- a/performance/Jamfile.v2
++++ b/performance/Jamfile.v2
+@@ -10,8 +10,7 @@ import path ;
+ project
+     : requirements
+       <define>BOOST_ALL_NO_LIB=1
+-      <include>../../../..
+-      <cxxflags>-std=c++11
++      <cxxstd>11
+       <toolset>gcc:<cxxflags>-ffast-math
+       <toolset>intel:<cxxflags>"-fast -inline-forceinline"
+     : default-build release
+@@ -29,4 +28,5 @@ lib libpthread : : <name>pthread ;
+ 
+ exe odeint_rk4_array
+     : odeint_rk4_array.cpp
++      /boost/timer//boost_timer
+     ;
+diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
+index 9a6df98d..cd107689 100644
+--- a/test/Jamfile.v2
++++ b/test/Jamfile.v2
+@@ -7,23 +7,16 @@
+ 
+ # bring in rules for testing
+ 
++require-b2 5.0.1 ;
++import-search /boost/config/checks ;
+ import testing ;
+-import ../../config/checks/config : requires ;
+-
+-# make sure you are using a new version of boost.build, otherwise the local
+-# odeint will not be included properly
+-# you can fix older boost.build versions by applying the patch provided in
+-# odeint's root, e.g.:
+-# cd ~/odeint-v2
+-# sudo patch /usr/share/boost-build/build/toolset.jam toolset.jam.patch
+-
+-use-project boost : $(BOOST_ROOT) ;
++import config : requires ;
+ 
+ project
+     : requirements
+       <define>BOOST_ALL_NO_LIB=1
+       # use test library
+-      <library>/boost//unit_test_framework
++      <library>/boost/test//boost_unit_test_framework
+       <link>static
+       <toolset>clang:<cxxflags>-Wno-unused-variable
+       # <cxxflags>-D_SCL_SECURE_NO_WARNINGS
+@@ -33,9 +26,9 @@ test-suite "odeint"
+     :
+     [ run euler_stepper.cpp ]
+     # The following 3 tests use Boost.Multiprecision which requires C++14
+-    [ run runge_kutta_concepts.cpp : : : <toolset>gcc-mingw:<cxxflags>-Wa,-mbig-obj <debug-symbols>off <toolset>msvc:<cxxflags>/bigobj [ requires cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx14_variable_templates cxx14_constexpr ] ]
+-    [ run runge_kutta_error_concepts.cpp : : : <toolset>gcc-mingw:<cxxflags>-Wa,-mbig-obj <debug-symbols>off <toolset>msvc:<cxxflags>/bigobj [ requires cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx14_variable_templates cxx14_constexpr ] ]
+-    [ run runge_kutta_controlled_concepts.cpp : : : <toolset>gcc-mingw:<cxxflags>-Wa,-mbig-obj <debug-symbols>off <toolset>msvc:<cxxflags>/bigobj [ requires cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx14_variable_templates cxx14_constexpr ] ]
++    [ run runge_kutta_concepts.cpp /boost/multiprecision//boost_multiprecision : : : <toolset>gcc-mingw:<cxxflags>-Wa,-mbig-obj <debug-symbols>off <toolset>msvc:<cxxflags>/bigobj [ requires cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx14_variable_templates cxx14_constexpr ] ]
++    [ run runge_kutta_error_concepts.cpp /boost/multiprecision//boost_multiprecision : : : <toolset>gcc-mingw:<cxxflags>-Wa,-mbig-obj <debug-symbols>off <toolset>msvc:<cxxflags>/bigobj [ requires cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx14_variable_templates cxx14_constexpr ] ]
++    [ run runge_kutta_controlled_concepts.cpp /boost/multiprecision//boost_multiprecision : : : <toolset>gcc-mingw:<cxxflags>-Wa,-mbig-obj <debug-symbols>off <toolset>msvc:<cxxflags>/bigobj [ requires cxx14_decltype_auto cxx14_generic_lambdas cxx14_return_type_deduction cxx14_variable_templates cxx14_constexpr ] ]
+     [ run resizing.cpp ]
+     [ run default_operations.cpp ]
+     [ run range_algebra.cpp ]
+@@ -46,7 +39,7 @@ test-suite "odeint"
+     [ run stepper_copying.cpp ]
+     [ run stepper_with_ranges.cpp ]
+     [ run rosenbrock4.cpp ]
+-    [ run rosenbrock4_mp.cpp ]
++    [ run rosenbrock4_mp.cpp /boost/multiprecision//boost_multiprecision ]
+     [ run is_pair.cpp ]
+     [ run adams_bashforth.cpp ]
+     [ run adams_moulton.cpp ]
+diff --git a/test/numeric/Jamfile.v2 b/test/numeric/Jamfile.v2
+index a4643f6a..b6ee4319 100644
+--- a/test/numeric/Jamfile.v2
++++ b/test/numeric/Jamfile.v2
+@@ -8,13 +8,10 @@
+ 
+ import testing ;
+ 
+-use-project boost : $(BOOST_ROOT) ;
+-
+ project
+     : requirements
+       <library>/boost/test//boost_unit_test_framework
+       <define>BOOST_ALL_NO_LIB=1
+-      <include>../../include
+       <link>static
+       <toolset>clang:<cxxflags>-Wno-unused-variable
+ 
+diff --git a/test/regression/Jamfile.v2 b/test/regression/Jamfile.v2
+index c476822f..f3741874 100644
+--- a/test/regression/Jamfile.v2
++++ b/test/regression/Jamfile.v2
+@@ -5,17 +5,15 @@
+ 
+ # bring in rules for testing
+ 
+-
++require-b2 5.0.1 ;
++import-search /boost/config/checks ;
+ import testing ;
+-import ../../config/checks/config : requires ;
+-
+-use-project boost : $(BOOST_ROOT) ;
++import config : requires ;
+ 
+ project
+     : requirements
+       <library>/boost/test//boost_unit_test_framework
+       <define>BOOST_ALL_NO_LIB=1
+-      <include>../../include
+       <link>static
+       <toolset>clang:<cxxflags>-Wno-unused-variable
+ 
+diff --git a/test_external/eigen/Jamfile.v2 b/test_external/eigen/Jamfile.v2
+index ad0cc2d2..7074f8df 100644
+--- a/test_external/eigen/Jamfile.v2
++++ b/test_external/eigen/Jamfile.v2
+@@ -9,8 +9,6 @@
+ import testing ;
+ import os ;
+ 
+-use-project boost : $(BOOST_ROOT) ;
+-
+ local EIGEN_ROOT = [ os.environ EIGEN_ROOT ] ;
+ 
+ project
+diff --git a/test_external/gmp/Jamfile.v2 b/test_external/gmp/Jamfile.v2
+index f0e6af02..ee25ee90 100644
+--- a/test_external/gmp/Jamfile.v2
++++ b/test_external/gmp/Jamfile.v2
+@@ -6,7 +6,6 @@
+ # bring in rules for testing
+ 
+ import testing ;
+-use-project boost : $(BOOST_ROOT) ;
+ 
+ project gmp
+     : requirements
+diff --git a/test_external/gsl/Jamfile.v2 b/test_external/gsl/Jamfile.v2
+index 086edf6e..7c0f18dd 100644
+--- a/test_external/gsl/Jamfile.v2
++++ b/test_external/gsl/Jamfile.v2
+@@ -6,7 +6,6 @@
+ # bring in rules for testing
+ 
+ import testing ;
+-use-project boost : $(BOOST_ROOT) ;
+ 
+ project
+     : requirements
+diff --git a/test_external/mkl/Jamfile.v2 b/test_external/mkl/Jamfile.v2
+index f585fa83..a6243c0b 100644
+--- a/test_external/mkl/Jamfile.v2
++++ b/test_external/mkl/Jamfile.v2
+@@ -6,7 +6,6 @@
+ # bring in rules for testing
+ 
+ import testing ;
+-use-project boost : $(BOOST_ROOT) ;
+ 
+ project
+     : requirements
+diff --git a/test_external/mpi/Jamfile.v2 b/test_external/mpi/Jamfile.v2
+index 0a02bccf..b83980e9 100644
+--- a/test_external/mpi/Jamfile.v2
++++ b/test_external/mpi/Jamfile.v2
+@@ -7,12 +7,10 @@
+ import testing ;
+ import mpi : mpi-test ;
+ 
+-use-project boost : $(BOOST_ROOT) ;
+-
+ project
+     : requirements
+       <library>/boost/test//boost_unit_test_framework
+-      <library>/boost//mpi
++      <library>/boost/mpi//boost_mpi
+       <link>static
+       <define>BOOST_ALL_NO_LIB=1
+     ;
+diff --git a/test_external/mtl4/Jamfile.v2 b/test_external/mtl4/Jamfile.v2
+index de9d87f2..e1819383 100644
+--- a/test_external/mtl4/Jamfile.v2
++++ b/test_external/mtl4/Jamfile.v2
+@@ -7,9 +7,6 @@
+ import testing ;
+ import boost ;
+ 
+-# boost.use-project ;
+-use-project boost : $(BOOST_ROOT) ;
+-
+ # set your MTL4 directory here
+ MTL4_INCLUDE = /home/mario/MTL4/usr/include ;
+ 
+diff --git a/test_external/nt2/Jamfile.v2 b/test_external/nt2/Jamfile.v2
+index 26763da6..1ab20378 100644
+--- a/test_external/nt2/Jamfile.v2
++++ b/test_external/nt2/Jamfile.v2
+@@ -20,11 +20,9 @@ import os ;
+ local NT2_ROOT_PATH = [ os.environ NT2_ROOT_PATH ] ;
+ local NT2_SIMD_FLAGS = [ os.environ NT2_SIMD_FLAGS ] ;
+ 
+-use-project boost : $(BOOST_ROOT) ;
+-
+ project
+   : requirements
+-    <library>$(BOOST_ROOT)/boost/test/included/unit_test_framework.hpp
++    <library>/boost/test//boost_test
+     <define>BOOST_ALL_NO_LIB=1
+     <include>$(NT2_ROOT_PATH)/include/
+     <link>static
+diff --git a/test_external/vexcl/Jamfile.v2 b/test_external/vexcl/Jamfile.v2
+index 9b76b430..f427dcb2 100644
+--- a/test_external/vexcl/Jamfile.v2
++++ b/test_external/vexcl/Jamfile.v2
+@@ -8,7 +8,6 @@
+ 
+ import testing ;
+ 
+-use-project boost : $(BOOST_ROOT) ;
+ VEXCL_INCLUDE = /home/karsten/boost/testing/vexcl ;
+ OPENCL_INCLUDE = /usr/local/cuda/include ;
+ #OPENCL_INCLUDE = /usr/include ;
+@@ -20,7 +19,7 @@ project
+       <include>$(VEXCL_INCLUDE)
+       <include>$(OPENCL_INCLUDE)
+       <cxxflags>-std=c++0x
+-      <library>/boost//system/
++      <library>/boost/system//boost_system
+     ;
+ 
+ lib OpenCL : : <name>OpenCL <link>shared ;

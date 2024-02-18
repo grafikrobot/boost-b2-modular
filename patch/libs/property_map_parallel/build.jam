@@ -1,0 +1,32 @@
+# Copyright René Ferdinand Rivera Morell 2024
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import project ;
+
+project /boost/property_map_parallel
+    : common-requirements
+        <source>/boost/assert//boost_assert
+        <source>/boost/concept_check//boost_concept_check
+        <source>/boost/config//boost_config
+        <source>/boost/function//boost_function
+        <source>/boost/mpi//boost_mpi
+        <source>/boost/mpl//boost_mpl
+        <source>/boost/multi_index//boost_multi_index
+        <source>/boost/optional//boost_optional
+        <source>/boost/property_map//boost_property_map
+        <source>/boost/serialization//boost_serialization
+        <source>/boost/smart_ptr//boost_smart_ptr
+        <source>/boost/static_assert//boost_static_assert
+        <source>/boost/type_traits//boost_type_traits
+        <include>include
+    ;
+
+explicit
+    [ alias boost_property_map_parallel ]
+    [ alias all : boost_property_map_parallel ]
+    ;
+
+call-if : boost-library property_map_parallel
+    ;

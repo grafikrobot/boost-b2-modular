@@ -761,3 +761,9 @@
 	path = libs/cobalt
 	url = ../../boostorg/cobalt.git
 	branch = develop
+[submodule "charconv"]
+	path = libs/charconv
+	url = ../../boostorg/charconv.git
+[submodule "scope"]
+	path = libs/scope
+	url = ../../boostorg/scope.git

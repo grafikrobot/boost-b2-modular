@@ -10,10 +10,10 @@ index 08f98195..755f5882 100644
 -boost-install boost_regex ;
 -
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
-index dd958c7d..f285e910 100644
+index dd958c7d..9acf63e8 100644
 --- a/example/Jamfile.v2
 +++ b/example/Jamfile.v2
-@@ -4,15 +4,15 @@
+@@ -4,19 +4,20 @@
  # http://www.boost.org/LICENSE_1_0.txt.
  
  project
@@ -32,7 +32,12 @@ index dd958c7d..f285e910 100644
        <define>U_USING_ICU_NAMESPACE=0
        #<toolset>gcc-mw:<link>static
  	  #<toolset>gcc-mingw:<link>static
-@@ -26,7 +26,7 @@ rule regex-test-run ( sources + : input * : name * )
+ 	  <toolset>gcc-cygwin:<link>static
++      <define>BOOST_TIMER_ENABLE_DEPRECATED
+     ;
+ 
+ rule regex-test-run ( sources + : input * : name * )
+@@ -26,7 +27,7 @@ rule regex-test-run ( sources + : input * : name * )
               # sources
               $(sources)
               # dependencies
@@ -41,7 +46,7 @@ index dd958c7d..f285e910 100644
           :  # additional args
              $(input)
           :  # test-files
-@@ -37,45 +37,33 @@ rule regex-test-run ( sources + : input * : name * )
+@@ -37,45 +38,33 @@ rule regex-test-run ( sources + : input * : name * )
          ] ;
  }
  
@@ -104,7 +109,7 @@ index dd958c7d..f285e910 100644
 -
 -
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index edbe190a..b4b8c3e7 100644
+index edbe190a..e00adc5f 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -5,6 +5,7 @@
@@ -160,7 +165,7 @@ index edbe190a..b4b8c3e7 100644
          : # command line
          : # input files
          : # requirements
-@@ -114,67 +116,71 @@ test-suite regex
+@@ -114,67 +116,72 @@ test-suite regex
            : c_compiler_checks/wide_posix_api_check.cpp ]
  
        [ run pathology/bad_expression_test.cpp : : :
@@ -194,6 +199,7 @@ index edbe190a..b4b8c3e7 100644
 -            ../../thread/build//boost_thread ../build//boost_regex
 +            /boost/thread//boost_thread /boost/regex//boost_regex
 +            /boost/timer//boost_timer
++            : : : <define>BOOST_TIMER_ENABLE_DEPRECATED
        ]
        [ run object_cache/object_cache_test.cpp : : :
 -            [ check-target-builds ../build//is_legacy_03 : : <source>../build//boost_regex ]
@@ -248,7 +254,7 @@ index edbe190a..b4b8c3e7 100644
        ]
        
       [ run
-@@ -184,10 +190,11 @@ test-suite regex
+@@ -184,10 +191,11 @@ test-suite regex
   :  # additional args
   :  # test-files
   :  # requirements
@@ -261,7 +267,7 @@ index edbe190a..b4b8c3e7 100644
   :  # test name
      captures_test
   ]
-@@ -219,7 +226,7 @@ compile test_consolidated.cpp ;
+@@ -219,7 +227,7 @@ compile test_consolidated.cpp ;
  build-project ../example ;
  
  # `quick` target (for CI)
@@ -270,7 +276,7 @@ index edbe190a..b4b8c3e7 100644
  
  compile test_warnings.cpp 
     :     <toolset>msvc:<warnings>all <toolset>msvc:<warnings-as-errors>on
-@@ -239,4 +246,4 @@ compile test_windows_defs_2.cpp ;
+@@ -239,4 +247,4 @@ compile test_windows_defs_2.cpp ;
  compile test_windows_defs_3.cpp ;
  compile test_windows_defs_4.cpp ;
  

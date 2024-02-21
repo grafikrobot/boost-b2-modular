@@ -54,7 +54,7 @@ index 101a8a4c..6781de22 100644
  exe multiply_tensors_product_function  : multiply_tensors_product_function.cpp ;
  exe multiply_tensors_einstein_notation : multiply_tensors_einstein_notation.cpp ;
 diff --git a/test/Jamfile b/test/Jamfile
-index f6716e2c..0cbfb9f0 100644
+index f6716e2c..3a560bc4 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -47,7 +47,7 @@ UBLAS_TESTSET_SPARSE_COO ?=
@@ -74,7 +74,7 @@ index f6716e2c..0cbfb9f0 100644
          : : :
              <define>$(UBLAS_TESTSET)
        ]
-@@ -165,38 +166,38 @@ test-suite numeric/uBLAS
+@@ -165,61 +166,62 @@ test-suite numeric/uBLAS
        ]
        [ run triangular_layout.cpp
        ]
@@ -123,8 +123,10 @@ index f6716e2c..0cbfb9f0 100644
 +      [ run test_assignment.cpp /boost/timer//boost_timer /boost/math//boost_math
         : : :
             <define>BOOST_UBLAS_COO_ALWAYS_DO_FULL_SORT
++           <define>BOOST_TIMER_ENABLE_DEPRECATED
        ]
-@@ -205,21 +206,21 @@ test-suite numeric/uBLAS
+       [ run test_triangular.cpp
+        :
         :
         : <library>/boost/timer//boost_timer
        ]
@@ -149,7 +151,7 @@ index f6716e2c..0cbfb9f0 100644
          : 
          : 
          : <define>$(UBLAS_TESTSET_SPARSE)
-@@ -227,30 +228,30 @@ test-suite numeric/uBLAS
+@@ -227,30 +229,30 @@ test-suite numeric/uBLAS
          : test_inplace_solve_sparse
          :
        ]

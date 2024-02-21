@@ -23,7 +23,7 @@ index ab9cd5d..54848c5 100644
 -        <include>$(BOOST_ROOT)
      ;
 diff --git a/perf/Jamfile.v2 b/perf/Jamfile.v2
-index 7769420..1fc8246 100644
+index 7769420..2038af3 100644
 --- a/perf/Jamfile.v2
 +++ b/perf/Jamfile.v2
 @@ -8,25 +8,6 @@
@@ -52,7 +52,7 @@ index 7769420..1fc8246 100644
  exe xprperf 
      : 
          command_line.cpp
-@@ -34,11 +15,9 @@ exe xprperf
+@@ -34,11 +15,10 @@ exe xprperf
          time_boost.cpp
          time_dynamic_xpressive.cpp
          time_static_xpressive.cpp
@@ -66,6 +66,7 @@ index 7769420..1fc8246 100644
 -        <define>BOOST_REGEX_RECURSIVE
 -        <define>BOOST_REGEX_USE_CPP_LOCALE
          <define>BOOST_XPRESSIVE_USE_CPP_TRAITS
++        <define>BOOST_TIMER_ENABLE_DEPRECATED
      ;
 diff --git a/tools/Jamfile.v2 b/tools/Jamfile.v2
 index ec2bb96..e715e1b 100644

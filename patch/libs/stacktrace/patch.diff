@@ -1,8 +1,8 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 7639bf5..ac6d892 100644
+index bafe644..32abc8a 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
-@@ -8,7 +8,6 @@
+@@ -9,7 +9,6 @@ import feature ;
  import ../../config/checks/config : requires ;
  
  project
@@ -10,7 +10,7 @@ index 7639bf5..ac6d892 100644
    : requirements
      [ requires cxx11_rvalue_references ]
    : default-build
-@@ -74,7 +73,7 @@ lib boost_stacktrace_backtrace
+@@ -76,7 +75,7 @@ lib boost_stacktrace_backtrace
      <target-os>linux:<library>dl
      <library>backtrace
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
@@ -19,7 +19,7 @@ index 7639bf5..ac6d892 100644
    : # default build
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
-@@ -87,7 +86,7 @@ lib boost_stacktrace_addr2line
+@@ -89,7 +88,7 @@ lib boost_stacktrace_addr2line
      <warnings>all
      <target-os>linux:<library>dl
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
@@ -28,7 +28,7 @@ index 7639bf5..ac6d892 100644
    : # default build
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
-@@ -100,7 +99,7 @@ lib boost_stacktrace_basic
+@@ -102,7 +101,7 @@ lib boost_stacktrace_basic
      <warnings>all
      <target-os>linux:<library>dl
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
@@ -37,7 +37,7 @@ index 7639bf5..ac6d892 100644
    : # default build
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
-@@ -113,7 +112,7 @@ lib boost_stacktrace_windbg
+@@ -115,7 +114,7 @@ lib boost_stacktrace_windbg
      <warnings>all
      <library>Dbgeng <library>ole32
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
@@ -46,7 +46,7 @@ index 7639bf5..ac6d892 100644
    : # default build
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
-@@ -126,10 +125,8 @@ lib boost_stacktrace_windbg_cached
+@@ -128,7 +127,7 @@ lib boost_stacktrace_windbg_cached
      <warnings>all
      <library>Dbgeng <library>ole32
      <link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
@@ -55,9 +55,18 @@ index 7639bf5..ac6d892 100644
    : # default build
    : # usage-requirements
      #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
+@@ -146,10 +145,8 @@ lib boost_stacktrace_from_exception
+     <boost.stacktrace.from_exception>off:<build>no
+ 
+     # Require usable libbacktrace on other platforms
+-    [ check-target-builds ../build//libbacktrace : : <build>no ]
++    [ check-target-builds libbacktrace : : <build>no ]
+   : # default build
+   : # usage-requirements
+     #<link>shared:<define>BOOST_STACKTRACE_DYN_LINK=1
    ;
 -
--boost-install boost_stacktrace_noop boost_stacktrace_backtrace boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_windbg boost_stacktrace_windbg_cached ;
+-boost-install boost_stacktrace_noop boost_stacktrace_backtrace boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_windbg boost_stacktrace_windbg_cached boost_stacktrace_from_exception ;
 diff --git a/example/user_config.cpp b/example/user_config.cpp
 index a1403cf..3830ccd 100644
 --- a/example/user_config.cpp
@@ -72,7 +81,7 @@ index a1403cf..3830ccd 100644
  #include <boost/array.hpp>
  #include <exception>    // std::set_terminate, std::abort
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index ffdcdb4..fb8ae3e 100644
+index bc97545..0ddf20d 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -5,7 +5,7 @@
@@ -92,7 +101,7 @@ index ffdcdb4..fb8ae3e 100644
    ;
  
  local FORCE_SYMBOL_EXPORT = <target-os>freebsd:<linkflags>"-rdynamic" <target-os>solaris:<linkflags>"-Bdynamic" <target-os>aix:<linkflags>"-rdynamic"
-@@ -195,12 +196,12 @@ for local p in [ glob ../example/*.cpp ]
+@@ -211,12 +212,12 @@ for local p in [ glob ../example/*.cpp ]
      local additional_dependency = ;
      if $(target_name) = "terminate_handler"
      {

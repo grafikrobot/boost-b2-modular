@@ -14,6 +14,7 @@ project /boost/json
         <source>/boost/container_hash//boost_container_hash
         <source>/boost/core//boost_core
         <source>/boost/describe//boost_describe
+        <source>/boost/endian//boost_endian
         <source>/boost/mp11//boost_mp11
         <source>/boost/system//boost_system
         <source>/boost/throw_exception//boost_throw_exception

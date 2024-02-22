@@ -1,8 +1,15 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 2bc6a4b..1525f08 100644
+index 2bc6a4b..eb5b4e5 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -10,7 +10,7 @@ import modules ;
+@@ -6,11 +6,14 @@
+ #  See accompanying file LICENSE_1_0.txt or copy at
+ #  http://www.boost.org/LICENSE_1_0.txt
+ 
++require-b2 5.0.1 ;
++import-search /boost/config/checks ;
++import config : requires ;
+ import modules ;
  import testing ;
  
  project : requirements
@@ -11,7 +18,7 @@ index 2bc6a4b..1525f08 100644
    <warnings>extra
    <toolset>msvc:<warnings-as-errors>on
    <toolset>clang:<warnings-as-errors>on
-@@ -194,7 +194,7 @@ run underlying_type.cpp ;
+@@ -194,7 +197,7 @@ run underlying_type.cpp ;
  compile-fail null_deleter_compile_fail_adl.cpp
    : $(warnings-as-errors-off) ;
  
@@ -20,7 +27,7 @@ index 2bc6a4b..1525f08 100644
  compile-fail fclose_deleter_compile_fail_adl.cpp
    : <target-os>windows:<define>_CRT_SECURE_NO_WARNINGS <target-os>windows:<define>_CRT_SECURE_NO_DEPRECATE $(warnings-as-errors-off) ;
  
-@@ -358,7 +358,7 @@ run sv_eq_test.cpp ;
+@@ -358,7 +361,7 @@ run sv_eq_test.cpp ;
  run sv_lt_test.cpp ;
  run sv_stream_insert_test.cpp ;
  run sv_conversion_test.cpp ;
@@ -29,8 +36,12 @@ index 2bc6a4b..1525f08 100644
  run sv_common_reference_test.cpp ;
  compile sv_common_reference_test2.cpp ;
  compile sv_windows_h_test.cpp ;
-@@ -399,7 +399,7 @@ import ../../config/checks/config : requires ;
+@@ -395,11 +398,9 @@ run memory_resource_test.cpp ;
+ run data_test.cpp ;
+ run size_test.cpp ;
  
+-import ../../config/checks/config : requires ;
+-
  local CPP11 = [ requires cxx11_variadic_templates cxx11_template_aliases cxx11_decltype cxx11_constexpr cxx11_noexcept ] ;
  
 -local with-serialization = <library>/boost//serialization/<warnings>off $(warnings-as-errors-off) <undefined-sanitizer>norecover:<link>static $(CPP11) ;

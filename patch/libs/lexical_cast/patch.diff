@@ -1,8 +1,23 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index 08a67b5..d3919d4 100644
+index 08a67b5..1afd798 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -56,7 +56,7 @@ test-suite conversion
+@@ -5,11 +5,12 @@
+ # file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+ #
+ 
++require-b2 5.0.1 ;
++import-search /boost/config/checks ;
++import config : requires ;
+ import testing ;
+ import feature ;
+ 
+-import ../../config/checks/config : requires ;
+-
+ project
+     : requirements
+         [ requires cxx11_rvalue_references cxx11_static_assert cxx11_template_aliases ]
+@@ -56,7 +57,7 @@ test-suite conversion
      [ run containers_test.cpp : : : <toolset>gcc:<cxxflags>-Wno-long-long <toolset>clang:<cxxflags>-Wno-long-long ]
      [ run empty_input_test.cpp ]
      [ run pointers_test.cpp ]
@@ -11,7 +26,7 @@ index 08a67b5..d3919d4 100644
      [ run typedefed_wchar_test_runtime.cpp : : : <toolset>msvc:<nowchar>on <toolset>msvc,<stdlib>stlport:<build>no ]
      [ run no_locale_test.cpp : : : <define>BOOST_NO_STD_LOCALE <define>BOOST_LEXICAL_CAST_ASSUME_C_LOCALE ]
      [ run no_exceptions_test.cpp : : : <exception-handling>off
-@@ -73,14 +73,14 @@ test-suite conversion
+@@ -73,14 +74,14 @@ test-suite conversion
      [ run stream_traits_test.cpp ]
      [ compile-fail to_pointer_test.cpp ]
      [ compile-fail from_volatile.cpp ]

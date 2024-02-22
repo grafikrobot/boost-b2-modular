@@ -1,8 +1,20 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index acefec0..30f9dc6 100644
+index acefec0..2e04cd7 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -13,18 +13,18 @@ explicit has_gmpxx ;
+@@ -2,8 +2,10 @@
+ #~ Distributed under the Boost Software License, Version 1.0.
+ #~ (See accompanying file LICENSE_1_0.txt or copy at https://www.boost.org/LICENSE_1_0.txt)
+ 
++require-b2 5.0.1 ;
++import-search /boost/config/checks ;
++import config : requires ;
+ import testing ;
+-import ../../config/checks/config : requires ;
+ 
+ project : requirements <warnings>all <toolset>gcc:<cxxflags>-Wextra ;
+ 
+@@ -13,18 +15,18 @@ explicit has_gmpxx ;
  test-suite integer
      :
          [ run integer_traits_test.cpp ]
@@ -29,7 +41,7 @@ index acefec0..30f9dc6 100644
          [ compile integer_fwd_include_test.cpp ]
          [ compile gcd_constexpr14_test.cpp ]
          [ compile gcd_noexcept_test.cpp ]
-@@ -35,5 +35,5 @@ test-suite integer
+@@ -35,5 +37,5 @@ test-suite integer
          [ compile-fail fail_uint_fast.cpp ]
          [ compile-fail fail_uint_least.cpp ]
          [ compile-fail fail_uint_65.cpp ]

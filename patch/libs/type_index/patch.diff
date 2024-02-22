@@ -12,10 +12,26 @@ index fe73b7d..889b0ae 100644
  //] [/type_index_my_type_index_worldwide_macro]
  
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index adc8cb2..dc9f2e1 100644
+index adc8cb2..9eb6bbb 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -47,10 +47,10 @@ exe testing_crossmodule_anonymous_no_rtti : testing_crossmodule_anonymous.cpp te
+@@ -4,12 +4,13 @@
+ # file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+ #
+ 
++require-b2 5.0.1 ;
++import-search /boost/config/checks ;
++import config : requires ;
+ import testing ;
+ import feature ;
+ import os ;
+ 
+-import ../../config/checks/config : requires ;
+-
+ project
+     : source-location .
+     : requirements
+@@ -47,10 +48,10 @@ exe testing_crossmodule_anonymous_no_rtti : testing_crossmodule_anonymous.cpp te
  
  test-suite type_index
    : 
@@ -29,7 +45,7 @@ index adc8cb2..dc9f2e1 100644
      [ run ctti_print_name.cpp : : : <test-info>always_show_run_output ]
      [ run testing_crossmodule.cpp test_lib_rtti ]
      [ run testing_crossmodule.cpp test_lib_nortti : : : <rtti>off $(norttidefines) : testing_crossmodule_no_rtti ]
-@@ -77,13 +77,13 @@ test-suite type_index
+@@ -77,13 +78,13 @@ test-suite type_index
  for local p in [ glob ../examples/*.cpp ]
  {
      # RTTI on

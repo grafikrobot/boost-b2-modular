@@ -1,17 +1,28 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index 2ad5754d..818b3dd9 100644
+index 2ad5754d..285d2222 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
-@@ -6,7 +6,7 @@
+@@ -6,14 +6,16 @@
  #
  #  See http://www.boost.org/libs/serialization for the library home page.
  
 -project boost/serialization
++require-b2 5.0.1 ;
++import-search /boost/config/checks ;
++import config : requires ;
++
 +project
      : source-location ../src
      : requirements
        <conditional>@include-spirit
-@@ -144,5 +144,3 @@ lib boost_wserialization
+ ;
+ 
+-import ../../config/checks/config : requires ;
+-
+ SPIRIT_ROOT = [ modules.peek : SPIRIT_ROOT ] ;
+ rule include-spirit ( properties * )
+ {
+@@ -144,5 +146,3 @@ lib boost_wserialization
      # switch - don't change it to BOOST_WSERIALIZATION_DYN_LINK
      <link>shared:<define>BOOST_SERIALIZATION_DYN_LINK=1
      ;

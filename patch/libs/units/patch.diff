@@ -1,8 +1,8 @@
 diff --git a/example/Jamfile.v2 b/example/Jamfile.v2
-index b918205..507e727 100644
+index b918205..bf3db3d 100644
 --- a/example/Jamfile.v2
 +++ b/example/Jamfile.v2
-@@ -8,18 +8,21 @@
+@@ -8,18 +8,19 @@
  # http://www.boost.org/LICENSE_1_0.txt
  
  import testing ;
@@ -12,8 +12,6 @@ index b918205..507e727 100644
 -  : requirements <include>$(BOOST_ROOT) <include>../../.. <warnings>all
 +project :
 +  : requirements <warnings>all
-+    <library>/boost/math//boost_math
-+    <library>/boost/lambda//boost_lambda
  ;
  
 -files = [ path.glob . : *.cpp : performance.* runtime_unit.* ] ;
@@ -28,7 +26,7 @@ index b918205..507e727 100644
 -run runtime_unit.cpp : <runtime_unit_input.txt ;
 +path-constant HERE : . ;
 +
-+compile performance.cpp /boost/timer//boost_timer /boost/ublas//boost_ublas ;
++compile performance.cpp /boost/timer//boost_timer /boost/ublas//boost_ublas : <define>BOOST_TIMER_ENABLE_DEPRECATED ;
 +run runtime_unit.cpp : <$(HERE)/runtime_unit_input.txt ;
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
 index 47341da..78a461f 100644
@@ -70,10 +68,10 @@ index 47341da..78a461f 100644
  compile-fail fail_implicit_conversion.cpp ;
  compile-fail fail_quantity_construct.cpp ;
 diff --git a/test_headers/Jamfile.v2 b/test_headers/Jamfile.v2
-index 8bcd832..a7ee1f0 100644
+index 8bcd832..8f35cc0 100644
 --- a/test_headers/Jamfile.v2
 +++ b/test_headers/Jamfile.v2
-@@ -14,11 +14,10 @@ import print ;
+@@ -14,11 +14,11 @@ import print ;
  import sequence ;
  import feature ;
  
@@ -83,27 +81,29 @@ index 8bcd832..a7ee1f0 100644
  ;
  
 -headers = [ path.glob-tree ../../../boost/units : *.hpp : detail ] ;
-+headers = [ path.glob-tree ../include/boost/units : *.hpp : detail ] ;
++path-constant INCLUDE_DIR : ../include ;
++headers = [ path.glob-tree $(INCLUDE_DIR)/boost/units : *.hpp : detail ] ;
  
  for local file in $(headers)
  {
-@@ -27,7 +26,7 @@ for local file in $(headers)
+@@ -27,7 +27,7 @@ for local file in $(headers)
          <define>BOOST_UNITS_HEADER_NAME=$(file)
          <dependency>$(file)
        : # test name
 -        [ regex.replace [ path.relative-to ../../.. $(file) ] "/" "_" ] ;
-+        [ regex.replace [ path.relative-to ../include $(file) ] "/" "_" ] ;
++        [ regex.replace [ path.relative-to $(INCLUDE_DIR) $(file) ] "/" "_" ] ;
  }
  
  feature.feature <generate-include-all-order> : forward reverse : incidental ;
-@@ -43,8 +42,11 @@ rule generate-include-all ( target : sources * : properties * )
+@@ -43,8 +43,12 @@ rule generate-include-all ( target : sources * : properties * )
  
      for local file in $(sources)
      {
 -        print.text "#include <$(file:G=)>
-+        if $(sources:S) = ".hpp"
++        if $(file:S) = ".hpp"
 +        {
-+            print.text "#include <$(file:G=)>
++            local f = [ path.relative-to $(INCLUDE_DIR) $(file:G=) ] ;
++            print.text "#include <$(f)>
  " : overwrite ;
 +        }
      }

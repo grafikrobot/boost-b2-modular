@@ -36,6 +36,12 @@ explicit
     [ alias prg_exec_monitor : boost_prg_exec_monitor ]
     [ alias test_exec_monitor : boost_test_exec_monitor ]
     [ alias unit_test_framework : boost_unit_test_framework ]
+    [ alias boost_included_prg_exec_monitor ]
+    [ alias boost_included_test_exec_monitor ]
+    [ alias boost_included_unit_test_framework ]
+    [ alias included_prg_exec_monitor : boost_included_prg_exec_monitor ]
+    [ alias included_test_exec_monitor : boost_included_test_exec_monitor ]
+    [ alias included_unit_test_framework : boost_included_unit_test_framework ]
     [ alias all : example test
         boost_prg_exec_monitor
         boost_test_exec_monitor

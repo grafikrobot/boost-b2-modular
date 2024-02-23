@@ -88,7 +88,7 @@ index a1403cf..3830ccd 100644
  #include <boost/array.hpp>
  #include <exception>    // std::set_terminate, std::abort
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index bc97545..0ddf20d 100644
+index 901d450..92636e7 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -5,7 +5,7 @@
@@ -108,7 +108,7 @@ index bc97545..0ddf20d 100644
    ;
  
  local FORCE_SYMBOL_EXPORT = <target-os>freebsd:<linkflags>"-rdynamic" <target-os>solaris:<linkflags>"-Bdynamic" <target-os>aix:<linkflags>"-rdynamic"
-@@ -211,12 +212,12 @@ for local p in [ glob ../example/*.cpp ]
+@@ -203,12 +204,12 @@ for local p in [ glob ../example/*.cpp ]
      local additional_dependency = ;
      if $(target_name) = "terminate_handler"
      {

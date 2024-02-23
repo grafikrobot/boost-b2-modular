@@ -1,5 +1,5 @@
 diff --git a/test/config/Jamfile.v2 b/test/config/Jamfile.v2
-index 240d039..2193421 100644
+index 240d039..250cb3b 100644
 --- a/test/config/Jamfile.v2
 +++ b/test/config/Jamfile.v2
 @@ -5,13 +5,17 @@
@@ -17,7 +17,7 @@ index 240d039..2193421 100644
      : source-location .
      : requirements
 +        <source>/boost/config//boost_config
-+
++        <source>/boost/preprocessor//boost_preprocessor
          <define>BOOST_PFR_DETAIL_STRICT_RVALUE_TESTING=1
      ;
  
@@ -48,7 +48,7 @@ index 42efedd..0b2934c 100644
          [ requires cxx14_constexpr ]
      ;
 diff --git a/test/core_name/Jamfile.v2 b/test/core_name/Jamfile.v2
-index 13b1e4c..bbdce33 100644
+index 13b1e4c..3780154 100644
 --- a/test/core_name/Jamfile.v2
 +++ b/test/core_name/Jamfile.v2
 @@ -8,8 +8,10 @@
@@ -63,3 +63,11 @@ index 13b1e4c..bbdce33 100644
  
  ########## BEGIN of helpers to detect C++20 features support
  
+@@ -38,6 +40,7 @@ explicit compiler_supports_cxx20_nontype_tplarg ;
+ project
+     : source-location .
+     : requirements
++        <source>/boost/core//boost_core
+         <define>BOOST_PFR_DETAIL_STRICT_RVALUE_TESTING=1
+         [ check-target-builds ../core_name//compiler_supports_cxx20_address_of_non_static_member_tplarg : : [ check-target-builds ../core_name//compiler_supports_cxx20_nontype_tplarg : : <build>no ] ]
+     ;

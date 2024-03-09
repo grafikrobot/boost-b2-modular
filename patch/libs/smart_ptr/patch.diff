@@ -1,5 +1,5 @@
 diff --git a/test/Jamfile b/test/Jamfile
-index e3ad4e6..a749571 100644
+index dcc29d3..73a551d 100644
 --- a/test/Jamfile
 +++ b/test/Jamfile
 @@ -7,11 +7,17 @@
@@ -39,28 +39,28 @@ index e3ad4e6..a749571 100644
  
  run sp_constexpr_test.cpp ;
  run sp_constexpr_test2.cpp ;
-@@ -406,19 +412,19 @@ run lsp_hash_test.cpp
- run lsp_hash_test2.cpp ;
+@@ -408,19 +414,19 @@ run lsp_hash_test2.cpp ;
+ local MT = <threading>multi [ requires cxx11_decltype cxx11_noexcept ] <toolset>gcc-4.6:<build>no ;
  
  run atomic_count_mt_test.cpp
--  : : : <threading>multi ;
-+  : : : <threading>multi <source>/boost/bind//boost_bind ;
+-  : : : $(MT) ;
++  : : : $(MT) <source>/boost/bind//boost_bind ;
  
  run spinlock_mt_test.cpp
--  : : : <threading>multi ;
-+  : : : <threading>multi <source>/boost/bind//boost_bind ;
+-  : : : $(MT) ;
++  : : : $(MT) <source>/boost/bind//boost_bind ;
  
  run spinlock_pool_mt_test.cpp
--  : : : <threading>multi ;
-+  : : : <threading>multi <source>/boost/bind//boost_bind ;
+-  : : : $(MT) ;
++  : : : $(MT) <source>/boost/bind//boost_bind ;
  
  run shared_ptr_mt_test.cpp
--  : : : <threading>multi ;
-+  : : : <threading>multi <source>/boost/bind//boost_bind ;
+-  : : : $(MT) ;
++  : : : $(MT) <source>/boost/bind//boost_bind ;
  
  run weak_ptr_mt_test.cpp
--  : : : <threading>multi ;
-+  : : : <threading>multi <source>/boost/bind//boost_bind ;
+-  : : : $(MT) ;
++  : : : $(MT) <source>/boost/bind//boost_bind ;
  
  compile sp_report_implementation.cpp ;
  

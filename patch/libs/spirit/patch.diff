@@ -359,10 +359,10 @@ index cddbc19b7..84594f337 100644
      {
          sources = [ sequence.reverse $(sources) ] ;
 diff --git a/test/x3/Jamfile b/test/x3/Jamfile
-index f2671e6ba..ffc7f1412 100644
+index 9c8e80bda..455fc966b 100644
 --- a/test/x3/Jamfile
 +++ b/test/x3/Jamfile
-@@ -99,7 +99,7 @@ run raw.cpp ;
+@@ -100,7 +100,7 @@ run raw.cpp ;
  run real1.cpp ;
  run real2.cpp ;
  run real3.cpp ;

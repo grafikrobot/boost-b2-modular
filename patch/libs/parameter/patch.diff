@@ -1,25 +1,8 @@
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index d0fc78b..8c70761 100644
+index 96590d3..7d319bb 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
-@@ -9,7 +9,7 @@
- import os ;
- import testing ;
- 
--project boost/parameter
-+project
-     :
-         default-build
-         <warnings>off
-@@ -44,6 +44,7 @@ alias parameter_standard_tests
-         :
-         :
-         :
-+            <source>/boost/timer//boost_timer
-         :
-         :
-             <variant>release
-@@ -304,6 +305,7 @@ alias parameter_literate_tests
+@@ -304,6 +304,7 @@ alias parameter_literate_tests
          :
              <define>BOOST_PARAMETER_MAX_ARITY=5
              <define>BOOST_PARAMETER_EXPONENTIAL_OVERLOAD_THRESHOLD_ARITY=6
@@ -27,7 +10,7 @@ index d0fc78b..8c70761 100644
          :
          :
              <preserve-target-tests>off
-@@ -426,6 +428,7 @@ alias parameter_literate_tests
+@@ -426,6 +427,7 @@ alias parameter_literate_tests
          :
              <define>BOOST_PARAMETER_MAX_ARITY=5
              <define>BOOST_PARAMETER_EXPONENTIAL_OVERLOAD_THRESHOLD_ARITY=6

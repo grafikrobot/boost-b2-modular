@@ -1,5 +1,5 @@
 diff --git a/example/cpp11/files/Jamfile.v2 b/example/cpp11/files/Jamfile.v2
-index 28915dfe..514923ca 100644
+index ac73d533..f8db792b 100644
 --- a/example/cpp11/files/Jamfile.v2
 +++ b/example/cpp11/files/Jamfile.v2
 @@ -5,9 +5,9 @@
@@ -16,7 +16,7 @@ index 28915dfe..514923ca 100644
  project
    : requirements
 diff --git a/example/cpp11/ssl/Jamfile.v2 b/example/cpp11/ssl/Jamfile.v2
-index 03d5862c..da60fa87 100644
+index 2afc3fe1..0747e56a 100644
 --- a/example/cpp11/ssl/Jamfile.v2
 +++ b/example/cpp11/ssl/Jamfile.v2
 @@ -14,16 +14,7 @@ lib mswsock ; # NT
@@ -49,7 +49,7 @@ index 03d5862c..da60fa87 100644
  
  exe client : client.cpp ;
 diff --git a/example/cpp14/parallel_group/Jamfile.v2 b/example/cpp14/parallel_group/Jamfile.v2
-index ecf9497e..98d8ad41 100644
+index 49e452ec..011814db 100644
 --- a/example/cpp14/parallel_group/Jamfile.v2
 +++ b/example/cpp14/parallel_group/Jamfile.v2
 @@ -16,6 +16,7 @@ project

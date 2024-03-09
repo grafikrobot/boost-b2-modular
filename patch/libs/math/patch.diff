@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index fd840287e..a360f4bc9 100644
+index 6549e06b7..d0354faf1 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -5,7 +5,7 @@
@@ -292,7 +292,7 @@ index 6ea5bc8a2..6d4a8ca58 100644
  
  test-suite report_gen : [ all-tests ] test_cbrt_msvc_debug test_cbrt_msvc_release_32 test_cbrt_msvc_release_64 test_cbrt_intel_release 
 diff --git a/test/Jamfile.v2 b/test/Jamfile.v2
-index f8ba2e889..474543334 100644
+index cce2a8fcf..03ca2f6ff 100644
 --- a/test/Jamfile.v2
 +++ b/test/Jamfile.v2
 @@ -12,7 +12,7 @@ import testing ;
@@ -1399,7 +1399,7 @@ index f8ba2e889..474543334 100644
     [ run test_estrin.cpp ]
     [ run polynomial_concept_check.cpp ]
  
-@@ -903,13 +913,13 @@ test-suite misc :
+@@ -904,13 +914,13 @@ test-suite misc :
     ../build//boost_math_tr1f
     ../build//boost_math_c99
     ../build//boost_math_c99f
@@ -1415,7 +1415,7 @@ index f8ba2e889..474543334 100644
        : : :
        <define>TEST_LD=1
        [ check-target-builds ../config//has_long_double_support "long double support" : : <build>no ]
-@@ -922,7 +932,7 @@ test-suite misc :
+@@ -923,7 +933,7 @@ test-suite misc :
        ../build//boost_math_tr1f
        ../build//boost_math_c99
        ../build//boost_math_c99f
@@ -1424,7 +1424,7 @@ index f8ba2e889..474543334 100644
        : : : #requirements
        :
        test_tr1_c
-@@ -931,23 +941,23 @@ test-suite misc :
+@@ -932,23 +942,23 @@ test-suite misc :
     [ run test_tr1.c
        ../build//boost_math_tr1l
        ../build//boost_math_c99l
@@ -1459,7 +1459,7 @@ index f8ba2e889..474543334 100644
        test_rational_instances/test_rational_double1.cpp
        test_rational_instances/test_rational_double2.cpp
        test_rational_instances/test_rational_double3.cpp
-@@ -968,96 +978,96 @@ test-suite misc :
+@@ -969,96 +979,96 @@ test-suite misc :
        test_rational_instances/test_rational_real_concept4.cpp
        test_rational_instances/test_rational_real_concept5.cpp
     ]
@@ -1613,7 +1613,7 @@ index f8ba2e889..474543334 100644
     [ run compile_test/interpolators_catmull_rom_incl_test.cpp compile_test_main  : : : [ requires cxx11_hdr_array cxx11_hdr_initializer_list ] ]
     [ run compile_test/interpolators_catmull_rom_concept_test.cpp compile_test_main   : : : [ requires cxx11_hdr_array cxx11_hdr_initializer_list ] ]
     [ run test_standalone_asserts.cpp ]
-@@ -1071,118 +1081,118 @@ test-suite interpolators :
+@@ -1072,118 +1082,118 @@ test-suite interpolators :
  ;
  
  test-suite quadrature :
@@ -1792,7 +1792,7 @@ index f8ba2e889..474543334 100644
       [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] <debug-symbols>off <toolset>msvc:<cxxflags>/bigobj release [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] : adaptive_gauss_quadrature_test_3 ]
  
     [ run naive_monte_carlo_test.cpp : : :
-@@ -1285,28 +1295,28 @@ test-suite quadrature :
+@@ -1286,28 +1296,28 @@ test-suite quadrature :
     [ compile compile_test/gauss_concept_test.cpp : [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ compile compile_test/gauss_kronrod_concept_test.cpp : [ requires cxx11_auto_declarations cxx11_lambdas cxx11_smart_ptr cxx11_unified_initialization_syntax ] [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ run git_issue_898.cpp ]
@@ -1836,7 +1836,7 @@ index f8ba2e889..474543334 100644
  ;
  
  #
-@@ -1315,18 +1325,18 @@ test-suite autodiff :
+@@ -1316,18 +1326,18 @@ test-suite autodiff :
  #  too much time:
  #
  test-suite long-running-tests :
@@ -1867,7 +1867,7 @@ index f8ba2e889..474543334 100644
     [ run test_constant_generate.cpp : : : release <define>USE_CPP_FLOAT=1 <exception-handling>off:<build>no  ]
  ;
  
-@@ -1344,9 +1354,7 @@ rule get_float128_tests
+@@ -1345,9 +1355,7 @@ rule get_float128_tests
             : # command line
             : # input files
             : # requirements
@@ -1878,7 +1878,7 @@ index f8ba2e889..474543334 100644
              <define>BOOST_ALL_NO_LIB
             : $(source:B)_floatmax_t ] ;
       }
-@@ -1495,7 +1503,7 @@ test-suite concepts :
+@@ -1496,7 +1504,7 @@ test-suite concepts :
     [ compile compile_test/std_real_concept_check.cpp  : <define>EMULATE128 [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] : std_real_concept_check_128 ]
     [ run  compile_test/cstdfloat_concept_check_1.cpp
        : : : [ check-target-builds ../config//has_intel_quad "Intel _Quad datatype support" : <cxxflags>-Qoption,cpp,--extended_float_type ]
@@ -1887,7 +1887,7 @@ index f8ba2e889..474543334 100644
     [ run  compile_test/cstdfloat_concept_check_2.cpp  : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ run  compile_test/cstdfloat_concept_check_3.cpp  : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ run  compile_test/cstdfloat_concept_check_4.cpp  : : : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
-@@ -1504,7 +1512,7 @@ test-suite concepts :
+@@ -1505,7 +1513,7 @@ test-suite concepts :
     [ compile  compile_test/cstdfloat_iostream_incl_test.cpp : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ compile  compile_test/cstdfloat_limits_incl_test.cpp : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]
     [ compile  compile_test/cstdfloat_types_incl_test.cpp : [ check-target-builds ../config//is_ci_sanitizer_run "Sanitizer CI run" : <build>no ] ]

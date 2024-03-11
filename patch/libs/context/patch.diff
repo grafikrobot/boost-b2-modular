@@ -1,5 +1,5 @@
 diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
-index c07847a..122d15f 100644
+index 5e7690d..6d4da5a 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
 @@ -6,24 +6,17 @@
@@ -94,7 +94,7 @@ index c07847a..122d15f 100644
  # ARM
  # ARM/AAPCS/ELF
  alias asm_sources
-@@ -962,5 +909,3 @@ lib boost_context
+@@ -997,5 +944,3 @@ lib boost_context
     : impl_sources
       stack_traits_sources
     ;

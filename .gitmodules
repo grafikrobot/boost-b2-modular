@@ -397,7 +397,7 @@
 	path = libs/signals2
 	url = https://github.com/grafikrobot/boostorg.signals2.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "accumulators"]
 	path = libs/accumulators
 	url = https://github.com/grafikrobot/boostorg.accumulators.git
@@ -627,7 +627,7 @@
 	path = libs/mp11
 	url = https://github.com/grafikrobot/boostorg.mp11.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "callable_traits"]
 	path = libs/callable_traits
 	url = https://github.com/grafikrobot/boostorg.callable_traits.git
@@ -736,16 +736,6 @@
 [submodule "mysql"]
 	path = libs/mysql
 	url = https://github.com/grafikrobot/boostorg.mysql.git
-	fetchRecurseSubmodules = on-demand
-	branch = modular
-[submodule "signals"]
-	path = libs/signals2
-	url = https://github.com/grafikrobot/boostorg.signals.git
-	fetchRecurseSubmodules = on-demand
-	branch = modular
-[submodule "mp"]
-	path = libs/mp11
-	url = https://github.com/grafikrobot/boostorg.mp.git
 	fetchRecurseSubmodules = on-demand
 	branch = modular
 [submodule "compat"]

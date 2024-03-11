@@ -9,7 +9,7 @@ rootdir=`pwd`
 echo "+++++" `pwd`
 
 git pull
-git submodule foreach git switch develop
+git submodule foreach git switch modular
 git submodule foreach git reset --hard
 git submodule foreach git pull -r
 ./patch/patch-apply.sh

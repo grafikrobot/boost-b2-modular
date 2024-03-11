@@ -2,397 +2,397 @@
 	path = libs/system
 	url = https://github.com/grafikrobot/boostorg.system.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "multi_array"]
 	path = libs/multi_array
 	url = https://github.com/grafikrobot/boostorg.multi_array.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "math"]
 	path = libs/math
 	url = https://github.com/grafikrobot/boostorg.math.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "smart_ptr"]
 	path = libs/smart_ptr
 	url = https://github.com/grafikrobot/boostorg.smart_ptr.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "parameter"]
 	path = libs/parameter
 	url = https://github.com/grafikrobot/boostorg.parameter.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "algorithm"]
 	path = libs/algorithm
 	url = https://github.com/grafikrobot/boostorg.algorithm.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "any"]
 	path = libs/any
 	url = https://github.com/grafikrobot/boostorg.any.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "concept_check"]
 	path = libs/concept_check
 	url = https://github.com/grafikrobot/boostorg.concept_check.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "python"]
 	path = libs/python
 	url = https://github.com/grafikrobot/boostorg.python.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "tti"]
 	path = libs/tti
 	url = https://github.com/grafikrobot/boostorg.tti.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "functional"]
 	path = libs/functional
 	url = https://github.com/grafikrobot/boostorg.functional.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "config"]
 	path = libs/config
 	url = https://github.com/grafikrobot/boostorg.config.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "log"]
 	path = libs/log
 	url = https://github.com/grafikrobot/boostorg.log.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "interprocess"]
 	path = libs/interprocess
 	url = https://github.com/grafikrobot/boostorg.interprocess.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "exception"]
 	path = libs/exception
 	url = https://github.com/grafikrobot/boostorg.exception.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "foreach"]
 	path = libs/foreach
 	url = https://github.com/grafikrobot/boostorg.foreach.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "spirit"]
 	path = libs/spirit
 	url = https://github.com/grafikrobot/boostorg.spirit.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "io"]
 	path = libs/io
 	url = https://github.com/grafikrobot/boostorg.io.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "units"]
 	path = libs/units
 	url = https://github.com/grafikrobot/boostorg.units.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "preprocessor"]
 	path = libs/preprocessor
 	url = https://github.com/grafikrobot/boostorg.preprocessor.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "format"]
 	path = libs/format
 	url = https://github.com/grafikrobot/boostorg.format.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "xpressive"]
 	path = libs/xpressive
 	url = https://github.com/grafikrobot/boostorg.xpressive.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "integer"]
 	path = libs/integer
 	url = https://github.com/grafikrobot/boostorg.integer.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "thread"]
 	path = libs/thread
 	url = https://github.com/grafikrobot/boostorg.thread.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "tokenizer"]
 	path = libs/tokenizer
 	url = https://github.com/grafikrobot/boostorg.tokenizer.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "timer"]
 	path = libs/timer
 	url = https://github.com/grafikrobot/boostorg.timer.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "regex"]
 	path = libs/regex
 	url = https://github.com/grafikrobot/boostorg.regex.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "crc"]
 	path = libs/crc
 	url = https://github.com/grafikrobot/boostorg.crc.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "random"]
 	path = libs/random
 	url = https://github.com/grafikrobot/boostorg.random.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "serialization"]
 	path = libs/serialization
 	url = https://github.com/grafikrobot/boostorg.serialization.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "test"]
 	path = libs/test
 	url = https://github.com/grafikrobot/boostorg.test.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "date_time"]
 	path = libs/date_time
 	url = https://github.com/grafikrobot/boostorg.date_time.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "logic"]
 	path = libs/logic
 	url = https://github.com/grafikrobot/boostorg.logic.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "graph"]
 	path = libs/graph
 	url = https://github.com/grafikrobot/boostorg.graph.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "numeric_conversion"]
 	path = libs/numeric_conversion
 	url = https://github.com/grafikrobot/boostorg.numeric_conversion.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "lambda"]
 	path = libs/lambda
 	url = https://github.com/grafikrobot/boostorg.lambda.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "mpl"]
 	path = libs/mpl
 	url = https://github.com/grafikrobot/boostorg.mpl.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "typeof"]
 	path = libs/typeof
 	url = https://github.com/grafikrobot/boostorg.typeof.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "tuple"]
 	path = libs/tuple
 	url = https://github.com/grafikrobot/boostorg.tuple.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "utility"]
 	path = libs/utility
 	url = https://github.com/grafikrobot/boostorg.utility.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "dynamic_bitset"]
 	path = libs/dynamic_bitset
 	url = https://github.com/grafikrobot/boostorg.dynamic_bitset.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "assign"]
 	path = libs/assign
 	url = https://github.com/grafikrobot/boostorg.assign.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "filesystem"]
 	path = libs/filesystem
 	url = https://github.com/grafikrobot/boostorg.filesystem.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "function"]
 	path = libs/function
 	url = https://github.com/grafikrobot/boostorg.function.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "conversion"]
 	path = libs/conversion
 	url = https://github.com/grafikrobot/boostorg.conversion.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "optional"]
 	path = libs/optional
 	url = https://github.com/grafikrobot/boostorg.optional.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "property_tree"]
 	path = libs/property_tree
 	url = https://github.com/grafikrobot/boostorg.property_tree.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "bimap"]
 	path = libs/bimap
 	url = https://github.com/grafikrobot/boostorg.bimap.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "variant"]
 	path = libs/variant
 	url = https://github.com/grafikrobot/boostorg.variant.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "array"]
 	path = libs/array
 	url = https://github.com/grafikrobot/boostorg.array.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "iostreams"]
 	path = libs/iostreams
 	url = https://github.com/grafikrobot/boostorg.iostreams.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "multi_index"]
 	path = libs/multi_index
 	url = https://github.com/grafikrobot/boostorg.multi_index.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "ptr_container"]
 	path = libs/ptr_container
 	url = https://github.com/grafikrobot/boostorg.ptr_container.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "statechart"]
 	path = libs/statechart
 	url = https://github.com/grafikrobot/boostorg.statechart.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "static_assert"]
 	path = libs/static_assert
 	url = https://github.com/grafikrobot/boostorg.static_assert.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "range"]
 	path = libs/range
 	url = https://github.com/grafikrobot/boostorg.range.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "rational"]
 	path = libs/rational
 	url = https://github.com/grafikrobot/boostorg.rational.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "iterator"]
 	path = libs/iterator
 	url = https://github.com/grafikrobot/boostorg.iterator.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "graph_parallel"]
 	path = libs/graph_parallel
 	url = https://github.com/grafikrobot/boostorg.graph_parallel.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "property_map"]
 	path = libs/property_map
 	url = https://github.com/grafikrobot/boostorg.property_map.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "program_options"]
 	path = libs/program_options
 	url = https://github.com/grafikrobot/boostorg.program_options.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "detail"]
 	path = libs/detail
 	url = https://github.com/grafikrobot/boostorg.detail.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "interval"]
 	path = libs/interval
 	url = https://github.com/grafikrobot/boostorg.interval.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "ublas"]
 	path = libs/ublas
 	url = https://github.com/grafikrobot/boostorg.ublas.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "wave"]
 	path = libs/wave
 	url = https://github.com/grafikrobot/boostorg.wave.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "type_traits"]
 	path = libs/type_traits
 	url = https://github.com/grafikrobot/boostorg.type_traits.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "compatibility"]
 	path = libs/compatibility
 	url = https://github.com/grafikrobot/boostorg.compatibility.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "bind"]
 	path = libs/bind
 	url = https://github.com/grafikrobot/boostorg.bind.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "pool"]
 	path = libs/pool
 	url = https://github.com/grafikrobot/boostorg.pool.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "proto"]
 	path = libs/proto
 	url = https://github.com/grafikrobot/boostorg.proto.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "fusion"]
 	path = libs/fusion
 	url = https://github.com/grafikrobot/boostorg.fusion.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "function_types"]
 	path = libs/function_types
 	url = https://github.com/grafikrobot/boostorg.function_types.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "gil"]
 	path = libs/gil
 	url = https://github.com/grafikrobot/boostorg.gil.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "intrusive"]
 	path = libs/intrusive
 	url = https://github.com/grafikrobot/boostorg.intrusive.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "asio"]
 	path = libs/asio
 	url = https://github.com/grafikrobot/boostorg.asio.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "uuid"]
 	path = libs/uuid
 	url = https://github.com/grafikrobot/boostorg.uuid.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "circular_buffer"]
 	path = libs/circular_buffer
 	url = https://github.com/grafikrobot/boostorg.circular_buffer.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "mpi"]
 	path = libs/mpi
 	url = https://github.com/grafikrobot/boostorg.mpi.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "unordered"]
 	path = libs/unordered
 	url = https://github.com/grafikrobot/boostorg.unordered.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "signals2"]
 	path = libs/signals2
 	url = https://github.com/grafikrobot/boostorg.signals2.git
@@ -402,227 +402,227 @@
 	path = libs/accumulators
 	url = https://github.com/grafikrobot/boostorg.accumulators.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "atomic"]
 	path = libs/atomic
 	url = https://github.com/grafikrobot/boostorg.atomic.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "scope_exit"]
 	path = libs/scope_exit
 	url = https://github.com/grafikrobot/boostorg.scope_exit.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "flyweight"]
 	path = libs/flyweight
 	url = https://github.com/grafikrobot/boostorg.flyweight.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "icl"]
 	path = libs/icl
 	url = https://github.com/grafikrobot/boostorg.icl.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "predef"]
 	path = libs/predef
 	url = https://github.com/grafikrobot/boostorg.predef.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "chrono"]
 	path = libs/chrono
 	url = https://github.com/grafikrobot/boostorg.chrono.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "polygon"]
 	path = libs/polygon
 	url = https://github.com/grafikrobot/boostorg.polygon.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "msm"]
 	path = libs/msm
 	url = https://github.com/grafikrobot/boostorg.msm.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "heap"]
 	path = libs/heap
 	url = https://github.com/grafikrobot/boostorg.heap.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "coroutine"]
 	path = libs/coroutine
 	url = https://github.com/grafikrobot/boostorg.coroutine.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "coroutine2"]
 	path = libs/coroutine2
 	url = https://github.com/grafikrobot/boostorg.coroutine2.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "ratio"]
 	path = libs/ratio
 	url = https://github.com/grafikrobot/boostorg.ratio.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "odeint"]
 	path = libs/odeint
 	url = https://github.com/grafikrobot/boostorg.odeint.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "geometry"]
 	path = libs/geometry
 	url = https://github.com/grafikrobot/boostorg.geometry.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "phoenix"]
 	path = libs/phoenix
 	url = https://github.com/grafikrobot/boostorg.phoenix.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "move"]
 	path = libs/move
 	url = https://github.com/grafikrobot/boostorg.move.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "locale"]
 	path = libs/locale
 	url = https://github.com/grafikrobot/boostorg.locale.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "container"]
 	path = libs/container
 	url = https://github.com/grafikrobot/boostorg.container.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "local_function"]
 	path = libs/local_function
 	url = https://github.com/grafikrobot/boostorg.local_function.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "context"]
 	path = libs/context
 	url = https://github.com/grafikrobot/boostorg.context.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "type_erasure"]
 	path = libs/type_erasure
 	url = https://github.com/grafikrobot/boostorg.type_erasure.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "multiprecision"]
 	path = libs/multiprecision
 	url = https://github.com/grafikrobot/boostorg.multiprecision.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "lockfree"]
 	path = libs/lockfree
 	url = https://github.com/grafikrobot/boostorg.lockfree.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "assert"]
 	path = libs/assert
 	url = https://github.com/grafikrobot/boostorg.assert.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "align"]
 	path = libs/align
 	url = https://github.com/grafikrobot/boostorg.align.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "type_index"]
 	path = libs/type_index
 	url = https://github.com/grafikrobot/boostorg.type_index.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "core"]
 	path = libs/core
 	url = https://github.com/grafikrobot/boostorg.core.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "throw_exception"]
 	path = libs/throw_exception
 	url = https://github.com/grafikrobot/boostorg.throw_exception.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "winapi"]
 	path = libs/winapi
 	url = https://github.com/grafikrobot/boostorg.winapi.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "lexical_cast"]
 	path = libs/lexical_cast
 	url = https://github.com/grafikrobot/boostorg.lexical_cast.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "sort"]
 	path = libs/sort
 	url = https://github.com/grafikrobot/boostorg.sort.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "convert"]
 	path = libs/convert
 	url = https://github.com/grafikrobot/boostorg.convert.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "endian"]
 	path = libs/endian
 	url = https://github.com/grafikrobot/boostorg.endian.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "vmd"]
 	path = libs/vmd
 	url = https://github.com/grafikrobot/boostorg.vmd.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "dll"]
 	path = libs/dll
 	url = https://github.com/grafikrobot/boostorg.dll.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "compute"]
 	path = libs/compute
 	url = https://github.com/grafikrobot/boostorg.compute.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "hana"]
 	path = libs/hana
 	url = https://github.com/grafikrobot/boostorg.hana.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "metaparse"]
 	path = libs/metaparse
 	url = https://github.com/grafikrobot/boostorg.metaparse.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "qvm"]
 	path = libs/qvm
 	url = https://github.com/grafikrobot/boostorg.qvm.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "fiber"]
 	path = libs/fiber
 	url = https://github.com/grafikrobot/boostorg.fiber.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "process"]
 	path = libs/process
 	url = https://github.com/grafikrobot/boostorg.process.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "stacktrace"]
 	path = libs/stacktrace
 	url = https://github.com/grafikrobot/boostorg.stacktrace.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "poly_collection"]
 	path = libs/poly_collection
 	url = https://github.com/grafikrobot/boostorg.poly_collection.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "beast"]
 	path = libs/beast
 	url = https://github.com/grafikrobot/boostorg.beast.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "mp11"]
 	path = libs/mp11
 	url = https://github.com/grafikrobot/boostorg.mp11.git
@@ -632,144 +632,144 @@
 	path = libs/callable_traits
 	url = https://github.com/grafikrobot/boostorg.callable_traits.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "contract"]
 	path = libs/contract
 	url = https://github.com/grafikrobot/boostorg.contract.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "container_hash"]
 	path = libs/container_hash
 	url = https://github.com/grafikrobot/boostorg.container_hash.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "hof"]
 	path = libs/hof
 	url = https://github.com/grafikrobot/boostorg.hof.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "yap"]
 	path = libs/yap
 	url = https://github.com/grafikrobot/boostorg.yap.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "safe_numerics"]
 	path = libs/safe_numerics
 	url = https://github.com/grafikrobot/boostorg.safe_numerics.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "parameter_python"]
 	path = libs/parameter_python
 	url = https://github.com/grafikrobot/boostorg.parameter_python.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "headers"]
 	path = libs/headers
 	url = https://github.com/grafikrobot/boostorg.headers.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "outcome"]
 	path = libs/outcome
 	url = https://github.com/grafikrobot/boostorg.outcome.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "histogram"]
 	path = libs/histogram
 	url = https://github.com/grafikrobot/boostorg.histogram.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "variant2"]
 	path = libs/variant2
 	url = https://github.com/grafikrobot/boostorg.variant2.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "nowide"]
 	path = libs/nowide
 	url = https://github.com/grafikrobot/boostorg.nowide.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "static_string"]
 	path = libs/static_string
 	url = https://github.com/grafikrobot/boostorg.static_string.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "stl_interfaces"]
 	path = libs/stl_interfaces
 	url = https://github.com/grafikrobot/boostorg.stl_interfaces.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "leaf"]
 	path = libs/leaf
 	url = https://github.com/grafikrobot/boostorg.leaf.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "json"]
 	path = libs/json
 	url = https://github.com/grafikrobot/boostorg.json.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "pfr"]
 	path = libs/pfr
 	url = https://github.com/grafikrobot/boostorg.pfr.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "describe"]
 	path = libs/describe
 	url = https://github.com/grafikrobot/boostorg.describe.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "lambda2"]
 	path = libs/lambda2
 	url = https://github.com/grafikrobot/boostorg.lambda2.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "property_map_parallel"]
 	path = libs/property_map_parallel
 	url = https://github.com/grafikrobot/boostorg.property_map_parallel.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "url"]
 	path = libs/url
 	url = https://github.com/grafikrobot/boostorg.url.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "mysql"]
 	path = libs/mysql
 	url = https://github.com/grafikrobot/boostorg.mysql.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "signals"]
 	path = libs/signals2
-	url = https://github.com/grafikrobot/boostorg.signals2.git
+	url = https://github.com/grafikrobot/boostorg.signals.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "mp"]
 	path = libs/mp11
-	url = https://github.com/grafikrobot/boostorg.mp11.git
+	url = https://github.com/grafikrobot/boostorg.mp.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "compat"]
 	path = libs/compat
 	url = https://github.com/grafikrobot/boostorg.compat.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "redis"]
 	path = libs/redis
 	url = https://github.com/grafikrobot/boostorg.redis.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "cobalt"]
 	path = libs/cobalt
 	url = https://github.com/grafikrobot/boostorg.cobalt.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "charconv"]
 	path = libs/charconv
 	url = https://github.com/grafikrobot/boostorg.charconv.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular
 [submodule "scope"]
 	path = libs/scope
 	url = https://github.com/grafikrobot/boostorg.scope.git
 	fetchRecurseSubmodules = on-demand
-	branch = .
+	branch = modular

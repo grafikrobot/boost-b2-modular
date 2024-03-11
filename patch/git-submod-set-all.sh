@@ -16,6 +16,8 @@ while true ; do
         l_url=${BASH_REMATCH[1]}
         echo git submodule set-url -- ${l_path} https://github.com/grafikrobot/boostorg.${l_name}.git
         git submodule set-url -- ${l_path} https://github.com/grafikrobot/boostorg.${l_name}.git
+        echo git submodule set-branch -b modular -- ${l_path}
+        git submodule set-branch -b modular -- ${l_path}
     else
         break
     fi

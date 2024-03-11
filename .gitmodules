@@ -518,11 +518,6 @@
 	url = https://github.com/grafikrobot/boostorg.lockfree.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "sync"]
-	path = libs/sync
-	url = https://github.com/grafikrobot/boostorg.sync.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
 [submodule "assert"]
 	path = libs/assert
 	url = https://github.com/grafikrobot/boostorg.assert.git

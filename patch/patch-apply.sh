@@ -16,28 +16,28 @@ for submod in ${submods} ; do
         patch -uN -p1 "--input=${patchdir}/libs/${submod}/patch.diff"
     fi
     if test -s "${patchdir}/libs/${submod}/build.jam" ; then
-        ln -f -s "${patchdir}/libs/${submod}/build.jam" build.jam
+        ln -f "${patchdir}/libs/${submod}/build.jam" build.jam
     fi
     if test -d "${rootdir}/libs/${submod}/example" ; then
         cd "${rootdir}/libs/${submod}/example"
         if test -s "${patchdir}/libs/${submod}/example/Jamfile.v2" ; then
-            ln -f -s "${patchdir}/libs/${submod}/example/Jamfile.v2" Jamfile.v2
+            ln -f "${patchdir}/libs/${submod}/example/Jamfile.v2" Jamfile.v2
         fi
     fi
 done
 cd "${rootdir}/libs/asio/example/cpp11"
-ln -f -s "${patchdir}/libs/asio/example/cpp11/build.jam" build.jam
+ln -f "${patchdir}/libs/asio/example/cpp11/build.jam" build.jam
 cd "${rootdir}/libs/asio/example/cpp14"
-ln -f -s "${patchdir}/libs/asio/example/cpp14/build.jam" build.jam
+ln -f "${patchdir}/libs/asio/example/cpp14/build.jam" build.jam
 cd "${rootdir}/libs/asio/example/cpp17"
-ln -f -s "${patchdir}/libs/asio/example/cpp17/build.jam" build.jam
+ln -f "${patchdir}/libs/asio/example/cpp17/build.jam" build.jam
 cd "${rootdir}/libs/asio/example/cpp20"
-ln -f -s "${patchdir}/libs/asio/example/cpp20/build.jam" build.jam
+ln -f "${patchdir}/libs/asio/example/cpp20/build.jam" build.jam
 cd "${rootdir}/libs/beast"
 rm -rf build
 mkdir build
 cd build
-ln -f -s "${patchdir}/libs/beast/build/Jamfile" Jamfile
+ln -f "${patchdir}/libs/beast/build/Jamfile" Jamfile
 
 rm -f "${rootdir}/libs/algorithm/Jamfile"
 rm -f "${rootdir}/libs/assign/Jamfile"

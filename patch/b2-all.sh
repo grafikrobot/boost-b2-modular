@@ -8,7 +8,7 @@ patchdir=`pwd`
 cd ..
 rootdir=`pwd`
 pwd
-cd "${patchdir}/libs"
+cd "${rootdir}/libs"
 submods=`ls -1`
 for submod in ${submods} ; do
     cd "${rootdir}/libs/${submod}"

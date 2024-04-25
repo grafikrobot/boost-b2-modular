@@ -191,4 +191,4 @@ jobs:
         working-directory: ${{github.workspace}}/b2
         run: ./bootstrap.sh
       - name: Check
-        run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" toolset=gcc-13 cxxstd=20 libs/${{matrix.lib}}//all'
+        run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" toolset=gcc-13 cxxstd=20 preserve-test-targets=off libs/${{matrix.lib}}//all'

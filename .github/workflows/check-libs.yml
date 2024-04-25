@@ -186,4 +186,4 @@ jobs:
         working-directory: ${{github.workspace}}/b2
         run: ./bootstrap.sh
       - name: Check
-        run: '"${{github.workspace}}/b2/b2" --debug-configuration cxxstd=11 libs/${{matrix.lib}}//all'
+        run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" cxxstd=11 libs/${{matrix.lib}}//all'

@@ -366,4 +366,4 @@ jobs:
         working-directory: ${{github.workspace}}/b2
         run: bootstrap.bat
       - name: Check
-        run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" --remove-test-targets toolset=msvc cxxstd=20 libs/${{matrix.lib}}//all'
+        run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" --remove-test-targets toolset=msvc cxxstd=20 libs/${{matrix.lib}}//all' -DBOOST_ALL_NO_LIB

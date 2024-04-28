@@ -1,2 +1,2 @@
 import project ;
-project-search /boost : libs ;
+project-search /boost : libs tools ;

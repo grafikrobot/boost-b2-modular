@@ -14,62 +14,85 @@ modular components. What does it mean to be modular? It means that..
 
 == Goals
 
-This repository is a moving goal for the transition of Boost to a modular build.
-It is one end of the goal posts for such a transition. The idea is that this
-repo will incrementally work it's way toward becoming identical to the main
-Boost repo (https://github.com/boostorg/boost) and related sub-repos. While at
-the same time the main Boost repo will work towards changing to become this
-repo. Meeting at some point in the middle when both are equivalent.
+Generally the main goal is to move the main Boost git repos to a modular
+structure over time without breaking any functionality. That is not an easy goal
+to achieve. As there are 153 library repos, 12 tool repos, and the super project
+repo to adjust along the way.
+
+Happy to say though, that the bulk of the technical work is done. What's left
+is to start merging pull requests for the transitional period. Then working on
+followup changes to fully become the modular structure.
 
 == Structure
 
-Like the main Boost repo, it is composed of many git submodules for all the
-libraries, tools, and support code. But there is one key difference: the
-submodules are not branched from the originals. Instead all the submodules are
-patched, and subsequently edited, and new patches generated, and repeating that
-cycle. All the patching scripts, extra files, and patches are in the patch
-directory. When the time comes that the this and the main Boost repos are
-equivalent it's expected that all the patch files here will be empty.
+To manage this effort safely there are a couple resources that I've created:
 
-To try out the patched version of this Boost tree you first need an installed
-B2 (see https://www.bfgroup.xyz/b2/manual/release/index.html#bbv2.installation
-for install instructions). Note that this requires the use of the most recent
-in progress release branch. As there are continuing fixes, and adjustments, to
-B2 to facilitate this effort. Currently you need to `git clone` the
-`version/4.9.5` branch. Or download a ZIP snapshot
-(https://github.com/bfgroup/b2/archive/refs/heads/version/4.9.5.zip).
+* A GitHub Project to keep track of the work.
+* The "modular" super-project git repo.
+* The "transitional" super-project forked git repo.
+* Dozens of library and tool forked git repos with the modular PR changes.
 
-After that you only need to clone this repo and run the patch procedure:
+== Project
 
-[source,shell]
-----
-git clone --recursive https://github.com/grafikrobot/boost-b2-modular.git
-cd boost-b2-modular
-./patch/patch-apply.sh
-----
+There is a project to track the past, present, and future state of this effort
+at https://github.com/users/grafikrobot/projects/1 with the following views:
 
-== Making Changes
+* https://github.com/users/grafikrobot/projects/1/views/1[Overall Tech Tasks]:
+This is mainly infrastructure type tasks that need to happen.
 
-While I, René, am making all the changes to make this conversion happen
-(by hand) I will not turn away others from wanting to contribute. Assuming
-you have the repo cloned there are a couple of scripts to run that
-automate some of the work.
+* https://github.com/users/grafikrobot/projects/1/views/2[Pull Requests]: The
+PR's and their status against the mainline Boost repos.
 
-Instead of running the `patch/patch-apply.sh` script one should use the
-`patch/patch-update.sh` script that updates all the library submodules to their
-latest `develop` state and subsequently applies the patches. The script takes
-care of resetting to a clean state before the update and patching.
+* https://github.com/users/grafikrobot/projects/1/views/6[Merge Process]: How
+to process the PRs for each Boost git repo. It's the result of asking all Boost
+library maintainers if they would like to approve and merge PRs, or have the
+Boost project owners do whatever is needed, or something else.
 
-NOTE: A possible effect of the patching is for it to fail to apply if there
-are conflicts. You will need to resolve those, if you can. Or wait for me to
-do so.
+== Modular Super-Project
 
-After you do changes to a library, or other, submodule you can run the
-`patch/patch-gen.sh` script to generate new patch file(s). It's those patch
-files that you can contribute back here.
+The modular super-project at https://github.com/grafikrobot/boost-b2-modular
+follows a similar structure as the main Boost super-project repo.
+It's composed of many git submodules for all the libraries, tools, and support
+code with some differences:
 
-There might be new files that need to get added, or old one deleted, also.
-For those you can add the new files in the `patch/libs/<lib>/` directories
-and add appropriate symbolic link commands in the `patch/patch-apply.sh` script.
-There are also commands in that script to delete any files that should no longer
-exist.
+* All submodules track the "modular" branch on each which holds the changes.
+
+* There is only one tool submodule repo. The `tools/boost_build` project that
+holds the build support installing and staging things like the monolithic
+headers tree. Which is a dependency for the `libs/headers` submodule.
+
+* There is no B2 project root. The only B2 file is a convenience (for testing)
+`project-config.jam` file. It declares the B2 `/boost` project search locations.
+
+Hence this git repo models the fully modular structure for libraries. As might
+be seen from package manager, or from selective use of libraries in some other
+project.
+
+This git repo tests the ability to build each of the 153 libraries on Ubuntu
+and Windows as a GitHub action
+(https://github.com/grafikrobot/boost-b2-modular/actions/workflows/check-libs.yml)
+
+== Transitional Super-Project
+
+The transitional super-project at https://github.com/grafikrobot/boostorg.boost
+is a fork of the Boost super-project develop branch (branched into the modular
+branch). It contains the changes needed to create a transition from the
+monolithic to the modular structure. And is the source of the super-project
+PRs (indirectly and selectively). It has all the same Boost super-project
+repo plus a few more utility tools to aid in the modular development.
+
+It also has a series of CI checks as GitHub Actions:
+
+* https://github.com/grafikrobot/boostorg.boost/actions/workflows/modular-check-libs.yml[Check Libraries]:
+Identical to the modular checks except in this repo structure. Except it only
+checks that B2 parses and declares the targets without errors. It doesn't try
+to compile or run tests.
+
+* https://github.com/grafikrobot/boostorg.boost/actions/workflows/ci.yml[CI]:
+This is the same as the Boost super-project runs. Done here to verify it's as
+green as the Boost super-project while making pre-PR changes.
+
+* https://github.com/grafikrobot/boostorg.boost/actions/workflows/modular-release.yml[Modular Release]:
+Runs an equivalent process as the Boost super-project to create a full release
+snapshot. I.e. the same as what runs on Circle CI to create the release archives
+the users download. Except it does it in the transitional structure.

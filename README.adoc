@@ -96,3 +96,13 @@ green as the Boost super-project while making pre-PR changes.
 Runs an equivalent process as the Boost super-project to create a full release
 snapshot. I.e. the same as what runs on Circle CI to create the release archives
 the users download. Except it does it in the transitional structure.
+
+== Technicalities
+
+*_The main goal of the changes in this is to remove all references in build and
+source files that assume the Boost libraries live in the monolithic directory
+structure._*
+
+But we also want to:
+
+*

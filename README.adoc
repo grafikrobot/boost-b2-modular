@@ -99,10 +99,43 @@ the users download. Except it does it in the transitional structure.
 
 == Technicalities
 
-*_The main goal of the changes in this is to remove all references in build and
-source files that assume the Boost libraries live in the monolithic directory
-structure._*
+=== Globally Unique Project Name/Identifier
 
-But we also want to:
+In order to avoid confusion, and to make portable cross-lib references possible,
+we define consistent top-level project names for libraries. For *all* libraries
+that name _is_ the GitHub repo name for the library. Everywhere else we will
+refer to that as the _lib-name_.
 
-*
+=== Library Root Build
+
+The biggest change for modular build support is that all libraries now have a
+`_lib-root_/build.jam` file. The file defines a project, some specific targets,
+and Boost specific install targets for *all* libraries:
+
+`project /boost/[_lib-name_]`::
+    Defines the canonical externally usable project (and target).
+
+`alias boost_[_lib-name_]`::
+    Defines an explicit target that others can refer to to use the library in
+    its default configuration. Some libraries will have additional, similar,
+    targets for the cases where they have alternate, or additional, use cases.
+    This target exists even for header-only libraries. As it's a way to get
+    usage requirements applied. Specifically for getting include paths added.
+
+`alias all`::
+    Defines a target that will build everything that makes sense to build. This
+    minimally includes the library to build, i.e. the `boost_[_lib-name_]`
+    target. But preferably also include examples and tests. Having this target
+    makes it easier to check as much of the project as possible in an automated
+    way.
+
+`boost-library [_lib-name_]`::
+    Conditionally calls Boost specific declaration functions. The conditional
+    aspect is that the `boost-library` rule only exists in the context of the
+    super-project. Other times it will be ignored. Which allows to make use
+    of Boost specific definitions while still allowing sans-super-project use
+    cases.
+
+`boost-library [_lib-name_] : install boost_[_lib-name_] ..`::
+    As part of the `boost-library` declaration, the `install` defines the
+    targets that will get built and installed as part of the super-project.

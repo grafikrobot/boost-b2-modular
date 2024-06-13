@@ -150,8 +150,6 @@ the Boost.Atomic library:
 ----
 require-b2 5.1 ; <1>
 
-import project ;
-
 project /boost/atomic <2>
     : common-requirements <3>
         <include>include <4>
@@ -200,7 +198,7 @@ IMPORTANT: No super-project relative references *anywhere*.
 
 IMPORTANT: No Boost specific build declarations except for the `boost-library`.
 
-IMPORTANT: No inter-library dependencies to non-public targets.
+IMPORTANT: No inter-library dependencies to internal targets.
 
 Following those rules here are some examples of the modular changes needed for
 current libraries..
@@ -222,7 +220,7 @@ doxygen tagfile
         ../include/boost/accumulators/framework/depends_on.hpp # <1>
         ../include/boost/accumulators/framework/extractor.hpp
 ----
-<1> https://github.com/boostorg/accumulators/compare/develop...grafikrobot:boostorg.accumulators:modular#diff-414a16a059e4645ca1574c6f4ba6cff4efbaf75047da905407f1337096af30d8L55
+<1> pass:macros[https://github.com/boostorg/accumulators/compare/develop...grafikrobot:boostorg.accumulators:modular#diff-414a16a059e4645ca1574c6f4ba6cff4efbaf75047da905407f1337096af30d8L55]
 
 Addition of the `boost-root` as an include location needs to be removed. As it
 may not exist. And includes for library dependencies will refer to the
@@ -230,29 +228,39 @@ include directory per library.
 
 .Before
 ----
-exe example
+exe fibonacci
+    : fibonacci.cpp
+    : <include>$(BOOST_ROOT) # <1>
+----
+.After
+----
+exe fibonacci
+    : fibonacci.cpp
+    # <1>
+    ;
+----
+<1> pass:macros[https://github.com/boostorg/flyweight/compare/develop...grafikrobot:boostorg.flyweight:modular#diff-f9c020ab572ddefc2b2d03f91f4909f3687369b2ec01dd3239b201029d3f9b16L32]
+
+.Before
+----
+exe interval_container
     :
-        main.cpp
+        interval_container_/interval_container.cpp
     :
         <include>../../.. # <1>
         <include>$(BOOST_ROOT)
-        <library>/boost/serialization
-        <cxxflags>"-Wno-deprecated-declarations"
     ;
 ----
 .After
 ----
-exe example
+exe interval_container
     :
-        main.cpp
+        interval_container_/interval_container.cpp
     :
-        # <1>
-        <library>/boost/foreach//boost_foreach
-        <toolset>gcc:<cxxflags>"-Wno-deprecated-declarations"
-        <toolset>clang:<cxxflags>"-Wno-deprecated-declarations"
+    # <1>
     ;
 ----
-<1> https://github.com/boostorg/accumulators/compare/develop...grafikrobot:boostorg.accumulators:modular#diff-f9c020ab572ddefc2b2d03f91f4909f3687369b2ec01dd3239b201029d3f9b16L9
+<1> pass:macros[https://github.com/boostorg/icl/compare/develop...grafikrobot:boostorg.icl:modular#diff-f9c020ab572ddefc2b2d03f91f4909f3687369b2ec01dd3239b201029d3f9b16L18-L19]
 
 All library dependency references need to be of the
 `/boost/[_lib-name_]//[_target_]` canonical form. As those are the references
@@ -266,7 +274,7 @@ that will work in both the super-project layout and portable modular layout.
 ----
 <library>/boost/serialization//boost_serialization/<warnings>off ; # <1>
 ----
-<1> https://github.com/boostorg/unordered/compare/develop...grafikrobot:boostorg.unordered:modular#diff-1f3dccb3928ad7b52e4c986270cb619b663197283b764c2fb68256d285f21a3fL150
+<1> pass:macros[https://github.com/boostorg/unordered/compare/develop...grafikrobot:boostorg.unordered:modular#diff-1f3dccb3928ad7b52e4c986270cb619b663197283b764c2fb68256d285f21a3fL150]
 
 .Before
 ----
@@ -286,9 +294,9 @@ project random_multi_points
         <link>static
     ;
 ----
-<1> https://github.com/boostorg/geometry/compare/develop...grafikrobot:boostorg.geometry:modular#diff-f6eca01e769d4212b43f16b03dd13baa3c24450bb4fd22d45f69628d7534eb03L14
+<1> pass:macros[https://github.com/boostorg/geometry/compare/develop...grafikrobot:boostorg.geometry:modular#diff-f6eca01e769d4212b43f16b03dd13baa3c24450bb4fd22d45f69628d7534eb03L14]
 
-Dependencies that targets (for build, examples, tests, docs, etc) need to be
+Dependencies of targets (for build, examples, tests, docs, etc) need to be
 included even if they are to header-only libraries. As the monolithic boost-root
 headers directory may not exist.
 
@@ -306,7 +314,7 @@ headers directory may not exist.
         <library>/boost/optional//boost_optional # <1>
     : backtrace_lib_threaded ]
 ----
-<1> https://github.com/boostorg/stacktrace/compare/develop...grafikrobot:boostorg.stacktrace:modular#diff-1f3dccb3928ad7b52e4c986270cb619b663197283b764c2fb68256d285f21a3fR124
+<1> pass:macros[https://github.com/boostorg/stacktrace/compare/develop...grafikrobot:boostorg.stacktrace:modular#diff-1f3dccb3928ad7b52e4c986270cb619b663197283b764c2fb68256d285f21a3fR124]
 
 Sometimes it's more convenient to add the inter-library dependencies on the
 particular project instead of main targets. For example, if your tests all
@@ -342,7 +350,7 @@ project boost-geometry-test
         <source>/boost/assign//boost_assign
     ;
 ----
-<1> https://github.com/boostorg/geometry/compare/develop...grafikrobot:boostorg.geometry:modular#diff-4f8562e69d71f175ddead28e0855a5c865b0b1fc07ce0a901a316e925c3536afR27
+<1> pass:macros[https://github.com/boostorg/geometry/compare/develop...grafikrobot:boostorg.geometry:modular#diff-4f8562e69d71f175ddead28e0855a5c865b0b1fc07ce0a901a316e925c3536afR27]
 
 Boost also makes use of library provided B2 extensions (modules in B2 parlance).
 For example Boost.Config provides a `config.jam` module. And Boost.Predef
@@ -352,7 +360,7 @@ no guarantee those relative paths will exist. For this B2 has a new feature
 to provide search paths for those modules: `rule import-search ( reference )`.
 The key aspect in the example below is that the `/boost/config/checks` reference
 is expanded out to find where the `/boost/config` project is located and the
-project subdirectory `check` in that is added to the paths B2 will search for
+project subdirectory `checks` in that is added to the paths B2 will search for
 modules with the `import`.
 footnote:[https://www.bfgroup.xyz/b2/manual/release/index.html#bbv2.reference.rules.import-search]
 
@@ -365,7 +373,7 @@ import ../../config/checks/config : requires ; # <1>
 import-search /boost/config/checks ; # <1>
 import config : requires ;
 ----
-<1> https://github.com/boostorg/charconv/compare/develop...grafikrobot:boostorg.charconv:modular#diff-adf971665a70f2870fc804e94c8fc233ebab5e72bfbd6fb086f772f4ae8233e5L6
+<1> pass:macros[https://github.com/boostorg/charconv/compare/develop...grafikrobot:boostorg.charconv:modular#diff-adf971665a70f2870fc804e94c8fc233ebab5e72bfbd6fb086f772f4ae8233e5L6]
 
 Build files are not the only place where references to the Boost root happen.
 Because the Boost root is in the include search path there are {CPP} source
@@ -381,7 +389,7 @@ directories.
 ----
 #include "log1p_expm1_test.hpp" // <1>
 ----
-<1> https://github.com/boostorg/math/compare/develop...grafikrobot:boostorg.math:modular#diff-4d14ede4f8f40d0755896d9c047560f8de30975b3cb1cc35cb5c992f9864d7e3L17
+<1> pass:macros[https://github.com/boostorg/math/compare/develop...grafikrobot:boostorg.math:modular#diff-4d14ede4f8f40d0755896d9c047560f8de30975b3cb1cc35cb5c992f9864d7e3L17]
 
 .Before
 ----
@@ -391,4 +399,4 @@ directories.
 ----
 #define BOOST_USER_CONFIG <example/user_config.hpp> // <1>
 ----
-<1> https://github.com/boostorg/stacktrace/compare/develop...grafikrobot:boostorg.stacktrace:modular#diff-8ed763b91940a13b95091a7c8bd430ec421dcd1452e33b84dbaaa34a758579dfL7
+<1> pass:macros[https://github.com/boostorg/stacktrace/compare/develop...grafikrobot:boostorg.stacktrace:modular#diff-8ed763b91940a13b95091a7c8bd430ec421dcd1452e33b84dbaaa34a758579dfL7]

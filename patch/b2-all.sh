@@ -16,7 +16,7 @@ for submod in ${submods} ; do
     echo "============================== ${d}"
     if test -e "build.jam" ; then
         set +e
-        b2 all define=BOOST_DISABLE_PRAGMA_MESSAGE=1 cxxstd=latest -j10 -d0 -p1
+        b2 all define=BOOST_DISABLE_PRAGMA_MESSAGE=1 cxxstd=latest -j10 -d0 -p1 "--build-dir=${rootdir}/.build"
         if test $? -ne 0 ; then
             failed_submods="${failed_submods} ${submod}"
         fi

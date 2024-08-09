@@ -20,8 +20,8 @@ while true ; do
         l_url=${BASH_REMATCH[1]}
         cd "${l_path}"
         echo ===== `pwd`
-        echo git commit -m "${1}"
-        git commit -m "${1}"
+        echo git commit "$@"
+        git commit "$@"
         cd "${rootdir}"
     else
         break
